@@ -1,0 +1,29 @@
+{
+  "name": "steam-cursor-plugin",
+  "displayName": "Steam Developer Tools",
+  "version": "0.1.0",
+  "description": "Integrates Steam and Steamworks APIs for game developers. Query Steam store data, manage Steamworks app configs, look up player stats, and reference Steam documentation from within Cursor.",
+  "author": {
+    "name": "TMHSDigital",
+    "url": "https://github.com/TMHSDigital"
+  },
+  "homepage": "https://github.com/TMHSDigital/Steam-Cursor-Plugin",
+  "repository": "https://github.com/TMHSDigital/Steam-Cursor-Plugin",
+  "license": "MIT",
+  "keywords": [
+    "steam",
+    "steamworks",
+    "gamedev",
+    "steam-api",
+    "game-development"
+  ],
+  "category": "developer-tools",
+  "tags": [
+    "steam",
+    "gamedev",
+    "api"
+  ],
+  "logo": "assets/logo.png",
+  "skills": "./skills/",
+  "rules": "./rules/"
+}

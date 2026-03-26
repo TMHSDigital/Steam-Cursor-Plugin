@@ -1,0 +1,27 @@
+# Environment and secrets
+.env
+.env.*
+*.ssfn
+
+# Steam credentials
+config.vdf
+
+# Node
+node_modules/
+
+# OS files
+.DS_Store
+Thumbs.db
+Desktop.ini
+ehthumbs.db
+
+# IDE (allow .cursor-plugin/)
+.vscode/
+*.swp
+*.swo
+*~
+
+# Build artifacts
+dist/
+build/
+*.log

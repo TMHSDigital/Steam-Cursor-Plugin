@@ -1,0 +1,31 @@
+---
+description: When working with files that contain Steam App IDs (steam_appid.txt, VDF configs, or API calls), validate that the App ID is used consistently across the project and warn if steam_appid.txt is missing from the project root.
+alwaysApply: false
+globs:
+  - "**/steam_appid.txt"
+  - "**/*.vdf"
+  - "**/steamcmd*"
+  - "**/*steam*config*"
+---
+
+# Steam App ID Validation
+
+When editing or reviewing files that reference a Steam App ID:
+
+1. **Check for `steam_appid.txt`** in the project root. This file is required by the Steamworks SDK for development builds. If it's missing, warn the user:
+   > "No `steam_appid.txt` found in the project root. The Steamworks SDK requires this file during development. Create it with your App ID on the first line."
+
+2. **Verify App ID consistency.** Scan for App ID references across:
+   - `steam_appid.txt`
+   - `app_build.vdf` and other `.vdf` files (`"appid"` field)
+   - Source code files (`SteamAPI_RestartAppIfNecessary(appid)`, config constants)
+   - CI/CD scripts referencing `steamcmd` with an app ID argument
+
+   If different App IDs are found across files, flag the inconsistency and list where each value appears.
+
+3. **Validate the App ID format.** Steam App IDs are positive integers, typically 5-7 digits. Flag any value that:
+   - Is not a valid integer
+   - Is `480` (Spacewar test App ID) in what appears to be production config
+   - Is `0` or negative
+
+4. **Depot ID relationships.** In VDF build configs, depot IDs should typically be `appid + N` (e.g., App ID `1234567`, depots `1234568`, `1234569`). Flag depot IDs that seem unrelated to the App ID.

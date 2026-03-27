@@ -1,0 +1,52 @@
+---
+description: Flag common Steam Deck compatibility issues in game project files. Checks for hardcoded resolutions, mouse-only input, small UI elements, anti-cheat blockers, and Linux/Proton compatibility problems.
+alwaysApply: false
+globs:
+  - "**/*.cpp"
+  - "**/*.h"
+  - "**/*.cs"
+  - "**/*.gd"
+  - "**/*.vdf"
+  - "**/*.cfg"
+  - "**/*.ini"
+  - "**/*.json"
+---
+
+# Steam Deck Compatibility
+
+When editing or reviewing game project files, watch for these common Steam Deck compatibility issues:
+
+## Resolution
+
+1. **Hardcoded resolutions.** Flag any hardcoded resolution like `1920x1080`, `2560x1440`, or `3840x2160` that doesn't account for the Deck's native `1280x800` display. The game should support arbitrary resolutions or at minimum 1280x800 at 16:10 aspect ratio.
+
+2. **Fullscreen assumptions.** If the code assumes exclusive fullscreen, note that Steam Deck runs games in gamescope (a compositing window manager). Borderless windowed fullscreen works best.
+
+## Input
+
+3. **Mouse-only interactions.** Flag `RightMouseButton`, `right_click`, `MouseButton2`, or cursor-dependent UI (drag-and-drop, hover tooltips) without a controller/gamepad alternative. Steam Deck has trackpads but dedicated controller bindings are strongly preferred.
+
+4. **Small click targets.** UI elements smaller than ~44px touch targets are hard to use with trackpad input. Flag hardcoded small button sizes or tiny font sizes (below 16px at 1280x800).
+
+5. **No controller support.** If the project has no Steam Input configuration (`game_actions_*.vdf`) and no gamepad input handling, warn that Steam Deck verification requires controller support.
+
+## Anti-Cheat
+
+6. **Anti-cheat compatibility.** If the project references EasyAntiCheat (EAC), BattlEye, or other anti-cheat systems, note:
+   - EAC and BattlEye both support Proton/Linux — but it must be explicitly enabled in the Steamworks Partner site
+   - Kernel-level anti-cheat will NOT work under Proton
+   - Provide link: https://partner.steamgames.com/doc/steamdeck/proton
+
+## Linux / Proton
+
+7. **Windows-only paths.** Flag hardcoded Windows paths (`C:\`, `%APPDATA%`, `\\`) without Linux equivalents. Save files should use Steam's recommended paths or `ISteamRemoteStorage`.
+
+8. **DirectX-only rendering.** If the project exclusively uses DirectX without Vulkan fallback, note that Proton translates D3D to Vulkan via DXVK, which works but native Vulkan offers better performance on Deck.
+
+9. **External launchers.** Flag references to external launcher executables (separate .exe for updates, splash screens). These break under Proton and are a common Deck verification failure.
+
+## Reference
+
+- Steam Deck compatibility review: https://partner.steamgames.com/doc/steamdeck/compat
+- Proton compatibility: https://partner.steamgames.com/doc/steamdeck/proton
+- Steam Deck developer resources: https://partner.steamgames.com/doc/steamdeck

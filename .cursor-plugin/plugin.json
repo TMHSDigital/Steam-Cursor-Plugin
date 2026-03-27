@@ -1,8 +1,8 @@
 {
   "name": "steam-cursor-plugin",
   "displayName": "Steam Developer Tools",
-  "version": "0.1.0",
-  "description": "Integrates Steam and Steamworks APIs for game developers. Query Steam store data, manage Steamworks app configs, look up player stats, and reference Steam documentation from within Cursor.",
+  "version": "0.2.0",
+  "description": "Integrates Steam and Steamworks APIs for game developers and power users. 14 skills covering store data, multiplayer networking, cloud saves, leaderboards, input, inventory, social features, profile lookups, and game comparisons — plus 3 rules for App ID validation, secrets detection, and Steam Deck compatibility.",
   "author": {
     "name": "TMHSDigital",
     "url": "https://github.com/TMHSDigital"

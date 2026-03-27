@@ -5,12 +5,12 @@
 <h1 align="center">Steam Developer Tools</h1>
 
 <p align="center">
-  <em>Steam &amp; Steamworks integration for Cursor IDE &mdash; built for game developers.</em>
+  <em>Steam &amp; Steamworks integration for Cursor IDE &mdash; built for game developers and power users.</em>
 </p>
 
 <p align="center">
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License: MIT"></a>
-  <a href="CHANGELOG.md"><img src="https://img.shields.io/badge/version-0.1.0-green.svg" alt="Version"></a>
+  <a href="CHANGELOG.md"><img src="https://img.shields.io/badge/version-0.2.0-green.svg" alt="Version"></a>
   <a href="https://github.com/TMHSDigital/Steam-Cursor-Plugin/stargazers"><img src="https://img.shields.io/github/stars/TMHSDigital/Steam-Cursor-Plugin?style=flat" alt="GitHub Stars"></a>
   <a href="https://github.com/TMHSDigital/Steam-Cursor-Plugin/commits/main"><img src="https://img.shields.io/github/last-commit/TMHSDigital/Steam-Cursor-Plugin" alt="Last Commit"></a>
   <a href="https://github.com/TMHSDigital/Steam-Cursor-Plugin"><img src="https://img.shields.io/badge/Cursor-Plugin-8B5CF6.svg" alt="Cursor Plugin"></a>
@@ -19,7 +19,7 @@
 
 ---
 
-Query Steam store data, manage Steamworks app configurations, look up player stats, design achievements, and reference Steam API documentation &mdash; all from within Cursor's AI chat.
+Query Steam store data, manage Steamworks app configurations, build multiplayer networking, implement cloud saves, design achievements, compare games, and look up player profiles &mdash; all from within Cursor's AI chat. 14 skills and 3 rules covering the full Steam &amp; Steamworks ecosystem.
 
 > **No API key required** for most features. Store lookups, player counts, global achievement stats, and app searches all work out of the box.
 
@@ -35,6 +35,14 @@ Query Steam store data, manage Steamworks app configurations, look up player sta
 | **Steam Player Stats** | Check current player counts, achievement unlock percentages, leaderboards, playtime data, and user game libraries. |
 | **Steam Workshop Helper** | Query Workshop items, get UGC details, and follow integration patterns for adding Workshop support to your game. |
 | **Steam Achievement Designer** | Design achievements with proper naming conventions, generate VDF/JSON config files, and get unlock code snippets for C++, C#, and GDScript. |
+| **Steam Multiplayer Networking** | Implement lobbies, matchmaking, Steam Networking Sockets (relay), and dedicated game servers with code examples for C++, C#, and GDScript. |
+| **Steam Cloud Saves** | Add cloud save support via Auto-Cloud config or ISteamRemoteStorage SDK calls. Covers conflict resolution and quota management. |
+| **Steam Leaderboards** | Create leaderboards, upload scores, and download entries (global, friends, around-user) via SDK and Web API. |
+| **Steam Friends & Social** | Integrate friends list, rich presence, game invites, Steam Overlay, and avatar/persona retrieval into your game. |
+| **Steam Input / Controllers** | Set up Steam Input with action sets, digital/analog bindings, and controller glyph retrieval for Xbox, PlayStation, Switch, and Steam Deck. |
+| **Steam Inventory & Economy** | Implement item systems, drops, crafting, the Steam Item Store, and in-game purchases via ISteamInventory and ISteamMicroTxn. |
+| **Steam Profile Lookup** | Look up any Steam user's public profile — games, playtime, level, badges, friends, and recent activity. |
+| **Steam Game Comparison** | Compare two or more Steam games side by side — price, reviews, player counts, genres, and platforms in a formatted table. |
 
 ### Rules
 
@@ -42,6 +50,7 @@ Query Steam store data, manage Steamworks app configurations, look up player sta
 |:-----|:-------------|
 | **App ID Validation** | Checks that Steam App IDs are consistent across your project (`steam_appid.txt`, VDF files, source code) and warns if `steam_appid.txt` is missing. |
 | **Steamworks Secrets** | Prevents committing API keys, partner credentials, and auth tokens. Flags sensitive patterns and suggests secure alternatives. |
+| **Steam Deck Compatibility** | Flags common Deck compat issues in game code: hardcoded resolutions, mouse-only input, anti-cheat blockers, Windows-only paths, and missing controller support. |
 
 ## Quick Start
 
@@ -154,6 +163,102 @@ I need achievements for my platformer. Milestones: complete tutorial, beat each 
 Generate a VDF achievement config for my game with these achievements: [list]
 ```
 
+---
+
+### Multiplayer Networking
+
+```
+How do I set up Steam lobbies for a 4-player co-op game?
+```
+
+```
+Show me Steam Networking Sockets setup for P2P relay connections.
+```
+
+---
+
+### Cloud Saves
+
+```
+I want to add cloud saves to my roguelike. I have a single save file in AppData/Local.
+```
+
+```
+Help me configure Auto-Cloud for cross-platform save syncing.
+```
+
+---
+
+### Leaderboards
+
+```
+My speedrun game needs a leaderboard for each level. Times in ms, lower is better.
+```
+
+```
+How do I download and display friends-only leaderboard entries?
+```
+
+---
+
+### Friends & Social
+
+```
+I want to show "Playing as [Character] on [Map]" in the Steam friends list.
+```
+
+```
+How do I send game invites to friends from within my game?
+```
+
+---
+
+### Controllers & Steam Deck Input
+
+```
+My platformer has move, jump, dash, and pause. Set up Steam Input for Xbox and Steam Deck.
+```
+
+```
+How do I show the correct button glyphs for whichever controller the player is using?
+```
+
+---
+
+### Inventory & Economy
+
+```
+I want cosmetic hat drops every 2 hours of playtime, plus a Steam Item Store for direct purchases.
+```
+
+```
+Walk me through the ISteamMicroTxn InitTxn/FinalizeTxn flow.
+```
+
+---
+
+### Profile Lookup
+
+```
+Look up the Steam profile for vanity URL "gaben"
+```
+
+```
+What are my most played games on Steam?
+```
+
+---
+
+### Game Comparison
+
+```
+Compare Hades, Dead Cells, and Hollow Knight — price, reviews, and current players.
+```
+
+```
+Compare App IDs 570 and 730 side by side.
+```
+
 ## Configuration
 
 ### Steam API Key
@@ -190,6 +295,7 @@ The plugin's **Steamworks Secrets** rule will warn you if it detects an API key 
 These work immediately without any API key:
 
 - Store lookups (price, description, reviews, system requirements)
+- Game comparisons (side-by-side analysis)
 - Current player counts
 - Global achievement unlock percentages
 - App and game searches
@@ -197,9 +303,11 @@ These work immediately without any API key:
 ## Roadmap
 
 - [ ] Steam MCP server for live, structured API calls
-- [ ] Steam Deck compatibility checker skill
-- [ ] Steamworks SDK code generation (boilerplate for common integrations)
+- [x] ~~Steam Deck compatibility checker~~ &mdash; added in v0.2.0 as a rule
+- [x] ~~Steamworks SDK code generation~~ &mdash; covered by multiplayer, cloud, leaderboard, input, and inventory skills
 - [ ] Steam review sentiment analysis skill
+- [ ] Steam sale / price history tracking
+- [ ] SteamVR integration skill
 
 ## Contributing
 

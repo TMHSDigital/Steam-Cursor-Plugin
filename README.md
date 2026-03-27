@@ -53,6 +53,12 @@ Query Steam store data, manage Steamworks app configurations, build multiplayer 
 | **Steamworks Secrets** | Prevents committing API keys, partner credentials, and auth tokens. Flags sensitive patterns and suggests secure alternatives. |
 | **Steam Deck Compatibility** | Flags common Deck compat issues in game code: hardcoded resolutions, mouse-only input, anti-cheat blockers, Windows-only paths, and missing controller support. |
 
+## Companion: Steam MCP Server
+
+The [Steam MCP Server](https://github.com/TMHSDigital/steam-mcp) is the companion project that provides live, structured API tools for this plugin. It exposes Steam store data, player stats, achievements, workshop items, and more as MCP tools that AI-powered IDEs can call directly.
+
+> **Status:** In development - coming in v0.2.0 of this plugin.
+
 ## Quick Start
 
 1. **Install** the plugin [manually](#installation) (marketplace listing coming soon)

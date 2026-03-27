@@ -26,7 +26,9 @@ Themed release plan from v0.2.0 through v1.0.0.
 
 ### MCP Server
 
-Steam MCP server exposing read-only tools:
+The MCP server lives in a separate repo: [steam-mcp](https://github.com/TMHSDigital/steam-mcp).
+
+Read-only tools:
 
 | Tool | Description |
 |------|-------------|

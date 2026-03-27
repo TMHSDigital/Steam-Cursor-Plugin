@@ -60,7 +60,7 @@ The [Steam MCP Server](https://github.com/TMHSDigital/steam-mcp) is the companio
 
 ### Setup
 
-Add the Steam MCP server to your Cursor MCP configuration (`.cursor/mcp.json`):
+**Requires [Node.js](https://nodejs.org/) (v18+)** for `npx`. Add the Steam MCP server to your Cursor MCP configuration (`.cursor/mcp.json`):
 
 ```json
 {

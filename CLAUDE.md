@@ -45,7 +45,7 @@ Each `SKILL.md` uses YAML frontmatter followed by markdown sections: **Trigger**
 |------|-------|---------|
 | `steam-appid-validation.mdc` | `steam_appid.txt`, `*.vdf`, steamcmd configs | Enforces App ID consistency; warns if `480` (SpaceWar test) is used in production |
 | `steamworks-secrets.mdc` | Global (all files) | Flags Steam API keys (32-char hex), ssfn files, publisher credentials, DRM keys |
-| `steam-deck-compat.mdc` | `*.cpp`, `*.cs`, `*.gd`, `*.vdf`, `*.cfg`, `*.ini`, `*.json` | Flags Steam Deck compat issues: hardcoded resolutions, mouse-only input, anti-cheat, Windows paths |
+| `steam-deck-compat.mdc` | `*.cpp`, `*.h`, `*.hpp`, `*.cs`, `*.gd`, `*.vdf`, `*.cfg`, `*.ini`, `*.json` | Flags Steam Deck compat issues: hardcoded resolutions, mouse-only input, anti-cheat, Windows paths |
 | `steam-api-key-usage.mdc` | `*.sh`, `*.ps1`, `*.py`, `*.js`, `*.ts`, `*.yml`, `*.yaml` | Flags raw curl/fetch to Steam APIs when MCP tools are available; suggests equivalent MCP tool |
 
 ### Companion MCP Server

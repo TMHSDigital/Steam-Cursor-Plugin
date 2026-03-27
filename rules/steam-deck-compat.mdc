@@ -4,6 +4,7 @@ alwaysApply: false
 globs:
   - "**/*.cpp"
   - "**/*.h"
+  - "**/*.hpp"
   - "**/*.cs"
   - "**/*.gd"
   - "**/*.vdf"

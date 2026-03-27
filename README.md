@@ -55,7 +55,7 @@ Query Steam store data, manage Steamworks app configurations, build multiplayer 
 
 ## Quick Start
 
-1. **Install** the plugin from the Cursor marketplace (or [manually](#manual-installation))
+1. **Install** the plugin [manually](#installation) (marketplace listing coming soon)
 2. **Ask** Cursor anything about Steam - try: `What's the current price for Hades?`
 3. **Get results** - the plugin fetches live data from Steam's public APIs and formats it for you
 
@@ -63,12 +63,7 @@ That's it. No configuration needed for basic usage.
 
 ## Installation
 
-### From the Cursor Marketplace
-
-1. Open Cursor
-2. Go to **Settings** > **Plugins**
-3. Search for **"Steam Developer Tools"**
-4. Click **Install**
+> **Note:** This plugin is not yet available on the Cursor marketplace. Use manual installation for now.
 
 ### Manual Installation
 

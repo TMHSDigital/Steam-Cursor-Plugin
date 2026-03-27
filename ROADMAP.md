@@ -1,8 +1,8 @@
 # Roadmap
 
-Themed release plan from v0.2.0 through v1.0.0.
+Themed release plan toward v1.0.0.
 
-**Current:** v0.1.0 - 14 skills, 3 rules, documentation-only plugin.
+**Current:** v0.2.0 - 14 skills, 4 rules, companion [Steam MCP server](https://github.com/TMHSDigital/steam-mcp) with 10 read-only tools.
 
 **Target:** v1.0.0 - 30 skills, 9 rules, 20 MCP tools.
 

@@ -144,6 +144,8 @@ When a cloud conflict occurs (local and remote versions differ):
 4. Sets quota recommendation (100MB / 100 files is plenty for a roguelike)
 5. Notes: "Auto-Cloud works without any code changes. Steam syncs the files before launch and after exit."
 
-## MCP Integration (Future)
+## MCP Usage
 
-A Steam MCP server could expose `steam.listCloudFiles({ appid })` and `steam.getCloudQuota({ appid })` via the `ICloudService` Web API. The SDK integration patterns remain documentation-only.
+Steam Cloud uses the in-process Steamworks SDK API (`ISteamRemoteStorage`) for reading and writing save files. Auto-Cloud is configured through the Steamworks Partner site or VDF files. Neither has a publicly available Web API equivalent for the core operations.
+
+This skill remains documentation-only regardless of whether the [Steam MCP server](https://github.com/TMHSDigital/steam-mcp) is available.

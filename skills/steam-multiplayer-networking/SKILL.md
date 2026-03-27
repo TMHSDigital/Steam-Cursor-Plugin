@@ -136,6 +136,8 @@ Steam does not provide built-in Elo/MMR. Recommended pattern:
 4. Shows how to transition from lobby to gameplay using Steam Networking Sockets
 5. Notes: "Use `SetLobbyData` for host-controlled settings and `SetLobbyMemberData` for per-player info like character selection."
 
-## MCP Integration (Future)
+## MCP Usage
 
-A Steam MCP server could expose `steam.createLobby()`, `steam.findLobbies()`, and `steam.getServerList()`. The SDK integration patterns remain documentation-only.
+Multiplayer networking uses in-process Steamworks SDK APIs (`ISteamMatchmaking`, `ISteamNetworkingSockets`, `ISteamGameServer`) with no Web API equivalents for lobby creation, P2P connections, or dedicated server management. This skill remains documentation-only regardless of whether the [Steam MCP server](https://github.com/TMHSDigital/steam-mcp) is available.
+
+Write-operation MCP tools for lobby management are planned for v0.7.0.

@@ -21,6 +21,8 @@ Use this skill when the user:
 
 ## Workflow
 
+> **Preferred:** If the [Steam MCP server](https://github.com/TMHSDigital/steam-mcp) is available, use `steam.searchApps()`, `steam.getAppDetails()`, and `steam.getPlayerCount()` instead of the `curl` commands below. See [MCP Usage](#mcp-usage).
+
 ### 1. Resolve App IDs
 
 For each game name, resolve to an App ID using the store search:
@@ -96,6 +98,16 @@ If the user asks for insights, add:
 2. Formats comparison table
 3. Notes both are free-to-play with massive player counts
 
-## MCP Integration (Future)
+## MCP Usage
 
-A Steam MCP server could batch-fetch store details via `steam.compareGames({ appids: [id1, id2, id3] })`. The comparison formatting logic remains the same.
+When the [Steam MCP server](https://github.com/TMHSDigital/steam-mcp) is configured, use MCP tool calls instead of shell `curl` commands:
+
+| Step | MCP Tool | Auth | Replaces |
+|------|----------|------|----------|
+| Resolve game names | `steam.searchApps({ term })` | None | `curl` to `/api/storesearch/` |
+| Fetch store data (per game) | `steam.getAppDetails({ appid })` | None | `curl` to `/api/appdetails` |
+| Current players (per game) | `steam.getPlayerCount({ appid })` | None | `curl` to `GetNumberOfCurrentPlayers` |
+
+Call `steam.getAppDetails` and `steam.getPlayerCount` once per game being compared. The comparison formatting logic remains the same.
+
+If the MCP server is not available, fall back to the `curl`-based workflow above.

@@ -134,6 +134,8 @@ curl.exe "https://api.steampowered.com/IInventoryService/GetItemDefs/v1/?key={ST
 4. Explains the Steam Item Store setup (items with prices auto-appear)
 5. Notes: "Playtime generators require the game to call `TriggerItemDrop` periodically. Steam tracks the cooldown server-side."
 
-## MCP Integration (Future)
+## MCP Usage
 
-A Steam MCP server could expose `steam.getInventory({ appid, steamid })` and `steam.getItemDefs({ appid })` via the IInventoryService Web API. The SDK integration and microtransaction flows remain documentation-only.
+The [Steam MCP server](https://github.com/TMHSDigital/steam-mcp) does not currently include inventory or economy tools. The core inventory operations use the in-process Steamworks SDK (`ISteamInventory`), and microtransactions use the publisher-only `ISteamMicroTxn` Web API which requires IP allowlisting.
+
+Read-only inventory MCP tools are planned for a future release. The SDK integration, item schema definition, and microtransaction flows remain documentation-only.

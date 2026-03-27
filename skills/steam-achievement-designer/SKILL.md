@@ -152,6 +152,14 @@ Always call `StoreStats()` after setting achievements to persist them to Steam s
 4. Provides C++ unlock code snippets for each
 5. Notes icon requirements and suggests consistent naming for icon files
 
-## MCP Integration (Future)
+## MCP Usage
 
-A Steam MCP server could expose `steam.getAchievementSchema({ appid })` to fetch existing achievement definitions. The design guidance, VDF generation, and code examples remain the same.
+When the [Steam MCP server](https://github.com/TMHSDigital/steam-mcp) is configured, you can fetch existing achievement data to inform new designs:
+
+| Step | MCP Tool | Auth | Purpose |
+|------|----------|------|---------|
+| Get existing achievements | `steam.getAchievementStats({ appid })` | None | Fetch global unlock percentages to see what players actually unlock |
+
+This is useful for reviewing an existing game's achievement distribution before designing new ones, or for auditing unlock rates on your own game.
+
+The design guidance, VDF/JSON generation, naming conventions, icon requirements, and SDK unlock code remain the same regardless of MCP availability.

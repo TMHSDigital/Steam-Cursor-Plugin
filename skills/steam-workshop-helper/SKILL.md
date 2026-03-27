@@ -22,6 +22,8 @@ Use this skill when the user:
 
 ## Workflow
 
+> **Preferred:** If the [Steam MCP server](https://github.com/TMHSDigital/steam-mcp) is available, use `steam.getWorkshopItem()` and `steam.queryWorkshop()` instead of the `curl` commands below. See [MCP Usage](#mcp-usage).
+
 ### Look Up Workshop Item Details
 
 1. Fetch details for a specific Workshop item (POST request):
@@ -85,6 +87,17 @@ When the user is building Workshop support into their game, provide guidance on 
 4. Links to the Workshop implementation guide
 5. Notes: "Use `SetItemContent` pointing to a folder - Steam will diff and upload only changed files."
 
-## MCP Integration (Future)
+## MCP Usage
 
-A Steam MCP server should expose `steam.getWorkshopItem({ fileId })` and `steam.queryWorkshop({ appid, queryType, count })`. The SDK integration guidance remains documentation-only and doesn't change with MCP availability.
+When the [Steam MCP server](https://github.com/TMHSDigital/steam-mcp) is configured, use MCP tool calls instead of shell `curl` commands:
+
+| Step | MCP Tool | Auth | Replaces |
+|------|----------|------|----------|
+| Get item details | `steam.getWorkshopItem({ publishedfileid })` | None | `curl` POST to `GetPublishedFileDetails` |
+| Search/browse items | `steam.queryWorkshop({ appid, search_text?, cursor?, numperpage?, query_type?, requiredtags? })` | Key | `curl` to `IPublishedFileService/QueryFiles` |
+
+The `queryWorkshop` tool supports pagination via `cursor` (use `"*"` for the first page) and filtering by `requiredtags` (comma-separated).
+
+The SDK integration guidance (upload, download, subscribe flows) remains documentation-only and doesn't change with MCP availability.
+
+If the MCP server is not available, fall back to the `curl`-based workflow above.

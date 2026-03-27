@@ -5,6 +5,21 @@ All notable changes to Steam Developer Tools will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.2.0] - 2026-03-27
+
+### Added
+
+- **steam-api-key-usage** rule: when the Steam MCP server is available, flags raw `curl`/`fetch` calls to Steam API endpoints and suggests the equivalent MCP tool
+- Companion [Steam MCP Server](https://github.com/TMHSDigital/steam-mcp) referenced across all skills (server lives in separate repo)
+
+### Changed
+
+- All 14 skills updated: replaced `## MCP Integration (Future)` placeholder sections with concrete `## MCP Usage` sections referencing the companion Steam MCP server's actual tool signatures
+- 6 skills with direct MCP replacements now include "Preferred" callouts in their Workflow sections directing users to MCP tools over `curl` commands: steam-store-lookup, steam-player-stats, steam-profile-lookup, steam-game-comparison, steam-workshop-helper, steam-leaderboards
+- **steam-api-reference** skill now includes a full catalog of all 10 available MCP tools with parameter signatures and auth requirements
+- Plugin description updated to reflect MCP support and 4 rules
+- Version bumped to 0.2.0
+
 ## [0.1.0] - 2026-03-26
 
 ### Added
@@ -28,4 +43,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **steam-deck-compat** rule: flags common Steam Deck compatibility issues (hardcoded resolutions, mouse-only input, anti-cheat, Windows-only paths, missing controller support)
 - Plugin manifest, README, CONTRIBUTING guide, and license
 
+[0.2.0]: https://github.com/TMHSDigital/Steam-Cursor-Plugin/releases/tag/v0.2.0
 [0.1.0]: https://github.com/TMHSDigital/Steam-Cursor-Plugin/releases/tag/v0.1.0

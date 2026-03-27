@@ -22,6 +22,8 @@ Use this skill when the user:
 
 ## Workflow
 
+> **Preferred:** If the [Steam MCP server](https://github.com/TMHSDigital/steam-mcp) is available, use `steam.resolveVanityURL()`, `steam.getPlayerSummary()`, and `steam.getOwnedGames()` instead of the `curl` commands below. See [MCP Usage](#mcp-usage).
+
 ### 1. Resolve the Steam ID
 
 If the user provides a vanity URL or profile link instead of a 64-bit Steam ID:
@@ -110,6 +112,16 @@ Present as a structured profile card:
 3. Formats as a profile card with top games by playtime
 4. Notes: "This profile is public. Private profiles will return limited data."
 
-## MCP Integration (Future)
+## MCP Usage
 
-A Steam MCP server should expose `steam.getProfile({ steamid })`, `steam.getOwnedGames({ steamid })`, and `steam.getFriends({ steamid })`. The formatting logic remains the same.
+When the [Steam MCP server](https://github.com/TMHSDigital/steam-mcp) is configured, use MCP tool calls instead of shell `curl` commands:
+
+| Step | MCP Tool | Replaces |
+|------|----------|----------|
+| Resolve vanity URL | `steam.resolveVanityURL({ vanityurl })` | `curl` to `ResolveVanityURL` |
+| Player summary | `steam.getPlayerSummary({ steamid })` | `curl` to `GetPlayerSummaries` |
+| Owned games | `steam.getOwnedGames({ steamid, include_appinfo?, include_played_free_games? })` | `curl` to `GetOwnedGames` |
+
+All three require `STEAM_API_KEY`. Recent activity, Steam level, badges, and friend list still require direct API calls as there are no dedicated MCP tools for those yet.
+
+If the MCP server is not available, fall back to the `curl`-based workflow above.

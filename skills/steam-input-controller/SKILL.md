@@ -175,6 +175,6 @@ This returns the correct icon (A button for Xbox, X button for PlayStation, etc.
 4. Implements glyph retrieval for dynamic button prompts
 5. Notes: "Steam Deck uses the same ISteamInput API. The built-in controls map to `k_ESteamInputType_SteamDeckController`. Test with the Steam Deck virtual controller in Desktop mode."
 
-## MCP Integration (Future)
+## MCP Usage
 
-Steam Input is an in-process SDK API with no Web API equivalent. This skill remains documentation-only regardless of MCP availability.
+Steam Input is an in-process Steamworks SDK API (`ISteamInput`) with no Web API equivalent. This skill remains documentation-only regardless of whether the [Steam MCP server](https://github.com/TMHSDigital/steam-mcp) is available.

@@ -1,0 +1,55 @@
+---
+description: When the Steam MCP server is available, guide users to prefer MCP tool calls over raw curl/fetch commands to Steam APIs. Flag direct HTTP calls to Steam endpoints and suggest the equivalent MCP tool.
+alwaysApply: false
+globs:
+  - "**/*.sh"
+  - "**/*.ps1"
+  - "**/*.py"
+  - "**/*.js"
+  - "**/*.ts"
+  - "**/*.yml"
+  - "**/*.yaml"
+---
+
+# Prefer Steam MCP Tools Over Raw API Calls
+
+When editing or reviewing files that make HTTP requests to Steam APIs, suggest using the [Steam MCP server](https://github.com/TMHSDigital/steam-mcp) tools instead. MCP tools handle authentication, error handling, rate limiting, and response parsing automatically.
+
+## Patterns to Flag
+
+Flag any `curl`, `fetch`, `requests.get`, `Invoke-WebRequest`, or similar HTTP calls to these Steam API domains:
+
+- `api.steampowered.com`
+- `store.steampowered.com/api/`
+- `partner.steam-api.com` (note: MCP only covers read-only endpoints, not partner write operations)
+
+## MCP Tool Equivalents
+
+When a flagged call matches one of these endpoints, suggest the MCP tool:
+
+| Endpoint Pattern | MCP Tool |
+|-----------------|----------|
+| `/api/storesearch/` | `steam.searchApps({ term })` |
+| `/api/appdetails` | `steam.getAppDetails({ appid })` |
+| `GetNumberOfCurrentPlayers` | `steam.getPlayerCount({ appid })` |
+| `GetGlobalAchievementPercentagesForApp` | `steam.getAchievementStats({ appid })` |
+| `GetPublishedFileDetails` | `steam.getWorkshopItem({ publishedfileid })` |
+| `GetPlayerSummaries` | `steam.getPlayerSummary({ steamid })` |
+| `GetOwnedGames` | `steam.getOwnedGames({ steamid })` |
+| `QueryFiles` (IPublishedFileService) | `steam.queryWorkshop({ appid })` |
+| `GetLeaderboardEntries` | `steam.getLeaderboardEntries({ appid, leaderboardid })` |
+| `ResolveVanityURL` | `steam.resolveVanityURL({ vanityurl })` |
+
+## What to Say
+
+When a matching pattern is found:
+
+> "This file makes a direct HTTP call to a Steam API endpoint. If the Steam MCP server is configured, consider using `{mcp_tool}` instead -- it handles authentication, timeouts, and error responses automatically."
+
+## Exceptions
+
+Do not flag these cases:
+- Calls to Steam API endpoints that have no MCP tool equivalent (e.g., `GetPlayerAchievements`, `GetUserStatsForGame`, `GetNewsForApp`, `ISteamMicroTxn`)
+- Code inside the MCP server itself (the `steam-mcp` project)
+- Documentation or comments explaining the raw API
+- Test files that intentionally test raw API behavior

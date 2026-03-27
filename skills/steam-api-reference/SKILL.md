@@ -97,6 +97,32 @@ Users should store their API key in an environment variable (`STEAM_API_KEY`) an
 3. Shows a `curl` example and explains the response structure
 4. Notes: "For per-player achievements you need the player's Steam ID and an API key. For global unlock percentages, no key is needed."
 
-## MCP Integration (Future)
+## MCP Usage
 
-When a Steam MCP server is available, it should expose tools like `steam.getApiDocs({ interface, method })` to return structured endpoint information. The formatting and example generation logic remains the same.
+The [Steam MCP server](https://github.com/TMHSDigital/steam-mcp) provides 10 tools that call Steam APIs directly, eliminating the need for manual `curl` commands for common operations.
+
+### Available MCP Tools
+
+**No API key required:**
+
+| Tool | Description |
+|------|-------------|
+| `steam.getAppDetails({ appid, cc?, l? })` | Store data: price, reviews, tags, platforms, system requirements |
+| `steam.searchApps({ term, cc?, l? })` | Search the Steam store by name |
+| `steam.getPlayerCount({ appid })` | Current concurrent player count |
+| `steam.getAchievementStats({ appid })` | Global achievement unlock percentages |
+| `steam.getWorkshopItem({ publishedfileid })` | Workshop item details (title, tags, subscribers) |
+
+**Requires `STEAM_API_KEY` environment variable:**
+
+| Tool | Description |
+|------|-------------|
+| `steam.getPlayerSummary({ steamid })` | Player profile: name, avatar, online status |
+| `steam.getOwnedGames({ steamid, include_played_free_games?, include_appinfo? })` | Game library with playtime data |
+| `steam.queryWorkshop({ appid, search_text?, cursor?, numperpage?, query_type?, requiredtags? })` | Search and browse Workshop items |
+| `steam.getLeaderboardEntries({ appid, leaderboardid, rangestart?, rangeend?, datarequest?, steamid? })` | Leaderboard scores and rankings |
+| `steam.resolveVanityURL({ vanityurl, url_type? })` | Convert vanity URL to 64-bit Steam ID |
+
+When an MCP tool exists for a given endpoint, prefer it over raw `curl` calls. For endpoints not covered by MCP tools (per-player achievements, user stats, news, microtransactions), continue using the Web API directly.
+
+The Steamworks SDK documentation and example generation logic remain the same regardless of MCP availability.

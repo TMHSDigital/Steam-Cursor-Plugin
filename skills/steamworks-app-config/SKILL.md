@@ -110,6 +110,14 @@ Use this skill when the user:
 3. Provides the `steamcmd` upload command
 4. Notes: "Set `setlive` to a beta branch name for testing before pushing to default."
 
-## MCP Integration (Future)
+## MCP Usage
 
-A Steam MCP server could automate fetching existing depot configs from the Steamworks Partner API (`ISteamApps/GetPartnerAppListForWebAPIKey`). The VDF generation and documentation logic remains the same.
+When the [Steam MCP server](https://github.com/TMHSDigital/steam-mcp) is configured, you can fetch existing app metadata:
+
+| Step | MCP Tool | Auth | Purpose |
+|------|----------|------|---------|
+| Get app details | `steam.getAppDetails({ appid })` | None | Verify app name, type, platforms, and current config before generating VDF files |
+
+This is useful for confirming the app exists and checking its current platform list before generating depot configs. Partner-level API access (depot config fetch, build management) is not available via MCP.
+
+The VDF generation, depot configuration, launch options, DLC setup, and steamcmd documentation remain the same regardless of MCP availability.

@@ -4,11 +4,11 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-**Steam Developer Tools** is a Cursor IDE plugin (v0.1.0) that integrates Steam and Steamworks APIs for game developers and power users. It provides AI-assisted workflows for querying Steam store data, managing Steamworks configurations, building multiplayer networking, implementing cloud saves, leaderboards, input, inventory/economy, social features, looking up API docs, fetching player statistics, integrating Workshop UGC, designing achievements, looking up player profiles, and comparing games.
+**Steam Developer Tools** is a Cursor IDE plugin (v0.2.0) that integrates Steam and Steamworks APIs for game developers and power users. It provides AI-assisted workflows for querying Steam store data, managing Steamworks configurations, building multiplayer networking, implementing cloud saves, leaderboards, input, inventory/economy, social features, looking up API docs, fetching player statistics, integrating Workshop UGC, designing achievements, looking up player profiles, and comparing games.
 
-This is currently a **static, documentation-only plugin** - no build system, no npm, no compiled code. All plugin logic is expressed in Markdown skill files and MDC rule files.
+This plugin uses Markdown skill files and MDC rule files for AI guidance, paired with the companion [Steam MCP Server](https://github.com/TMHSDigital/steam-mcp) (separate repo) which provides 10 read-only API tools for live data access. No build system, no npm, no compiled code in this repo.
 
-The project is on a themed release roadmap toward v1.0.0 (see `ROADMAP.md`). The next major milestone (v0.2.0 "Live Data") introduces a Steam MCP server (separate repo: [steam-mcp](https://github.com/TMHSDigital/steam-mcp)) with read-only API tools. Subsequent releases add analytics/market research skills (v0.3.0), CI/CD automation (v0.4.0), community/monetization skills (v0.5.0), QA rules (v0.6.0), MCP write operations (v0.7.0), and polish (v0.8.0). Target at v1.0.0: 30 skills, 9 rules, 20 MCP tools.
+The project is on a themed release roadmap toward v1.0.0 (see `ROADMAP.md`). The next major milestone (v0.3.0 "Insights") adds analytics and market research skills. Subsequent releases add CI/CD automation (v0.4.0), community/monetization skills (v0.5.0), QA rules (v0.6.0), MCP write operations (v0.7.0), and polish (v0.8.0). Target at v1.0.0: 30 skills, 9 rules, 20 MCP tools.
 
 ## Plugin Architecture
 
@@ -39,13 +39,31 @@ Each `SKILL.md` uses YAML frontmatter followed by markdown sections: **Trigger**
 | `steam-profile-lookup` | Resolve vanity URLs, fetch player summaries, owned games, level/badges |
 | `steam-game-comparison` | Side-by-side comparison of price, reviews, player counts, genres |
 
-### Rules (3 total)
+### Rules (4 total)
 
 | Rule | Scope | Purpose |
 |------|-------|---------|
 | `steam-appid-validation.mdc` | `steam_appid.txt`, `*.vdf`, steamcmd configs | Enforces App ID consistency; warns if `480` (SpaceWar test) is used in production |
 | `steamworks-secrets.mdc` | Global (all files) | Flags Steam API keys (32-char hex), ssfn files, publisher credentials, DRM keys |
 | `steam-deck-compat.mdc` | `*.cpp`, `*.cs`, `*.gd`, `*.vdf`, `*.cfg`, `*.ini`, `*.json` | Flags Steam Deck compat issues: hardcoded resolutions, mouse-only input, anti-cheat, Windows paths |
+| `steam-api-key-usage.mdc` | `*.sh`, `*.ps1`, `*.py`, `*.js`, `*.ts`, `*.yml`, `*.yaml` | Flags raw curl/fetch to Steam APIs when MCP tools are available; suggests equivalent MCP tool |
+
+### Companion MCP Server
+
+The [Steam MCP Server](https://github.com/TMHSDigital/steam-mcp) provides 10 read-only tools. Skills reference these tools in their `## MCP Usage` sections. When the MCP server is configured in Cursor, skills prefer MCP tool calls over shell `curl` commands.
+
+| MCP Tool | Auth | Maps to |
+|----------|------|---------|
+| `steam.getAppDetails({ appid })` | None | Store API `appdetails` |
+| `steam.searchApps({ term })` | None | Store API `storesearch` |
+| `steam.getPlayerCount({ appid })` | None | `GetNumberOfCurrentPlayers` |
+| `steam.getAchievementStats({ appid })` | None | `GetGlobalAchievementPercentagesForApp` |
+| `steam.getWorkshopItem({ publishedfileid })` | None | `GetPublishedFileDetails` |
+| `steam.getPlayerSummary({ steamid })` | Key | `GetPlayerSummaries` |
+| `steam.getOwnedGames({ steamid })` | Key | `GetOwnedGames` |
+| `steam.queryWorkshop({ appid })` | Key | `IPublishedFileService/QueryFiles` |
+| `steam.getLeaderboardEntries({ appid, leaderboardid })` | Key | `ISteamLeaderboards/GetLeaderboardEntries` |
+| `steam.resolveVanityURL({ vanityurl })` | Key | `ResolveVanityURL` |
 
 ## Development Workflow
 

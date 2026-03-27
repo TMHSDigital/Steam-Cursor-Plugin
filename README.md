@@ -10,7 +10,7 @@
 
 <p align="center">
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-CC--BY--NC--ND--4.0-blue.svg" alt="License: CC BY-NC-ND 4.0"></a>
-  <a href="CHANGELOG.md"><img src="https://img.shields.io/badge/version-0.1.0-green.svg" alt="Version"></a>
+  <a href="CHANGELOG.md"><img src="https://img.shields.io/badge/version-0.2.0-green.svg" alt="Version"></a>
   <a href="https://github.com/TMHSDigital/Steam-Cursor-Plugin/stargazers"><img src="https://img.shields.io/github/stars/TMHSDigital/Steam-Cursor-Plugin?style=flat" alt="GitHub Stars"></a>
   <a href="https://github.com/TMHSDigital/Steam-Cursor-Plugin/commits/main"><img src="https://img.shields.io/github/last-commit/TMHSDigital/Steam-Cursor-Plugin" alt="Last Commit"></a>
   <a href="https://github.com/TMHSDigital/Steam-Cursor-Plugin"><img src="https://img.shields.io/badge/Cursor-Plugin-8B5CF6.svg" alt="Cursor Plugin"></a>
@@ -20,7 +20,7 @@
 
 ---
 
-Query Steam store data, manage Steamworks app configurations, build multiplayer networking, implement cloud saves, design achievements, compare games, and look up player profiles - all from within Cursor's AI chat. 14 skills and 3 rules covering the full Steam &amp; Steamworks ecosystem.
+Query Steam store data, manage Steamworks app configurations, build multiplayer networking, implement cloud saves, design achievements, compare games, and look up player profiles - all from within Cursor's AI chat. 14 skills and 4 rules covering the full Steam &amp; Steamworks ecosystem, with 10 live MCP tools via the companion [Steam MCP Server](https://github.com/TMHSDigital/steam-mcp).
 
 > **No API key required** for most features. Store lookups, player counts, global achievement stats, and app searches all work out of the box.
 
@@ -52,12 +52,46 @@ Query Steam store data, manage Steamworks app configurations, build multiplayer 
 | **App ID Validation** | Checks that Steam App IDs are consistent across your project (`steam_appid.txt`, VDF files, source code) and warns if `steam_appid.txt` is missing. |
 | **Steamworks Secrets** | Prevents committing API keys, partner credentials, and auth tokens. Flags sensitive patterns and suggests secure alternatives. |
 | **Steam Deck Compatibility** | Flags common Deck compat issues in game code: hardcoded resolutions, mouse-only input, anti-cheat blockers, Windows-only paths, and missing controller support. |
+| **MCP Tool Preference** | When the Steam MCP server is configured, flags raw `curl`/`fetch` calls to Steam APIs and suggests the equivalent MCP tool. |
 
 ## Companion: Steam MCP Server
 
-The [Steam MCP Server](https://github.com/TMHSDigital/steam-mcp) is the companion project that provides live, structured API tools for this plugin. It exposes Steam store data, player stats, achievements, workshop items, and more as MCP tools that AI-powered IDEs can call directly.
+The [Steam MCP Server](https://github.com/TMHSDigital/steam-mcp) is the companion project that provides live, structured API tools for this plugin. It exposes Steam store data, player stats, achievements, workshop items, and more as MCP tools that Cursor can call directly.
 
-> **Status:** In development - coming in v0.2.0 of this plugin.
+### Setup
+
+Add the Steam MCP server to your Cursor MCP configuration (`.cursor/mcp.json`):
+
+```json
+{
+  "mcpServers": {
+    "steam": {
+      "command": "npx",
+      "args": ["-y", "steam-mcp"],
+      "env": {
+        "STEAM_API_KEY": "your_key_here"
+      }
+    }
+  }
+}
+```
+
+The `STEAM_API_KEY` is only required for tools that access user-specific data (player summaries, owned games, workshop queries, leaderboards, vanity URL resolution). Store lookups, player counts, achievement stats, and workshop item details work without a key.
+
+### Available Tools
+
+| Tool | Auth | Description |
+|------|------|-------------|
+| `steam.getAppDetails` | None | Store data (price, reviews, tags, platforms) |
+| `steam.searchApps` | None | Search the Steam store by name |
+| `steam.getPlayerCount` | None | Current concurrent players |
+| `steam.getAchievementStats` | None | Global achievement unlock percentages |
+| `steam.getWorkshopItem` | None | Workshop item details |
+| `steam.getPlayerSummary` | Key | Player profile (name, avatar, status) |
+| `steam.getOwnedGames` | Key | Game library with playtime |
+| `steam.queryWorkshop` | Key | Search/browse Workshop items |
+| `steam.getLeaderboardEntries` | Key | Leaderboard scores and rankings |
+| `steam.resolveVanityURL` | Key | Convert vanity URL to Steam ID |
 
 ## Quick Start
 

@@ -145,6 +145,14 @@ const char* friendName = SteamFriends()->GetFriendPersonaName(friendSteamId);
 4. Adds `ClearRichPresence` call on return to main menu
 5. Notes: "Rich presence updates are rate-limited. Don't call `SetRichPresence` more than once per second."
 
-## MCP Integration (Future)
+## MCP Usage
 
-A Steam MCP server could expose `steam.getFriendList({ steamid })` and `steam.getPlayerSummaries({ steamids })` via the ISteamUser Web API. The SDK integration for rich presence, overlay, and invites remains documentation-only.
+When the [Steam MCP server](https://github.com/TMHSDigital/steam-mcp) is configured, you can look up player profile data:
+
+| Step | MCP Tool | Auth | Purpose |
+|------|----------|------|---------|
+| Player summary | `steam.getPlayerSummary({ steamid })` | Key | Fetch display name, avatar, online status, profile visibility |
+
+The SDK integration for rich presence, overlay, game invites, friends list iteration, and avatar retrieval remains documentation-only. These are in-process ISteamFriends APIs with no Web API equivalent for the write/interactive operations.
+
+If the MCP server is not available, fall back to the `curl`-based approach using `ISteamUser/GetPlayerSummaries`.

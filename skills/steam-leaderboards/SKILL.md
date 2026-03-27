@@ -95,7 +95,9 @@ void OnDownloadEntries(LeaderboardScoresDownloaded_t* result) {
 
 ### Web API Queries
 
-**Get leaderboard entries (no API key needed for public leaderboards):**
+> **Preferred:** If the [Steam MCP server](https://github.com/TMHSDigital/steam-mcp) is available, use `steam.getLeaderboardEntries()` instead of the `curl` command below. See [MCP Usage](#mcp-usage).
+
+**Get leaderboard entries (API key required):**
 ```bash
 curl.exe "https://api.steampowered.com/ISteamLeaderboards/GetLeaderboardEntries/v1/?appid={appid}&leaderboardid={id}&rangestart=0&rangeend=10&datarequest=0&key={STEAM_API_KEY}"
 ```
@@ -135,6 +137,16 @@ func _on_leaderboard_found(handle: int, found: int):
 4. Downloads and displays global top 10 + around-user entries
 5. Notes: "Create leaderboards in Partner site for production. SDK creation is useful for development but can't set all options."
 
-## MCP Integration (Future)
+## MCP Usage
 
-A Steam MCP server could expose `steam.getLeaderboard({ appid, name })` and `steam.getLeaderboardEntries({ appid, id, range })` via the ISteamLeaderboards Web API. The SDK integration remains documentation-only.
+When the [Steam MCP server](https://github.com/TMHSDigital/steam-mcp) is configured, use MCP tool calls instead of shell `curl` commands:
+
+| Step | MCP Tool | Auth | Replaces |
+|------|----------|------|----------|
+| Get leaderboard entries | `steam.getLeaderboardEntries({ appid, leaderboardid, rangestart?, rangeend?, datarequest?, steamid? })` | Key | `curl` to `ISteamLeaderboards/GetLeaderboardEntries` |
+
+The `datarequest` param controls the view: `0` = Global, `1` = Around user, `2` = Friends. When using `1` or `2`, provide the `steamid` param.
+
+The SDK integration for creating leaderboards, uploading scores, and downloading entries in-game remains documentation-only.
+
+If the MCP server is not available, fall back to the `curl`-based workflow above.

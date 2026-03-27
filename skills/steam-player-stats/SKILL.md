@@ -23,6 +23,8 @@ Use this skill when the user:
 
 ## Workflow
 
+> **Preferred:** If the [Steam MCP server](https://github.com/TMHSDigital/steam-mcp) is available, use `steam.getPlayerCount()`, `steam.getAchievementStats()`, and `steam.getOwnedGames()` instead of the `curl` commands below. See [MCP Usage](#mcp-usage).
+
 ### Current Player Count (no API key needed)
 
 1. Fetch the current player count:
@@ -98,6 +100,17 @@ Example for achievement stats:
 3. Fetches global achievement percentages, sorts ascending
 4. Presents current players + bottom-5 rarest achievements in a table
 
-## MCP Integration (Future)
+## MCP Usage
 
-A Steam MCP server should expose `steam.getPlayerCount({ appid })`, `steam.getAchievementStats({ appid })`, and `steam.getUserStats({ appid, steamid })`. The formatting and analysis logic remains the same.
+When the [Steam MCP server](https://github.com/TMHSDigital/steam-mcp) is configured, use MCP tool calls instead of shell `curl` commands:
+
+| Step | MCP Tool | Auth | Replaces |
+|------|----------|------|----------|
+| Current player count | `steam.getPlayerCount({ appid })` | None | `curl` to `GetNumberOfCurrentPlayers` |
+| Global achievement stats | `steam.getAchievementStats({ appid })` | None | `curl` to `GetGlobalAchievementPercentagesForApp` |
+| Owned games / playtime | `steam.getOwnedGames({ steamid })` | Key | `curl` to `GetOwnedGames` |
+| Resolve vanity URL | `steam.resolveVanityURL({ vanityurl })` | Key | `curl` to `ResolveVanityURL` |
+
+Per-player achievements and user stats still require direct API calls (`GetPlayerAchievements`, `GetUserStatsForGame`) as there are no dedicated MCP tools for those yet.
+
+If the MCP server is not available, fall back to the `curl`-based workflow above.

@@ -103,7 +103,7 @@ That's it. No configuration needed for basic usage.
 
 ## Installation
 
-> **Note:** This plugin is not yet available on the Cursor marketplace. Use manual installation for now.
+> **Marketplace listing pending review.** In the meantime, use manual installation.
 
 ### Manual Installation
 

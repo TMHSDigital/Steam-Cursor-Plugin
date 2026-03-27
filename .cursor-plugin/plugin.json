@@ -15,7 +15,15 @@
     "steamworks",
     "gamedev",
     "steam-api",
-    "game-development"
+    "game-development",
+    "multiplayer",
+    "achievements",
+    "workshop",
+    "cloud-saves",
+    "leaderboards",
+    "steam-deck",
+    "mcp",
+    "cursor-plugin"
   ],
   "category": "developer-tools",
   "tags": [

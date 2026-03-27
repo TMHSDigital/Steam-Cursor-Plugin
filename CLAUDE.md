@@ -101,7 +101,7 @@ ln -s "$(pwd)" ~/.cursor/plugins/local/steam-cursor-plugin
 | `IPlayerService/GetOwnedGames/v1/` | API key |
 | `ISteamUser/ResolveVanityURL/v1/` | API key |
 | `ISteamUser/GetPlayerSummaries/v2/` | API key |
-| `IPlayerService/GetOwnedGames/v1/` | API key |
+| `IPlayerService/GetBadges/v1/` | API key |
 | `IPlayerService/GetRecentlyPlayedGames/v1/` | API key |
 | `IPlayerService/GetSteamLevel/v1/` | API key |
 | `ISteamUser/GetFriendList/v1/` | API key |

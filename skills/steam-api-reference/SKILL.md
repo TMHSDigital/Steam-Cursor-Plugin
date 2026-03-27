@@ -126,3 +126,8 @@ The [Steam MCP server](https://github.com/TMHSDigital/steam-mcp) provides 10 too
 When an MCP tool exists for a given endpoint, prefer it over raw `curl` calls. For endpoints not covered by MCP tools (per-player achievements, user stats, news, microtransactions), continue using the Web API directly.
 
 The Steamworks SDK documentation and example generation logic remain the same regardless of MCP availability.
+
+## See Also
+
+- [Steam Store Lookup](../steam-store-lookup/SKILL.md) - look up game store data using the APIs documented here
+- [Steam Player Stats](../steam-player-stats/SKILL.md) - query player data using ISteamUserStats and IPlayerService endpoints

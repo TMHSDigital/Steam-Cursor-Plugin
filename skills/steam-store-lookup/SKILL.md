@@ -98,3 +98,8 @@ When the [Steam MCP server](https://github.com/TMHSDigital/steam-mcp) is configu
 Both tools require no API key. Optional `cc` (country code) and `l` (language) params support regional/localized results.
 
 The data extraction and formatting logic remains the same. If the MCP server is not available, fall back to the `curl`-based workflow above.
+
+## See Also
+
+- [Steam Game Comparison](../steam-game-comparison/SKILL.md) - compare multiple games side by side
+- [Steam Player Stats](../steam-player-stats/SKILL.md) - player counts and achievement data for a game

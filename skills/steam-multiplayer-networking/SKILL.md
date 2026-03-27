@@ -141,3 +141,8 @@ Steam does not provide built-in Elo/MMR. Recommended pattern:
 Multiplayer networking uses in-process Steamworks SDK APIs (`ISteamMatchmaking`, `ISteamNetworkingSockets`, `ISteamGameServer`) with no Web API equivalents for lobby creation, P2P connections, or dedicated server management. This skill remains documentation-only regardless of whether the [Steam MCP server](https://github.com/TMHSDigital/steam-mcp) is available.
 
 Write-operation MCP tools for lobby management are planned for v0.7.0.
+
+## See Also
+
+- [Steam Friends & Social](../steam-friends-social/SKILL.md) - game invites, rich presence, and overlay for multiplayer games
+- [Steam Leaderboards](../steam-leaderboards/SKILL.md) - competitive ranking systems for multiplayer games

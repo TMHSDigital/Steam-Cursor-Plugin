@@ -89,6 +89,14 @@ curl.exe "https://api.steampowered.com/ISteamUser/GetFriendList/v1/?key={STEAM_A
 
 Returns `friendslist.friends[]` with `steamid` and `friend_since` timestamp. Only works for public profiles.
 
+## Key References
+
+| Resource | URL |
+|----------|-----|
+| ISteamUser API | https://partner.steamgames.com/doc/webapi/ISteamUser |
+| IPlayerService API | https://partner.steamgames.com/doc/webapi/IPlayerService |
+| Steam Community profiles | https://partner.steamgames.com/doc/features/community |
+
 ## Output Format
 
 Present as a structured profile card:
@@ -125,3 +133,8 @@ When the [Steam MCP server](https://github.com/TMHSDigital/steam-mcp) is configu
 All three require `STEAM_API_KEY`. Recent activity, Steam level, badges, and friend list still require direct API calls as there are no dedicated MCP tools for those yet.
 
 If the MCP server is not available, fall back to the `curl`-based workflow above.
+
+## See Also
+
+- [Steam Player Stats](../steam-player-stats/SKILL.md) - achievement stats and player counts for specific games
+- [Steam Friends & Social](../steam-friends-social/SKILL.md) - in-game friends list, rich presence, and social features

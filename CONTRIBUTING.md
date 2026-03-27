@@ -36,7 +36,7 @@ Cursor will pick up changes to skills and rules without restarting.
 
 ## Plugin Structure
 
-The plugin currently has **14 skills** and **3 rules**.
+The plugin currently has **14 skills** and **4 rules**.
 
 ```
 .cursor-plugin/
@@ -44,7 +44,7 @@ The plugin currently has **14 skills** and **3 rules**.
 skills/                # 14 skill directories
   <skill-name>/
     SKILL.md           # Skill definition with frontmatter + instructions
-rules/                 # 3 rule files
+rules/                 # 4 rule files
   <rule-name>.mdc      # Rule definition with frontmatter + guidance
 ```
 
@@ -87,4 +87,4 @@ rules/                 # 3 rule files
 
 ## Code of Conduct
 
-Be respectful, constructive, and collaborative. We're all here to make game development with Steam better.
+By participating in this project, you agree to abide by our [Code of Conduct](CODE_OF_CONDUCT.md). Be respectful, constructive, and collaborative.

@@ -141,6 +141,14 @@ Always call `StoreStats()` after setting achievements to persist them to Steam s
 - [ ] Hidden achievements have non-spoiler descriptions (or empty description)
 - [ ] Total achievement count is reasonable (Steam has no hard limit, but 100-300 is typical)
 
+## Key References
+
+| Resource | URL |
+|----------|-----|
+| Achievements overview | https://partner.steamgames.com/doc/features/achievements |
+| ISteamUserStats API | https://partner.steamgames.com/doc/api/ISteamUserStats |
+| Achievement icon specs | https://partner.steamgames.com/doc/features/achievements#4 |
+
 ## Example Interaction
 
 **User:** "I need achievements for my platformer. Here are the milestones: complete tutorial, beat world 1, beat world 2, beat world 3, beat the final boss, collect all coins, speedrun under 2 hours, die 100 times."
@@ -163,3 +171,7 @@ When the [Steam MCP server](https://github.com/TMHSDigital/steam-mcp) is configu
 This is useful for reviewing an existing game's achievement distribution before designing new ones, or for auditing unlock rates on your own game.
 
 The design guidance, VDF/JSON generation, naming conventions, icon requirements, and SDK unlock code remain the same regardless of MCP availability.
+
+## See Also
+
+- [Steam Player Stats](../steam-player-stats/SKILL.md) - query achievement unlock rates to inform achievement design

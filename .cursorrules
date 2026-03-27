@@ -2,4 +2,31 @@
 
 ## Formatting
 
-- Never use em dashes (—). Use a regular dash (-) or rewrite the sentence instead.
+- Never use em dashes (-). Use a regular dash (-) or rewrite the sentence instead.
+
+## Skill File Conventions
+
+- Every skill lives in `skills/<kebab-case-name>/SKILL.md`
+- YAML frontmatter is required with `name` (matching the directory name) and `description` (one line, when-to-use guidance)
+- Required sections in order: Trigger, Required Inputs, Workflow, Key References (if applicable), Example Interaction, MCP Usage, See Also
+- Keep `## MCP Usage` present even for SDK-only skills (state that no Web API equivalent exists)
+
+## Rule File Conventions
+
+- Rules use `.mdc` extension in the `rules/` directory
+- YAML frontmatter must include `description` and `alwaysApply` (boolean)
+- If `alwaysApply` is false, include `globs` to scope when the rule activates
+
+## Steam Conventions
+
+- Achievement API names: `ACH_` prefix, uppercase with underscores (e.g., `ACH_BEAT_FINAL_BOSS`). Stable after release.
+- Depot IDs follow `appid + N` pattern (e.g., App ID `2345678` gives depots `2345679`, `2345680`, `2345681`)
+- Never hardcode Steam API keys. Use `STEAM_API_KEY` environment variable or `.env` file.
+- App ID `480` (SpaceWar) is the Steamworks SDK test app. Flag it in production contexts.
+
+## MCP Tool Signatures
+
+When referencing MCP tools in documentation, use the canonical parameter names from the skill files:
+- `steam.searchApps({ term })` not `{ query }`
+- `steam.getWorkshopItem({ publishedfileid })` not `{ fileid }`
+- `steam.getLeaderboardEntries({ appid, leaderboardid, rangestart?, rangeend? })` not `{ id, range }`

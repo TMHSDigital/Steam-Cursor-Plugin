@@ -33,14 +33,14 @@ Read-only tools:
 | Tool | Description |
 |------|-------------|
 | `steam.getAppDetails({ appid })` | Store data (price, reviews, tags, platforms) |
-| `steam.searchApps({ query })` | App search by name |
+| `steam.searchApps({ term })` | App search by name |
 | `steam.getPlayerCount({ appid })` | Current concurrent players |
 | `steam.getAchievementStats({ appid })` | Global achievement unlock percentages |
 | `steam.getPlayerSummary({ steamid })` | Profile data (name, avatar, status) |
 | `steam.getOwnedGames({ steamid })` | Game library with playtime |
-| `steam.getWorkshopItem({ fileid })` | Workshop item details |
+| `steam.getWorkshopItem({ publishedfileid })` | Workshop item details |
 | `steam.queryWorkshop({ appid, query_type, count })` | Workshop search/browse |
-| `steam.getLeaderboardEntries({ appid, id, range })` | Leaderboard data |
+| `steam.getLeaderboardEntries({ appid, leaderboardid, rangestart?, rangeend? })` | Leaderboard data |
 | `steam.resolveVanityURL({ vanity })` | Vanity URL to 64-bit Steam ID |
 
 ### Skill Updates

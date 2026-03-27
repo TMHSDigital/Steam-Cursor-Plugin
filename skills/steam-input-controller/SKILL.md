@@ -178,3 +178,7 @@ This returns the correct icon (A button for Xbox, X button for PlayStation, etc.
 ## MCP Usage
 
 Steam Input is an in-process Steamworks SDK API (`ISteamInput`) with no Web API equivalent. This skill remains documentation-only regardless of whether the [Steam MCP server](https://github.com/TMHSDigital/steam-mcp) is available.
+
+## See Also
+
+- [Steam Deck Compatibility](../../rules/steam-deck-compat.mdc) - rule that flags input and compatibility issues for Steam Deck

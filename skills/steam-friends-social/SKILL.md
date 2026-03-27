@@ -156,3 +156,8 @@ When the [Steam MCP server](https://github.com/TMHSDigital/steam-mcp) is configu
 The SDK integration for rich presence, overlay, game invites, friends list iteration, and avatar retrieval remains documentation-only. These are in-process ISteamFriends APIs with no Web API equivalent for the write/interactive operations.
 
 If the MCP server is not available, fall back to the `curl`-based approach using `ISteamUser/GetPlayerSummaries`.
+
+## See Also
+
+- [Steam Multiplayer Networking](../steam-multiplayer-networking/SKILL.md) - lobbies and matchmaking that integrate with social features
+- [Steam Profile Lookup](../steam-profile-lookup/SKILL.md) - look up player profiles, avatars, and friend lists via Web API

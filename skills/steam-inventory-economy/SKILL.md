@@ -139,3 +139,7 @@ curl.exe "https://api.steampowered.com/IInventoryService/GetItemDefs/v1/?key={ST
 The [Steam MCP server](https://github.com/TMHSDigital/steam-mcp) does not currently include inventory or economy tools. The core inventory operations use the in-process Steamworks SDK (`ISteamInventory`), and microtransactions use the publisher-only `ISteamMicroTxn` Web API which requires IP allowlisting.
 
 Read-only inventory MCP tools are planned for a future release. The SDK integration, item schema definition, and microtransaction flows remain documentation-only.
+
+## See Also
+
+- [Steam Workshop Helper](../steam-workshop-helper/SKILL.md) - Workshop UGC integration that can complement inventory items

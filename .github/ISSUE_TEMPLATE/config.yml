@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Steam MCP Server
+    url: https://github.com/TMHSDigital/steam-mcp/issues
+    about: For issues with the companion Steam MCP server, file them in the steam-mcp repo.

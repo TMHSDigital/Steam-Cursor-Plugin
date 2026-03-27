@@ -149,3 +149,7 @@ When a cloud conflict occurs (local and remote versions differ):
 Steam Cloud uses the in-process Steamworks SDK API (`ISteamRemoteStorage`) for reading and writing save files. Auto-Cloud is configured through the Steamworks Partner site or VDF files. Neither has a publicly available Web API equivalent for the core operations.
 
 This skill remains documentation-only regardless of whether the [Steam MCP server](https://github.com/TMHSDigital/steam-mcp) is available.
+
+## See Also
+
+- [Steamworks App Config](../steamworks-app-config/SKILL.md) - depot and build configuration that pairs with cloud save setup

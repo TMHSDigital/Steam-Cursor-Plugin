@@ -81,6 +81,13 @@ If the user asks for insights, add:
 - **Platform coverage** - flag if a game is missing Mac/Linux
 - **Genre overlap** - highlight shared and unique genres
 
+## Key References
+
+| Resource | URL |
+|----------|-----|
+| Store API (appdetails) | https://wiki.teamfortress.com/wiki/User:RJackson/StorefrontAPI |
+| ISteamUserStats (player counts) | https://partner.steamgames.com/doc/webapi/ISteamUserStats |
+
 ## Example Interaction
 
 **User:** "Compare Hades, Dead Cells, and Hollow Knight - price, reviews, and current players."
@@ -111,3 +118,8 @@ When the [Steam MCP server](https://github.com/TMHSDigital/steam-mcp) is configu
 Call `steam.getAppDetails` and `steam.getPlayerCount` once per game being compared. The comparison formatting logic remains the same.
 
 If the MCP server is not available, fall back to the `curl`-based workflow above.
+
+## See Also
+
+- [Steam Store Lookup](../steam-store-lookup/SKILL.md) - detailed store data for a single game
+- [Steam Player Stats](../steam-player-stats/SKILL.md) - deeper stats and achievement data per game

@@ -101,3 +101,7 @@ The `queryWorkshop` tool supports pagination via `cursor` (use `"*"` for the fir
 The SDK integration guidance (upload, download, subscribe flows) remains documentation-only and doesn't change with MCP availability.
 
 If the MCP server is not available, fall back to the `curl`-based workflow above.
+
+## See Also
+
+- [Steam Inventory & Economy](../steam-inventory-economy/SKILL.md) - item systems that can complement Workshop UGC

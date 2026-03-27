@@ -152,3 +152,8 @@ The `datarequest` param controls the view: `0` = Global, `1` = Around user, `2` 
 The SDK integration for creating leaderboards, uploading scores, and downloading entries in-game remains documentation-only.
 
 If the MCP server is not available, fall back to the `curl`-based workflow above.
+
+## See Also
+
+- [Steam Player Stats](../steam-player-stats/SKILL.md) - player counts, achievement stats, and playtime data
+- [Steam Multiplayer Networking](../steam-multiplayer-networking/SKILL.md) - lobby and matchmaking setup for competitive games

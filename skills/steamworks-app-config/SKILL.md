@@ -121,3 +121,8 @@ When the [Steam MCP server](https://github.com/TMHSDigital/steam-mcp) is configu
 This is useful for confirming the app exists and checking its current platform list before generating depot configs. Partner-level API access (depot config fetch, build management) is not available via MCP.
 
 The VDF generation, depot configuration, launch options, DLC setup, and steamcmd documentation remain the same regardless of MCP availability.
+
+## See Also
+
+- [Steam Achievement Designer](../steam-achievement-designer/SKILL.md) - design achievements and generate VDF configs
+- [Steam Cloud Saves](../steam-cloud-saves/SKILL.md) - configure cloud save support alongside your build pipeline

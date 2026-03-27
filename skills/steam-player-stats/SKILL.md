@@ -114,3 +114,9 @@ When the [Steam MCP server](https://github.com/TMHSDigital/steam-mcp) is configu
 Per-player achievements and user stats still require direct API calls (`GetPlayerAchievements`, `GetUserStatsForGame`) as there are no dedicated MCP tools for those yet.
 
 If the MCP server is not available, fall back to the `curl`-based workflow above.
+
+## See Also
+
+- [Steam Leaderboards](../steam-leaderboards/SKILL.md) - create and query leaderboards
+- [Steam Profile Lookup](../steam-profile-lookup/SKILL.md) - full profile data including owned games and playtime
+- [Steam Game Comparison](../steam-game-comparison/SKILL.md) - compare player counts and stats across games

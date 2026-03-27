@@ -147,6 +147,8 @@ When the [Steam MCP server](https://github.com/TMHSDigital/steam-mcp) is configu
 
 The `datarequest` param controls the view: `0` = Global, `1` = Around user, `2` = Friends. When using `1` or `2`, provide the `steamid` param.
 
+> **Note:** `steam.getLeaderboardEntries` calls the partner API (`partner.steam-api.com`), which requires a publisher API key with your server's IP allowlisted in the Steamworks partner site. A standard user API key from `steamcommunity.com/dev/apikey` will return HTTP 403. This is a Valve restriction, not an MCP server issue.
+
 The SDK integration for creating leaderboards, uploading scores, and downloading entries in-game remains documentation-only.
 
 If the MCP server is not available, fall back to the `curl`-based workflow above.

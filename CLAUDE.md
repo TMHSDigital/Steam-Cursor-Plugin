@@ -4,9 +4,11 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-**Steam Developer Tools** is a Cursor IDE plugin (v0.2.0) that integrates Steam and Steamworks APIs for game developers and power users. It provides AI-assisted workflows for querying Steam store data, managing Steamworks configurations, building multiplayer networking, implementing cloud saves, leaderboards, input, inventory/economy, social features, looking up API docs, fetching player statistics, integrating Workshop UGC, designing achievements, looking up player profiles, and comparing games.
+**Steam Developer Tools** is a Cursor IDE plugin (v0.1.0) that integrates Steam and Steamworks APIs for game developers and power users. It provides AI-assisted workflows for querying Steam store data, managing Steamworks configurations, building multiplayer networking, implementing cloud saves, leaderboards, input, inventory/economy, social features, looking up API docs, fetching player statistics, integrating Workshop UGC, designing achievements, looking up player profiles, and comparing games.
 
-This is a **static, documentation-only plugin** - no build system, no npm, no compiled code. All plugin logic is expressed in Markdown skill files and MDC rule files.
+This is currently a **static, documentation-only plugin** - no build system, no npm, no compiled code. All plugin logic is expressed in Markdown skill files and MDC rule files.
+
+The project is on a themed release roadmap toward v1.0.0 (see `ROADMAP.md`). The next major milestone (v0.2.0 "Live Data") introduces a Steam MCP server with read-only API tools. Subsequent releases add analytics/market research skills (v0.3.0), CI/CD automation (v0.4.0), community/monetization skills (v0.5.0), QA rules (v0.6.0), MCP write operations (v0.7.0), and polish (v0.8.0). Target at v1.0.0: 30 skills, 9 rules, 20 MCP tools.
 
 ## Plugin Architecture
 

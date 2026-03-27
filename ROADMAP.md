@@ -1,0 +1,212 @@
+# Roadmap
+
+Themed release plan from v0.2.0 through v1.0.0.
+
+**Current:** v0.1.0 - 14 skills, 3 rules, documentation-only plugin.
+
+**Target:** v1.0.0 - 30 skills, 9 rules, 20 MCP tools.
+
+| Version | Theme | New Skills | New Rules | MCP Tools | Total Skills | Total Rules |
+|---------|-------|-----------|-----------|-----------|-------------|-------------|
+| v0.1.0 (current) | - | - | - | 0 | 14 | 3 |
+| v0.2.0 | Live Data | 0 (updates) | 1 | 10 | 14 | 4 |
+| v0.3.0 | Insights | 4 | 0 | 2 | 18 | 4 |
+| v0.4.0 | Ship It | 3 | 2 | 0 | 21 | 6 |
+| v0.5.0 | Grow | 4 | 0 | 2 | 25 | 6 |
+| v0.6.0 | Quality | 3 | 3 | 0 | 28 | 9 |
+| v0.7.0 | Full Power | 1 | 0 | 6 | 29 | 9 |
+| v0.8.0 | Polish | 1 | 0 | 0 | 30 | 9 |
+| v1.0.0 | Stable | 0 | 0 | 0 | 30 | 9 |
+
+---
+
+## v0.2.0 - "Live Data" (MCP Server Foundation)
+
+**Theme:** Replace static guidance with live, structured API calls.
+
+### MCP Server
+
+Steam MCP server exposing read-only tools:
+
+| Tool | Description |
+|------|-------------|
+| `steam.getAppDetails({ appid })` | Store data (price, reviews, tags, platforms) |
+| `steam.searchApps({ query })` | App search by name |
+| `steam.getPlayerCount({ appid })` | Current concurrent players |
+| `steam.getAchievementStats({ appid })` | Global achievement unlock percentages |
+| `steam.getPlayerSummary({ steamid })` | Profile data (name, avatar, status) |
+| `steam.getOwnedGames({ steamid })` | Game library with playtime |
+| `steam.getWorkshopItem({ fileid })` | Workshop item details |
+| `steam.queryWorkshop({ appid, query_type, count })` | Workshop search/browse |
+| `steam.getLeaderboardEntries({ appid, id, range })` | Leaderboard data |
+| `steam.resolveVanityURL({ vanity })` | Vanity URL to 64-bit Steam ID |
+
+### Skill Updates
+
+Update all 14 existing skills to reference MCP tools where applicable. Replace "MCP Integration (Future)" placeholder sections with concrete "MCP Usage" sections.
+
+### New Rule
+
+- `steam-api-key-usage.mdc` - when MCP tools are available, guide users to prefer MCP calls over raw curl commands
+
+---
+
+## v0.3.0 - "Insights" (Analytics and Market Research)
+
+**Theme:** Data-driven decision-making for game developers and analysts.
+
+### New Skills
+
+| Skill | Description |
+|-------|-------------|
+| `steam-review-analysis` | Fetch and analyze game reviews: sentiment breakdown, common complaints, comparison across updates, language distribution |
+| `steam-price-history` | Pricing trends, sale history, regional pricing analysis, price-to-review value scoring |
+| `steam-market-research` | Genre trend analysis, tag popularity, competitor identification, market gap analysis using store data |
+| `steam-wishlist-estimates` | Estimate wishlists from follower counts and public signals, conversion rate benchmarks |
+
+### New MCP Tools
+
+| Tool | Description |
+|------|-------------|
+| `steam.getReviews({ appid, filter, language, count })` | Fetch user reviews |
+| `steam.getPriceOverview({ appids, cc })` | Batch price check across regions |
+
+---
+
+## v0.4.0 - "Ship It" (CI/CD and Build Pipeline)
+
+**Theme:** Automate the Steam build and release process.
+
+### New Skills
+
+| Skill | Description |
+|-------|-------------|
+| `steam-build-automation` | SteamPipe CI/CD integration (GitHub Actions, GitLab CI, Jenkins), automated depot uploads, branch management (beta/default) |
+| `steam-release-checklist` | Pre-release validation: store page completeness, depot config, achievements uploaded, cloud save tested, Deck compat reviewed |
+| `steam-steamcmd-helper` | steamcmd scripting reference, common commands, batch scripts, Docker containerized builds |
+
+### New Rules
+
+| Rule | Description |
+|------|-------------|
+| `steam-build-config-validation.mdc` | Validate VDF build configs: missing depots, mismatched app IDs, invalid file mappings |
+| `steam-launch-options-check.mdc` | Flag launch option issues: missing executables, wrong OS targeting, missing descriptions for multi-launch |
+
+---
+
+## v0.5.0 - "Grow" (Community and Monetization)
+
+**Theme:** Post-launch growth, community management, and revenue.
+
+### New Skills
+
+| Skill | Description |
+|-------|-------------|
+| `steam-community-management` | Announcements, event creation, discussion forum moderation patterns, update post templates |
+| `steam-store-page-optimizer` | Store page best practices: capsule image specs, description structure, tag strategy, trailer guidance, demo setup |
+| `steam-pricing-strategy` | Regional pricing recommendations, launch discount planning, sale participation, bundle strategy, free-to-play conversion |
+| `steam-dlc-expansion-planning` | DLC roadmap templates, season pass structure, content cadence planning, pricing tiers |
+
+### New MCP Tools
+
+| Tool | Description |
+|------|-------------|
+| `steam.getAppReviewSummary({ appid })` | Review histogram and summary |
+| `steam.getRegionalPricing({ appid, countries })` | Pricing by region |
+
+---
+
+## v0.6.0 - "Quality" (Testing, QA, and Rules)
+
+**Theme:** Catch issues before players do.
+
+### New Skills
+
+| Skill | Description |
+|-------|-------------|
+| `steam-playtest-setup` | Steam Playtest feature configuration, feedback collection, NDA playtest vs open playtest, key distribution |
+| `steam-bug-report-template` | Structured bug report templates with Steam system info integration, crash dump guidance |
+| `steam-anticheat-integration` | EAC and BattlEye setup, Proton/Linux compatibility, VAC integration, custom anti-cheat considerations |
+
+### New Rules
+
+| Rule | Description |
+|------|-------------|
+| `steam-save-compat.mdc` | Flag save file practices that break cross-platform cloud sync: binary endianness, OS-specific paths, hardcoded separators |
+| `steam-network-security.mdc` | Flag insecure networking patterns: unvalidated auth tickets, missing encryption, trusting client data |
+| `steam-api-error-handling.mdc` | Flag missing error/callback handling for Steamworks SDK calls: unchecked results, missing `StoreStats()`, ignored callbacks |
+
+---
+
+## v0.7.0 - "Full Power" (Advanced MCP - Write Operations)
+
+**Theme:** Expand MCP server with write/mutation capabilities.
+
+### New MCP Tools (Write Operations)
+
+| Tool | Description |
+|------|-------------|
+| `steam.createLobby({ type, maxPlayers, metadata })` | Create multiplayer lobbies |
+| `steam.uploadWorkshopItem({ appid, title, content_path })` | Upload new Workshop items |
+| `steam.updateWorkshopItem({ fileid, changes })` | Update existing Workshop items |
+| `steam.setAchievement({ steamid, achievement })` | Unlock achievements (dev/test) |
+| `steam.uploadLeaderboardScore({ appid, leaderboard, score })` | Upload leaderboard scores |
+| `steam.grantInventoryItem({ steamid, itemdef })` | Grant inventory items (dev/test) |
+
+### New Skill
+
+| Skill | Description |
+|-------|-------------|
+| `steam-testing-sandbox` | Guide for using App ID 480 (SpaceWar) as a development sandbox, test account setup, Steam client developer console commands |
+
+### Rule Updates
+
+- Update `steam-appid-validation.mdc` to integrate with MCP for live validation (check if App ID exists via API)
+
+---
+
+## v0.8.0 - "Polish" (Refinement and Gaps)
+
+**Theme:** Fill gaps, improve consistency, harden everything.
+
+### Improvements
+
+- Audit and improve all skill workflows for clarity and completeness
+- Add troubleshooting/error reference sections to every skill
+- Add cross-references between related skills (e.g., multiplayer links to friends/social, leaderboards links to player stats)
+- Ensure every MCP tool has proper error handling documented
+- Add "Common Pitfalls" sections to skills that deal with tricky APIs
+
+### New Skill
+
+| Skill | Description |
+|-------|-------------|
+| `steam-migration-guide` | Migrating from other platforms (Epic, GOG, itch.io) to Steam, or porting between engines with Steamworks |
+
+### Documentation
+
+- Comprehensive MCP server README with setup instructions
+- API rate limiting and best practices guide
+- Full skill/rule cross-reference matrix
+
+---
+
+## v1.0.0 - "Stable" (Production Release)
+
+**Theme:** Stable, complete, production-ready plugin.
+
+### Release Checklist
+
+- [ ] All 30 skills reviewed and tested
+- [ ] All 20 MCP tools documented and stable
+- [ ] All 9 rules validated against real projects
+- [ ] CHANGELOG fully up to date
+- [ ] README reflects final feature set
+- [ ] Version locked at 1.0.0, semver from here on out
+
+---
+
+## Completed
+
+- [x] ~~Steam Deck compatibility checker~~ - added in v0.1.0 as a rule
+- [x] ~~Steamworks SDK code generation~~ - covered by multiplayer, cloud, leaderboard, input, and inventory skills

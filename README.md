@@ -10,7 +10,7 @@
 
 <p align="center">
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-CC--BY--NC--ND--4.0-blue.svg" alt="License: CC BY-NC-ND 4.0"></a>
-  <a href="CHANGELOG.md"><img src="https://img.shields.io/badge/version-0.2.0-green.svg" alt="Version"></a>
+  <a href="CHANGELOG.md"><img src="https://img.shields.io/badge/version-0.1.0-green.svg" alt="Version"></a>
   <a href="https://github.com/TMHSDigital/Steam-Cursor-Plugin/stargazers"><img src="https://img.shields.io/github/stars/TMHSDigital/Steam-Cursor-Plugin?style=flat" alt="GitHub Stars"></a>
   <a href="https://github.com/TMHSDigital/Steam-Cursor-Plugin/commits/main"><img src="https://img.shields.io/github/last-commit/TMHSDigital/Steam-Cursor-Plugin" alt="Last Commit"></a>
   <a href="https://github.com/TMHSDigital/Steam-Cursor-Plugin"><img src="https://img.shields.io/badge/Cursor-Plugin-8B5CF6.svg" alt="Cursor Plugin"></a>
@@ -302,12 +302,18 @@ These work immediately without any API key:
 
 ## Roadmap
 
-- [ ] Steam MCP server for live, structured API calls
-- [x] ~~Steam Deck compatibility checker~~ - added in v0.2.0 as a rule
-- [x] ~~Steamworks SDK code generation~~ - covered by multiplayer, cloud, leaderboard, input, and inventory skills
-- [ ] Steam review sentiment analysis skill
-- [ ] Steam sale / price history tracking
-- [ ] SteamVR integration skill
+See [ROADMAP.md](ROADMAP.md) for the full themed release plan (v0.2.0 through v1.0.0).
+
+| Version | Theme | Highlights |
+|---------|-------|------------|
+| **v0.2.0** | Live Data | Steam MCP server with 10 read-only tools, skill updates |
+| **v0.3.0** | Insights | Review analysis, price history, market research, wishlist estimates |
+| **v0.4.0** | Ship It | CI/CD automation, release checklist, steamcmd helper, build validation rules |
+| **v0.5.0** | Grow | Community management, store page optimization, pricing strategy, DLC planning |
+| **v0.6.0** | Quality | Playtest setup, anti-cheat integration, save compat / network security / error handling rules |
+| **v0.7.0** | Full Power | MCP write operations (lobbies, workshop uploads, achievements, inventory) |
+| **v0.8.0** | Polish | Cross-references, troubleshooting sections, migration guide |
+| **v1.0.0** | Stable | Production release: 30 skills, 9 rules, 20 MCP tools |
 
 ## Contributing
 

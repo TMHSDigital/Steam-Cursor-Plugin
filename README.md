@@ -15,6 +15,7 @@
   <a href="https://github.com/TMHSDigital/Steam-Cursor-Plugin/commits/main"><img src="https://img.shields.io/github/last-commit/TMHSDigital/Steam-Cursor-Plugin" alt="Last Commit"></a>
   <a href="https://github.com/TMHSDigital/Steam-Cursor-Plugin"><img src="https://img.shields.io/badge/Cursor-Plugin-8B5CF6.svg" alt="Cursor Plugin"></a>
   <a href="https://partner.steamgames.com/doc/webapi"><img src="https://img.shields.io/badge/Steam_Web_API-1b2838.svg?logo=steam&logoColor=white" alt="Steam Web API"></a>
+  <a href="https://github.com/sponsors/TMHSDigital"><img src="https://img.shields.io/badge/Sponsor-ea4aaa.svg?logo=githubsponsors&logoColor=white" alt="Sponsor"></a>
 </p>
 
 ---
@@ -318,6 +319,10 @@ See [ROADMAP.md](ROADMAP.md) for the full themed release plan (v0.2.0 through v1
 ## Contributing
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines on how to contribute skills, rules, and improvements.
+
+## Support
+
+If this plugin is useful to you, consider [sponsoring the project](https://github.com/sponsors/TMHSDigital).
 
 ## License
 

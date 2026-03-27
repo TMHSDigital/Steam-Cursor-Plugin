@@ -17,6 +17,7 @@ ehthumbs.db
 
 # IDE (allow .cursor-plugin/)
 .vscode/
+.claude/
 *.swp
 *.swo
 *~

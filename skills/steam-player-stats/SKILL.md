@@ -17,9 +17,9 @@ Use this skill when the user:
 
 ## Required Inputs
 
-- **App ID** — for game-specific queries
-- **Steam ID** (64-bit) — for player-specific queries (optional, depends on query type)
-- **Steam API Key** — required for most player data endpoints (the user should have `STEAM_API_KEY` set)
+- **App ID** - for game-specific queries
+- **Steam ID** (64-bit) - for player-specific queries (optional, depends on query type)
+- **Steam API Key** - required for most player data endpoints (the user should have `STEAM_API_KEY` set)
 
 ## Workflow
 
@@ -29,7 +29,7 @@ Use this skill when the user:
    ```bash
    curl.exe "https://api.steampowered.com/ISteamUserStats/GetNumberOfCurrentPlayers/v1/?appid={appid}"
    ```
-2. Response: `response.player_count` — the number of players in-game right now.
+2. Response: `response.player_count` - the number of players in-game right now.
 
 ### Global Achievement Percentages (no API key needed)
 
@@ -37,7 +37,7 @@ Use this skill when the user:
    ```bash
    curl.exe "https://api.steampowered.com/ISteamUserStats/GetGlobalAchievementPercentagesForApp/v2/?gameid={appid}"
    ```
-2. Response: `achievementpercentages.achievements[]` — each has `name` (API name) and `percent`.
+2. Response: `achievementpercentages.achievements[]` - each has `name` (API name) and `percent`.
 3. Sort by percent descending and format as a table.
 
 ### Per-Player Achievements (API key required)
@@ -46,7 +46,7 @@ Use this skill when the user:
    ```bash
    curl.exe "https://api.steampowered.com/ISteamUserStats/GetPlayerAchievements/v1/?appid={appid}&key={STEAM_API_KEY}&steamid={steamid}"
    ```
-2. Response: `playerstats.achievements[]` — each has `apiname`, `achieved` (0/1), and `unlocktime`.
+2. Response: `playerstats.achievements[]` - each has `apiname`, `achieved` (0/1), and `unlocktime`.
 3. The player's profile must be public for this to work.
 
 ### User Stats for Game (API key required)
@@ -55,7 +55,7 @@ Use this skill when the user:
    ```bash
    curl.exe "https://api.steampowered.com/ISteamUserStats/GetUserStatsForGame/v2/?appid={appid}&key={STEAM_API_KEY}&steamid={steamid}"
    ```
-2. Response: `playerstats.stats[]` — each has `name` and `value`.
+2. Response: `playerstats.stats[]` - each has `name` and `value`.
 
 ### Owned Games / Playtime (API key required)
 
@@ -63,7 +63,7 @@ Use this skill when the user:
    ```bash
    curl.exe "https://api.steampowered.com/IPlayerService/GetOwnedGames/v1/?key={STEAM_API_KEY}&steamid={steamid}&include_appinfo=1&include_played_free_games=1"
    ```
-2. Response: `response.games[]` — each has `appid`, `name`, `playtime_forever` (minutes), `playtime_2weeks`.
+2. Response: `response.games[]` - each has `appid`, `name`, `playtime_forever` (minutes), `playtime_2weeks`.
 
 ### Steam ID Resolution
 

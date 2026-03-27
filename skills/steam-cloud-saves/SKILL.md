@@ -17,14 +17,14 @@ Use this skill when the user:
 
 ## Required Inputs
 
-- **App ID** — the game's Steam App ID
-- **Save approach** — Auto-Cloud (file-based, no code) or Manual (SDK API calls)
+- **App ID** - the game's Steam App ID
+- **Save approach** - Auto-Cloud (file-based, no code) or Manual (SDK API calls)
 
 ## Workflow
 
 ### Auto-Cloud (No Code Required)
 
-The simplest approach — Steam automatically syncs files from specified paths.
+The simplest approach - Steam automatically syncs files from specified paths.
 
 1. **Configure in Steamworks Partner site:**
    - Go to App Admin > Steam Cloud > Settings

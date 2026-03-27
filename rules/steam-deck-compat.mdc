@@ -33,7 +33,7 @@ When editing or reviewing game project files, watch for these common Steam Deck 
 ## Anti-Cheat
 
 6. **Anti-cheat compatibility.** If the project references EasyAntiCheat (EAC), BattlEye, or other anti-cheat systems, note:
-   - EAC and BattlEye both support Proton/Linux — but it must be explicitly enabled in the Steamworks Partner site
+   - EAC and BattlEye both support Proton/Linux - but it must be explicitly enabled in the Steamworks Partner site
    - Kernel-level anti-cheat will NOT work under Proton
    - Provide link: https://partner.steamgames.com/doc/steamdeck/proton
 

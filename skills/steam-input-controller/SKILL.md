@@ -17,8 +17,8 @@ Use this skill when the user:
 
 ## Required Inputs
 
-- **App ID** — the game's Steam App ID
-- **Input actions** — the game actions to map (move, jump, fire, etc.)
+- **App ID** - the game's Steam App ID
+- **Input actions** - the game actions to map (move, jump, fire, etc.)
 
 ## Workflow
 
@@ -27,9 +27,9 @@ Use this skill when the user:
 Steam Input provides a unified API across all controller types. Instead of polling raw buttons, you define **actions** and let players bind them to any controller.
 
 Key concepts:
-- **Action Set** — a group of actions active at a given time (e.g., "InGame", "Menu", "Vehicle")
-- **Digital Action** — on/off (jump, fire, pause)
-- **Analog Action** — continuous (move, camera, steering)
+- **Action Set** - a group of actions active at a given time (e.g., "InGame", "Menu", "Vehicle")
+- **Digital Action** - on/off (jump, fire, pause)
+- **Analog Action** - continuous (move, camera, steering)
 
 ### In-Game Actions (IGA) File
 

@@ -17,8 +17,8 @@ Use this skill when the user:
 
 ## Required Inputs
 
-- **App ID** — the game's Steam App ID
-- **Feature** — friends list, rich presence, invites, overlay, or avatars
+- **App ID** - the game's Steam App ID
+- **Feature** - friends list, rich presence, invites, overlay, or avatars
 
 ## Workflow
 
@@ -77,7 +77,7 @@ if (SteamFriends()->GetFriendGamePlayed(friendId, &gameInfo)) {
 SteamFriends()->InviteUserToGame(friendSteamId, "+connect_lobby {lobbyId}");
 ```
 
-**Handle incoming invites** — register for `GameRichPresenceJoinRequested_t` callback:
+**Handle incoming invites** - register for `GameRichPresenceJoinRequested_t` callback:
 ```cpp
 void OnJoinRequested(GameRichPresenceJoinRequested_t* pCallback) {
     // pCallback->m_rgchConnect contains the connect string
@@ -99,7 +99,7 @@ if (avatarHandle > 0) {
 }
 ```
 
-Avatar loading may be asynchronous — listen for `AvatarImageLoaded_t` callback.
+Avatar loading may be asynchronous - listen for `AvatarImageLoaded_t` callback.
 
 ### Steam Overlay
 

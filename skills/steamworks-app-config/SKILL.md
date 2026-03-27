@@ -25,10 +25,10 @@ Use this skill when the user:
 
 ### Depot Configuration
 
-1. **Explain the depot model.** Steam distributes content via depots — each depot is a set of files for a specific platform or content type. Typical setup:
-   - Depot `{appid+1}` — Windows content
-   - Depot `{appid+2}` — macOS content
-   - Depot `{appid+3}` — Linux content
+1. **Explain the depot model.** Steam distributes content via depots - each depot is a set of files for a specific platform or content type. Typical setup:
+   - Depot `{appid+1}` - Windows content
+   - Depot `{appid+2}` - macOS content
+   - Depot `{appid+3}` - Linux content
    - Additional depots for DLC, soundtracks, dedicated servers
 
 2. **Generate `app_build.vdf`** for the user's scenario:
@@ -68,11 +68,11 @@ Use this skill when the user:
 ### Launch Options
 
 4. **Document launch option fields:**
-   - `executable` — path relative to install directory
-   - `type` — `default`, `server`, `editor`, `manual`, etc.
-   - `oslist` — `windows`, `macos`, `linux`
-   - `arguments` — command-line args
-   - `description` — shown to user in launch dialog (if multiple options)
+   - `executable` - path relative to install directory
+   - `type` - `default`, `server`, `editor`, `manual`, etc.
+   - `oslist` - `windows`, `macos`, `linux`
+   - `arguments` - command-line args
+   - `description` - shown to user in launch dialog (if multiple options)
 
 ### DLC Setup
 

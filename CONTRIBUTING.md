@@ -59,10 +59,10 @@ rules/                 # 3 rule files
    ---
    ```
 3. Structure the body with these sections:
-   - **Trigger** — when Cursor should load this skill
-   - **Required Inputs** — what the user must provide
-   - **Workflow** — step-by-step instructions for the agent
-   - **Example Interaction** — sample prompt and response
+   - **Trigger** - when Cursor should load this skill
+   - **Required Inputs** - what the user must provide
+   - **Workflow** - step-by-step instructions for the agent
+   - **Example Interaction** - sample prompt and response
 
 ## Adding a Rule
 
@@ -80,7 +80,7 @@ rules/                 # 3 rule files
 
 ## Pull Request Process
 
-1. Keep changes focused — one skill or rule per PR when possible
+1. Keep changes focused - one skill or rule per PR when possible
 2. Ensure all frontmatter is valid YAML
 3. Test the skill/rule locally in Cursor before submitting
 4. Write a clear PR description explaining what the change does and why

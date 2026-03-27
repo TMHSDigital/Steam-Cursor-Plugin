@@ -17,7 +17,7 @@ Use this skill when the user:
 
 ## Required Inputs
 
-- **Game names or App IDs** — at least two games to compare
+- **Game names or App IDs** - at least two games to compare
 
 ## Workflow
 
@@ -74,14 +74,14 @@ Present the results side by side:
 ### 5. Optional Analysis
 
 If the user asks for insights, add:
-- **Price-to-review ratio** — which game offers the best perceived value
-- **Player count trends** — note if a game has unusually high/low concurrent players for its age
-- **Platform coverage** — flag if a game is missing Mac/Linux
-- **Genre overlap** — highlight shared and unique genres
+- **Price-to-review ratio** - which game offers the best perceived value
+- **Player count trends** - note if a game has unusually high/low concurrent players for its age
+- **Platform coverage** - flag if a game is missing Mac/Linux
+- **Genre overlap** - highlight shared and unique genres
 
 ## Example Interaction
 
-**User:** "Compare Hades, Dead Cells, and Hollow Knight — price, reviews, and current players."
+**User:** "Compare Hades, Dead Cells, and Hollow Knight - price, reviews, and current players."
 
 **Agent:**
 1. Resolves all three names to App IDs

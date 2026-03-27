@@ -5,11 +5,11 @@
 <h1 align="center">Steam Developer Tools</h1>
 
 <p align="center">
-  <em>Steam &amp; Steamworks integration for Cursor IDE &mdash; built for game developers and power users.</em>
+  <em>Steam &amp; Steamworks integration for Cursor IDE - built for game developers and power users.</em>
 </p>
 
 <p align="center">
-  <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License: MIT"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/license-CC--BY--NC--ND--4.0-blue.svg" alt="License: CC BY-NC-ND 4.0"></a>
   <a href="CHANGELOG.md"><img src="https://img.shields.io/badge/version-0.2.0-green.svg" alt="Version"></a>
   <a href="https://github.com/TMHSDigital/Steam-Cursor-Plugin/stargazers"><img src="https://img.shields.io/github/stars/TMHSDigital/Steam-Cursor-Plugin?style=flat" alt="GitHub Stars"></a>
   <a href="https://github.com/TMHSDigital/Steam-Cursor-Plugin/commits/main"><img src="https://img.shields.io/github/last-commit/TMHSDigital/Steam-Cursor-Plugin" alt="Last Commit"></a>
@@ -19,7 +19,7 @@
 
 ---
 
-Query Steam store data, manage Steamworks app configurations, build multiplayer networking, implement cloud saves, design achievements, compare games, and look up player profiles &mdash; all from within Cursor's AI chat. 14 skills and 3 rules covering the full Steam &amp; Steamworks ecosystem.
+Query Steam store data, manage Steamworks app configurations, build multiplayer networking, implement cloud saves, design achievements, compare games, and look up player profiles - all from within Cursor's AI chat. 14 skills and 3 rules covering the full Steam &amp; Steamworks ecosystem.
 
 > **No API key required** for most features. Store lookups, player counts, global achievement stats, and app searches all work out of the box.
 
@@ -41,8 +41,8 @@ Query Steam store data, manage Steamworks app configurations, build multiplayer 
 | **Steam Friends & Social** | Integrate friends list, rich presence, game invites, Steam Overlay, and avatar/persona retrieval into your game. |
 | **Steam Input / Controllers** | Set up Steam Input with action sets, digital/analog bindings, and controller glyph retrieval for Xbox, PlayStation, Switch, and Steam Deck. |
 | **Steam Inventory & Economy** | Implement item systems, drops, crafting, the Steam Item Store, and in-game purchases via ISteamInventory and ISteamMicroTxn. |
-| **Steam Profile Lookup** | Look up any Steam user's public profile — games, playtime, level, badges, friends, and recent activity. |
-| **Steam Game Comparison** | Compare two or more Steam games side by side — price, reviews, player counts, genres, and platforms in a formatted table. |
+| **Steam Profile Lookup** | Look up any Steam user's public profile - games, playtime, level, badges, friends, and recent activity. |
+| **Steam Game Comparison** | Compare two or more Steam games side by side - price, reviews, player counts, genres, and platforms in a formatted table. |
 
 ### Rules
 
@@ -55,8 +55,8 @@ Query Steam store data, manage Steamworks app configurations, build multiplayer 
 ## Quick Start
 
 1. **Install** the plugin from the Cursor marketplace (or [manually](#manual-installation))
-2. **Ask** Cursor anything about Steam &mdash; try: `What's the current price for Hades?`
-3. **Get results** &mdash; the plugin fetches live data from Steam's public APIs and formats it for you
+2. **Ask** Cursor anything about Steam - try: `What's the current price for Hades?`
+3. **Get results** - the plugin fetches live data from Steam's public APIs and formats it for you
 
 That's it. No configuration needed for basic usage.
 
@@ -252,7 +252,7 @@ What are my most played games on Steam?
 ### Game Comparison
 
 ```
-Compare Hades, Dead Cells, and Hollow Knight — price, reviews, and current players.
+Compare Hades, Dead Cells, and Hollow Knight - price, reviews, and current players.
 ```
 
 ```
@@ -303,8 +303,8 @@ These work immediately without any API key:
 ## Roadmap
 
 - [ ] Steam MCP server for live, structured API calls
-- [x] ~~Steam Deck compatibility checker~~ &mdash; added in v0.2.0 as a rule
-- [x] ~~Steamworks SDK code generation~~ &mdash; covered by multiplayer, cloud, leaderboard, input, and inventory skills
+- [x] ~~Steam Deck compatibility checker~~ - added in v0.2.0 as a rule
+- [x] ~~Steamworks SDK code generation~~ - covered by multiplayer, cloud, leaderboard, input, and inventory skills
 - [ ] Steam review sentiment analysis skill
 - [ ] Steam sale / price history tracking
 - [ ] SteamVR integration skill
@@ -315,7 +315,7 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines on how to contribute skill
 
 ## License
 
-MIT &mdash; see [LICENSE](LICENSE) for details.
+CC BY-NC-ND 4.0 - see [LICENSE](LICENSE) for details.
 
 <details>
 <summary><strong>Steam API Reference Links</strong></summary>

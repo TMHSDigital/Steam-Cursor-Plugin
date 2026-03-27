@@ -17,8 +17,8 @@ Use this skill when the user:
 
 ## Required Inputs
 
-- **Achievement list** — at minimum, names and descriptions for each achievement
-- **App ID** — the game's Steam App ID (for code examples)
+- **Achievement list** - at minimum, names and descriptions for each achievement
+- **App ID** - the game's Steam App ID (for code examples)
 
 ## Workflow
 
@@ -38,7 +38,7 @@ For each achievement, define these fields:
 ### 2. Naming Conventions
 
 - API names: `ACH_` prefix, uppercase, underscores. E.g., `ACH_COLLECT_ALL_ITEMS`
-- Keep API names stable — changing them after release breaks existing unlock data
+- Keep API names stable - changing them after release breaks existing unlock data
 - Display names: title case, concise (under 64 characters)
 - Descriptions: one sentence, under 128 characters, describe the unlock condition
 

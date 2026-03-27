@@ -17,8 +17,8 @@ Use this skill when the user:
 
 ## Required Inputs
 
-- **App ID** — the game's Steam App ID
-- **Feature** — inventory items, in-game purchases, item store, or trading
+- **App ID** - the game's Steam App ID
+- **Feature** - inventory items, in-game purchases, item store, or trading
 
 ## Workflow
 
@@ -91,14 +91,14 @@ curl.exe -X POST "https://partner.steam-api.com/ISteamMicroTxn/InitTxn/v3/" -d "
 curl.exe -X POST "https://partner.steam-api.com/ISteamMicroTxn/FinalizeTxn/v2/" -d "key={PUBLISHER_KEY}&orderid={unique_order_id}&appid={appid}"
 ```
 
-4. **Verify in-game** — listen for `MicroTxnAuthorizationResponse_t` callback.
+4. **Verify in-game** - listen for `MicroTxnAuthorizationResponse_t` callback.
 
 ### Item Store
 
 The Steam Item Store is a built-in storefront hosted on the Steam Community:
 - Items with `price` in their schema appear automatically
 - Users purchase with Steam Wallet
-- No custom UI needed — Steam handles the store page
+- No custom UI needed - Steam handles the store page
 
 ### Web API Queries
 

@@ -17,9 +17,9 @@ Use this skill when the user:
 
 ## Required Inputs
 
-- **App ID** — the game's Steam App ID
-- **Leaderboard name** — the identifier for the leaderboard
-- **Sort method** — ascending (speedruns, golf) or descending (high scores)
+- **App ID** - the game's Steam App ID
+- **Leaderboard name** - the identifier for the leaderboard
+- **Sort method** - ascending (speedruns, golf) or descending (high scores)
 
 ## Workflow
 

@@ -17,8 +17,8 @@ Use this skill when the user:
 
 ## Required Inputs
 
-- **Steam identifier** — any of: vanity URL name, full profile URL, or 64-bit Steam ID
-- **Steam API Key** — required for all profile endpoints (`STEAM_API_KEY` environment variable)
+- **Steam identifier** - any of: vanity URL name, full profile URL, or 64-bit Steam ID
+- **Steam API Key** - required for all profile endpoints (`STEAM_API_KEY` environment variable)
 
 ## Workflow
 
@@ -32,9 +32,9 @@ curl.exe "https://api.steampowered.com/ISteamUser/ResolveVanityURL/v1/?key={STEA
 ```
 Returns `response.steamid`.
 
-**From profile URL** — extract the ID:
-- `steamcommunity.com/id/{vanity}` — resolve via above
-- `steamcommunity.com/profiles/{steamid64}` — use directly
+**From profile URL** - extract the ID:
+- `steamcommunity.com/id/{vanity}` - resolve via above
+- `steamcommunity.com/profiles/{steamid64}` - use directly
 
 ### 2. Fetch Player Summary
 
@@ -43,13 +43,13 @@ curl.exe "https://api.steampowered.com/ISteamUser/GetPlayerSummaries/v2/?key={ST
 ```
 
 Key fields in `response.players[0]`:
-- `personaname` — display name
-- `avatarfull` — full-size avatar URL
-- `personastate` — 0=Offline, 1=Online, 2=Busy, 3=Away, 4=Snooze, 5=LookingToTrade, 6=LookingToPlay
-- `profileurl` — full profile URL
-- `timecreated` — account creation timestamp
-- `lastlogoff` — last seen timestamp
-- `communityvisibilitystate` — 1=Private, 3=Public
+- `personaname` - display name
+- `avatarfull` - full-size avatar URL
+- `personastate` - 0=Offline, 1=Online, 2=Busy, 3=Away, 4=Snooze, 5=LookingToTrade, 6=LookingToPlay
+- `profileurl` - full profile URL
+- `timecreated` - account creation timestamp
+- `lastlogoff` - last seen timestamp
+- `communityvisibilitystate` - 1=Private, 3=Public
 
 ### 3. Fetch Owned Games with Playtime
 
@@ -57,7 +57,7 @@ Key fields in `response.players[0]`:
 curl.exe "https://api.steampowered.com/IPlayerService/GetOwnedGames/v1/?key={STEAM_API_KEY}&steamid={steamid}&include_appinfo=1&include_played_free_games=1&format=json"
 ```
 
-Response: `response.games[]` — each has `appid`, `name`, `playtime_forever` (minutes), `playtime_2weeks`, `img_icon_url`.
+Response: `response.games[]` - each has `appid`, `name`, `playtime_forever` (minutes), `playtime_2weeks`, `img_icon_url`.
 
 Sort by `playtime_forever` descending for "most played" view.
 

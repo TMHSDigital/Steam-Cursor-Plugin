@@ -17,8 +17,8 @@ Use this skill when the user:
 
 ## Required Inputs
 
-- **App ID** — the game's Steam App ID (for browsing workshop items)
-- **Published File ID** — for looking up a specific workshop item (optional)
+- **App ID** - the game's Steam App ID (for browsing workshop items)
+- **Published File ID** - for looking up a specific workshop item (optional)
 
 ## Workflow
 
@@ -33,7 +33,7 @@ Use this skill when the user:
    - `file_size`, `file_url`
    - `creator` (Steam ID), `time_created`, `time_updated`
    - `subscriptions`, `favorited`, `views`
-   - `preview_url` — thumbnail image
+   - `preview_url` - thumbnail image
 
 ### Query Workshop Items for a Game
 
@@ -43,27 +43,27 @@ Use this skill when the user:
    ```
    Query types: `0` = ranked by vote, `1` = ranked by date, `3` = ranked by trend, `12` = ranked by playtime.
 
-2. Response: `response.publishedfiledetails[]` — same structure as above but in a list.
+2. Response: `response.publishedfiledetails[]` - same structure as above but in a list.
 
 ### Workshop Integration Patterns
 
 When the user is building Workshop support into their game, provide guidance on the Steamworks SDK integration:
 
 **Upload flow (SDK):**
-1. `ISteamUGC::CreateItem(appId, k_EWorkshopFileTypeCommunity)` — creates a new item, returns `CreateItemResult_t` with `m_nPublishedFileId`
-2. `ISteamUGC::StartItemUpdate(appId, publishedFileId)` — begins an update transaction
+1. `ISteamUGC::CreateItem(appId, k_EWorkshopFileTypeCommunity)` - creates a new item, returns `CreateItemResult_t` with `m_nPublishedFileId`
+2. `ISteamUGC::StartItemUpdate(appId, publishedFileId)` - begins an update transaction
 3. Set content: `SetItemTitle`, `SetItemDescription`, `SetItemContent` (folder path), `SetItemPreview` (image path), `SetItemTags`
-4. `ISteamUGC::SubmitItemUpdate(handle, changeNote)` — submits asynchronously
+4. `ISteamUGC::SubmitItemUpdate(handle, changeNote)` - submits asynchronously
 
 **Download / subscribe flow (SDK):**
-1. `ISteamUGC::SubscribeItem(publishedFileId)` — triggers download
-2. `ISteamUGC::GetItemInstallInfo(publishedFileId, ...)` — returns local path, size, timestamp
+1. `ISteamUGC::SubscribeItem(publishedFileId)` - triggers download
+2. `ISteamUGC::GetItemInstallInfo(publishedFileId, ...)` - returns local path, size, timestamp
 3. Load content from the install path in your game
 
 **Query flow (SDK):**
-1. `ISteamUGC::CreateQueryAllUGCRequest(...)` — set up query with filters
-2. `ISteamUGC::SendQueryUGCRequest(handle)` — execute
-3. `ISteamUGC::GetQueryUGCResult(handle, index, &details)` — iterate results
+1. `ISteamUGC::CreateQueryAllUGCRequest(...)` - set up query with filters
+2. `ISteamUGC::SendQueryUGCRequest(handle)` - execute
+3. `ISteamUGC::GetQueryUGCResult(handle, index, &details)` - iterate results
 
 ## Key References
 
@@ -83,7 +83,7 @@ When the user is building Workshop support into their game, provide guidance on 
 2. Provides the download/subscribe flow
 3. Shows how to query installed items at game startup
 4. Links to the Workshop implementation guide
-5. Notes: "Use `SetItemContent` pointing to a folder — Steam will diff and upload only changed files."
+5. Notes: "Use `SetItemContent` pointing to a folder - Steam will diff and upload only changed files."
 
 ## MCP Integration (Future)
 

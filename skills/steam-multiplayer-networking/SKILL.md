@@ -17,8 +17,8 @@ Use this skill when the user:
 
 ## Required Inputs
 
-- **App ID** — the game's Steam App ID
-- **Multiplayer type** — lobbies, P2P, dedicated servers, or a combination
+- **App ID** - the game's Steam App ID
+- **Multiplayer type** - lobbies, P2P, dedicated servers, or a combination
 
 ## Workflow
 
@@ -39,7 +39,7 @@ SteamMatchmaking.CreateLobby(ELobbyType.k_ELobbyTypePublic, maxPlayers);
 
 Lobby types: `Private`, `FriendsOnly`, `Public`, `Invisible`.
 
-2. **Set lobby metadata** (game mode, map, version — used for filtering):
+2. **Set lobby metadata** (game mode, map, version - used for filtering):
 ```cpp
 SteamMatchmaking()->SetLobbyData(lobbyId, "gamemode", "deathmatch");
 SteamMatchmaking()->SetLobbyData(lobbyId, "map", "arena_01");
@@ -57,7 +57,7 @@ SteamMatchmaking()->RequestLobbyList();
 SteamMatchmaking()->JoinLobby(lobbyId);
 ```
 
-5. **Lobby chat and data exchange** — use `SetLobbyMemberData` and `SendLobbyChatMsg` for pre-game coordination.
+5. **Lobby chat and data exchange** - use `SetLobbyMemberData` and `SendLobbyChatMsg` for pre-game coordination.
 
 ### Steam Networking Sockets (Relay Network)
 
@@ -100,13 +100,13 @@ SteamGameServer()->SetGameDescription("My Game Server");
 SteamGameServer()->LogOnAnonymous();
 ```
 
-2. **Auth tickets** — validate connecting players:
+2. **Auth tickets** - validate connecting players:
 ```cpp
 SteamGameServer()->BeginAuthSession(ticket, ticketLen, clientSteamId);
 // Check EAuthSessionResponse in callback
 ```
 
-3. **Server browser registration** — servers appear in Steam's server browser automatically after `LogOnAnonymous()`.
+3. **Server browser registration** - servers appear in Steam's server browser automatically after `LogOnAnonymous()`.
 
 ### Skill-Based Matchmaking
 

@@ -4,11 +4,11 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-**Steam Developer Tools** is a Cursor IDE plugin (v0.6.0) that integrates Steam and Steamworks APIs for game developers and power users. It provides AI-assisted workflows for querying Steam store data, managing Steamworks configurations, building multiplayer networking, implementing cloud saves, leaderboards, input, inventory/economy, social features, looking up API docs, fetching player statistics, integrating Workshop UGC, designing achievements, looking up player profiles, comparing games, analyzing reviews, researching pricing, evaluating market fit, estimating wishlists, automating builds, validating release readiness, scripting steamcmd, managing communities, optimizing store pages, planning pricing strategy, configuring DLC, setting up playtests, creating bug report workflows, and integrating anti-cheat.
+**Steam Developer Tools** is a Cursor IDE plugin (v0.7.0) that integrates Steam and Steamworks APIs for game developers and power users. It provides AI-assisted workflows for querying Steam store data, managing Steamworks configurations, building multiplayer networking, implementing cloud saves, leaderboards, input, inventory/economy, social features, looking up API docs, fetching player statistics, integrating Workshop UGC, designing achievements, looking up player profiles, comparing games, analyzing reviews, researching pricing, evaluating market fit, estimating wishlists, automating builds, validating release readiness, scripting steamcmd, managing communities, optimizing store pages, planning pricing strategy, configuring DLC, setting up playtests, creating bug report workflows, integrating anti-cheat, and providing a testing sandbox.
 
-This plugin uses Markdown skill files and MDC rule files for AI guidance, paired with the companion [Steam MCP Server](https://github.com/TMHSDigital/steam-mcp) (separate repo) which provides 10 read-only API tools for live data access. No build system, no npm, no compiled code in this repo.
+This plugin uses Markdown skill files and MDC rule files for AI guidance, paired with the companion [Steam MCP Server](https://github.com/TMHSDigital/steam-mcp) (separate repo) which provides 16 API tools (10 read-only + 6 write/guidance) for live data access. No build system, no npm, no compiled code in this repo.
 
-The project is on a themed release roadmap toward v1.0.0 (see `ROADMAP.md`). The next major milestone (v0.7.0 "Full Power") adds MCP write operations. Subsequent releases add polish (v0.8.0). Target at v1.0.0: 30 skills, 9 rules, 20 MCP tools.
+The project is on a themed release roadmap toward v1.0.0 (see `ROADMAP.md`). The next major milestone (v0.8.0 "Polish") adds refinement and gap-filling. Target at v1.0.0: 30 skills, 9 rules, 20 MCP tools.
 
 ## Plugin Architecture
 
@@ -18,7 +18,7 @@ skills/<skill-name>/SKILL.md - AI workflow definitions (one per skill)
 rules/<rule-name>.mdc        - Code quality and security rules (applied by Cursor AI)
 ```
 
-### Skills (28 total)
+### Skills (29 total)
 
 Each `SKILL.md` uses YAML frontmatter followed by markdown sections: **Trigger**, **Required Inputs**, **Workflow**, and **Example**.
 
@@ -52,6 +52,7 @@ Each `SKILL.md` uses YAML frontmatter followed by markdown sections: **Trigger**
 | `steam-playtest-setup` | Steam Playtest config, open/closed playtests, key distribution |
 | `steam-bug-report-template` | Bug report templates, crash dumps, system info, known issues |
 | `steam-anticheat-integration` | EAC, BattlEye, VAC setup, Proton/Deck compatibility |
+| `steam-testing-sandbox` | App ID 480 sandbox, test accounts, console commands, dev workflow |
 
 ### Rules (9 total)
 
@@ -69,7 +70,7 @@ Each `SKILL.md` uses YAML frontmatter followed by markdown sections: **Trigger**
 
 ### Companion MCP Server
 
-The [Steam MCP Server](https://github.com/TMHSDigital/steam-mcp) provides 10 read-only tools. Skills reference these tools in their `## MCP Usage` sections. When the MCP server is configured in Cursor, skills prefer MCP tool calls over shell `curl` commands.
+The [Steam MCP Server](https://github.com/TMHSDigital/steam-mcp) provides 16 tools (10 read-only + 6 write/guidance). Skills reference these tools in their `## MCP Usage` sections. When the MCP server is configured in Cursor, skills prefer MCP tool calls over shell `curl` commands.
 
 | MCP Tool | Auth | Maps to |
 |----------|------|---------|
@@ -83,6 +84,12 @@ The [Steam MCP Server](https://github.com/TMHSDigital/steam-mcp) provides 10 rea
 | `steam.queryWorkshop({ appid })` | Key | `IPublishedFileService/QueryFiles` |
 | `steam.getLeaderboardEntries({ appid, leaderboardid })` | Key | `ISteamLeaderboards/GetLeaderboardEntries` |
 | `steam.resolveVanityURL({ vanityurl })` | Key | `ResolveVanityURL` |
+| `steam.createLobby({ type, max_members, metadata })` | SDK guide | ISteamMatchmaking code examples |
+| `steam.uploadWorkshopItem({ appid, title, ... })` | SDK guide | ISteamUGC upload code examples |
+| `steam.updateWorkshopItem({ publishedfileid, ... })` | Publisher key | `IPublishedFileService/UpdateDetails` |
+| `steam.setAchievement({ steamid, appid, achievement })` | Publisher key | `ISteamUserStats/SetUserStatsForGame` |
+| `steam.uploadLeaderboardScore({ appid, leaderboardid, ... })` | Publisher key | `ISteamLeaderboards/SetLeaderboardScore` |
+| `steam.grantInventoryItem({ appid, steamid, itemdefid })` | Publisher key | `IInventoryService/AddItem` |
 
 ## Development Workflow
 

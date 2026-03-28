@@ -5,6 +5,26 @@ All notable changes to Steam Developer Tools will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.7.0] - 2026-03-28
+
+### Added
+
+- **steam-testing-sandbox** skill: development sandbox guide — App ID 480 (SpaceWar) usage, test account setup, Steam client console commands, partner test environments, and dev-to-production checklist
+- **6 new MCP write tools** in companion Steam MCP server (v0.3.0):
+  - `steam.createLobby` — SDK guidance for ISteamMatchmaking lobby creation (C++/C#/GDScript)
+  - `steam.uploadWorkshopItem` — SDK guidance for ISteamUGC Workshop uploads (C++/GDScript)
+  - `steam.updateWorkshopItem` — HTTP POST to update Workshop item metadata via partner API
+  - `steam.setAchievement` — HTTP POST to set/unlock achievements via partner API (dev/test)
+  - `steam.uploadLeaderboardScore` — HTTP POST to upload scores via partner API
+  - `steam.grantInventoryItem` — HTTP POST to grant inventory items via partner API
+
+### Changed
+
+- `steam-appid-validation` rule enhanced with MCP live validation — suggests `steam.getAppDetails()` to verify App IDs exist
+- Plugin version bumped to 0.7.0
+- Plugin description updated to reflect 29 skills and 16 MCP tools
+- All documentation updated: README, CLAUDE.md, CONTRIBUTING.md, ROADMAP.md
+
 ## [0.6.0] - 2026-03-28
 
 ### Added
@@ -116,6 +136,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **steam-deck-compat** rule: flags common Steam Deck compatibility issues (hardcoded resolutions, mouse-only input, anti-cheat, Windows-only paths, missing controller support)
 - Plugin manifest, README, CONTRIBUTING guide, and license
 
+[0.7.0]: https://github.com/TMHSDigital/Steam-Cursor-Plugin/releases/tag/v0.7.0
 [0.6.0]: https://github.com/TMHSDigital/Steam-Cursor-Plugin/releases/tag/v0.6.0
 [0.5.0]: https://github.com/TMHSDigital/Steam-Cursor-Plugin/releases/tag/v0.5.0
 [0.4.0]: https://github.com/TMHSDigital/Steam-Cursor-Plugin/releases/tag/v0.4.0

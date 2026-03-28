@@ -11,7 +11,7 @@
 <p align="center">
   <a href="https://github.com/TMHSDigital/Steam-Cursor-Plugin/actions/workflows/validate.yml"><img src="https://img.shields.io/github/actions/workflow/status/TMHSDigital/Steam-Cursor-Plugin/validate.yml?label=CI" alt="CI"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-CC--BY--NC--ND--4.0-blue.svg" alt="License: CC BY-NC-ND 4.0"></a>
-  <a href="CHANGELOG.md"><img src="https://img.shields.io/badge/version-0.6.0-green.svg" alt="Version"></a>
+  <a href="CHANGELOG.md"><img src="https://img.shields.io/badge/version-0.7.0-green.svg" alt="Version"></a>
   <a href="https://github.com/TMHSDigital/Steam-Cursor-Plugin/stargazers"><img src="https://img.shields.io/github/stars/TMHSDigital/Steam-Cursor-Plugin?style=flat" alt="GitHub Stars"></a>
   <a href="https://github.com/TMHSDigital/Steam-Cursor-Plugin/commits/main"><img src="https://img.shields.io/github/last-commit/TMHSDigital/Steam-Cursor-Plugin" alt="Last Commit"></a>
   <a href="https://github.com/TMHSDigital/Steam-Cursor-Plugin"><img src="https://img.shields.io/badge/Cursor-Plugin-8B5CF6.svg" alt="Cursor Plugin"></a>
@@ -22,7 +22,7 @@
 ---
 
 <p align="center">
-  <strong>28 skills</strong> &nbsp;&bull;&nbsp; <strong>9 rules</strong> &nbsp;&bull;&nbsp; <strong>10 MCP tools</strong>
+  <strong>29 skills</strong> &nbsp;&bull;&nbsp; <strong>9 rules</strong> &nbsp;&bull;&nbsp; <strong>16 MCP tools</strong>
 </p>
 
 Query Steam store data, manage Steamworks app configurations, build multiplayer networking, implement cloud saves, design achievements, compare games, and look up player profiles - all from within Cursor's AI chat. Covers the full Steam &amp; Steamworks ecosystem with live data via the companion [Steam MCP Server](https://github.com/TMHSDigital/steam-mcp).
@@ -78,6 +78,7 @@ flowchart LR
 | **Steam Playtest Setup** | Configure Steam Playtest: open vs closed playtests, key distribution, signup pages, feedback collection, and Next Fest integration. |
 | **Steam Bug Report Template** | Structured bug report templates with Steam system info, crash dump guidance, known issues tracking, and forum integration. |
 | **Steam Anti-Cheat Integration** | Anti-cheat setup: EAC, BattlEye, VAC with Proton/Linux/Steam Deck compatibility matrix and server-side validation. |
+| **Steam Testing Sandbox** | Dev sandbox guide: App ID 480 (SpaceWar), test accounts, Steam console commands, testing achievements/leaderboards/inventory. |
 
 ### Rules
 
@@ -131,6 +132,12 @@ The `STEAM_API_KEY` is only required for tools that access user-specific data (p
 | `steam.queryWorkshop` | Key | Search/browse Workshop items |
 | `steam.getLeaderboardEntries` | Key | Leaderboard scores and rankings |
 | `steam.resolveVanityURL` | Key | Convert vanity URL to Steam ID |
+| `steam.createLobby` | SDK guide | Code examples for ISteamMatchmaking lobby creation |
+| `steam.uploadWorkshopItem` | SDK guide | Code examples for ISteamUGC Workshop uploads |
+| `steam.updateWorkshopItem` | Publisher key | Update Workshop item metadata via partner API |
+| `steam.setAchievement` | Publisher key | Set/unlock achievements via partner API (dev/test) |
+| `steam.uploadLeaderboardScore` | Publisher key | Upload leaderboard scores via partner API |
+| `steam.grantInventoryItem` | Publisher key | Grant inventory items via partner API |
 
 ## Quick Start
 
@@ -179,7 +186,7 @@ Compare Hades, Dead Cells, and Hollow Knight - price, reviews, and current playe
 ```
 
 <details>
-<summary><strong>More examples (all 28 skills)</strong></summary>
+<summary><strong>More examples (all 29 skills)</strong></summary>
 
 **Store Lookup**
 ```
@@ -321,6 +328,11 @@ I need to set up bug reporting for my game. Players keep submitting vague report
 I'm making a competitive FPS. I need anti-cheat that works on Steam Deck. What should I use?
 ```
 
+**Testing Sandbox**
+```
+I want to test Steam achievements in my game but I don't have an App ID yet. How do I get started?
+```
+
 </details>
 
 ## Configuration
@@ -375,8 +387,8 @@ See [ROADMAP.md](ROADMAP.md) for the full themed release plan toward v1.0.0.
 | **v0.3.0** | Insights | Review analysis, price history, market research, wishlist estimates | Done |
 | **v0.4.0** | Ship It | CI/CD automation, release checklist, steamcmd helper, build validation rules | Done |
 | **v0.5.0** | Grow | Community management, store page optimization, pricing strategy, DLC planning | Done |
-| **v0.6.0** | Quality | Playtest setup, bug reporting, anti-cheat, save compat / network security / error handling rules | **Current** |
-| v0.7.0 | Full Power | MCP write operations (lobbies, workshop uploads, achievements, inventory) | Planned |
+| **v0.6.0** | Quality | Playtest setup, bug reporting, anti-cheat, save compat / network security / error handling rules | Done |
+| **v0.7.0** | Full Power | Testing sandbox, 6 MCP write tools (lobbies, workshop, achievements, leaderboards, inventory) | **Current** |
 | v0.8.0 | Polish | Cross-references, troubleshooting sections, migration guide | Planned |
 | v1.0.0 | Stable | Production release: 30 skills, 9 rules, 20 MCP tools | Planned |
 

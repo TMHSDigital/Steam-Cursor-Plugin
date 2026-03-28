@@ -1,0 +1,44 @@
+---
+description: Validate Steam build configuration files (VDF). Checks for missing depots, mismatched App IDs between app_build and depot_build files, invalid file mappings, empty content roots, and common SteamPipe configuration errors.
+alwaysApply: false
+globs:
+  - "**/*.vdf"
+  - "**/app_build*"
+  - "**/depot_build*"
+---
+
+# Steam Build Config Validation
+
+When editing or reviewing VDF build configuration files, check for these issues:
+
+## App Build Files (`app_build.vdf`)
+
+1. **Missing `appid` field.** Every `app_build.vdf` must have a valid `appid`. Flag if the value is empty, `0`, or missing entirely.
+
+2. **SpaceWar test ID in production.** If `appid` is `480` and the file appears to be a production config (not a test/example), warn: "App ID 480 is Valve's SpaceWar test app. Replace with your actual App ID before uploading."
+
+3. **Empty `contentroot`.** The `contentroot` path must point to a valid directory containing build artifacts. Flag if empty or set to a placeholder like `TODO` or `CHANGEME`.
+
+4. **Missing depot entries.** The `depots` block must reference at least one depot. Flag if the `depots` block is empty or missing.
+
+5. **Depot ID mismatch.** Each depot referenced in `app_build.vdf` should have a corresponding `depot_build_*.vdf` file. Flag depot IDs that reference non-existent VDF files.
+
+## Depot Build Files (`depot_build_*.vdf`)
+
+6. **Missing `DepotID` field.** Every depot build file must have a `DepotID`. Flag if missing or `0`.
+
+7. **Depot ID consistency.** The `DepotID` in `depot_build_XXXXX.vdf` should match the `XXXXX` in the filename. Flag mismatches.
+
+8. **Missing `FileMapping`.** At least one `FileMapping` block is required. Flag depot configs with no file mappings — they would upload an empty depot.
+
+9. **Invalid `FileMapping` patterns.** Flag `LocalPath` values that use absolute paths (should be relative to `contentroot`) or that reference suspicious patterns like `*.*` (usually should be `*`).
+
+10. **Depot ID relationship.** Depot IDs should typically be `appid + N` (e.g., App ID `1234567` → depots `1234568`, `1234569`). Flag depot IDs that are wildly different from the app ID, as this may indicate a copy-paste error.
+
+## Cross-File Consistency
+
+11. **App ID vs depot ID sanity.** All depot IDs referenced in `app_build.vdf` should be in a reasonable range relative to the `appid` (typically `appid + 1` through `appid + 10`).
+
+12. **`setlive` safety.** If `setlive` is set to `default`, warn: "This build will go live to all users immediately on upload. Consider using a beta branch name for testing first."
+
+13. **`preview` mode.** If `preview` is `1`, note that the build will not actually upload — this is a dry run. Useful for validation but should be `0` for real uploads.

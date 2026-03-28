@@ -1,0 +1,53 @@
+---
+description: Flag launch option issues in Steam configuration files. Checks for missing executables, wrong OS targeting, missing descriptions for multi-launch configs, and common launch option misconfigurations.
+alwaysApply: false
+globs:
+  - "**/*.vdf"
+  - "**/*launch*"
+  - "**/*config*.json"
+  - "**/*config*.cfg"
+---
+
+# Steam Launch Options Check
+
+When editing or reviewing files that contain Steam launch option configurations, check for these issues:
+
+## Executable Paths
+
+1. **Missing executable.** Every launch option must specify an `executable` path. Flag entries with an empty or missing `executable` field.
+
+2. **Wrong extension for OS.** Flag OS/executable mismatches:
+   - Linux launch option with `.exe` executable
+   - Windows launch option without `.exe` extension
+   - macOS launch option pointing to `.exe` instead of `.app` bundle or Unix binary
+   
+   Example: `oslist` is `linux` but `executable` is `game.exe` — this will fail on Linux.
+
+3. **Absolute paths.** Executable paths should be relative to the game's install directory. Flag absolute paths like `C:\Games\...` or `/usr/local/...`.
+
+## OS Targeting
+
+4. **Missing `oslist`.** If there are multiple launch options, each should specify an `oslist` (`windows`, `macos`, `linux`). Flag options without `oslist` when sibling options have it — ambiguous targeting.
+
+5. **Duplicate OS targeting.** Flag multiple launch options targeting the same OS with the same `type` (e.g., two `default` launch options both targeting `windows`). This causes Steam to show an unexpected launch dialog.
+
+## Multi-Launch Configuration
+
+6. **Missing `description` on multi-launch.** When a game has more than one launch option, each option should have a `description` field so Steam can display a launch dialog. Flag options missing `description` when siblings exist.
+
+7. **`type` field usage.** Valid types are `default`, `server`, `editor`, `manual`, `config`, `none`. Flag unrecognized type values. Note:
+   - `default` — main game launch
+   - `server` — dedicated server
+   - `editor` — level editor / mod tools
+   - `manual` — always shows in launch dialog
+   - `none` — hidden from users
+
+## Arguments
+
+8. **Empty `arguments` field.** If `arguments` is present but empty, flag it as unnecessary. Either provide arguments or remove the field.
+
+9. **Conflicting arguments.** Flag if the same argument appears in multiple launch options with different values, which may indicate a copy-paste error.
+
+## General
+
+10. **No default launch option.** At least one launch option should have `type` set to `default` (or no `type`, which defaults to `default`). Flag if all launch options are `server`, `editor`, or `manual` with none being `default`.

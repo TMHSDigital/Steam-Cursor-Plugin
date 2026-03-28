@@ -36,15 +36,15 @@ Cursor will pick up changes to skills and rules without restarting.
 
 ## Plugin Structure
 
-The plugin currently has **18 skills** and **4 rules**.
+The plugin currently has **21 skills** and **6 rules**.
 
 ```
 .cursor-plugin/
   plugin.json          # Plugin manifest (name, version, metadata)
-skills/                # 18 skill directories
+skills/                # 21 skill directories
   <skill-name>/
     SKILL.md           # Skill definition with frontmatter + instructions
-rules/                 # 4 rule files
+rules/                 # 6 rule files
   <rule-name>.mdc      # Rule definition with frontmatter + guidance
 ```
 

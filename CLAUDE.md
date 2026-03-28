@@ -4,11 +4,11 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-**Steam Developer Tools** is a Cursor IDE plugin (v0.3.0) that integrates Steam and Steamworks APIs for game developers and power users. It provides AI-assisted workflows for querying Steam store data, managing Steamworks configurations, building multiplayer networking, implementing cloud saves, leaderboards, input, inventory/economy, social features, looking up API docs, fetching player statistics, integrating Workshop UGC, designing achievements, looking up player profiles, comparing games, analyzing reviews, researching pricing, evaluating market fit, and estimating wishlists.
+**Steam Developer Tools** is a Cursor IDE plugin (v0.4.0) that integrates Steam and Steamworks APIs for game developers and power users. It provides AI-assisted workflows for querying Steam store data, managing Steamworks configurations, building multiplayer networking, implementing cloud saves, leaderboards, input, inventory/economy, social features, looking up API docs, fetching player statistics, integrating Workshop UGC, designing achievements, looking up player profiles, comparing games, analyzing reviews, researching pricing, evaluating market fit, estimating wishlists, automating builds, validating release readiness, and scripting steamcmd.
 
 This plugin uses Markdown skill files and MDC rule files for AI guidance, paired with the companion [Steam MCP Server](https://github.com/TMHSDigital/steam-mcp) (separate repo) which provides 10 read-only API tools for live data access. No build system, no npm, no compiled code in this repo.
 
-The project is on a themed release roadmap toward v1.0.0 (see `ROADMAP.md`). The next major milestone (v0.4.0 "Ship It") adds CI/CD automation and build pipeline skills. Subsequent releases add community/monetization skills (v0.5.0), QA rules (v0.6.0), MCP write operations (v0.7.0), and polish (v0.8.0). Target at v1.0.0: 30 skills, 9 rules, 20 MCP tools.
+The project is on a themed release roadmap toward v1.0.0 (see `ROADMAP.md`). The next major milestone (v0.5.0 "Grow") adds community management and monetization skills. Subsequent releases add QA rules (v0.6.0), MCP write operations (v0.7.0), and polish (v0.8.0). Target at v1.0.0: 30 skills, 9 rules, 20 MCP tools.
 
 ## Plugin Architecture
 
@@ -18,7 +18,7 @@ skills/<skill-name>/SKILL.md - AI workflow definitions (one per skill)
 rules/<rule-name>.mdc        - Code quality and security rules (applied by Cursor AI)
 ```
 
-### Skills (18 total)
+### Skills (21 total)
 
 Each `SKILL.md` uses YAML frontmatter followed by markdown sections: **Trigger**, **Required Inputs**, **Workflow**, and **Example**.
 
@@ -42,8 +42,11 @@ Each `SKILL.md` uses YAML frontmatter followed by markdown sections: **Trigger**
 | `steam-price-history` | Pricing trends, sale history, regional pricing, value scoring |
 | `steam-market-research` | Genre trends, tag popularity, competitor ID, market gap analysis |
 | `steam-wishlist-estimates` | Estimate wishlists from public signals, conversion benchmarks |
+| `steam-build-automation` | SteamPipe CI/CD: GitHub Actions, GitLab CI, Jenkins, Docker builds |
+| `steam-release-checklist` | Pre-release validation: store page, depots, achievements, pricing, Deck |
+| `steam-steamcmd-helper` | steamcmd scripting reference, commands, Docker, troubleshooting |
 
-### Rules (4 total)
+### Rules (6 total)
 
 | Rule | Scope | Purpose |
 |------|-------|---------|
@@ -51,6 +54,8 @@ Each `SKILL.md` uses YAML frontmatter followed by markdown sections: **Trigger**
 | `steamworks-secrets.mdc` | Global (all files) | Flags Steam API keys (32-char hex), ssfn files, publisher credentials, DRM keys |
 | `steam-deck-compat.mdc` | `*.cpp`, `*.h`, `*.hpp`, `*.cs`, `*.gd`, `*.vdf`, `*.cfg`, `*.ini`, `*.json` | Flags Steam Deck compat issues: hardcoded resolutions, mouse-only input, anti-cheat, Windows paths |
 | `steam-api-key-usage.mdc` | `*.sh`, `*.ps1`, `*.py`, `*.js`, `*.ts`, `*.yml`, `*.yaml` | Flags raw curl/fetch to Steam APIs when MCP tools are available; suggests equivalent MCP tool |
+| `steam-build-config-validation.mdc` | `*.vdf`, `*build*`, `*depot*` | Validates VDF build configs: missing depots, mismatched App IDs, invalid file mappings |
+| `steam-launch-options-check.mdc` | `*.vdf`, `*launch*`, `*config*.json`, `*config*.cfg` | Flags launch option issues: missing executables, wrong OS targeting, missing descriptions |
 
 ### Companion MCP Server
 

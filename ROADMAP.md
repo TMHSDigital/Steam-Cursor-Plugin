@@ -2,7 +2,7 @@
 
 Themed release plan toward v1.0.0.
 
-**Current:** v0.3.0 - 18 skills, 4 rules, companion [Steam MCP server](https://github.com/TMHSDigital/steam-mcp) with 10 read-only tools.
+**Current:** v0.4.0 - 21 skills, 6 rules, companion [Steam MCP server](https://github.com/TMHSDigital/steam-mcp) with 10 read-only tools.
 
 **Target:** v1.0.0 - 30 skills, 9 rules, 20 MCP tools.
 
@@ -10,8 +10,8 @@ Themed release plan toward v1.0.0.
 |---------|-------|-----------|-----------|-----------|-------------|-------------|
 | v0.1.0 | - | - | - | 0 | 14 | 3 |
 | v0.2.0 | Live Data | 0 (updates) | 1 | 10 | 14 | 4 |
-| v0.3.0 (current) | Insights | 4 | 0 | 2 | 18 | 4 |
-| v0.4.0 | Ship It | 3 | 2 | 0 | 21 | 6 |
+| v0.3.0 | Insights | 4 | 0 | 2 | 18 | 4 |
+| v0.4.0 (current) | Ship It | 3 | 2 | 0 | 21 | 6 |
 | v0.5.0 | Grow | 4 | 0 | 2 | 25 | 6 |
 | v0.6.0 | Quality | 3 | 3 | 0 | 28 | 9 |
 | v0.7.0 | Full Power | 1 | 0 | 6 | 29 | 9 |
@@ -218,3 +218,8 @@ Update all 14 existing skills to reference MCP tools where applicable. Replace "
 - [x] ~~Price history skill~~ - `steam-price-history` added in v0.3.0
 - [x] ~~Market research skill~~ - `steam-market-research` added in v0.3.0
 - [x] ~~Wishlist estimates skill~~ - `steam-wishlist-estimates` added in v0.3.0
+- [x] ~~Build automation skill~~ - `steam-build-automation` added in v0.4.0
+- [x] ~~Release checklist skill~~ - `steam-release-checklist` added in v0.4.0
+- [x] ~~SteamCMD helper skill~~ - `steam-steamcmd-helper` added in v0.4.0
+- [x] ~~Build config validation rule~~ - `steam-build-config-validation.mdc` added in v0.4.0
+- [x] ~~Launch options check rule~~ - `steam-launch-options-check.mdc` added in v0.4.0

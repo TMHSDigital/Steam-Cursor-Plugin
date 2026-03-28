@@ -5,6 +5,22 @@ All notable changes to Steam Developer Tools will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.4.0] - 2026-03-28
+
+### Added
+
+- **steam-build-automation** skill: SteamPipe CI/CD integration with GitHub Actions, GitLab CI, and Jenkins pipelines for automated depot uploads, beta branch management, Docker containerized builds, and secrets management
+- **steam-release-checklist** skill: comprehensive pre-release validation checklist covering store page completeness, depot config, achievements, cloud saves, Steam Deck compatibility, pricing, multiplayer, leaderboards, social features, and launch readiness
+- **steam-steamcmd-helper** skill: steamcmd scripting reference with common commands, batch/shell scripts, Docker containerized builds, Steam Guard handling, and troubleshooting guide
+- **steam-build-config-validation** rule: validates VDF build configs for missing depots, mismatched App IDs, invalid file mappings, empty content roots, and `setlive` safety
+- **steam-launch-options-check** rule: flags launch option issues including missing executables, wrong OS targeting, missing descriptions for multi-launch configs, and invalid type values
+
+### Changed
+
+- Plugin version bumped to 0.4.0
+- Plugin description updated to reflect 21 skills and 6 rules
+- All documentation updated: README, CLAUDE.md, CONTRIBUTING.md, ROADMAP.md
+
 ## [0.3.0] - 2026-03-27
 
 ### Added
@@ -63,6 +79,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **steam-deck-compat** rule: flags common Steam Deck compatibility issues (hardcoded resolutions, mouse-only input, anti-cheat, Windows-only paths, missing controller support)
 - Plugin manifest, README, CONTRIBUTING guide, and license
 
+[0.4.0]: https://github.com/TMHSDigital/Steam-Cursor-Plugin/releases/tag/v0.4.0
 [0.3.0]: https://github.com/TMHSDigital/Steam-Cursor-Plugin/releases/tag/v0.3.0
 [0.2.0]: https://github.com/TMHSDigital/Steam-Cursor-Plugin/releases/tag/v0.2.0
 [0.1.0]: https://github.com/TMHSDigital/Steam-Cursor-Plugin/releases/tag/v0.1.0

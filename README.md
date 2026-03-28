@@ -11,7 +11,7 @@
 <p align="center">
   <a href="https://github.com/TMHSDigital/Steam-Cursor-Plugin/actions/workflows/validate.yml"><img src="https://img.shields.io/github/actions/workflow/status/TMHSDigital/Steam-Cursor-Plugin/validate.yml?label=CI" alt="CI"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-CC--BY--NC--ND--4.0-blue.svg" alt="License: CC BY-NC-ND 4.0"></a>
-  <a href="CHANGELOG.md"><img src="https://img.shields.io/badge/version-0.3.0-green.svg" alt="Version"></a>
+  <a href="CHANGELOG.md"><img src="https://img.shields.io/badge/version-0.4.0-green.svg" alt="Version"></a>
   <a href="https://github.com/TMHSDigital/Steam-Cursor-Plugin/stargazers"><img src="https://img.shields.io/github/stars/TMHSDigital/Steam-Cursor-Plugin?style=flat" alt="GitHub Stars"></a>
   <a href="https://github.com/TMHSDigital/Steam-Cursor-Plugin/commits/main"><img src="https://img.shields.io/github/last-commit/TMHSDigital/Steam-Cursor-Plugin" alt="Last Commit"></a>
   <a href="https://github.com/TMHSDigital/Steam-Cursor-Plugin"><img src="https://img.shields.io/badge/Cursor-Plugin-8B5CF6.svg" alt="Cursor Plugin"></a>
@@ -22,7 +22,7 @@
 ---
 
 <p align="center">
-  <strong>18 skills</strong> &nbsp;&bull;&nbsp; <strong>4 rules</strong> &nbsp;&bull;&nbsp; <strong>10 MCP tools</strong>
+  <strong>21 skills</strong> &nbsp;&bull;&nbsp; <strong>6 rules</strong> &nbsp;&bull;&nbsp; <strong>10 MCP tools</strong>
 </p>
 
 Query Steam store data, manage Steamworks app configurations, build multiplayer networking, implement cloud saves, design achievements, compare games, and look up player profiles - all from within Cursor's AI chat. Covers the full Steam &amp; Steamworks ecosystem with live data via the companion [Steam MCP Server](https://github.com/TMHSDigital/steam-mcp).
@@ -68,6 +68,9 @@ flowchart LR
 | **Steam Price History** | Pricing trends, sale history, regional pricing analysis, and price-to-value scoring for any Steam game. |
 | **Steam Market Research** | Genre trend analysis, tag popularity, competitor identification, and market gap analysis using Steam store data. |
 | **Steam Wishlist Estimates** | Estimate wishlists from public signals using the Boxleiter method, with conversion rate benchmarks and revenue projections. |
+| **Steam Build Automation** | Automate Steam builds with SteamPipe CI/CD - GitHub Actions, GitLab CI, Jenkins pipelines, Docker containers, and beta branch management. |
+| **Steam Release Checklist** | Pre-release validation: store page, depots, achievements, cloud saves, Deck compat, pricing, and launch readiness. |
+| **Steam SteamCMD Helper** | Comprehensive steamcmd reference: commands, scripting, Docker builds, Steam Guard handling, and troubleshooting. |
 
 ### Rules
 
@@ -77,6 +80,8 @@ flowchart LR
 | **Steamworks Secrets** | Prevents committing API keys, partner credentials, and auth tokens. Flags sensitive patterns and suggests secure alternatives. |
 | **Steam Deck Compatibility** | Flags common Deck compat issues in game code: hardcoded resolutions, mouse-only input, anti-cheat blockers, Windows-only paths, and missing controller support. |
 | **MCP Tool Preference** | When the Steam MCP server is configured, flags raw `curl`/`fetch` calls to Steam APIs and suggests the equivalent MCP tool. |
+| **Build Config Validation** | Validates VDF build configs: missing depots, mismatched App IDs, invalid file mappings, empty content roots, and `setlive` safety warnings. |
+| **Launch Options Check** | Flags launch option issues: missing executables, wrong OS targeting, missing descriptions for multi-launch, and invalid type values. |
 
 ## Companion: Steam MCP Server
 
@@ -164,7 +169,7 @@ Compare Hades, Dead Cells, and Hollow Knight - price, reviews, and current playe
 ```
 
 <details>
-<summary><strong>More examples (all 18 skills)</strong></summary>
+<summary><strong>More examples (all 21 skills)</strong></summary>
 
 **Store Lookup**
 ```
@@ -256,6 +261,21 @@ I'm thinking about making a cozy farming sim. Is the market too saturated?
 My game has 25,000 wishlists two weeks before launch. What should I expect for sales?
 ```
 
+**Build Automation**
+```
+Set up GitHub Actions to automatically upload my Unity game to Steam when I push a version tag. App ID 2345678.
+```
+
+**Release Checklist**
+```
+I'm about to launch my game on Steam. App ID 2345678. What do I need to check?
+```
+
+**SteamCMD**
+```
+I need a script to download and update a CS2 dedicated server on Linux.
+```
+
 </details>
 
 ## Configuration
@@ -306,8 +326,8 @@ See [ROADMAP.md](ROADMAP.md) for the full themed release plan (v0.2.0 through v1
 | Version | Theme | Highlights |
 |---------|-------|------------|
 | **v0.2.0** | Live Data | Steam MCP server with 10 read-only tools, skill updates |
-| **v0.3.0 (current)** | Insights | Review analysis, price history, market research, wishlist estimates |
-| **v0.4.0** | Ship It | CI/CD automation, release checklist, steamcmd helper, build validation rules |
+| **v0.3.0** | Insights | Review analysis, price history, market research, wishlist estimates |
+| **v0.4.0 (current)** | Ship It | CI/CD automation, release checklist, steamcmd helper, build validation rules |
 | **v0.5.0** | Grow | Community management, store page optimization, pricing strategy, DLC planning |
 | **v0.6.0** | Quality | Playtest setup, anti-cheat integration, save compat / network security / error handling rules |
 | **v0.7.0** | Full Power | MCP write operations (lobbies, workshop uploads, achievements, inventory) |

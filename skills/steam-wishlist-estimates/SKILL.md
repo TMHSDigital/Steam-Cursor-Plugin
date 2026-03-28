@@ -167,6 +167,13 @@ Flag that 10,000+ wishlists at launch is often cited as the threshold for "likel
 
 All required MCP tools are already available. No new MCP tools needed for this skill.
 
+## Common Pitfalls
+
+1. **Treating wishlist counts as guaranteed sales** — industry median conversion rate is ~15-20% at launch. A game with 10K wishlists typically sells 1.5K-2K copies in the first week.
+2. **Comparing wishlist velocity across genres** — niche genres accumulate wishlists slower but convert at higher rates. A strategy game with 5K wishlists may outsell an action game with 20K.
+3. **Ignoring wishlist decay** — wishlists degrade over time as players lose interest or buy competing games. Wishlists from 2+ years ago convert at much lower rates.
+4. **Not accounting for follower-to-wishlist ratio** — Steam followers are public; wishlists are private. The typical ratio is ~1 follower per 5-10 wishlists, but this varies by visibility.
+
 ## See Also
 
 - [Steam Market Research](../steam-market-research/SKILL.md) - genre and competitor analysis

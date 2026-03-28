@@ -179,6 +179,14 @@ This returns the correct icon (A button for Xbox, X button for PlayStation, etc.
 
 Steam Input is an in-process Steamworks SDK API (`ISteamInput`) with no Web API equivalent. This skill remains documentation-only regardless of whether the [Steam MCP server](https://github.com/TMHSDigital/steam-mcp) is available.
 
+## Common Pitfalls
+
+1. **Not calling `RunFrame()` every tick** — `ISteamInput` requires `RunFrame()` each frame to poll controller state. Without it, input data is stale.
+2. **Hardcoding button mappings instead of using action sets** — Steam Input's power comes from action-based input (e.g. "Jump" not "Button A"). Hardcoding bypasses user rebinding and Steam Deck optimization.
+3. **Forgetting to ship the IGA (In-Game Actions) file** — the controller configuration file must be uploaded to Steamworks Partner. Without it, Steam Input falls back to legacy mode.
+4. **Not testing with Steam Deck controls** — the Deck's trackpads and gyro behave differently from standard controllers. Test with a Deck or use Desktop mode to simulate.
+5. **Ignoring the `InputActionSetHandle` lifecycle** — action set handles must be obtained via `GetActionSetHandle()` after init. Using stale handles causes silent failures.
+
 ## See Also
 
 - [Steam Deck Compatibility](../../rules/steam-deck-compat.mdc) - rule that flags input and compatibility issues for Steam Deck

@@ -150,6 +150,14 @@ Steam Cloud uses the in-process Steamworks SDK API (`ISteamRemoteStorage`) for r
 
 This skill remains documentation-only regardless of whether the [Steam MCP server](https://github.com/TMHSDigital/steam-mcp) is available.
 
+## Common Pitfalls
+
+1. **Binary save files with endianness issues** — a save written on little-endian Windows breaks on big-endian architectures. Use text-based formats (JSON, XML) or explicit byte-order markers.
+2. **Exceeding the per-user cloud quota** — the default quota is typically 100MB-1GB depending on your app's configuration. Large save files silently fail to sync. Check quota with `GetQuota()`.
+3. **Case-sensitive filenames on Linux** — `SaveGame.dat` and `savegame.dat` are different files on Linux but the same on Windows. Standardize to lowercase.
+4. **Not handling cloud conflicts** — when a user plays on two machines, saves can conflict. Implement conflict resolution UI or auto-merge logic.
+5. **Storing absolute paths in save files** — paths like `C:\Users\...` break on other machines and platforms. Use relative paths or platform-agnostic identifiers.
+
 ## See Also
 
 - [Steamworks App Config](../steamworks-app-config/SKILL.md) - depot and build configuration that pairs with cloud save setup

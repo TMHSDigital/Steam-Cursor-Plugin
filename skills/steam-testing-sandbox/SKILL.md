@@ -182,6 +182,13 @@ Before moving from testing to production:
 | Upload score | `steam.uploadLeaderboardScore({ appid, leaderboardid, steamid, score })` | Publisher key | Upload a test leaderboard score |
 | Check stats | `steam.getAchievementStats({ appid })` | None | View global achievement unlock percentages |
 
+## Common Pitfalls
+
+1. **Shipping with App ID 480 in production** — `steam_appid.txt` containing `480` bypasses ownership checks. The `steam-appid-validation` rule catches this, but always double-check release builds.
+2. **Assuming SpaceWar achievements match your game's** — App ID 480 has its own pre-configured achievements. You can test the SDK flow, but the achievement names won't match your real ones.
+3. **Testing multiplayer with only one Steam account** — you need separate Steam accounts (each owning the game) for multiplayer testing. One account can't join its own lobby.
+4. **Forgetting to reset test data before launch** — test achievements, leaderboard scores, and inventory items persist. Reset via Steamworks Partner or the partner API before going live.
+
 ## See Also
 
 - [Steam App ID Validation](../../rules/steam-appid-validation.mdc) - warns about App ID 480 in production

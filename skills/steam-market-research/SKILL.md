@@ -153,6 +153,13 @@ Provide an overall recommendation: **Strong**, **Moderate**, **Cautious**, or **
 
 All required MCP tools are already available. No new MCP tools needed for this skill.
 
+## Common Pitfalls
+
+1. **Treating tag popularity as demand** — a popular tag (e.g. "Roguelike") means high competition, not necessarily high demand for your specific game. Look at the ratio of games to players in a tag.
+2. **Ignoring Early Access titles in competitor analysis** — many successful games launch in Early Access first. Excluding them skews your market picture.
+3. **Using global player counts as regional proxies** — player counts are worldwide. A game with 10K concurrent players may have 90% in one region, making it irrelevant in others.
+4. **Over-relying on Steam Spy estimates** — third-party ownership estimates can be off by 2-10x. Use them for rough orders of magnitude, not precise planning.
+
 ## See Also
 
 - [Steam Store Lookup](../steam-store-lookup/SKILL.md) - resolve names and get store data

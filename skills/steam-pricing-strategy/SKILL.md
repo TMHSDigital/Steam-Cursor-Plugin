@@ -179,6 +179,14 @@ Bundles dynamically adjust price — players who already own some items pay less
 
 The `steam.getPriceOverview` tool is planned for the MCP server. Until available, use `steam.getAppDetails` with `&cc=` parameter per region.
 
+## Common Pitfalls
+
+1. **Launching at too high a price then discounting immediately** — early buyers feel cheated, and it trains your audience to wait for sales. Launch at the price you're comfortable with long-term.
+2. **Not opting into Steam's regional pricing suggestions** — Valve provides recommended regional prices. Ignoring them means your game is overpriced in lower-income regions, losing sales.
+3. **Running discounts too frequently** — constant sales (every 2-3 weeks) devalue your game and train customers to never buy at full price. Major sales 3-4 times per year is typical.
+4. **Setting the launch discount above 40%** — Steam limits launch discounts to 40%. Going too close to this cap leaves little room for future sale depth perception.
+5. **Forgetting the 30-day cooldown between discounts** — Steam enforces a cooldown period. Plan your discount calendar to avoid conflicts with seasonal sales.
+
 ## See Also
 
 - [Steam Price History](../steam-price-history/SKILL.md) - historical pricing data and sale patterns

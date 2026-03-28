@@ -172,6 +172,14 @@ This is useful for reviewing an existing game's achievement distribution before 
 
 The design guidance, VDF/JSON generation, naming conventions, icon requirements, and SDK unlock code remain the same regardless of MCP availability.
 
+## Common Pitfalls
+
+1. **Forgetting `StoreStats()` after `SetAchievement()`** — achievements are only saved locally until you call `SteamUserStats()->StoreStats()`. Without it, progress is lost on restart.
+2. **Using spaces or special characters in API names** — achievement API names must be alphanumeric with underscores (e.g. `ACH_BEAT_BOSS_1`). Spaces cause silent failures.
+3. **Exceeding the 1000 achievement limit** — Steam enforces a hard cap of ~5000 stat/achievement entries per app. Plan achievement lists before implementation.
+4. **Not calling `RequestCurrentStats()` at startup** — the stats system won't work until you request the current user's stats. Must be called once before any `Get`/`Set` operations.
+5. **Unlocking achievements in offline mode without testing** — achievements queued offline are sent when the user reconnects, but only if `StoreStats()` was called. Test this flow.
+
 ## See Also
 
 - [Steam Player Stats](../steam-player-stats/SKILL.md) - query achievement unlock rates to inform achievement design

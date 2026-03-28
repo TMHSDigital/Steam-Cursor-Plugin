@@ -164,6 +164,14 @@ Walk through each section with the user. Mark items as done, flagged, or not app
 | Check achievements | `steam.getAchievementStats({ appid })` | None | Verify achievements are uploaded and visible |
 | Check player stats | `steam.getPlayerCount({ appid })` | None | Confirm game is accessible (returns data = app is public) |
 
+## Common Pitfalls
+
+1. **Not submitting the store page for review early enough** — Valve's review process can take 2-5 business days. Submit at least 2 weeks before your planned launch date.
+2. **Forgetting to set the release date to "coming soon" first** — jumping straight to a specific date without a "coming soon" period misses weeks of wishlist accumulation.
+3. **Not testing the "Download" flow end-to-end** — install your game via Steam on a clean machine. Missing redistributables (VC++, .NET, DirectX) are the #1 cause of day-one crashes.
+4. **Skipping the default branch build check** — ensure the build on your default (public) branch is the one you want to ship. Beta branch builds are not visible to the public.
+5. **Launching without a community hub** — the community hub (discussions, guides, screenshots) should be enabled and seeded with a welcome post and a known issues thread.
+
 ## See Also
 
 - [Steamworks App Config](../steamworks-app-config/SKILL.md) - depot and build configuration

@@ -153,6 +153,14 @@ The SDK integration for creating leaderboards, uploading scores, and downloading
 
 If the MCP server is not available, fall back to the `curl`-based workflow above.
 
+## Common Pitfalls
+
+1. **Not calling `FindLeaderboard()` before uploading scores** — you must resolve the leaderboard name to a handle first. Uploading to an invalid handle silently fails.
+2. **Using the wrong sort method** — setting a leaderboard to ascending when scores should be descending (or vice versa) reverses rankings. This can only be changed by creating a new leaderboard.
+3. **Uploading scores with `ForceUpdate` in production** — `ForceUpdate` overwrites the player's best score. Use `KeepBest` unless you intentionally want to allow score resets.
+4. **Not considering score spoofing** — leaderboard scores uploaded client-side can be manipulated. For competitive games, upload scores server-side via the partner API.
+5. **Exceeding the leaderboard detail data limit** — detail data attached to leaderboard entries is limited to 64 int32 values (256 bytes). Don't try to store replays or complex data there.
+
 ## See Also
 
 - [Steam Player Stats](../steam-player-stats/SKILL.md) - player counts, achievement stats, and playtime data

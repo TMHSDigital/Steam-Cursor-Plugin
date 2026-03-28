@@ -187,6 +187,14 @@ Steam Next Fest is a week-long event where developers can showcase upcoming game
 
 Playtest creation and management require the Steamworks Partner site — not available via MCP.
 
+## Common Pitfalls
+
+1. **Not setting a player cap** — open playtests without limits can overwhelm servers and support capacity. Start with a small cap and increase gradually.
+2. **Using the playtest App ID for production features** — playtest App IDs are separate from the main game. Achievements, leaderboards, and cloud saves configured on the playtest don't transfer to the main app.
+3. **Forgetting to close signups** — leaving playtest signups open indefinitely dilutes the urgency. Set clear windows aligned with your testing schedule.
+4. **Not collecting feedback through Steam** — Steam Discussions has built-in playtest forums. Using only external feedback tools (Discord, Google Forms) misses players who prefer staying in Steam.
+5. **Skipping Next Fest integration** — Steam Next Fest is the highest-visibility opportunity for playtests. Plan your playtest timing around it.
+
 ## See Also
 
 - [Steam Release Checklist](../steam-release-checklist/SKILL.md) - full pre-launch checklist

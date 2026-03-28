@@ -115,6 +115,13 @@ Per-player achievements and user stats still require direct API calls (`GetPlaye
 
 If the MCP server is not available, fall back to the `curl`-based workflow above.
 
+## Common Pitfalls
+
+1. **Confusing concurrent players with total owners** — `GetNumberOfCurrentPlayers` returns who's playing right now, not total sales. A game with 500 concurrent might have 500K owners.
+2. **Querying player stats too frequently** — Steam rate-limits API calls. Cache responses for at least 5-10 minutes instead of polling every second.
+3. **Not handling private profiles** — many players have private profiles. `GetPlayerAchievements` and `GetOwnedGames` return empty or error for private profiles. Always check the response status.
+4. **Comparing achievement percentages across different-sized games** — a 50% unlock rate on a game with 1K owners is ~500 players. The same rate on a game with 1M owners is ~500K players. Context matters.
+
 ## See Also
 
 - [Steam Leaderboards](../steam-leaderboards/SKILL.md) - create and query leaderboards

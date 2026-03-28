@@ -119,6 +119,13 @@ Call `steam.getAppDetails` and `steam.getPlayerCount` once per game being compar
 
 If the MCP server is not available, fall back to the `curl`-based workflow above.
 
+## Common Pitfalls
+
+1. **Comparing games at different lifecycle stages** — a 5-year-old game with 50K reviews vs a 1-month-old game with 500 reviews isn't an apples-to-apples comparison. Factor in release date.
+2. **Relying on current player count alone** — multiplayer games spike on weekends; single-player games spike at launch then decline. Use trends, not snapshots.
+3. **Ignoring regional pricing differences** — a game that's $20 USD might be $5 in regional pricing. Always specify the region when comparing prices.
+4. **Treating review percentage without review count** — 95% positive with 20 reviews is less meaningful than 85% positive with 10,000 reviews.
+
 ## See Also
 
 - [Steam Store Lookup](../steam-store-lookup/SKILL.md) - detailed store data for a single game

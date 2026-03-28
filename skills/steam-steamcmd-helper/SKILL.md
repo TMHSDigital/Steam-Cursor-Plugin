@@ -250,6 +250,14 @@ This outputs depot IDs, branch info, launch configs, and install scripts — use
 
 Steamcmd operations are local/CLI — MCP is only used for pre-validation.
 
+## Common Pitfalls
+
+1. **Running steamcmd without `+quit`** — the process hangs indefinitely waiting for input. Always end command chains with `+quit`.
+2. **Using `+login anonymous` for apps that require ownership** — anonymous login only works for dedicated server downloads and free apps. Game depots require an authenticated account.
+3. **Not escaping paths with spaces on Windows** — steamcmd requires double quotes around paths containing spaces. Unquoted paths silently fail.
+4. **Forgetting `+force_install_dir` before `+app_update`** — without setting the install directory, steamcmd uses its default location, which may not be where you expect.
+5. **Running steamcmd from a directory without write permissions** — steamcmd needs to create cache files. Running from `Program Files` or other protected directories fails silently on Windows.
+
 ## See Also
 
 - [Steamworks App Config](../steamworks-app-config/SKILL.md) - generate VDF build and depot configs

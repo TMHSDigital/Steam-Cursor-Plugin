@@ -189,6 +189,14 @@ A season pass bundles multiple future DLCs at a discount.
 
 DLC creation and management require the Steamworks Partner site — not available via MCP.
 
+## Common Pitfalls
+
+1. **Creating DLC before the base game is stable** — DLC that depends on base game systems that are still changing creates maintenance nightmares. Stabilize the base first.
+2. **Not setting up depot inheritance correctly** — DLC depots must reference the base app's depots properly. Misconfigured inheritance means DLC content is invisible to users who own it.
+3. **Pricing DLC too high relative to the base game** — a $20 DLC for a $15 base game feels exploitative. Industry norm is 25-50% of base price for substantial content packs.
+4. **Forgetting to check DLC ownership in code** — `SteamApps()->BIsDlcInstalled(dlcAppId)` must gate DLC content. Without this check, DLC content may be accessible to everyone or to nobody.
+5. **Not creating a store page for each DLC** — every DLC needs its own store page with screenshots and description. Bundle pages alone are not sufficient for discoverability.
+
 ## See Also
 
 - [Steamworks App Config](../steamworks-app-config/SKILL.md) - depot and build configuration for DLC

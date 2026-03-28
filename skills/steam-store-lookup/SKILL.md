@@ -99,6 +99,13 @@ Both tools require no API key. Optional `cc` (country code) and `l` (language) p
 
 The data extraction and formatting logic remains the same. If the MCP server is not available, fall back to the `curl`-based workflow above.
 
+## Common Pitfalls
+
+1. **Assuming `appdetails` always returns data** — region-locked, delisted, or unreleased apps return `{ success: false }`. Always check the `success` field.
+2. **Not specifying `&cc=` for regional data** — without a country code, the API returns data for the server's region, which may not match the user's intent.
+3. **Confusing App IDs with Sub IDs or Package IDs** — the store API uses App IDs. Sub/Package IDs are different entities used for purchasing and licensing.
+4. **Caching store data too aggressively** — prices, descriptions, and review scores change. Cache for minutes during active use, not hours or days.
+
 ## See Also
 
 - [Steam Game Comparison](../steam-game-comparison/SKILL.md) - compare multiple games side by side

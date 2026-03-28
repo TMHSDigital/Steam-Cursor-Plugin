@@ -5,6 +5,19 @@ All notable changes to Steam Developer Tools will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.8.0] - 2026-03-28
+
+### Added
+
+- **steam-migration-guide** skill: migrating games to Steam from Epic, GOG, itch.io — engine-specific SDK integration (Unity, Unreal, Godot), feature parity mapping, store page strategy, and technical migration checklist
+- **Common Pitfalls sections** added to all 30 skills — each skill now includes 3-6 concise, actionable pitfalls specific to its domain
+
+### Changed
+
+- Plugin version bumped to 0.8.0
+- Plugin description updated to reflect 30 skills
+- All documentation updated: README, CLAUDE.md, CONTRIBUTING.md, ROADMAP.md
+
 ## [0.7.0] - 2026-03-28
 
 ### Added
@@ -136,6 +149,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **steam-deck-compat** rule: flags common Steam Deck compatibility issues (hardcoded resolutions, mouse-only input, anti-cheat, Windows-only paths, missing controller support)
 - Plugin manifest, README, CONTRIBUTING guide, and license
 
+[0.8.0]: https://github.com/TMHSDigital/Steam-Cursor-Plugin/releases/tag/v0.8.0
 [0.7.0]: https://github.com/TMHSDigital/Steam-Cursor-Plugin/releases/tag/v0.7.0
 [0.6.0]: https://github.com/TMHSDigital/Steam-Cursor-Plugin/releases/tag/v0.6.0
 [0.5.0]: https://github.com/TMHSDigital/Steam-Cursor-Plugin/releases/tag/v0.5.0

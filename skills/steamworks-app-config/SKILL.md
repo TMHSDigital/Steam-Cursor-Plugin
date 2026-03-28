@@ -122,6 +122,14 @@ This is useful for confirming the app exists and checking its current platform l
 
 The VDF generation, depot configuration, launch options, DLC setup, and steamcmd documentation remain the same regardless of MCP availability.
 
+## Common Pitfalls
+
+1. **Using the wrong depot ID pattern** — depot IDs should follow `appid + N` convention (e.g. App 1234567 → depot 1234568 for Win, 1234569 for Mac). Random depot IDs cause confusion.
+2. **Forgetting `FileMapping` exclusions in VDF** — without exclusion patterns, debug symbols (`.pdb`), editor files, and source code get uploaded to depots. Use `FileExclusion` directives.
+3. **Not creating platform-specific depots** — shipping a single depot with Windows, Mac, and Linux binaries wastes bandwidth. Create separate depots and assign them by OS in the app config.
+4. **Misconfiguring launch options** — each platform needs its own launch option entry with the correct `oslist`. A missing or wrong `oslist` makes the game unlaunhcable on that platform.
+5. **Not testing the VDF with `steamcmd` before CI integration** — syntax errors in VDF files are hard to debug in CI logs. Validate locally first with `steamcmd +login ... +run_app_build`.
+
 ## See Also
 
 - [Steam Achievement Designer](../steam-achievement-designer/SKILL.md) - design achievements and generate VDF configs

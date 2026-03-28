@@ -102,6 +102,14 @@ The SDK integration guidance (upload, download, subscribe flows) remains documen
 
 If the MCP server is not available, fall back to the `curl`-based workflow above.
 
+## Common Pitfalls
+
+1. **Not setting item visibility correctly** — newly created Workshop items default to the creator's settings. Items set to "Private" or "Friends Only" are invisible to other players.
+2. **Exceeding the Workshop file size limit** — default per-item limit is 100MB (can be increased by Valve on request). Large items fail to upload silently if the limit is exceeded.
+3. **Not subscribing to your own items during testing** — Workshop items must be subscribed to appear in-game. Uploading alone doesn't install the content locally.
+4. **Ignoring the update changelog** — `SubmitItemUpdate` accepts a change note parameter. Leaving it empty means subscribers see "No change notes" in their update feed.
+5. **Not handling `ISteamUGC` callbacks** — Workshop operations are async. Without registering and handling callbacks, you won't know if uploads succeed or fail.
+
 ## See Also
 
 - [Steam Inventory & Economy](../steam-inventory-economy/SKILL.md) - item systems that can complement Workshop UGC

@@ -199,6 +199,14 @@ For a full audit, verify:
 | Competitor research | `steam.searchApps({ term })` | None | Find competing games in the genre |
 | Competitor details | `steam.getAppDetails({ appid })` | None | Inspect competitor tags, descriptions, pricing |
 
+## Common Pitfalls
+
+1. **Using the wrong capsule image dimensions** — Steam has strict size requirements for each capsule type (header, small, main, hero, library). Wrong sizes get rejected or look blurry.
+2. **Burying the game's hook in the description** — the first ~300 characters of your description show in search results. Lead with your unique selling point, not generic genre descriptions.
+3. **Over-tagging your game** — applying too many tags (15+) dilutes each tag's weight. Focus on 5-8 highly relevant tags that accurately describe your game.
+4. **Not having a trailer in the first media slot** — the first media item is auto-played on the store page. A screenshot in slot 1 means players miss your trailer unless they scroll.
+5. **Forgetting to localize the store page** — Steam shows localized store pages when available. Even translating the short description and tags into top-5 languages significantly increases visibility.
+
 ## See Also
 
 - [Steam Market Research](../steam-market-research/SKILL.md) - competitor analysis and tag research

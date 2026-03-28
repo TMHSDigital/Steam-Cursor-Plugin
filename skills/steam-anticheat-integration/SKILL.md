@@ -205,6 +205,14 @@ if (playerSpeed > MAX_ALLOWED_SPEED) {
 
 Anti-cheat configuration requires the Steamworks Partner site and anti-cheat vendor portals — not available via MCP.
 
+## Common Pitfalls
+
+1. **Not enabling Proton/Wine support for EAC or BattlEye** — Linux and Steam Deck players are blocked unless you explicitly opt in via the anti-cheat vendor portal. This is a separate checkbox from Steamworks Deck compatibility.
+2. **Shipping EAC without the correct redistributable files** — the EAC service installer and `EasyAntiCheat` folder must be bundled with your build. Missing files cause immediate crashes.
+3. **Trusting VAC alone for competitive games** — VAC is reactive (ban waves), not preventive. For real-time protection, pair it with EAC or BattlEye.
+4. **Forgetting to test anti-cheat in dev builds** — anti-cheat services often behave differently in debug vs release. Always test with the release configuration before shipping.
+5. **Breaking modding support unintentionally** — EAC and BattlEye block DLL injection, which some mods rely on. If your game supports mods, configure allowlists or provide a "modded" launch option without anti-cheat.
+
 ## See Also
 
 - [Steam Multiplayer Networking](../steam-multiplayer-networking/SKILL.md) - networking setup that anti-cheat protects

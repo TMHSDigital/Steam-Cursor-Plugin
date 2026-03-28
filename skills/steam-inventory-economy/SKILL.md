@@ -140,6 +140,14 @@ The [Steam MCP server](https://github.com/TMHSDigital/steam-mcp) does not curren
 
 Read-only inventory MCP tools are planned for a future release. The SDK integration, item schema definition, and microtransaction flows remain documentation-only.
 
+## Common Pitfalls
+
+1. **Not validating item grants server-side** — client-side inventory manipulation is trivially exploitable. Always verify grants and trades through your game server or the partner API.
+2. **Forgetting to publish the item schema** — item definitions configured in Steamworks Partner must be explicitly published. Unpublished schemas are invisible to the game.
+3. **Setting drop rates too high during testing** — test drop rates often get shipped to production. Use separate item definitions for testing or reset before launch.
+4. **Ignoring the `SteamInventoryResultReady_t` callback** — inventory operations are async. Trying to read results before the callback fires returns stale or empty data.
+5. **Not handling microtransaction failures gracefully** — `ISteamMicroTxn` calls can fail due to insufficient wallet funds, parental controls, or regional restrictions. Always show clear error messages.
+
 ## See Also
 
 - [Steam Workshop Helper](../steam-workshop-helper/SKILL.md) - Workshop UGC integration that can complement inventory items

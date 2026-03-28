@@ -188,6 +188,14 @@ For staged releases:
 
 All other build automation steps (steamcmd, CI config, VDF generation) are offline operations not served by MCP.
 
+## Common Pitfalls
+
+1. **Hardcoding depot IDs in CI scripts** — depot IDs differ between platforms (Win/Mac/Linux). Use environment variables or template VDF files, not hardcoded values.
+2. **Not using `+quit` in steamcmd scripts** — steamcmd hangs indefinitely without an explicit `+quit` at the end. Always terminate your command chain with it.
+3. **Uploading to the default branch instead of a beta branch** — a misconfigured `setlive` in your VDF pushes directly to all users. Always upload to a staging branch first and promote manually.
+4. **Forgetting to set the build as live** — uploading a build doesn't make it active. You must set the build live on a branch in Steamworks Partner or via `setlive` in the VDF.
+5. **Leaking steamcmd credentials in CI logs** — use masked secrets/environment variables for `+login` credentials. Never echo them or store in plain text config files.
+
 ## See Also
 
 - [Steamworks App Config](../steamworks-app-config/SKILL.md) - generate VDF depot and build configs

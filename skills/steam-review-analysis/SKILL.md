@@ -138,6 +138,13 @@ The `steam.getReviews` tool is planned for v0.3.0 of the MCP server. Until avail
 
 Resolve game names with `steam.searchApps({ term })` and get store context with `steam.getAppDetails({ appid })` (both already available).
 
+## Common Pitfalls
+
+1. **Not filtering by language** — English reviews may represent only 30-40% of total reviews. Always check language distribution before drawing conclusions.
+2. **Ignoring review bombs** — sudden spikes of negative reviews (often due to external controversies, not game quality) skew overall sentiment. Filter by date range to isolate genuine feedback.
+3. **Treating "Mixed" as negative** — "Mixed" (40-69% positive) often means the game has a passionate niche audience alongside vocal critics. Read the actual reviews before judging.
+4. **Not comparing pre- and post-update reviews** — reviews left before a major update may no longer reflect the current state. Steam's "Recent Reviews" metric is more actionable than "All Reviews" for evolving games.
+
 ## See Also
 
 - [Steam Store Lookup](../steam-store-lookup/SKILL.md) - get store data and resolve game names

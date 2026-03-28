@@ -150,6 +150,13 @@ If the user is pricing their own game, provide benchmarks:
 
 The `steam.getPriceOverview` tool is planned for v0.3.0 of the MCP server. Until available, use `steam.getAppDetails({ appid })` with the `&cc=` parameter for each region.
 
+## Common Pitfalls
+
+1. **Not accounting for regional pricing tiers** — Steam's suggested regional prices don't scale linearly with USD. Some regions have significantly lower purchasing power adjustments.
+2. **Comparing prices without considering bundles** — a game's "effective price" drops significantly when included in popular bundles. Raw store price doesn't tell the full story.
+3. **Ignoring historical lows from third-party key sellers** — Steam price history alone doesn't show prices on Humble, Fanatical, etc. Players track lowest-ever prices across all stores.
+4. **Using cached price data for time-sensitive decisions** — Steam prices change during sales, regional adjustments, and publisher updates. Always fetch fresh data for pricing decisions.
+
 ## See Also
 
 - [Steam Store Lookup](../steam-store-lookup/SKILL.md) - get store data and resolve game names

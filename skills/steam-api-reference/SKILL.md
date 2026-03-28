@@ -127,6 +127,13 @@ When an MCP tool exists for a given endpoint, prefer it over raw `curl` calls. F
 
 The Steamworks SDK documentation and example generation logic remain the same regardless of MCP availability.
 
+## Common Pitfalls
+
+1. **Confusing Web API and Steamworks SDK endpoints** — the Web API (HTTP) and SDK (in-process C++) have overlapping functionality but different auth models. Web API uses API keys; SDK uses the logged-in Steam user.
+2. **Using the public API base for partner endpoints** — `api.steampowered.com` vs `partner.steam-api.com`. Partner endpoints require IP allowlisting and won't work from the public base.
+3. **Not checking API rate limits** — Steam rate-limits most endpoints to ~100K calls/day per key. Exceeding this results in HTTP 429 errors with no warning.
+4. **Ignoring the `format` parameter** — some older endpoints default to VDF output instead of JSON. Always pass `format=json` for programmatic consumption.
+
 ## See Also
 
 - [Steam Store Lookup](../steam-store-lookup/SKILL.md) - look up game store data using the APIs documented here

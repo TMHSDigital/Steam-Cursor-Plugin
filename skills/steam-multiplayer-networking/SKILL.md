@@ -142,6 +142,14 @@ Multiplayer networking uses in-process Steamworks SDK APIs (`ISteamMatchmaking`,
 
 Write-operation MCP tools for lobby management are planned for v0.7.0.
 
+## Common Pitfalls
+
+1. **Not calling `SteamAPI_RunCallbacks()` frequently enough** — networking callbacks (connection state changes, messages) are only dispatched during `RunCallbacks()`. Missing or infrequent calls cause lag and missed events.
+2. **Trusting client-reported game state** — never trust client-sent positions, damage values, scores, or inventory. Validate everything server-side or with an authoritative host.
+3. **Forgetting relay fallback** — Steam Networking Sockets uses Valve's relay network for NAT traversal. If you implement direct P2P only, players behind strict NATs can't connect.
+4. **Not handling `k_ESteamNetworkingConnectionState_ClosedByPeer`** — players disconnect without warning. Always handle this state to clean up sessions and notify other players.
+5. **Sending too much data per tick** — Steam Networking has per-connection bandwidth limits. Sending full game state every frame instead of deltas causes packet loss and disconnects.
+
 ## See Also
 
 - [Steam Friends & Social](../steam-friends-social/SKILL.md) - game invites, rich presence, and overlay for multiplayer games

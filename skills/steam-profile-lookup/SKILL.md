@@ -134,6 +134,13 @@ All three require `STEAM_API_KEY`. Recent activity, Steam level, badges, and fri
 
 If the MCP server is not available, fall back to the `curl`-based workflow above.
 
+## Common Pitfalls
+
+1. **Confusing Steam ID formats** — Steam has Steam64 (76561198...), Steam32 (STEAM_0:...), and Steam3 ([U:1:...]) formats. The Web API requires Steam64. Use `ResolveVanityURL` for custom URLs.
+2. **Not handling private profiles** — most profile data returns empty for private profiles. Always check `communityvisibilitystate` in the response before assuming data is available.
+3. **Caching avatar URLs too long** — avatar URLs can change when users update their profile picture. Cache for minutes, not days.
+4. **Assuming vanity URLs are permanent** — users can change their custom URL at any time. Always store and reference the immutable Steam64 ID, not the vanity URL.
+
 ## See Also
 
 - [Steam Player Stats](../steam-player-stats/SKILL.md) - achievement stats and player counts for specific games

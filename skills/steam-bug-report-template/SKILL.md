@@ -239,6 +239,13 @@ For developers using external trackers:
 
 Bug reporting setup requires the Steamworks Partner site — not available via MCP.
 
+## Common Pitfalls
+
+1. **Not including `steam://sysinfo` in the template** — this URL dumps the user's full system info (hardware, drivers, running processes) into a copyable format. Far more reliable than asking users to self-report specs.
+2. **Ignoring minidump files** — players often don't know where crash dumps are. Include the default paths (`%LOCALAPPDATA%\CrashDumps` on Windows, `~/.steam/` on Linux) in your template.
+3. **Not separating bug reports from feature requests** — mixing them in one template leads to triage chaos. Use separate templates or tags.
+4. **Asking for too many fields** — long forms reduce submission rates. Keep required fields to ~5 and make the rest optional.
+
 ## See Also
 
 - [Steam Community Management](../steam-community-management/SKILL.md) - forum setup and community engagement

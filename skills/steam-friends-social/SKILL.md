@@ -157,6 +157,13 @@ The SDK integration for rich presence, overlay, game invites, friends list itera
 
 If the MCP server is not available, fall back to the `curl`-based approach using `ISteamUser/GetPlayerSummaries`.
 
+## Common Pitfalls
+
+1. **Not respecting privacy settings** — `GetFriendList` only works for profiles with public friends lists. Always handle empty results gracefully.
+2. **Setting Rich Presence strings that are too long** — Rich Presence values are limited to 256 bytes each and 20 keys total. Exceeding this silently truncates.
+3. **Forgetting to clear Rich Presence on disconnect** — stale Rich Presence shows players as "in-game" after they've quit. Call `ClearRichPresence()` on shutdown.
+4. **Using Steam IDs as display names** — always resolve Steam IDs to persona names via `GetFriendPersonaName()` or `GetPlayerSummaries`. Raw 64-bit IDs mean nothing to users.
+
 ## See Also
 
 - [Steam Multiplayer Networking](../steam-multiplayer-networking/SKILL.md) - lobbies and matchmaking that integrate with social features

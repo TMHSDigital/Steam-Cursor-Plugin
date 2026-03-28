@@ -2,7 +2,7 @@
 
 Themed release plan toward v1.0.0.
 
-**Current:** v0.7.0 - 29 skills, 9 rules, companion [Steam MCP server](https://github.com/TMHSDigital/steam-mcp) with 16 tools (10 read-only + 6 write/guidance).
+**Current:** v0.8.0 - 30 skills, 9 rules, companion [Steam MCP server](https://github.com/TMHSDigital/steam-mcp) with 16 tools (10 read-only + 6 write/guidance).
 
 **Target:** v1.0.0 - 30 skills, 9 rules, 20 MCP tools.
 
@@ -14,8 +14,8 @@ Themed release plan toward v1.0.0.
 | v0.4.0 | Ship It | 3 | 2 | 0 | 21 | 6 |
 | v0.5.0 | Grow | 4 | 0 | 2 | 25 | 6 |
 | v0.6.0 | Quality | 3 | 3 | 0 | 28 | 9 |
-| v0.7.0 (current) | Full Power | 1 | 0 | 6 | 29 | 9 |
-| v0.8.0 | Polish | 1 | 0 | 0 | 30 | 9 |
+| v0.7.0 | Full Power | 1 | 0 | 6 | 29 | 9 |
+| v0.8.0 (current) | Polish | 1 | 0 | 0 | 30 | 9 |
 | v1.0.0 | Stable | 0 | 0 | 0 | 30 | 9 |
 
 ---
@@ -236,3 +236,5 @@ Update all 14 existing skills to reference MCP tools where applicable. Replace "
 - [x] ~~Testing sandbox skill~~ - `steam-testing-sandbox` added in v0.7.0
 - [x] ~~MCP write tools~~ - 6 write/guidance tools added to steam-mcp in v0.7.0 (createLobby, uploadWorkshopItem, updateWorkshopItem, setAchievement, uploadLeaderboardScore, grantInventoryItem)
 - [x] ~~App ID validation MCP enhancement~~ - `steam-appid-validation.mdc` updated with live validation via MCP in v0.7.0
+- [x] ~~Migration guide skill~~ - `steam-migration-guide` added in v0.8.0
+- [x] ~~Common Pitfalls sections~~ - added to all 30 skills in v0.8.0

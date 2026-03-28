@@ -202,6 +202,13 @@ Recommended post-launch communication schedule:
 
 Community management actions (posting, moderating) require the Steamworks Partner site — they are not available via API or MCP.
 
+## Common Pitfalls
+
+1. **Posting announcements without localizing the title** — Steam shows announcement titles in the store. Non-English players skip announcements with English-only titles even if the body is translated.
+2. **Using events for everything** — events have a specific time/date and show in the Steam client calendar. Use announcements for news and events only for time-bound activities.
+3. **Not pinning a "Known Issues" discussion** — players create duplicate threads for the same bugs. A pinned thread reduces noise and shows you're aware of problems.
+4. **Ignoring negative review responses** — responding professionally to negative reviews (especially ones citing fixable issues) can lead to review updates. Never argue or be dismissive.
+
 ## See Also
 
 - [Steam Store Page Optimizer](../steam-store-page-optimizer/SKILL.md) - optimize store page for conversions

@@ -108,7 +108,7 @@ The [Steam MCP server](https://github.com/TMHSDigital/steam-mcp) provides 10 too
 | Tool | Description |
 |------|-------------|
 | `steam_getAppDetails({ appid, cc?, l? })` | Store data: price, reviews, tags, platforms, system requirements |
-| `steam_searchApps({ term, cc?, l? })` | Search the Steam store by name |
+| `steam_searchApps({ query, cc?, l? })` | Search the Steam store by name |
 | `steam_getPlayerCount({ appid })` | Current concurrent player count |
 | `steam_getAchievementStats({ appid })` | Global achievement unlock percentages |
 | `steam_getWorkshopItem({ publishedfileid })` | Workshop item details (title, tags, subscribers) |

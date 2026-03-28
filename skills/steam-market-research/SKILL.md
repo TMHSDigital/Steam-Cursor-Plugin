@@ -147,7 +147,7 @@ Provide an overall recommendation: **Strong**, **Moderate**, **Cautious**, or **
 
 | Step | MCP Tool | Auth | Replaces |
 |------|----------|------|----------|
-| Search for games | `steam_searchApps({ term })` | None | `curl` to `storesearch` |
+| Search for games | `steam_searchApps({ query })` | None | `curl` to `storesearch` |
 | Get game details | `steam_getAppDetails({ appid })` | None | `curl` to `appdetails` |
 | Player counts | `steam_getPlayerCount({ appid })` | None | `curl` to `GetNumberOfCurrentPlayers` |
 

@@ -76,7 +76,7 @@ The [Steam MCP Server](https://github.com/TMHSDigital/steam-mcp) provides 20 too
 | MCP Tool | Auth | Maps to |
 |----------|------|---------|
 | `steam_getAppDetails({ appid })` | None | Store API `appdetails` |
-| `steam_searchApps({ term })` | None | Store API `storesearch` |
+| `steam_searchApps({ query })` | None | Store API `storesearch` |
 | `steam_getPlayerCount({ appid })` | None | `GetNumberOfCurrentPlayers` |
 | `steam_getAchievementStats({ appid })` | None | `GetGlobalAchievementPercentagesForApp` |
 | `steam_getWorkshopItem({ publishedfileid })` | None | `GetPublishedFileDetails` |

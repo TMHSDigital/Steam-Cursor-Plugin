@@ -27,6 +27,6 @@
 ## MCP Tool Signatures
 
 When referencing MCP tools in documentation, use the canonical parameter names from the skill files:
-- `steam_searchApps({ term })` not `{ query }`
+- `steam_searchApps({ query })` not `{ query }`
 - `steam_getWorkshopItem({ publishedfileid })` not `{ fileid }`
 - `steam_getLeaderboardEntries({ appid, leaderboardid, rangestart?, rangeend? })` not `{ id, range }`

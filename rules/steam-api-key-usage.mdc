@@ -29,7 +29,7 @@ When a flagged call matches one of these endpoints, suggest the MCP tool:
 
 | Endpoint Pattern | MCP Tool |
 |-----------------|----------|
-| `/api/storesearch/` | `steam_searchApps({ term })` |
+| `/api/storesearch/` | `steam_searchApps({ query })` |
 | `/api/appdetails` | `steam_getAppDetails({ appid })` |
 | `GetNumberOfCurrentPlayers` | `steam_getPlayerCount({ appid })` |
 | `GetGlobalAchievementPercentagesForApp` | `steam_getAchievementStats({ appid })` |

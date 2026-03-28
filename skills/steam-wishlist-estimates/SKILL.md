@@ -163,7 +163,7 @@ Flag that 10,000+ wishlists at launch is often cited as the threshold for "likel
 |------|----------|------|----------|
 | Get store data | `steam_getAppDetails({ appid })` | None | `curl` to `appdetails` |
 | Current players | `steam_getPlayerCount({ appid })` | None | `curl` to `GetNumberOfCurrentPlayers` |
-| Resolve name | `steam_searchApps({ term })` | None | Manual search |
+| Resolve name | `steam_searchApps({ query })` | None | Manual search |
 
 All required MCP tools are already available. No new MCP tools needed for this skill.
 

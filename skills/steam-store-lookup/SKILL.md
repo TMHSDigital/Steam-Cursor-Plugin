@@ -92,7 +92,7 @@ When the [Steam MCP server](https://github.com/TMHSDigital/steam-mcp) is configu
 
 | Step | MCP Tool | Replaces |
 |------|----------|----------|
-| Search by name | `steam_searchApps({ term })` | `curl` to `/api/storesearch/` |
+| Search by name | `steam_searchApps({ query })` | `curl` to `/api/storesearch/` |
 | Fetch store data | `steam_getAppDetails({ appid, cc?, l? })` | `curl` to `/api/appdetails` |
 
 Both tools require no API key. Optional `cc` (country code) and `l` (language) params support regional/localized results.

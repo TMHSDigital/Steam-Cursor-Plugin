@@ -34,7 +34,7 @@ Read-only tools:
 | Tool | Description |
 |------|-------------|
 | `steam_getAppDetails({ appid })` | Store data (price, reviews, tags, platforms) |
-| `steam_searchApps({ term })` | App search by name |
+| `steam_searchApps({ query })` | App search by name |
 | `steam_getPlayerCount({ appid })` | Current concurrent players |
 | `steam_getAchievementStats({ appid })` | Global achievement unlock percentages |
 | `steam_getPlayerSummary({ steamid })` | Profile data (name, avatar, status) |

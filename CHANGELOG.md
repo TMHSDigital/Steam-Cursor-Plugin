@@ -5,6 +5,14 @@ All notable changes to Steam Developer Tools will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Fixed
+
+- **MCP tool naming** — Renamed all 20 MCP tool references from dot notation (`steam.getAppDetails`) to underscore notation (`steam_getAppDetails`) across 34 files. Dots conflicted with Cursor's internal MCP bridge routing. Companion steam-mcp server v0.5.0 has the matching rename.
+- **`steam_searchApps` parameter** — Renamed `term` to `query` across all skills, rules, and docs to match steam-mcp server v0.5.1 schema change
+- **Companion steam-mcp server v0.5.1** — `steam_getLeaderboardEntries` description clarified (numeric ID required), write tools (`steam_setAchievement`, `steam_uploadLeaderboardScore`, `steam_grantInventoryItem`) now return clear error messages when publisher key is missing
+
 ## [0.9.0] - 2026-03-28
 
 ### Added

@@ -136,7 +136,7 @@ When the [Steam MCP server](https://github.com/TMHSDigital/steam-mcp) is configu
 
 The `steam_getReviews` tool is planned for v0.3.0 of the MCP server. Until available, use the `curl`-based workflow above.
 
-Resolve game names with `steam_searchApps({ term })` and get store context with `steam_getAppDetails({ appid })` (both already available).
+Resolve game names with `steam_searchApps({ query })` and get store context with `steam_getAppDetails({ appid })` (both already available).
 
 ## Common Pitfalls
 

@@ -111,7 +111,7 @@ When the [Steam MCP server](https://github.com/TMHSDigital/steam-mcp) is configu
 
 | Step | MCP Tool | Auth | Replaces |
 |------|----------|------|----------|
-| Resolve game names | `steam_searchApps({ term })` | None | `curl` to `/api/storesearch/` |
+| Resolve game names | `steam_searchApps({ query })` | None | `curl` to `/api/storesearch/` |
 | Fetch store data (per game) | `steam_getAppDetails({ appid })` | None | `curl` to `/api/appdetails` |
 | Current players (per game) | `steam_getPlayerCount({ appid })` | None | `curl` to `GetNumberOfCurrentPlayers` |
 

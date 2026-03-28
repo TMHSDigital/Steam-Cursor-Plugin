@@ -1,5 +1,8 @@
 blank_issues_enabled: false
 contact_links:
+  - name: Questions & Discussion
+    url: https://github.com/TMHSDigital/Steam-Cursor-Plugin/discussions
+    about: Ask questions, share ideas, or request new skills in Discussions.
   - name: Steam MCP Server
     url: https://github.com/TMHSDigital/steam-mcp/issues
     about: For issues with the companion Steam MCP server, file them in the steam-mcp repo.

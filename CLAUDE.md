@@ -92,7 +92,7 @@ The [Steam MCP Server](https://github.com/TMHSDigital/steam-mcp) provides 25 too
 | `steam_resolveVanityURL({ vanityurl })` | Key | `ResolveVanityURL` |
 | `steam_getSchemaForGame({ appid })` | Key | `ISteamUserStats/GetSchemaForGame` |
 | `steam_getPlayerAchievements({ steamid, appid })` | Key | `ISteamUserStats/GetPlayerAchievements` |
-| `steam_getLeaderboardsForGame({ appid })` | Publisher key | `ISteamLeaderboards/GetLeaderboardsForGame` |
+| `steam_getLeaderboardsForGame({ appid })` | Key | `ISteamLeaderboards/GetLeaderboardsForGame` |
 | `steam_createLobby({ type, max_members, metadata })` | SDK guide | ISteamMatchmaking code examples |
 | `steam_uploadWorkshopItem({ appid, title, ... })` | SDK guide | ISteamUGC upload code examples |
 | `steam_updateWorkshopItem({ publishedfileid, ... })` | Publisher key | `IPublishedFileService/UpdateDetails` |

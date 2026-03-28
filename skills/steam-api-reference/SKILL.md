@@ -129,8 +129,9 @@ The [Steam MCP server](https://github.com/TMHSDigital/steam-mcp) provides 25 too
 | `steam_resolveVanityURL({ vanityurl, url_type? })` | Convert vanity URL to 64-bit Steam ID |
 | `steam_getSchemaForGame({ appid })` | Achievement/stat schema with display names, descriptions, icons |
 | `steam_getPlayerAchievements({ steamid, appid })` | Per-player achievement unlock status and timestamps |
+| `steam_getLeaderboardsForGame({ appid })` | List all leaderboards with numeric IDs |
 
-**SDK guidance / publisher key (8 tools):**
+**SDK guidance / publisher key (7 tools):**
 
 | Tool | Auth | Description |
 |------|------|-------------|
@@ -141,7 +142,6 @@ The [Steam MCP server](https://github.com/TMHSDigital/steam-mcp) provides 25 too
 | `steam_clearAchievement({ steamid, appid, achievement })` | Publisher key | Re-lock an achievement (dev/test) |
 | `steam_uploadLeaderboardScore({ appid, leaderboardid, ... })` | Publisher key | Upload leaderboard scores |
 | `steam_grantInventoryItem({ appid, steamid, itemdefid })` | Publisher key | Grant inventory items |
-| `steam_getLeaderboardsForGame({ appid })` | Publisher key | List all leaderboards with numeric IDs |
 
 When an MCP tool exists for a given endpoint, prefer it over raw `curl` calls. For endpoints not covered by MCP tools (user stats, microtransactions), continue using the Web API directly.
 

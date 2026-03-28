@@ -197,6 +197,7 @@ The [Steam MCP Server](https://github.com/TMHSDigital/steam-mcp) provides live, 
 | `steam_resolveVanityURL` | Convert vanity URL to Steam ID |
 | `steam_getSchemaForGame` | Achievement/stat schema with display names and icons |
 | `steam_getPlayerAchievements` | Per-player achievement unlock status and timestamps |
+| `steam_getLeaderboardsForGame` | List all leaderboards with numeric IDs |
 
 **Write / guidance (publisher key):**
 
@@ -209,7 +210,6 @@ The [Steam MCP Server](https://github.com/TMHSDigital/steam-mcp) provides live, 
 | `steam_clearAchievement` | HTTP POST | Clear/re-lock achievements (dev/test) |
 | `steam_uploadLeaderboardScore` | HTTP POST | Upload leaderboard scores |
 | `steam_grantInventoryItem` | HTTP POST | Grant inventory items |
-| `steam_getLeaderboardsForGame` | HTTP GET | List all leaderboards with numeric IDs |
 
 </details>
 

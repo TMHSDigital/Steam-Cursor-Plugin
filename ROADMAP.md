@@ -2,15 +2,15 @@
 
 Themed release plan toward v1.0.0.
 
-**Current:** v0.2.0 - 14 skills, 4 rules, companion [Steam MCP server](https://github.com/TMHSDigital/steam-mcp) with 10 read-only tools.
+**Current:** v0.3.0 - 18 skills, 4 rules, companion [Steam MCP server](https://github.com/TMHSDigital/steam-mcp) with 10 read-only tools.
 
 **Target:** v1.0.0 - 30 skills, 9 rules, 20 MCP tools.
 
 | Version | Theme | New Skills | New Rules | MCP Tools | Total Skills | Total Rules |
 |---------|-------|-----------|-----------|-----------|-------------|-------------|
 | v0.1.0 | - | - | - | 0 | 14 | 3 |
-| v0.2.0 (current) | Live Data | 0 (updates) | 1 | 10 | 14 | 4 |
-| v0.3.0 | Insights | 4 | 0 | 2 | 18 | 4 |
+| v0.2.0 | Live Data | 0 (updates) | 1 | 10 | 14 | 4 |
+| v0.3.0 (current) | Insights | 4 | 0 | 2 | 18 | 4 |
 | v0.4.0 | Ship It | 3 | 2 | 0 | 21 | 6 |
 | v0.5.0 | Grow | 4 | 0 | 2 | 25 | 6 |
 | v0.6.0 | Quality | 3 | 3 | 0 | 28 | 9 |
@@ -214,3 +214,7 @@ Update all 14 existing skills to reference MCP tools where applicable. Replace "
 - [x] ~~Steamworks SDK code generation~~ - covered by multiplayer, cloud, leaderboard, input, and inventory skills
 - [x] ~~Steam MCP server with 10 read-only tools~~ - companion repo [steam-mcp](https://github.com/TMHSDigital/steam-mcp), skills updated in v0.2.0
 - [x] ~~MCP tool preference rule~~ - `steam-api-key-usage.mdc` added in v0.2.0
+- [x] ~~Review analysis skill~~ - `steam-review-analysis` added in v0.3.0
+- [x] ~~Price history skill~~ - `steam-price-history` added in v0.3.0
+- [x] ~~Market research skill~~ - `steam-market-research` added in v0.3.0
+- [x] ~~Wishlist estimates skill~~ - `steam-wishlist-estimates` added in v0.3.0

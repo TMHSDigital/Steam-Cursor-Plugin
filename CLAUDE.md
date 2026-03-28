@@ -4,11 +4,11 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-**Steam Developer Tools** is a Cursor IDE plugin (v0.2.0) that integrates Steam and Steamworks APIs for game developers and power users. It provides AI-assisted workflows for querying Steam store data, managing Steamworks configurations, building multiplayer networking, implementing cloud saves, leaderboards, input, inventory/economy, social features, looking up API docs, fetching player statistics, integrating Workshop UGC, designing achievements, looking up player profiles, and comparing games.
+**Steam Developer Tools** is a Cursor IDE plugin (v0.3.0) that integrates Steam and Steamworks APIs for game developers and power users. It provides AI-assisted workflows for querying Steam store data, managing Steamworks configurations, building multiplayer networking, implementing cloud saves, leaderboards, input, inventory/economy, social features, looking up API docs, fetching player statistics, integrating Workshop UGC, designing achievements, looking up player profiles, comparing games, analyzing reviews, researching pricing, evaluating market fit, and estimating wishlists.
 
 This plugin uses Markdown skill files and MDC rule files for AI guidance, paired with the companion [Steam MCP Server](https://github.com/TMHSDigital/steam-mcp) (separate repo) which provides 10 read-only API tools for live data access. No build system, no npm, no compiled code in this repo.
 
-The project is on a themed release roadmap toward v1.0.0 (see `ROADMAP.md`). The next major milestone (v0.3.0 "Insights") adds analytics and market research skills. Subsequent releases add CI/CD automation (v0.4.0), community/monetization skills (v0.5.0), QA rules (v0.6.0), MCP write operations (v0.7.0), and polish (v0.8.0). Target at v1.0.0: 30 skills, 9 rules, 20 MCP tools.
+The project is on a themed release roadmap toward v1.0.0 (see `ROADMAP.md`). The next major milestone (v0.4.0 "Ship It") adds CI/CD automation and build pipeline skills. Subsequent releases add community/monetization skills (v0.5.0), QA rules (v0.6.0), MCP write operations (v0.7.0), and polish (v0.8.0). Target at v1.0.0: 30 skills, 9 rules, 20 MCP tools.
 
 ## Plugin Architecture
 
@@ -18,7 +18,7 @@ skills/<skill-name>/SKILL.md - AI workflow definitions (one per skill)
 rules/<rule-name>.mdc        - Code quality and security rules (applied by Cursor AI)
 ```
 
-### Skills (14 total)
+### Skills (18 total)
 
 Each `SKILL.md` uses YAML frontmatter followed by markdown sections: **Trigger**, **Required Inputs**, **Workflow**, and **Example**.
 
@@ -38,6 +38,10 @@ Each `SKILL.md` uses YAML frontmatter followed by markdown sections: **Trigger**
 | `steam-inventory-economy` | Item schema, drops, crafting, microtransactions, Steam Item Store |
 | `steam-profile-lookup` | Resolve vanity URLs, fetch player summaries, owned games, level/badges |
 | `steam-game-comparison` | Side-by-side comparison of price, reviews, player counts, genres |
+| `steam-review-analysis` | Fetch and analyze game reviews: sentiment, complaints, review bombing |
+| `steam-price-history` | Pricing trends, sale history, regional pricing, value scoring |
+| `steam-market-research` | Genre trends, tag popularity, competitor ID, market gap analysis |
+| `steam-wishlist-estimates` | Estimate wishlists from public signals, conversion benchmarks |
 
 ### Rules (4 total)
 

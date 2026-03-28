@@ -11,7 +11,7 @@
 <p align="center">
   <a href="https://github.com/TMHSDigital/Steam-Cursor-Plugin/actions/workflows/validate.yml"><img src="https://img.shields.io/github/actions/workflow/status/TMHSDigital/Steam-Cursor-Plugin/validate.yml?label=CI" alt="CI"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-CC--BY--NC--ND--4.0-blue.svg" alt="License: CC BY-NC-ND 4.0"></a>
-  <a href="CHANGELOG.md"><img src="https://img.shields.io/badge/version-0.2.0-green.svg" alt="Version"></a>
+  <a href="CHANGELOG.md"><img src="https://img.shields.io/badge/version-0.3.0-green.svg" alt="Version"></a>
   <a href="https://github.com/TMHSDigital/Steam-Cursor-Plugin/stargazers"><img src="https://img.shields.io/github/stars/TMHSDigital/Steam-Cursor-Plugin?style=flat" alt="GitHub Stars"></a>
   <a href="https://github.com/TMHSDigital/Steam-Cursor-Plugin/commits/main"><img src="https://img.shields.io/github/last-commit/TMHSDigital/Steam-Cursor-Plugin" alt="Last Commit"></a>
   <a href="https://github.com/TMHSDigital/Steam-Cursor-Plugin"><img src="https://img.shields.io/badge/Cursor-Plugin-8B5CF6.svg" alt="Cursor Plugin"></a>
@@ -22,7 +22,7 @@
 ---
 
 <p align="center">
-  <strong>14 skills</strong> &nbsp;&bull;&nbsp; <strong>4 rules</strong> &nbsp;&bull;&nbsp; <strong>10 MCP tools</strong>
+  <strong>18 skills</strong> &nbsp;&bull;&nbsp; <strong>4 rules</strong> &nbsp;&bull;&nbsp; <strong>10 MCP tools</strong>
 </p>
 
 Query Steam store data, manage Steamworks app configurations, build multiplayer networking, implement cloud saves, design achievements, compare games, and look up player profiles - all from within Cursor's AI chat. Covers the full Steam &amp; Steamworks ecosystem with live data via the companion [Steam MCP Server](https://github.com/TMHSDigital/steam-mcp).
@@ -64,6 +64,10 @@ flowchart LR
 | **Steam Inventory & Economy** | Implement item systems, drops, crafting, the Steam Item Store, and in-game purchases via ISteamInventory and ISteamMicroTxn. |
 | **Steam Profile Lookup** | Look up any Steam user's public profile - games, playtime, level, badges, friends, and recent activity. |
 | **Steam Game Comparison** | Compare two or more Steam games side by side - price, reviews, player counts, genres, and platforms in a formatted table. |
+| **Steam Review Analysis** | Fetch and analyze game reviews - sentiment breakdown, common complaints, comparison across updates, and review bombing detection. |
+| **Steam Price History** | Pricing trends, sale history, regional pricing analysis, and price-to-value scoring for any Steam game. |
+| **Steam Market Research** | Genre trend analysis, tag popularity, competitor identification, and market gap analysis using Steam store data. |
+| **Steam Wishlist Estimates** | Estimate wishlists from public signals using the Boxleiter method, with conversion rate benchmarks and revenue projections. |
 
 ### Rules
 
@@ -160,7 +164,7 @@ Compare Hades, Dead Cells, and Hollow Knight - price, reviews, and current playe
 ```
 
 <details>
-<summary><strong>More examples (all 14 skills)</strong></summary>
+<summary><strong>More examples (all 18 skills)</strong></summary>
 
 **Store Lookup**
 ```
@@ -232,6 +236,26 @@ Look up the Steam profile for vanity URL "gaben"
 Compare App IDs 570 and 730 side by side.
 ```
 
+**Review Analysis**
+```
+Analyze recent reviews for Baldur's Gate 3. Are players happy with the latest patches?
+```
+
+**Price History**
+```
+What's the pricing history for Hades? Is it a good deal right now?
+```
+
+**Market Research**
+```
+I'm thinking about making a cozy farming sim. Is the market too saturated?
+```
+
+**Wishlist Estimates**
+```
+My game has 25,000 wishlists two weeks before launch. What should I expect for sales?
+```
+
 </details>
 
 ## Configuration
@@ -282,7 +306,7 @@ See [ROADMAP.md](ROADMAP.md) for the full themed release plan (v0.2.0 through v1
 | Version | Theme | Highlights |
 |---------|-------|------------|
 | **v0.2.0** | Live Data | Steam MCP server with 10 read-only tools, skill updates |
-| **v0.3.0** | Insights | Review analysis, price history, market research, wishlist estimates |
+| **v0.3.0 (current)** | Insights | Review analysis, price history, market research, wishlist estimates |
 | **v0.4.0** | Ship It | CI/CD automation, release checklist, steamcmd helper, build validation rules |
 | **v0.5.0** | Grow | Community management, store page optimization, pricing strategy, DLC planning |
 | **v0.6.0** | Quality | Playtest setup, anti-cheat integration, save compat / network security / error handling rules |

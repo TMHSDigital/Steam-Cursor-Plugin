@@ -5,6 +5,26 @@ All notable changes to Steam Developer Tools will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.3.0] - 2026-03-27
+
+### Added
+
+- **steam-review-analysis** skill: fetch and analyze Steam game reviews - sentiment breakdown, common complaints, comparison across updates, language distribution, review bombing detection
+- **steam-price-history** skill: pricing trends, sale history, regional pricing analysis, price-to-review value scoring, pricing strategy guidance for developers
+- **steam-market-research** skill: genre trend analysis, tag popularity, competitor identification, market gap analysis, viability assessment using Steam store data
+- **steam-wishlist-estimates** skill: estimate wishlists from follower counts and review data using the Boxleiter method, wishlist-to-sales conversion benchmarks, revenue estimation
+
+### Changed
+
+- Plugin version bumped to 0.3.0
+- Plugin description updated to reflect 18 skills
+- All documentation updated: README, CLAUDE.md, CONTRIBUTING.md, ROADMAP.md
+
+### MCP Roadmap
+
+- `steam.getReviews({ appid, filter, language, count })` - planned for MCP server v0.3.0 (review analysis skill uses curl fallback until available)
+- `steam.getPriceOverview({ appids, cc })` - planned for MCP server v0.3.0 (price history skill uses getAppDetails with cc parameter until available)
+
 ## [0.2.0] - 2026-03-27
 
 ### Added
@@ -43,5 +63,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **steam-deck-compat** rule: flags common Steam Deck compatibility issues (hardcoded resolutions, mouse-only input, anti-cheat, Windows-only paths, missing controller support)
 - Plugin manifest, README, CONTRIBUTING guide, and license
 
+[0.3.0]: https://github.com/TMHSDigital/Steam-Cursor-Plugin/releases/tag/v0.3.0
 [0.2.0]: https://github.com/TMHSDigital/Steam-Cursor-Plugin/releases/tag/v0.2.0
 [0.1.0]: https://github.com/TMHSDigital/Steam-Cursor-Plugin/releases/tag/v0.1.0

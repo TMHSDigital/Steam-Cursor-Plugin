@@ -2,7 +2,7 @@
 
 Themed release plan toward v1.0.0.
 
-**Current:** v0.5.0 - 25 skills, 6 rules, companion [Steam MCP server](https://github.com/TMHSDigital/steam-mcp) with 10 read-only tools.
+**Current:** v0.6.0 - 28 skills, 9 rules, companion [Steam MCP server](https://github.com/TMHSDigital/steam-mcp) with 10 read-only tools.
 
 **Target:** v1.0.0 - 30 skills, 9 rules, 20 MCP tools.
 
@@ -12,8 +12,8 @@ Themed release plan toward v1.0.0.
 | v0.2.0 | Live Data | 0 (updates) | 1 | 10 | 14 | 4 |
 | v0.3.0 | Insights | 4 | 0 | 2 | 18 | 4 |
 | v0.4.0 | Ship It | 3 | 2 | 0 | 21 | 6 |
-| v0.5.0 (current) | Grow | 4 | 0 | 2 | 25 | 6 |
-| v0.6.0 | Quality | 3 | 3 | 0 | 28 | 9 |
+| v0.5.0 | Grow | 4 | 0 | 2 | 25 | 6 |
+| v0.6.0 (current) | Quality | 3 | 3 | 0 | 28 | 9 |
 | v0.7.0 | Full Power | 1 | 0 | 6 | 29 | 9 |
 | v0.8.0 | Polish | 1 | 0 | 0 | 30 | 9 |
 | v1.0.0 | Stable | 0 | 0 | 0 | 30 | 9 |
@@ -227,3 +227,9 @@ Update all 14 existing skills to reference MCP tools where applicable. Replace "
 - [x] ~~Store page optimizer skill~~ - `steam-store-page-optimizer` added in v0.5.0
 - [x] ~~Pricing strategy skill~~ - `steam-pricing-strategy` added in v0.5.0
 - [x] ~~DLC expansion planning skill~~ - `steam-dlc-expansion-planning` added in v0.5.0
+- [x] ~~Playtest setup skill~~ - `steam-playtest-setup` added in v0.6.0
+- [x] ~~Bug report template skill~~ - `steam-bug-report-template` added in v0.6.0
+- [x] ~~Anti-cheat integration skill~~ - `steam-anticheat-integration` added in v0.6.0
+- [x] ~~Save compatibility rule~~ - `steam-save-compat.mdc` added in v0.6.0
+- [x] ~~Network security rule~~ - `steam-network-security.mdc` added in v0.6.0
+- [x] ~~API error handling rule~~ - `steam-api-error-handling.mdc` added in v0.6.0

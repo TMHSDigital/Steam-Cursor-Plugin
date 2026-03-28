@@ -1,0 +1,50 @@
+---
+description: Flag save file practices that break cross-platform Steam Cloud sync. Checks for binary endianness assumptions, OS-specific path separators, hardcoded user directories, and non-portable serialization patterns.
+alwaysApply: false
+globs:
+  - "**/*.cpp"
+  - "**/*.h"
+  - "**/*.hpp"
+  - "**/*.cs"
+  - "**/*.gd"
+  - "**/*.json"
+  - "**/*.cfg"
+---
+
+# Steam Save File Compatibility
+
+When editing or reviewing game code that handles save files, watch for these cross-platform compatibility issues that break Steam Cloud sync:
+
+## Path Separators
+
+1. **Hardcoded backslashes.** Flag `\\` used as path separators in save file paths. Use platform-agnostic path APIs instead (`std::filesystem::path` in C++, `Path.Combine` in C#, `"/"` works on all platforms).
+
+2. **Hardcoded forward slashes in Windows-specific code.** While `/` works on Windows, mixing conventions causes confusion. Use the engine's path API consistently.
+
+## User Directories
+
+3. **Hardcoded `%APPDATA%` or `%LOCALAPPDATA%`.** These Windows environment variables don't exist on Linux/macOS. Use `ISteamRemoteStorage` for cloud saves, or use engine-provided paths (`Application.persistentDataPath` in Unity, `FPaths::ProjectSavedDir()` in Unreal).
+
+4. **Hardcoded `$HOME` or `~/.local/share/`.** These Linux paths don't exist on Windows. Same fix — use Steam's cloud storage or engine abstractions.
+
+5. **Hardcoded macOS paths.** Flag `~/Library/Application Support/` without cross-platform fallback.
+
+## Binary Serialization
+
+6. **Endianness assumptions.** If save files use raw binary serialization (`fwrite` of structs, `BinaryWriter` of raw types), flag that byte order differs between architectures. While x86/x64 are all little-endian, ARM (Steam Deck's future, mobile) may differ. Use explicit serialization (JSON, Protocol Buffers, MessagePack) or write endianness markers.
+
+7. **Struct padding differences.** Flag `fwrite(&struct, sizeof(struct))` — struct padding differs between compilers and platforms. Serialize fields individually or use `#pragma pack`.
+
+8. **Platform-specific types.** Flag use of `long` (32-bit on Windows, 64-bit on Linux x64) or `size_t` in save data. Use fixed-width types (`int32_t`, `uint64_t`).
+
+## File Naming
+
+9. **Case-sensitive filenames.** Windows is case-insensitive; Linux is case-sensitive. If save files reference other files by name, ensure case matches exactly. `Save1.dat` and `save1.dat` are different files on Linux.
+
+10. **Special characters in filenames.** Avoid `:`, `<`, `>`, `|`, `?`, `*` in save filenames — they're invalid on Windows. Stick to alphanumeric, dashes, underscores, and dots.
+
+## Steam Cloud Specifics
+
+11. **Save files larger than necessary.** Steam Cloud has per-app quota limits (typically 1GB). Flag save systems that store excessive data (full undo history, uncompressed screenshots in saves). Recommend compression or trimming.
+
+12. **Missing conflict handling.** If the game writes save files directly without using `ISteamRemoteStorage`, note that Steam Auto-Cloud may produce conflicts. The game should handle cloud sync conflicts gracefully, or use `ISteamRemoteStorage` for explicit conflict resolution.

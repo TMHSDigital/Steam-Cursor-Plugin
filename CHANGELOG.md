@@ -5,6 +5,23 @@ All notable changes to Steam Developer Tools will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.6.0] - 2026-03-28
+
+### Added
+
+- **steam-playtest-setup** skill: Steam Playtest feature configuration — open vs closed playtests, key distribution, signup pages, feedback collection, Next Fest integration, and transition to Early Access or launch
+- **steam-bug-report-template** skill: structured bug report templates — Steam system info integration, crash dump collection (Windows/Unity/Unreal), known issues tracking, and Discussion forum integration
+- **steam-anticheat-integration** skill: anti-cheat setup — EasyAntiCheat (EAC), BattlEye, and VAC integration with Proton/Linux compatibility matrix, Steam Deck considerations, and server-side validation patterns
+- **steam-save-compat** rule: flags save file practices that break cross-platform Steam Cloud sync — binary endianness, OS-specific paths, hardcoded separators, non-portable serialization
+- **steam-network-security** rule: flags insecure networking patterns — unvalidated auth tickets, missing session management, trusting client data, missing encryption
+- **steam-api-error-handling** rule: flags missing error/callback handling for Steamworks SDK — unchecked `SteamAPI_Init()`, missing `StoreStats()`, ignored callbacks, missing `SteamAPI_RunCallbacks()`
+
+### Changed
+
+- Plugin version bumped to 0.6.0
+- Plugin description updated to reflect 28 skills and 9 rules
+- All documentation updated: README, CLAUDE.md, CONTRIBUTING.md, ROADMAP.md
+
 ## [0.5.0] - 2026-03-28
 
 ### Added
@@ -99,6 +116,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **steam-deck-compat** rule: flags common Steam Deck compatibility issues (hardcoded resolutions, mouse-only input, anti-cheat, Windows-only paths, missing controller support)
 - Plugin manifest, README, CONTRIBUTING guide, and license
 
+[0.6.0]: https://github.com/TMHSDigital/Steam-Cursor-Plugin/releases/tag/v0.6.0
 [0.5.0]: https://github.com/TMHSDigital/Steam-Cursor-Plugin/releases/tag/v0.5.0
 [0.4.0]: https://github.com/TMHSDigital/Steam-Cursor-Plugin/releases/tag/v0.4.0
 [0.3.0]: https://github.com/TMHSDigital/Steam-Cursor-Plugin/releases/tag/v0.3.0

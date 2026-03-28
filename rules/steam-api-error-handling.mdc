@@ -1,0 +1,58 @@
+---
+description: Flag missing error and callback handling for Steamworks SDK calls. Checks for unchecked return values, missing StoreStats after achievements, ignored callbacks, and missing SteamAPI_RunCallbacks in the game loop.
+alwaysApply: false
+globs:
+  - "**/*.cpp"
+  - "**/*.h"
+  - "**/*.hpp"
+  - "**/*.cs"
+  - "**/*.gd"
+---
+
+# Steam API Error Handling
+
+When editing or reviewing code that uses the Steamworks SDK, check for these error handling issues:
+
+## Initialization
+
+1. **Unchecked `SteamAPI_Init()`.** The return value of `SteamAPI_Init()` must be checked. If it returns `false`, the Steam client is not running or the app ID is invalid. Flag code that calls `SteamAPI_Init()` without checking the result or proceeding as if Steam is available.
+
+2. **Missing `steam_appid.txt` fallback.** During development, `SteamAPI_Init()` needs `steam_appid.txt` in the working directory or `SteamAPI_RestartAppIfNecessary(appid)` to be called first. Flag if neither is present.
+
+3. **Null interface pointers.** After `SteamAPI_Init()`, interface pointers like `SteamUser()`, `SteamFriends()`, `SteamUserStats()` can be `nullptr` if initialization failed or the subsystem is unavailable. Flag code that calls methods on these without null checks.
+
+## Callbacks
+
+4. **Missing `SteamAPI_RunCallbacks()`.** This must be called every frame (or at regular intervals) in the game loop. Without it, no callbacks will fire — achievements won't register, auth won't validate, stats won't sync. Flag game loops that don't call this function.
+
+5. **Missing callback registration.** `CCallback` and `CCallResult` objects must be registered to receive async responses. Flag code that makes async Steamworks calls (like `RequestCurrentStats`, `FindLeaderboard`) without a corresponding callback handler.
+
+6. **Callback object lifetime.** `CCallback` and `CCallResult` objects must remain alive until the callback fires. Flag callback objects declared as local variables in functions — they'll be destroyed before the callback arrives. They should be class members.
+
+## Achievements and Stats
+
+7. **Missing `RequestCurrentStats()`.** Stats and achievements require `RequestCurrentStats()` to be called first and its callback to be received before any stat/achievement operations. Flag code that calls `SetAchievement()` or `SetStat()` without first calling `RequestCurrentStats()`.
+
+8. **Missing `StoreStats()`.** After calling `SetAchievement()` or `SetStat()`, changes are only local until `StoreStats()` is called. Flag code that sets achievements or stats without a subsequent `StoreStats()` call. Without it, changes are lost when the game exits.
+
+9. **Ignoring `StoreStats()` result.** `StoreStats()` can fail (rate limiting, network issues). Flag code that doesn't handle the `UserStatsStored_t` callback to verify success.
+
+## Leaderboards
+
+10. **Missing `FindLeaderboard` before operations.** Leaderboard upload/download requires a valid `SteamLeaderboard_t` handle obtained from `FindLeaderboard`. Flag code that uses a leaderboard handle without first obtaining it via the async find call.
+
+11. **Unchecked leaderboard results.** `DownloadLeaderboardEntries` and `UploadLeaderboardScore` return results via `CCallResult`. Flag code that doesn't check the result's `m_bSuccess` field.
+
+## Cloud Saves
+
+12. **Unchecked `FileWrite` results.** `ISteamRemoteStorage::FileWrite()` returns `bool`. Flag code that doesn't check the return value — write can fail due to quota exceeded, disk full, or cloud disabled.
+
+13. **Missing cloud quota check.** Before writing large files, check available quota with `GetQuota()`. Flag code that writes to cloud storage without verifying space is available.
+
+## Networking
+
+14. **Unchecked connection results.** `ISteamNetworkingSockets::ConnectP2P` and similar calls can fail immediately or asynchronously. Flag code that doesn't handle `SteamNetConnectionStatusChangedCallback_t`.
+
+## General Pattern
+
+15. **Silent failure.** Flag any Steamworks API call whose error result is caught but silently ignored (empty catch block, logged but not handled). At minimum, inform the player that a feature is unavailable rather than failing silently.

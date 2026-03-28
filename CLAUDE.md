@@ -4,11 +4,11 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-**Steam Developer Tools** is a Cursor IDE plugin (v0.5.0) that integrates Steam and Steamworks APIs for game developers and power users. It provides AI-assisted workflows for querying Steam store data, managing Steamworks configurations, building multiplayer networking, implementing cloud saves, leaderboards, input, inventory/economy, social features, looking up API docs, fetching player statistics, integrating Workshop UGC, designing achievements, looking up player profiles, comparing games, analyzing reviews, researching pricing, evaluating market fit, estimating wishlists, automating builds, validating release readiness, scripting steamcmd, managing communities, optimizing store pages, planning pricing strategy, and configuring DLC.
+**Steam Developer Tools** is a Cursor IDE plugin (v0.6.0) that integrates Steam and Steamworks APIs for game developers and power users. It provides AI-assisted workflows for querying Steam store data, managing Steamworks configurations, building multiplayer networking, implementing cloud saves, leaderboards, input, inventory/economy, social features, looking up API docs, fetching player statistics, integrating Workshop UGC, designing achievements, looking up player profiles, comparing games, analyzing reviews, researching pricing, evaluating market fit, estimating wishlists, automating builds, validating release readiness, scripting steamcmd, managing communities, optimizing store pages, planning pricing strategy, configuring DLC, setting up playtests, creating bug report workflows, and integrating anti-cheat.
 
 This plugin uses Markdown skill files and MDC rule files for AI guidance, paired with the companion [Steam MCP Server](https://github.com/TMHSDigital/steam-mcp) (separate repo) which provides 10 read-only API tools for live data access. No build system, no npm, no compiled code in this repo.
 
-The project is on a themed release roadmap toward v1.0.0 (see `ROADMAP.md`). The next major milestone (v0.6.0 "Quality") adds testing, QA, and new rules. Subsequent releases add MCP write operations (v0.7.0) and polish (v0.8.0). Target at v1.0.0: 30 skills, 9 rules, 20 MCP tools.
+The project is on a themed release roadmap toward v1.0.0 (see `ROADMAP.md`). The next major milestone (v0.7.0 "Full Power") adds MCP write operations. Subsequent releases add polish (v0.8.0). Target at v1.0.0: 30 skills, 9 rules, 20 MCP tools.
 
 ## Plugin Architecture
 
@@ -18,7 +18,7 @@ skills/<skill-name>/SKILL.md - AI workflow definitions (one per skill)
 rules/<rule-name>.mdc        - Code quality and security rules (applied by Cursor AI)
 ```
 
-### Skills (25 total)
+### Skills (28 total)
 
 Each `SKILL.md` uses YAML frontmatter followed by markdown sections: **Trigger**, **Required Inputs**, **Workflow**, and **Example**.
 
@@ -49,8 +49,11 @@ Each `SKILL.md` uses YAML frontmatter followed by markdown sections: **Trigger**
 | `steam-store-page-optimizer` | Capsule images, descriptions, tags, trailers, demos, screenshots |
 | `steam-pricing-strategy` | Base pricing, regional pricing, discounts, sales, bundles, F2P |
 | `steam-dlc-expansion-planning` | DLC setup, season passes, content cadence, pricing tiers |
+| `steam-playtest-setup` | Steam Playtest config, open/closed playtests, key distribution |
+| `steam-bug-report-template` | Bug report templates, crash dumps, system info, known issues |
+| `steam-anticheat-integration` | EAC, BattlEye, VAC setup, Proton/Deck compatibility |
 
-### Rules (6 total)
+### Rules (9 total)
 
 | Rule | Scope | Purpose |
 |------|-------|---------|
@@ -60,6 +63,9 @@ Each `SKILL.md` uses YAML frontmatter followed by markdown sections: **Trigger**
 | `steam-api-key-usage.mdc` | `*.sh`, `*.ps1`, `*.py`, `*.js`, `*.ts`, `*.yml`, `*.yaml` | Flags raw curl/fetch to Steam APIs when MCP tools are available; suggests equivalent MCP tool |
 | `steam-build-config-validation.mdc` | `*.vdf`, `*build*`, `*depot*` | Validates VDF build configs: missing depots, mismatched App IDs, invalid file mappings |
 | `steam-launch-options-check.mdc` | `*.vdf`, `*launch*`, `*config*.json`, `*config*.cfg` | Flags launch option issues: missing executables, wrong OS targeting, missing descriptions |
+| `steam-save-compat.mdc` | `*.cpp`, `*.h`, `*.hpp`, `*.cs`, `*.gd`, `*.json`, `*.cfg` | Flags save practices breaking cross-platform cloud sync: endianness, paths, serialization |
+| `steam-network-security.mdc` | `*.cpp`, `*.h`, `*.hpp`, `*.cs`, `*.gd` | Flags insecure networking: unvalidated auth tickets, trusting client data, missing encryption |
+| `steam-api-error-handling.mdc` | `*.cpp`, `*.h`, `*.hpp`, `*.cs`, `*.gd` | Flags missing Steamworks error handling: unchecked init, missing StoreStats, ignored callbacks |
 
 ### Companion MCP Server
 

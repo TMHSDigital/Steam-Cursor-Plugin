@@ -1,0 +1,52 @@
+---
+description: Flag insecure networking patterns in Steam multiplayer game code. Checks for unvalidated auth tickets, missing session management, trusting client data, and missing encryption for sensitive payloads.
+alwaysApply: false
+globs:
+  - "**/*.cpp"
+  - "**/*.h"
+  - "**/*.hpp"
+  - "**/*.cs"
+  - "**/*.gd"
+---
+
+# Steam Network Security
+
+When editing or reviewing multiplayer game networking code, check for these security issues:
+
+## Authentication
+
+1. **Unvalidated auth tickets.** If the code accepts player connections without calling `BeginAuthSession()` to validate the Steam auth ticket, flag it. Every connecting player must present a valid ticket.
+
+2. **Missing `EndAuthSession()`.** When a player disconnects, `EndAuthSession()` must be called to clean up the auth session. Flag connection handlers that call `BeginAuthSession` without a corresponding `EndAuthSession` on disconnect.
+
+3. **Auth ticket timeout.** Auth tickets expire. Flag code that validates a ticket once at connection and never re-validates during long sessions. Periodic re-validation or session heartbeats are recommended.
+
+4. **Missing `ValidateAuthTicketResponse_t` callback.** `BeginAuthSession` is not synchronous — the result comes via callback. Flag code that assumes the ticket is valid immediately after `BeginAuthSession` returns `k_EBeginAuthSessionResultOK` without waiting for the callback.
+
+## Client Trust
+
+5. **Trusting client-reported position.** Flag server code that directly applies client-sent position/velocity without validation. The server should validate movement against maximum speed, collision, and teleportation checks.
+
+6. **Trusting client-reported damage.** Flag server code that accepts client-reported damage values, kill confirmations, or health changes. Damage calculation must be server-authoritative.
+
+7. **Trusting client-reported scores.** Flag code that allows clients to set their own score, currency, or progression values. These must be server-calculated.
+
+8. **Trusting client-reported inventory changes.** Flag code that lets clients add/remove/modify inventory items without server validation. Use `ISteamInventory` server-side verification.
+
+## Data Transmission
+
+9. **Sensitive data in plaintext.** If the game transmits authentication tokens, player credentials, or payment-related data outside of Steamworks APIs, flag the lack of encryption. Steam Networking Sockets provide encrypted channels by default — use them.
+
+10. **Custom networking without encryption.** If the game uses raw UDP/TCP sockets instead of Steam Networking Sockets, flag that data is transmitted in plaintext. At minimum, recommend TLS for TCP or DTLS for UDP, or migrate to Steam Networking Sockets which handle encryption automatically.
+
+## Steam Networking Sockets
+
+11. **Using deprecated networking API.** Flag usage of the old `ISteamNetworking` API (P2P functions like `SendP2PPacket`). Recommend migrating to `ISteamNetworkingSockets` which provides relay support, encryption, and better NAT traversal.
+
+12. **Missing relay fallback.** If the game uses direct P2P connections without Steam Relay as a fallback, flag it. Some players behind restrictive NATs can only connect through Valve's relay network. `ISteamNetworkingSockets` handles this automatically when configured.
+
+## General
+
+13. **Logging sensitive data.** Flag debug logging that outputs auth tickets, Steam IDs paired with IP addresses, or session tokens. These should never appear in production logs.
+
+14. **Missing rate limiting.** Flag server code that processes unlimited requests from a single client without rate limiting. This enables DoS attacks and resource exhaustion.

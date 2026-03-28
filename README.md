@@ -11,7 +11,7 @@
 <p align="center">
   <a href="https://github.com/TMHSDigital/Steam-Cursor-Plugin/actions/workflows/validate.yml"><img src="https://img.shields.io/github/actions/workflow/status/TMHSDigital/Steam-Cursor-Plugin/validate.yml?label=CI" alt="CI"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-CC--BY--NC--ND--4.0-blue.svg" alt="License: CC BY-NC-ND 4.0"></a>
-  <a href="CHANGELOG.md"><img src="https://img.shields.io/badge/version-0.5.0-green.svg" alt="Version"></a>
+  <a href="CHANGELOG.md"><img src="https://img.shields.io/badge/version-0.6.0-green.svg" alt="Version"></a>
   <a href="https://github.com/TMHSDigital/Steam-Cursor-Plugin/stargazers"><img src="https://img.shields.io/github/stars/TMHSDigital/Steam-Cursor-Plugin?style=flat" alt="GitHub Stars"></a>
   <a href="https://github.com/TMHSDigital/Steam-Cursor-Plugin/commits/main"><img src="https://img.shields.io/github/last-commit/TMHSDigital/Steam-Cursor-Plugin" alt="Last Commit"></a>
   <a href="https://github.com/TMHSDigital/Steam-Cursor-Plugin"><img src="https://img.shields.io/badge/Cursor-Plugin-8B5CF6.svg" alt="Cursor Plugin"></a>
@@ -22,7 +22,7 @@
 ---
 
 <p align="center">
-  <strong>25 skills</strong> &nbsp;&bull;&nbsp; <strong>6 rules</strong> &nbsp;&bull;&nbsp; <strong>10 MCP tools</strong>
+  <strong>28 skills</strong> &nbsp;&bull;&nbsp; <strong>9 rules</strong> &nbsp;&bull;&nbsp; <strong>10 MCP tools</strong>
 </p>
 
 Query Steam store data, manage Steamworks app configurations, build multiplayer networking, implement cloud saves, design achievements, compare games, and look up player profiles - all from within Cursor's AI chat. Covers the full Steam &amp; Steamworks ecosystem with live data via the companion [Steam MCP Server](https://github.com/TMHSDigital/steam-mcp).
@@ -75,6 +75,9 @@ flowchart LR
 | **Steam Store Page Optimizer** | Store page best practices: capsule image specs, description structure, tag strategy, trailer guidance, demo setup, and screenshot optimization. |
 | **Steam Pricing Strategy** | Data-driven pricing: base price tiers, regional pricing, launch discounts, sale participation, bundles, and F2P considerations. |
 | **Steam DLC & Expansion Planning** | DLC planning: App ID creation, depot config, season passes, content cadence, pricing tiers, and in-game ownership checks. |
+| **Steam Playtest Setup** | Configure Steam Playtest: open vs closed playtests, key distribution, signup pages, feedback collection, and Next Fest integration. |
+| **Steam Bug Report Template** | Structured bug report templates with Steam system info, crash dump guidance, known issues tracking, and forum integration. |
+| **Steam Anti-Cheat Integration** | Anti-cheat setup: EAC, BattlEye, VAC with Proton/Linux/Steam Deck compatibility matrix and server-side validation. |
 
 ### Rules
 
@@ -86,6 +89,9 @@ flowchart LR
 | **MCP Tool Preference** | When the Steam MCP server is configured, flags raw `curl`/`fetch` calls to Steam APIs and suggests the equivalent MCP tool. |
 | **Build Config Validation** | Validates VDF build configs: missing depots, mismatched App IDs, invalid file mappings, empty content roots, and `setlive` safety warnings. |
 | **Launch Options Check** | Flags launch option issues: missing executables, wrong OS targeting, missing descriptions for multi-launch, and invalid type values. |
+| **Save File Compatibility** | Flags save practices that break cross-platform Steam Cloud sync: binary endianness, OS-specific paths, non-portable serialization. |
+| **Network Security** | Flags insecure networking: unvalidated auth tickets, trusting client data, missing encryption, deprecated API usage. |
+| **API Error Handling** | Flags missing Steamworks error handling: unchecked `SteamAPI_Init()`, missing `StoreStats()`, ignored callbacks, missing `RunCallbacks()`. |
 
 ## Companion: Steam MCP Server
 
@@ -173,7 +179,7 @@ Compare Hades, Dead Cells, and Hollow Knight - price, reviews, and current playe
 ```
 
 <details>
-<summary><strong>More examples (all 25 skills)</strong></summary>
+<summary><strong>More examples (all 28 skills)</strong></summary>
 
 **Store Lookup**
 ```
@@ -300,6 +306,21 @@ I'm launching a roguelike deckbuilder. 15-20 hours of content. How should I pric
 I want to plan 3 DLC packs and a season pass for my roguelike. Base game App ID is 2345678.
 ```
 
+**Playtest Setup**
+```
+I want to run a closed playtest for my game before Early Access. How do I set it up?
+```
+
+**Bug Reporting**
+```
+I need to set up bug reporting for my game. Players keep submitting vague reports.
+```
+
+**Anti-Cheat**
+```
+I'm making a competitive FPS. I need anti-cheat that works on Steam Deck. What should I use?
+```
+
 </details>
 
 ## Configuration
@@ -353,8 +374,8 @@ See [ROADMAP.md](ROADMAP.md) for the full themed release plan toward v1.0.0.
 | **v0.2.0** | Live Data | Steam MCP server with 10 read-only tools, skill updates | Done |
 | **v0.3.0** | Insights | Review analysis, price history, market research, wishlist estimates | Done |
 | **v0.4.0** | Ship It | CI/CD automation, release checklist, steamcmd helper, build validation rules | Done |
-| **v0.5.0** | Grow | Community management, store page optimization, pricing strategy, DLC planning | **Current** |
-| v0.6.0 | Quality | Playtest setup, anti-cheat integration, save compat / network security / error handling rules | Planned |
+| **v0.5.0** | Grow | Community management, store page optimization, pricing strategy, DLC planning | Done |
+| **v0.6.0** | Quality | Playtest setup, bug reporting, anti-cheat, save compat / network security / error handling rules | **Current** |
 | v0.7.0 | Full Power | MCP write operations (lobbies, workshop uploads, achievements, inventory) | Planned |
 | v0.8.0 | Polish | Cross-references, troubleshooting sections, migration guide | Planned |
 | v1.0.0 | Stable | Production release: 30 skills, 9 rules, 20 MCP tools | Planned |

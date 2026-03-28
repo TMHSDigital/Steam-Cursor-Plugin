@@ -186,7 +186,7 @@ The [Steam MCP Server](https://github.com/TMHSDigital/steam-mcp) provides live, 
 | `steam_getRegionalPricing` | Pricing breakdown across multiple countries |
 | `steam_getNewsForApp` | Recent news and announcements for a game |
 
-**Read-only (API key) — 7 tools:**
+**Read-only (API key) — 8 tools:**
 
 | Tool | Description |
 |------|-------------|
@@ -456,8 +456,8 @@ See [ROADMAP.md](ROADMAP.md) for the full themed release plan toward v1.0.0.
 | **v0.6.0** | Quality | Playtest setup, bug reporting, anti-cheat, save compat / network security / error handling rules | Done |
 | **v0.7.0** | Full Power | Testing sandbox, 6 MCP write tools (lobbies, workshop, achievements, leaderboards, inventory) | Done |
 | **v0.8.0** | Polish | Migration guide, common pitfalls across all 30 skills | Done |
-| **v0.9.0** | Complete | 4 new MCP read tools (reviews, pricing, regional) — 20 MCP tools at release | **Current** |
-| v1.0.0 | Stable | Production release: 30 skills, 9 rules, 25 MCP tools | Planned |
+| **v0.9.0** | Complete | 4 new MCP read tools (reviews, pricing, regional) — 20 MCP tools at release | Done |
+| **v1.0.0** | Stable | Production release: 30 skills, 9 rules, 25 MCP tools | **Current** |
 
 </details>
 

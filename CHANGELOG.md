@@ -5,6 +5,22 @@ All notable changes to Steam Developer Tools will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.9.0] - 2026-03-28
+
+### Added
+
+- **4 new MCP read tools** in companion Steam MCP server (v0.4.0), reaching the target of 20 total tools:
+  - `steam.getReviews` — Fetch user reviews with filters for language, sentiment, purchase type, and pagination (no auth)
+  - `steam.getPriceOverview` — Batch price check for multiple apps in a specific region (no auth)
+  - `steam.getAppReviewSummary` — Review score, total counts, and positive percentage without individual reviews (no auth)
+  - `steam.getRegionalPricing` — Pricing breakdown across multiple countries/regions (no auth)
+
+### Changed
+
+- Plugin version bumped to 0.9.0
+- Companion Steam MCP server bumped to 0.4.0 (20 tools: 14 read-only + 6 write/guidance)
+- All documentation updated: README, CLAUDE.md, CONTRIBUTING.md, ROADMAP.md
+
 ## [0.8.0] - 2026-03-28
 
 ### Added
@@ -149,6 +165,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **steam-deck-compat** rule: flags common Steam Deck compatibility issues (hardcoded resolutions, mouse-only input, anti-cheat, Windows-only paths, missing controller support)
 - Plugin manifest, README, CONTRIBUTING guide, and license
 
+[0.9.0]: https://github.com/TMHSDigital/Steam-Cursor-Plugin/releases/tag/v0.9.0
 [0.8.0]: https://github.com/TMHSDigital/Steam-Cursor-Plugin/releases/tag/v0.8.0
 [0.7.0]: https://github.com/TMHSDigital/Steam-Cursor-Plugin/releases/tag/v0.7.0
 [0.6.0]: https://github.com/TMHSDigital/Steam-Cursor-Plugin/releases/tag/v0.6.0

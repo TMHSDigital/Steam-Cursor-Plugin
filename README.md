@@ -11,7 +11,7 @@
 <p align="center">
   <a href="https://github.com/TMHSDigital/Steam-Cursor-Plugin/actions/workflows/validate.yml"><img src="https://img.shields.io/github/actions/workflow/status/TMHSDigital/Steam-Cursor-Plugin/validate.yml?label=CI" alt="CI"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-CC--BY--NC--ND--4.0-blue.svg" alt="License: CC BY-NC-ND 4.0"></a>
-  <a href="CHANGELOG.md"><img src="https://img.shields.io/badge/version-0.8.0-green.svg" alt="Version"></a>
+  <a href="CHANGELOG.md"><img src="https://img.shields.io/badge/version-0.9.0-green.svg" alt="Version"></a>
   <a href="https://github.com/TMHSDigital/Steam-Cursor-Plugin/stargazers"><img src="https://img.shields.io/github/stars/TMHSDigital/Steam-Cursor-Plugin?style=flat" alt="GitHub Stars"></a>
   <a href="https://github.com/TMHSDigital/Steam-Cursor-Plugin/commits/main"><img src="https://img.shields.io/github/last-commit/TMHSDigital/Steam-Cursor-Plugin" alt="Last Commit"></a>
   <a href="https://github.com/TMHSDigital/Steam-Cursor-Plugin"><img src="https://img.shields.io/badge/Cursor-Plugin-8B5CF6.svg" alt="Cursor Plugin"></a>
@@ -22,7 +22,7 @@
 ---
 
 <p align="center">
-  <strong>30 skills</strong> &nbsp;&bull;&nbsp; <strong>9 rules</strong> &nbsp;&bull;&nbsp; <strong>16 MCP tools</strong>
+  <strong>30 skills</strong> &nbsp;&bull;&nbsp; <strong>9 rules</strong> &nbsp;&bull;&nbsp; <strong>20 MCP tools</strong>
 </p>
 
 Query Steam store data, manage Steamworks app configurations, build multiplayer networking, implement cloud saves, design achievements, compare games, and look up player profiles — all from within Cursor's AI chat. Covers the full Steam &amp; Steamworks ecosystem with live data via the companion [Steam MCP Server](https://github.com/TMHSDigital/steam-mcp).
@@ -54,7 +54,7 @@ That's it. No configuration needed for basic usage.
 flowchart LR
     A["You ask Cursor\na Steam question"] --> B["Cursor loads\na Skill"]
     B --> C{"MCP server\navailable?"}
-    C -- Yes --> D["Steam MCP Server\n(16 tools)"]
+    C -- Yes --> D["Steam MCP Server\n(20 tools)"]
     C -- No --> E["curl to\nSteam Web API"]
     D --> F["Steam API"]
     E --> F
@@ -163,11 +163,11 @@ The [Steam MCP Server](https://github.com/TMHSDigital/steam-mcp) provides live, 
 </details>
 
 <details>
-<summary><strong>Available Tools (16)</strong></summary>
+<summary><strong>Available Tools (20)</strong></summary>
 
 &nbsp;
 
-**Read-only (no auth):**
+**Read-only (no auth) — 9 tools:**
 
 | Tool | Description |
 |------|-------------|
@@ -176,8 +176,12 @@ The [Steam MCP Server](https://github.com/TMHSDigital/steam-mcp) provides live, 
 | `steam.getPlayerCount` | Current concurrent players |
 | `steam.getAchievementStats` | Global achievement unlock percentages |
 | `steam.getWorkshopItem` | Workshop item details |
+| `steam.getReviews` | User reviews with filters for language, sentiment, purchase type |
+| `steam.getPriceOverview` | Batch price check for multiple apps in a region |
+| `steam.getAppReviewSummary` | Review score, totals, and positive percentage |
+| `steam.getRegionalPricing` | Pricing breakdown across multiple countries |
 
-**Read-only (API key):**
+**Read-only (API key) — 5 tools:**
 
 | Tool | Description |
 |------|-------------|
@@ -442,7 +446,8 @@ See [ROADMAP.md](ROADMAP.md) for the full themed release plan toward v1.0.0.
 | **v0.5.0** | Grow | Community management, store page optimization, pricing strategy, DLC planning | Done |
 | **v0.6.0** | Quality | Playtest setup, bug reporting, anti-cheat, save compat / network security / error handling rules | Done |
 | **v0.7.0** | Full Power | Testing sandbox, 6 MCP write tools (lobbies, workshop, achievements, leaderboards, inventory) | Done |
-| **v0.8.0** | Polish | Migration guide, common pitfalls across all 30 skills | **Current** |
+| **v0.8.0** | Polish | Migration guide, common pitfalls across all 30 skills | Done |
+| **v0.9.0** | Complete | 4 new MCP read tools (reviews, pricing, regional) — 20 MCP tools total | **Current** |
 | v1.0.0 | Stable | Production release: 30 skills, 9 rules, 20 MCP tools | Planned |
 
 </details>

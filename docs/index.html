@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Steam Developer Tools — Cursor IDE Plugin</title>
-<meta name="description" content="30 AI skills, 9 code rules, and 16 MCP tools for Steam and Steamworks game development inside Cursor IDE.">
+<meta name="description" content="30 AI skills, 9 code rules, and 20 MCP tools for Steam and Steamworks game development inside Cursor IDE.">
 <meta property="og:title" content="Steam Developer Tools — Cursor IDE Plugin">
-<meta property="og:description" content="30 AI skills, 9 code rules, and 16 MCP tools for Steam and Steamworks game development inside Cursor IDE.">
+<meta property="og:description" content="30 AI skills, 9 code rules, and 20 MCP tools for Steam and Steamworks game development inside Cursor IDE.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://tmhsdigital.github.io/Steam-Cursor-Plugin/">
 <link rel="icon" href="assets/logo.png" type="image/png">
@@ -219,7 +219,7 @@ footer{border-top:1px solid rgba(102,192,244,.08);padding:48px 24px;text-align:c
   <h1>Steam Developer Tools</h1>
   <p>Steam &amp; Steamworks integration for Cursor IDE. Query store data, build multiplayer, design achievements, automate builds &mdash; all from AI chat.</p>
   <div class="hero-badges">
-    <span class="badge badge-version">v0.8.0</span>
+    <span class="badge badge-version">v0.9.0</span>
     <span class="badge badge-license">CC BY-NC-ND 4.0</span>
     <span class="badge badge-plugin">Cursor Plugin</span>
   </div>
@@ -234,7 +234,7 @@ footer{border-top:1px solid rgba(102,192,244,.08);padding:48px 24px;text-align:c
 <div class="stats">
   <div class="stat"><div class="stat-number">30</div><div class="stat-label">Skills</div></div>
   <div class="stat"><div class="stat-number">9</div><div class="stat-label">Rules</div></div>
-  <div class="stat"><div class="stat-number">16</div><div class="stat-label">MCP Tools</div></div>
+  <div class="stat"><div class="stat-number">20</div><div class="stat-label">MCP Tools</div></div>
 </div>
 
 <!-- HOW IT WORKS -->
@@ -299,7 +299,7 @@ footer{border-top:1px solid rgba(102,192,244,.08);padding:48px 24px;text-align:c
 <section id="tools" style="background:var(--bg-primary)">
   <div class="container reveal">
     <div class="section-label">Companion MCP Server</div>
-    <div class="section-title">16 structured API tools</div>
+    <div class="section-title">20 structured API tools</div>
     <div class="section-desc">The <a href="https://github.com/TMHSDigital/steam-mcp">Steam MCP Server</a> provides live, typed tools that Cursor calls directly &mdash; no shell commands needed.</div>
 
     <div class="tools-group">
@@ -310,6 +310,10 @@ footer{border-top:1px solid rgba(102,192,244,.08);padding:48px 24px;text-align:c
         <tr><td class="tool-name">steam.getPlayerCount</td><td>Current concurrent players</td></tr>
         <tr><td class="tool-name">steam.getAchievementStats</td><td>Global achievement unlock percentages</td></tr>
         <tr><td class="tool-name">steam.getWorkshopItem</td><td>Workshop item details</td></tr>
+        <tr><td class="tool-name">steam.getReviews</td><td>User reviews with language, sentiment, purchase type filters</td></tr>
+        <tr><td class="tool-name">steam.getPriceOverview</td><td>Batch price check for multiple apps in a region</td></tr>
+        <tr><td class="tool-name">steam.getAppReviewSummary</td><td>Review score, totals, and positive percentage</td></tr>
+        <tr><td class="tool-name">steam.getRegionalPricing</td><td>Pricing breakdown across multiple countries</td></tr>
       </tbody></table>
     </div>
 
@@ -416,7 +420,8 @@ footer{border-top:1px solid rgba(102,192,244,.08);padding:48px 24px;text-align:c
       <div class="tl-item"><div class="tl-dot tl-dot-done"></div><span class="tl-version">v0.5.0</span><span class="tl-theme">Grow</span><span class="tl-tag tl-tag-done">Done</span><div class="tl-desc">Community, store page, pricing strategy, DLC planning</div></div>
       <div class="tl-item"><div class="tl-dot tl-dot-done"></div><span class="tl-version">v0.6.0</span><span class="tl-theme">Quality</span><span class="tl-tag tl-tag-done">Done</span><div class="tl-desc">Playtest, bug reporting, anti-cheat, 3 code quality rules</div></div>
       <div class="tl-item"><div class="tl-dot tl-dot-done"></div><span class="tl-version">v0.7.0</span><span class="tl-theme">Full Power</span><span class="tl-tag tl-tag-done">Done</span><div class="tl-desc">Testing sandbox, 6 MCP write tools</div></div>
-      <div class="tl-item"><div class="tl-dot tl-dot-current"></div><span class="tl-version">v0.8.0</span><span class="tl-theme">Polish</span><span class="tl-tag tl-tag-current">Current</span><div class="tl-desc">Migration guide, common pitfalls across all 30 skills</div></div>
+      <div class="tl-item"><div class="tl-dot tl-dot-done"></div><span class="tl-version">v0.8.0</span><span class="tl-theme">Polish</span><span class="tl-tag tl-tag-done">Done</span><div class="tl-desc">Migration guide, common pitfalls across all 30 skills</div></div>
+      <div class="tl-item"><div class="tl-dot tl-dot-current"></div><span class="tl-version">v0.9.0</span><span class="tl-theme">Complete</span><span class="tl-tag tl-tag-current">Current</span><div class="tl-desc">4 new MCP read tools — reviews, pricing, regional — 20 total</div></div>
       <div class="tl-item"><div class="tl-dot tl-dot-planned"></div><span class="tl-version">v1.0.0</span><span class="tl-theme">Stable</span><span class="tl-tag tl-tag-planned">Planned</span><div class="tl-desc">Production release: 30 skills, 9 rules, 20 MCP tools</div></div>
     </div>
   </div>

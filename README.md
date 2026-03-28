@@ -321,18 +321,19 @@ These work immediately without any API key:
 
 ## Roadmap
 
-See [ROADMAP.md](ROADMAP.md) for the full themed release plan (v0.2.0 through v1.0.0).
+See [ROADMAP.md](ROADMAP.md) for the full themed release plan toward v1.0.0.
 
-| Version | Theme | Highlights |
-|---------|-------|------------|
-| **v0.2.0** | Live Data | Steam MCP server with 10 read-only tools, skill updates |
-| **v0.3.0** | Insights | Review analysis, price history, market research, wishlist estimates |
-| **v0.4.0 (current)** | Ship It | CI/CD automation, release checklist, steamcmd helper, build validation rules |
-| **v0.5.0** | Grow | Community management, store page optimization, pricing strategy, DLC planning |
-| **v0.6.0** | Quality | Playtest setup, anti-cheat integration, save compat / network security / error handling rules |
-| **v0.7.0** | Full Power | MCP write operations (lobbies, workshop uploads, achievements, inventory) |
-| **v0.8.0** | Polish | Cross-references, troubleshooting sections, migration guide |
-| **v1.0.0** | Stable | Production release: 30 skills, 9 rules, 20 MCP tools |
+| Version | Theme | Highlights | Status |
+|---------|-------|------------|--------|
+| **v0.1.0** | Foundation | 14 skills, 3 rules, plugin scaffold | Done |
+| **v0.2.0** | Live Data | Steam MCP server with 10 read-only tools, skill updates | Done |
+| **v0.3.0** | Insights | Review analysis, price history, market research, wishlist estimates | Done |
+| **v0.4.0** | Ship It | CI/CD automation, release checklist, steamcmd helper, build validation rules | **Current** |
+| v0.5.0 | Grow | Community management, store page optimization, pricing strategy, DLC planning | Planned |
+| v0.6.0 | Quality | Playtest setup, anti-cheat integration, save compat / network security / error handling rules | Planned |
+| v0.7.0 | Full Power | MCP write operations (lobbies, workshop uploads, achievements, inventory) | Planned |
+| v0.8.0 | Polish | Cross-references, troubleshooting sections, migration guide | Planned |
+| v1.0.0 | Stable | Production release: 30 skills, 9 rules, 20 MCP tools | Planned |
 
 ## Contributing
 

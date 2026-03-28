@@ -1,8 +1,8 @@
 {
   "name": "steam-cursor-plugin",
   "displayName": "Steam Developer Tools",
-  "version": "0.4.0",
-  "description": "Integrates Steam and Steamworks APIs for game developers and power users. 21 skills covering store data, multiplayer networking, cloud saves, leaderboards, input, inventory, social features, profile lookups, game comparisons, review analysis, price history, market research, wishlist estimates, build automation, release checklists, and steamcmd scripting - plus 6 rules for App ID validation, secrets detection, Steam Deck compatibility, MCP tool preference, build config validation, and launch options checking. Companion Steam MCP server provides 10 live API tools.",
+  "version": "0.5.0",
+  "description": "Integrates Steam and Steamworks APIs for game developers and power users. 25 skills covering store data, multiplayer, cloud saves, leaderboards, input, inventory, social, profiles, comparisons, reviews, pricing, market research, wishlists, CI/CD, release checklists, steamcmd, community management, store page optimization, pricing strategy, and DLC planning - plus 6 rules. Companion Steam MCP server provides 10 live API tools.",
   "author": {
     "name": "TMHSDigital",
     "url": "https://github.com/TMHSDigital"

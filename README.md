@@ -11,7 +11,7 @@
 <p align="center">
   <a href="https://github.com/TMHSDigital/Steam-Cursor-Plugin/actions/workflows/validate.yml"><img src="https://img.shields.io/github/actions/workflow/status/TMHSDigital/Steam-Cursor-Plugin/validate.yml?label=CI" alt="CI"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-CC--BY--NC--ND--4.0-blue.svg" alt="License: CC BY-NC-ND 4.0"></a>
-  <a href="CHANGELOG.md"><img src="https://img.shields.io/badge/version-0.4.0-green.svg" alt="Version"></a>
+  <a href="CHANGELOG.md"><img src="https://img.shields.io/badge/version-0.5.0-green.svg" alt="Version"></a>
   <a href="https://github.com/TMHSDigital/Steam-Cursor-Plugin/stargazers"><img src="https://img.shields.io/github/stars/TMHSDigital/Steam-Cursor-Plugin?style=flat" alt="GitHub Stars"></a>
   <a href="https://github.com/TMHSDigital/Steam-Cursor-Plugin/commits/main"><img src="https://img.shields.io/github/last-commit/TMHSDigital/Steam-Cursor-Plugin" alt="Last Commit"></a>
   <a href="https://github.com/TMHSDigital/Steam-Cursor-Plugin"><img src="https://img.shields.io/badge/Cursor-Plugin-8B5CF6.svg" alt="Cursor Plugin"></a>
@@ -22,7 +22,7 @@
 ---
 
 <p align="center">
-  <strong>21 skills</strong> &nbsp;&bull;&nbsp; <strong>6 rules</strong> &nbsp;&bull;&nbsp; <strong>10 MCP tools</strong>
+  <strong>25 skills</strong> &nbsp;&bull;&nbsp; <strong>6 rules</strong> &nbsp;&bull;&nbsp; <strong>10 MCP tools</strong>
 </p>
 
 Query Steam store data, manage Steamworks app configurations, build multiplayer networking, implement cloud saves, design achievements, compare games, and look up player profiles - all from within Cursor's AI chat. Covers the full Steam &amp; Steamworks ecosystem with live data via the companion [Steam MCP Server](https://github.com/TMHSDigital/steam-mcp).
@@ -71,6 +71,10 @@ flowchart LR
 | **Steam Build Automation** | Automate Steam builds with SteamPipe CI/CD - GitHub Actions, GitLab CI, Jenkins pipelines, Docker containers, and beta branch management. |
 | **Steam Release Checklist** | Pre-release validation: store page, depots, achievements, cloud saves, Deck compat, pricing, and launch readiness. |
 | **Steam SteamCMD Helper** | Comprehensive steamcmd reference: commands, scripting, Docker builds, Steam Guard handling, and troubleshooting. |
+| **Steam Community Management** | Post-launch community tools: announcements, events, discussion forums, update post templates, and Community Hub configuration. |
+| **Steam Store Page Optimizer** | Store page best practices: capsule image specs, description structure, tag strategy, trailer guidance, demo setup, and screenshot optimization. |
+| **Steam Pricing Strategy** | Data-driven pricing: base price tiers, regional pricing, launch discounts, sale participation, bundles, and F2P considerations. |
+| **Steam DLC & Expansion Planning** | DLC planning: App ID creation, depot config, season passes, content cadence, pricing tiers, and in-game ownership checks. |
 
 ### Rules
 
@@ -169,7 +173,7 @@ Compare Hades, Dead Cells, and Hollow Knight - price, reviews, and current playe
 ```
 
 <details>
-<summary><strong>More examples (all 21 skills)</strong></summary>
+<summary><strong>More examples (all 25 skills)</strong></summary>
 
 **Store Lookup**
 ```
@@ -276,6 +280,26 @@ I'm about to launch my game on Steam. App ID 2345678. What do I need to check?
 I need a script to download and update a CS2 dedicated server on Linux.
 ```
 
+**Community Management**
+```
+I just released a big content update. Help me write patch notes and set up an announcement.
+```
+
+**Store Page Optimization**
+```
+I need to set up my Steam store page. The game is a pixel art metroidvania. What do I need?
+```
+
+**Pricing Strategy**
+```
+I'm launching a roguelike deckbuilder. 15-20 hours of content. How should I price it?
+```
+
+**DLC Planning**
+```
+I want to plan 3 DLC packs and a season pass for my roguelike. Base game App ID is 2345678.
+```
+
 </details>
 
 ## Configuration
@@ -328,8 +352,8 @@ See [ROADMAP.md](ROADMAP.md) for the full themed release plan toward v1.0.0.
 | **v0.1.0** | Foundation | 14 skills, 3 rules, plugin scaffold | Done |
 | **v0.2.0** | Live Data | Steam MCP server with 10 read-only tools, skill updates | Done |
 | **v0.3.0** | Insights | Review analysis, price history, market research, wishlist estimates | Done |
-| **v0.4.0** | Ship It | CI/CD automation, release checklist, steamcmd helper, build validation rules | **Current** |
-| v0.5.0 | Grow | Community management, store page optimization, pricing strategy, DLC planning | Planned |
+| **v0.4.0** | Ship It | CI/CD automation, release checklist, steamcmd helper, build validation rules | Done |
+| **v0.5.0** | Grow | Community management, store page optimization, pricing strategy, DLC planning | **Current** |
 | v0.6.0 | Quality | Playtest setup, anti-cheat integration, save compat / network security / error handling rules | Planned |
 | v0.7.0 | Full Power | MCP write operations (lobbies, workshop uploads, achievements, inventory) | Planned |
 | v0.8.0 | Polish | Cross-references, troubleshooting sections, migration guide | Planned |

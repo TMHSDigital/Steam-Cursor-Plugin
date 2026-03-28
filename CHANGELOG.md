@@ -5,6 +5,26 @@ All notable changes to Steam Developer Tools will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.5.0] - 2026-03-28
+
+### Added
+
+- **steam-community-management** skill: post-launch community tools — announcements, events, discussion forum setup, update post templates, Community Hub configuration, and communication cadence guidance
+- **steam-store-page-optimizer** skill: store page best practices — capsule image specs (all 9 sizes), description structure, tag strategy, trailer guidance, demo setup, screenshot optimization, and full audit checklist
+- **steam-pricing-strategy** skill: data-driven pricing — base price tiers, regional pricing with Valve multipliers, launch discounts, sale participation, bundles, free-to-play considerations, and price change cooldown rules
+- **steam-dlc-expansion-planning** skill: DLC and post-launch content — App ID creation, depot config, season passes, content cadence templates, pricing tiers, and in-game ownership checks (C++/C#/GDScript)
+
+### Changed
+
+- Plugin version bumped to 0.5.0
+- Plugin description updated to reflect 25 skills
+- All documentation updated: README, CLAUDE.md, CONTRIBUTING.md, ROADMAP.md
+
+### MCP Roadmap
+
+- `steam.getAppReviewSummary({ appid })` - review histogram and summary (planned for MCP server)
+- `steam.getRegionalPricing({ appid, countries })` - pricing by region (planned for MCP server)
+
 ## [0.4.0] - 2026-03-28
 
 ### Added
@@ -79,6 +99,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **steam-deck-compat** rule: flags common Steam Deck compatibility issues (hardcoded resolutions, mouse-only input, anti-cheat, Windows-only paths, missing controller support)
 - Plugin manifest, README, CONTRIBUTING guide, and license
 
+[0.5.0]: https://github.com/TMHSDigital/Steam-Cursor-Plugin/releases/tag/v0.5.0
 [0.4.0]: https://github.com/TMHSDigital/Steam-Cursor-Plugin/releases/tag/v0.4.0
 [0.3.0]: https://github.com/TMHSDigital/Steam-Cursor-Plugin/releases/tag/v0.3.0
 [0.2.0]: https://github.com/TMHSDigital/Steam-Cursor-Plugin/releases/tag/v0.2.0

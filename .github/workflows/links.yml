@@ -1,0 +1,35 @@
+name: Check Links
+
+on:
+  schedule:
+    - cron: '0 12 1 * *'  # First of every month at noon UTC
+  push:
+    branches: [main]
+    paths:
+      - '**.md'
+      - '**.mdc'
+  workflow_dispatch:
+
+jobs:
+  check-links:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Link Checker
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: >
+            --verbose
+            --no-progress
+            --accept 200,204,301,302,403,429
+            --exclude-mail
+            --exclude "steamcommunity.com/dev/apikey"
+            --exclude "partner.steam-api.com"
+            --exclude "store.steampowered.com/app/"
+            --exclude "api.steampowered.com"
+            "**/*.md"
+            "**/*.mdc"
+          fail: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

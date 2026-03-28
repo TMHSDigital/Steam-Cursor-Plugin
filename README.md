@@ -9,6 +9,7 @@
 </p>
 
 <p align="center">
+  <a href="https://github.com/TMHSDigital/Steam-Cursor-Plugin/actions/workflows/validate.yml"><img src="https://img.shields.io/github/actions/workflow/status/TMHSDigital/Steam-Cursor-Plugin/validate.yml?label=CI" alt="CI"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-CC--BY--NC--ND--4.0-blue.svg" alt="License: CC BY-NC-ND 4.0"></a>
   <a href="CHANGELOG.md"><img src="https://img.shields.io/badge/version-0.2.0-green.svg" alt="Version"></a>
   <a href="https://github.com/TMHSDigital/Steam-Cursor-Plugin/stargazers"><img src="https://img.shields.io/github/stars/TMHSDigital/Steam-Cursor-Plugin?style=flat" alt="GitHub Stars"></a>
@@ -20,9 +21,28 @@
 
 ---
 
-Query Steam store data, manage Steamworks app configurations, build multiplayer networking, implement cloud saves, design achievements, compare games, and look up player profiles - all from within Cursor's AI chat. 14 skills and 4 rules covering the full Steam &amp; Steamworks ecosystem, with 10 live MCP tools via the companion [Steam MCP Server](https://github.com/TMHSDigital/steam-mcp).
+<p align="center">
+  <strong>14 skills</strong> &nbsp;&bull;&nbsp; <strong>4 rules</strong> &nbsp;&bull;&nbsp; <strong>10 MCP tools</strong>
+</p>
+
+Query Steam store data, manage Steamworks app configurations, build multiplayer networking, implement cloud saves, design achievements, compare games, and look up player profiles - all from within Cursor's AI chat. Covers the full Steam &amp; Steamworks ecosystem with live data via the companion [Steam MCP Server](https://github.com/TMHSDigital/steam-mcp).
 
 > **No API key required** for most features. Store lookups, player counts, global achievement stats, and app searches all work out of the box.
+
+## How It Works
+
+```mermaid
+flowchart LR
+    A["You ask Cursor\na Steam question"] --> B["Cursor loads\na Skill"]
+    B --> C{"MCP server\navailable?"}
+    C -- Yes --> D["Steam MCP Server\n(10 tools)"]
+    C -- No --> E["curl to\nSteam Web API"]
+    D --> F["Steam API"]
+    E --> F
+    F --> G["Formatted answer\nin Cursor chat"]
+```
+
+**Skills** teach Cursor how to handle Steam-related prompts. **Rules** enforce best practices in your game project files. The **MCP server** provides live, structured API access so skills can fetch real data instead of relying on shell commands.
 
 ## Features
 
@@ -127,173 +147,92 @@ ln -s "$(pwd)/Steam-Cursor-Plugin" ~/.cursor/plugins/local/steam-cursor-plugin
 
 Once installed, the plugin's skills are available in Cursor's AI chat. Just ask naturally.
 
----
-
-### Store Lookup
-
 ```
 What's the current price and review score for Hollow Knight?
 ```
-
-```
-Look up Steam App ID 1245620
-```
-
----
-
-### Steamworks Configuration
-
-```
-Set up Steam build configs for my game. App ID is 2345678, Windows and Linux only.
-```
-
-```
-How do I configure DLC depots in Steamworks?
-```
-
----
-
-### API Reference
-
-```
-How do I get a list of achievements from the Steam API?
-```
-
-```
-What parameters does ISteamUserStats/GetUserStatsForGame accept?
-```
-
----
-
-### Player Stats
 
 ```
 How many people are playing Elden Ring right now?
 ```
 
 ```
+Compare Hades, Dead Cells, and Hollow Knight - price, reviews, and current players.
+```
+
+<details>
+<summary><strong>More examples (all 14 skills)</strong></summary>
+
+**Store Lookup**
+```
+Look up Steam App ID 1245620
+```
+
+**Steamworks Configuration**
+```
+Set up Steam build configs for my game. App ID is 2345678, Windows and Linux only.
+```
+
+**API Reference**
+```
+What parameters does ISteamUserStats/GetUserStatsForGame accept?
+```
+
+**Player Stats**
+```
 What are the rarest achievements in Celeste?
 ```
 
----
-
-### Workshop
-
+**Workshop**
 ```
 I want to add Workshop support to my Unity game. How do I handle uploads and downloads?
 ```
 
-```
-Get details for Workshop item 1234567890
-```
-
----
-
-### Achievement Design
-
+**Achievement Design**
 ```
 I need achievements for my platformer. Milestones: complete tutorial, beat each world, collect all coins, speedrun under 2 hours.
 ```
 
-```
-Generate a VDF achievement config for my game with these achievements: [list]
-```
-
----
-
-### Multiplayer Networking
-
+**Multiplayer Networking**
 ```
 How do I set up Steam lobbies for a 4-player co-op game?
 ```
 
-```
-Show me Steam Networking Sockets setup for P2P relay connections.
-```
-
----
-
-### Cloud Saves
-
+**Cloud Saves**
 ```
 I want to add cloud saves to my roguelike. I have a single save file in AppData/Local.
 ```
 
-```
-Help me configure Auto-Cloud for cross-platform save syncing.
-```
-
----
-
-### Leaderboards
-
+**Leaderboards**
 ```
 My speedrun game needs a leaderboard for each level. Times in ms, lower is better.
 ```
 
-```
-How do I download and display friends-only leaderboard entries?
-```
-
----
-
-### Friends & Social
-
+**Friends & Social**
 ```
 I want to show "Playing as [Character] on [Map]" in the Steam friends list.
 ```
 
-```
-How do I send game invites to friends from within my game?
-```
-
----
-
-### Controllers & Steam Deck Input
-
+**Controllers & Steam Deck Input**
 ```
 My platformer has move, jump, dash, and pause. Set up Steam Input for Xbox and Steam Deck.
 ```
 
-```
-How do I show the correct button glyphs for whichever controller the player is using?
-```
-
----
-
-### Inventory & Economy
-
+**Inventory & Economy**
 ```
 I want cosmetic hat drops every 2 hours of playtime, plus a Steam Item Store for direct purchases.
 ```
 
-```
-Walk me through the ISteamMicroTxn InitTxn/FinalizeTxn flow.
-```
-
----
-
-### Profile Lookup
-
+**Profile Lookup**
 ```
 Look up the Steam profile for vanity URL "gaben"
 ```
 
-```
-What are my most played games on Steam?
-```
-
----
-
-### Game Comparison
-
-```
-Compare Hades, Dead Cells, and Hollow Knight - price, reviews, and current players.
-```
-
+**Game Comparison**
 ```
 Compare App IDs 570 and 730 side by side.
 ```
+
+</details>
 
 ## Configuration
 

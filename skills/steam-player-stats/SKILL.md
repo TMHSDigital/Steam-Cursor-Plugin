@@ -110,8 +110,9 @@ When the [Steam MCP server](https://github.com/TMHSDigital/steam-mcp) is configu
 | Global achievement stats | `steam_getAchievementStats({ appid })` | None | `curl` to `GetGlobalAchievementPercentagesForApp` |
 | Owned games / playtime | `steam_getOwnedGames({ steamid })` | Key | `curl` to `GetOwnedGames` |
 | Resolve vanity URL | `steam_resolveVanityURL({ vanityurl })` | Key | `curl` to `ResolveVanityURL` |
+| Per-player achievements | `steam_getPlayerAchievements({ steamid, appid })` | Key | `curl` to `GetPlayerAchievements` |
 
-Per-player achievements and user stats still require direct API calls (`GetPlayerAchievements`, `GetUserStatsForGame`) as there are no dedicated MCP tools for those yet.
+User stats still require direct API calls (`GetUserStatsForGame`) as there is no dedicated MCP tool for that yet.
 
 If the MCP server is not available, fall back to the `curl`-based workflow above.
 

@@ -2,9 +2,9 @@
 
 Themed release plan toward v1.0.0.
 
-**Current:** v0.9.0 - 30 skills, 9 rules, companion [Steam MCP server](https://github.com/TMHSDigital/steam-mcp) with 20 tools (14 read-only + 6 write/guidance).
+**Current:** v0.9.0 - 30 skills, 9 rules, companion [Steam MCP server](https://github.com/TMHSDigital/steam-mcp) with 25 tools (17 read-only + 8 write/guidance).
 
-**Target:** v1.0.0 - 30 skills, 9 rules, 20 MCP tools.
+**Target:** v1.0.0 - 30 skills, 9 rules, 25 MCP tools.
 
 | Version | Theme | New Skills | New Rules | MCP Tools | Total Skills | Total Rules |
 |---------|-------|-----------|-----------|-----------|-------------|-------------|
@@ -196,7 +196,7 @@ Update all 14 existing skills to reference MCP tools where applicable. Replace "
 
 ## v0.9.0 - "Complete" (Final MCP Tools)
 
-**Theme:** Reach the target of 20 MCP tools by adding the 4 remaining read-only tools.
+**Theme:** Reach the target of 25 MCP tools by adding the 4 remaining read-only tools.
 
 ### New MCP Tools (Read-Only, No Auth)
 
@@ -216,7 +216,7 @@ Update all 14 existing skills to reference MCP tools where applicable. Replace "
 ### Release Checklist
 
 - [ ] All 30 skills reviewed and tested
-- [ ] All 20 MCP tools documented and stable
+- [ ] All 25 MCP tools documented and stable
 - [ ] All 9 rules validated against real projects
 - [ ] CHANGELOG fully up to date
 - [ ] README reflects final feature set
@@ -258,3 +258,8 @@ Update all 14 existing skills to reference MCP tools where applicable. Replace "
 - [x] ~~getPriceOverview MCP tool~~ - `steam_getPriceOverview` added in v0.9.0
 - [x] ~~getAppReviewSummary MCP tool~~ - `steam_getAppReviewSummary` added in v0.9.0
 - [x] ~~getRegionalPricing MCP tool~~ - `steam_getRegionalPricing` added in v0.9.0
+- [x] ~~getSchemaForGame MCP tool~~ - `steam_getSchemaForGame` added in steam-mcp v0.6.0
+- [x] ~~getNewsForApp MCP tool~~ - `steam_getNewsForApp` added in steam-mcp v0.6.0
+- [x] ~~getLeaderboardsForGame MCP tool~~ - `steam_getLeaderboardsForGame` added in steam-mcp v0.6.0
+- [x] ~~getPlayerAchievements MCP tool~~ - `steam_getPlayerAchievements` added in steam-mcp v0.6.0
+- [x] ~~clearAchievement MCP tool~~ - `steam_clearAchievement` added in steam-mcp v0.6.0

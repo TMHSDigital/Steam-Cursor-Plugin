@@ -99,7 +99,7 @@ Users should store their API key in an environment variable (`STEAM_API_KEY`) an
 
 ## MCP Usage
 
-The [Steam MCP server](https://github.com/TMHSDigital/steam-mcp) provides 10 tools that call Steam APIs directly, eliminating the need for manual `curl` commands for common operations.
+The [Steam MCP server](https://github.com/TMHSDigital/steam-mcp) provides 25 tools that call Steam APIs directly, eliminating the need for manual `curl` commands for common operations.
 
 ### Available MCP Tools
 
@@ -112,6 +112,7 @@ The [Steam MCP server](https://github.com/TMHSDigital/steam-mcp) provides 10 too
 | `steam_getPlayerCount({ appid })` | Current concurrent player count |
 | `steam_getAchievementStats({ appid })` | Global achievement unlock percentages |
 | `steam_getWorkshopItem({ publishedfileid })` | Workshop item details (title, tags, subscribers) |
+| `steam_getNewsForApp({ appid, count?, maxlength? })` | Recent news and announcements |
 
 **Requires `STEAM_API_KEY` environment variable:**
 
@@ -122,8 +123,10 @@ The [Steam MCP server](https://github.com/TMHSDigital/steam-mcp) provides 10 too
 | `steam_queryWorkshop({ appid, search_text?, cursor?, numperpage?, query_type?, requiredtags? })` | Search and browse Workshop items |
 | `steam_getLeaderboardEntries({ appid, leaderboardid, rangestart?, rangeend?, datarequest?, steamid? })` | Leaderboard scores and rankings |
 | `steam_resolveVanityURL({ vanityurl, url_type? })` | Convert vanity URL to 64-bit Steam ID |
+| `steam_getSchemaForGame({ appid })` | Achievement/stat schema with display names, descriptions, icons |
+| `steam_getPlayerAchievements({ steamid, appid })` | Per-player achievement unlock status and timestamps |
 
-When an MCP tool exists for a given endpoint, prefer it over raw `curl` calls. For endpoints not covered by MCP tools (per-player achievements, user stats, news, microtransactions), continue using the Web API directly.
+When an MCP tool exists for a given endpoint, prefer it over raw `curl` calls. For endpoints not covered by MCP tools (user stats, microtransactions), continue using the Web API directly.
 
 The Steamworks SDK documentation and example generation logic remain the same regardless of MCP availability.
 

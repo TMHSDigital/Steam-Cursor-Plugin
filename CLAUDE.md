@@ -6,9 +6,9 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 **Steam Developer Tools** is a Cursor IDE plugin (v0.9.0) that integrates Steam and Steamworks APIs for game developers and power users. It provides AI-assisted workflows for querying Steam store data, managing Steamworks configurations, building multiplayer networking, implementing cloud saves, leaderboards, input, inventory/economy, social features, looking up API docs, fetching player statistics, integrating Workshop UGC, designing achievements, looking up player profiles, comparing games, analyzing reviews, researching pricing, evaluating market fit, estimating wishlists, automating builds, validating release readiness, scripting steamcmd, managing communities, optimizing store pages, planning pricing strategy, configuring DLC, setting up playtests, creating bug report workflows, integrating anti-cheat, providing a testing sandbox, and guiding platform migration.
 
-This plugin uses Markdown skill files and MDC rule files for AI guidance, paired with the companion [Steam MCP Server](https://github.com/TMHSDigital/steam-mcp) (separate repo) which provides 20 API tools (14 read-only + 6 write/guidance) for live data access. No build system, no npm, no compiled code in this repo.
+This plugin uses Markdown skill files and MDC rule files for AI guidance, paired with the companion [Steam MCP Server](https://github.com/TMHSDigital/steam-mcp) (separate repo) which provides 25 API tools (17 read-only + 8 write/guidance) for live data access. No build system, no npm, no compiled code in this repo.
 
-The project is on a themed release roadmap toward v1.0.0 (see `ROADMAP.md`). The next milestone is v1.0.0 "Stable" — the production release. Target at v1.0.0: 30 skills, 9 rules, 20 MCP tools.
+The project is on a themed release roadmap toward v1.0.0 (see `ROADMAP.md`). The next milestone is v1.0.0 "Stable" — the production release. Target at v1.0.0: 30 skills, 9 rules, 25 MCP tools.
 
 ## Plugin Architecture
 
@@ -71,7 +71,7 @@ Each `SKILL.md` uses YAML frontmatter followed by markdown sections: **Trigger**
 
 ### Companion MCP Server
 
-The [Steam MCP Server](https://github.com/TMHSDigital/steam-mcp) provides 20 tools (14 read-only + 6 write/guidance). Skills reference these tools in their `## MCP Usage` sections. When the MCP server is configured in Cursor, skills prefer MCP tool calls over shell `curl` commands.
+The [Steam MCP Server](https://github.com/TMHSDigital/steam-mcp) provides 25 tools (17 read-only + 8 write/guidance). Skills reference these tools in their `## MCP Usage` sections. When the MCP server is configured in Cursor, skills prefer MCP tool calls over shell `curl` commands.
 
 | MCP Tool | Auth | Maps to |
 |----------|------|---------|
@@ -84,15 +84,20 @@ The [Steam MCP Server](https://github.com/TMHSDigital/steam-mcp) provides 20 too
 | `steam_getPriceOverview({ appids, cc })` | None | Store API `appdetails` (price filter) |
 | `steam_getAppReviewSummary({ appid })` | None | Store API `appreviews` (summary only) |
 | `steam_getRegionalPricing({ appid, countries })` | None | Store API `appdetails` (multi-region) |
+| `steam_getNewsForApp({ appid, count?, maxlength? })` | None | `ISteamNews/GetNewsForApp` |
 | `steam_getPlayerSummary({ steamid })` | Key | `GetPlayerSummaries` |
 | `steam_getOwnedGames({ steamid })` | Key | `GetOwnedGames` |
 | `steam_queryWorkshop({ appid })` | Key | `IPublishedFileService/QueryFiles` |
 | `steam_getLeaderboardEntries({ appid, leaderboardid })` | Key | `ISteamLeaderboards/GetLeaderboardEntries` |
 | `steam_resolveVanityURL({ vanityurl })` | Key | `ResolveVanityURL` |
+| `steam_getSchemaForGame({ appid })` | Key | `ISteamUserStats/GetSchemaForGame` |
+| `steam_getPlayerAchievements({ steamid, appid })` | Key | `ISteamUserStats/GetPlayerAchievements` |
+| `steam_getLeaderboardsForGame({ appid })` | Publisher key | `ISteamLeaderboards/GetLeaderboardsForGame` |
 | `steam_createLobby({ type, max_members, metadata })` | SDK guide | ISteamMatchmaking code examples |
 | `steam_uploadWorkshopItem({ appid, title, ... })` | SDK guide | ISteamUGC upload code examples |
 | `steam_updateWorkshopItem({ publishedfileid, ... })` | Publisher key | `IPublishedFileService/UpdateDetails` |
 | `steam_setAchievement({ steamid, appid, achievement })` | Publisher key | `ISteamUserStats/SetUserStatsForGame` |
+| `steam_clearAchievement({ steamid, appid, achievement })` | Publisher key | `ISteamUserStats/SetUserStatsForGame` (value 0) |
 | `steam_uploadLeaderboardScore({ appid, leaderboardid, ... })` | Publisher key | `ISteamLeaderboards/SetLeaderboardScore` |
 | `steam_grantInventoryItem({ appid, steamid, itemdefid })` | Publisher key | `IInventoryService/AddItem` |
 

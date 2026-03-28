@@ -39,6 +39,9 @@ When a flagged call matches one of these endpoints, suggest the MCP tool:
 | `QueryFiles` (IPublishedFileService) | `steam_queryWorkshop({ appid })` |
 | `GetLeaderboardEntries` | `steam_getLeaderboardEntries({ appid, leaderboardid })` |
 | `ResolveVanityURL` | `steam_resolveVanityURL({ vanityurl })` |
+| `GetNewsForApp` | `steam_getNewsForApp({ appid })` |
+| `GetSchemaForGame` | `steam_getSchemaForGame({ appid })` |
+| `GetPlayerAchievements` | `steam_getPlayerAchievements({ steamid, appid })` |
 
 ## What to Say
 
@@ -49,7 +52,7 @@ When a matching pattern is found:
 ## Exceptions
 
 Do not flag these cases:
-- Calls to Steam API endpoints that have no MCP tool equivalent (e.g., `GetPlayerAchievements`, `GetUserStatsForGame`, `GetNewsForApp`, `ISteamMicroTxn`)
+- Calls to Steam API endpoints that have no MCP tool equivalent (e.g., `GetUserStatsForGame`, `ISteamMicroTxn`)
 - Code inside the MCP server itself (the `steam-mcp` project)
 - Documentation or comments explaining the raw API
 - Test files that intentionally test raw API behavior

@@ -7,11 +7,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- **5 new MCP tools** in companion Steam MCP server (v0.6.0), reaching 25 total tools:
+  - `steam_getNewsForApp` — Fetch recent news and announcements for a game (no auth)
+  - `steam_getSchemaForGame` — Achievement/stat schema with display names, descriptions, and icons (API key)
+  - `steam_getPlayerAchievements` — Per-player achievement unlock status and timestamps (API key)
+  - `steam_getLeaderboardsForGame` — List all leaderboards with numeric IDs (publisher key)
+  - `steam_clearAchievement` — Re-lock/clear an achievement for QA testing (publisher key)
+- Skills updated with new tool references: steam-api-reference, steam-achievement-designer, steam-player-stats, steam-leaderboards, steam-community-management, steam-testing-sandbox
+- `steam-api-key-usage` rule updated with `GetNewsForApp`, `GetSchemaForGame`, `GetPlayerAchievements` equivalents
+
 ### Fixed
 
 - **MCP tool naming** — Renamed all 20 MCP tool references from dot notation (`steam.getAppDetails`) to underscore notation (`steam_getAppDetails`) across 34 files. Dots conflicted with Cursor's internal MCP bridge routing. Companion steam-mcp server v0.5.0 has the matching rename.
 - **`steam_searchApps` parameter** — Renamed `term` to `query` across all skills, rules, and docs to match steam-mcp server v0.5.1 schema change
 - **Companion steam-mcp server v0.5.1** — `steam_getLeaderboardEntries` description clarified (numeric ID required), write tools (`steam_setAchievement`, `steam_uploadLeaderboardScore`, `steam_grantInventoryItem`) now return clear error messages when publisher key is missing
+- **Companion steam-mcp server v0.6.0** — Fixed POST body encoding on publisher tools (params now sent as `application/x-www-form-urlencoded` body instead of URL query string), removed dead variable in `grantInventoryItem`
 
 ## [0.9.0] - 2026-03-28
 

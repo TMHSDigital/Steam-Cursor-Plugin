@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Steam Developer Tools — Cursor IDE Plugin</title>
-<meta name="description" content="30 AI skills, 9 code rules, and 20 MCP tools for Steam and Steamworks game development inside Cursor IDE.">
+<meta name="description" content="30 AI skills, 9 code rules, and 25 MCP tools for Steam and Steamworks game development inside Cursor IDE.">
 <meta property="og:title" content="Steam Developer Tools — Cursor IDE Plugin">
-<meta property="og:description" content="30 AI skills, 9 code rules, and 20 MCP tools for Steam and Steamworks game development inside Cursor IDE.">
+<meta property="og:description" content="30 AI skills, 9 code rules, and 25 MCP tools for Steam and Steamworks game development inside Cursor IDE.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://tmhsdigital.github.io/Steam-Cursor-Plugin/">
 <link rel="icon" href="assets/logo.png" type="image/png">
@@ -234,7 +234,7 @@ footer{border-top:1px solid rgba(102,192,244,.08);padding:48px 24px;text-align:c
 <div class="stats">
   <div class="stat"><div class="stat-number">30</div><div class="stat-label">Skills</div></div>
   <div class="stat"><div class="stat-number">9</div><div class="stat-label">Rules</div></div>
-  <div class="stat"><div class="stat-number">20</div><div class="stat-label">MCP Tools</div></div>
+  <div class="stat"><div class="stat-number">25</div><div class="stat-label">MCP Tools</div></div>
 </div>
 
 <!-- HOW IT WORKS -->
@@ -299,7 +299,7 @@ footer{border-top:1px solid rgba(102,192,244,.08);padding:48px 24px;text-align:c
 <section id="tools" style="background:var(--bg-primary)">
   <div class="container reveal">
     <div class="section-label">Companion MCP Server</div>
-    <div class="section-title">20 structured API tools</div>
+    <div class="section-title">25 structured API tools</div>
     <div class="section-desc">The <a href="https://github.com/TMHSDigital/steam-mcp">Steam MCP Server</a> provides live, typed tools that Cursor calls directly &mdash; no shell commands needed.</div>
 
     <div class="tools-group">
@@ -314,6 +314,7 @@ footer{border-top:1px solid rgba(102,192,244,.08);padding:48px 24px;text-align:c
         <tr><td class="tool-name">steam_getPriceOverview</td><td>Batch price check for multiple apps in a region</td></tr>
         <tr><td class="tool-name">steam_getAppReviewSummary</td><td>Review score, totals, and positive percentage</td></tr>
         <tr><td class="tool-name">steam_getRegionalPricing</td><td>Pricing breakdown across multiple countries</td></tr>
+        <tr><td class="tool-name">steam_getNewsForApp</td><td>Recent news and announcements for a game</td></tr>
       </tbody></table>
     </div>
 
@@ -325,6 +326,8 @@ footer{border-top:1px solid rgba(102,192,244,.08);padding:48px 24px;text-align:c
         <tr><td class="tool-name">steam_queryWorkshop</td><td>Search and browse Workshop items</td></tr>
         <tr><td class="tool-name">steam_getLeaderboardEntries</td><td>Leaderboard scores and rankings</td></tr>
         <tr><td class="tool-name">steam_resolveVanityURL</td><td>Convert vanity URL to Steam ID</td></tr>
+        <tr><td class="tool-name">steam_getSchemaForGame</td><td>Achievement/stat schema with display names and icons</td></tr>
+        <tr><td class="tool-name">steam_getPlayerAchievements</td><td>Per-player achievement unlock status and timestamps</td></tr>
       </tbody></table>
     </div>
 
@@ -335,8 +338,10 @@ footer{border-top:1px solid rgba(102,192,244,.08);padding:48px 24px;text-align:c
         <tr><td class="tool-name">steam_uploadWorkshopItem</td><td><span class="tool-type">SDK guide</span></td><td>Code examples for ISteamUGC Workshop uploads</td></tr>
         <tr><td class="tool-name">steam_updateWorkshopItem</td><td><span class="tool-type">HTTP POST</span></td><td>Update Workshop item metadata via partner API</td></tr>
         <tr><td class="tool-name">steam_setAchievement</td><td><span class="tool-type">HTTP POST</span></td><td>Set/unlock achievements (dev/test)</td></tr>
+        <tr><td class="tool-name">steam_clearAchievement</td><td><span class="tool-type">HTTP POST</span></td><td>Clear/re-lock achievements (dev/test)</td></tr>
         <tr><td class="tool-name">steam_uploadLeaderboardScore</td><td><span class="tool-type">HTTP POST</span></td><td>Upload leaderboard scores</td></tr>
         <tr><td class="tool-name">steam_grantInventoryItem</td><td><span class="tool-type">HTTP POST</span></td><td>Grant inventory items</td></tr>
+        <tr><td class="tool-name">steam_getLeaderboardsForGame</td><td><span class="tool-type">HTTP GET</span></td><td>List all leaderboards with numeric IDs</td></tr>
       </tbody></table>
     </div>
   </div>
@@ -421,8 +426,8 @@ footer{border-top:1px solid rgba(102,192,244,.08);padding:48px 24px;text-align:c
       <div class="tl-item"><div class="tl-dot tl-dot-done"></div><span class="tl-version">v0.6.0</span><span class="tl-theme">Quality</span><span class="tl-tag tl-tag-done">Done</span><div class="tl-desc">Playtest, bug reporting, anti-cheat, 3 code quality rules</div></div>
       <div class="tl-item"><div class="tl-dot tl-dot-done"></div><span class="tl-version">v0.7.0</span><span class="tl-theme">Full Power</span><span class="tl-tag tl-tag-done">Done</span><div class="tl-desc">Testing sandbox, 6 MCP write tools</div></div>
       <div class="tl-item"><div class="tl-dot tl-dot-done"></div><span class="tl-version">v0.8.0</span><span class="tl-theme">Polish</span><span class="tl-tag tl-tag-done">Done</span><div class="tl-desc">Migration guide, common pitfalls across all 30 skills</div></div>
-      <div class="tl-item"><div class="tl-dot tl-dot-current"></div><span class="tl-version">v0.9.0</span><span class="tl-theme">Complete</span><span class="tl-tag tl-tag-current">Current</span><div class="tl-desc">4 new MCP read tools — reviews, pricing, regional — 20 total</div></div>
-      <div class="tl-item"><div class="tl-dot tl-dot-planned"></div><span class="tl-version">v1.0.0</span><span class="tl-theme">Stable</span><span class="tl-tag tl-tag-planned">Planned</span><div class="tl-desc">Production release: 30 skills, 9 rules, 20 MCP tools</div></div>
+      <div class="tl-item"><div class="tl-dot tl-dot-current"></div><span class="tl-version">v0.9.0</span><span class="tl-theme">Complete</span><span class="tl-tag tl-tag-current">Current</span><div class="tl-desc">4 new MCP read tools — reviews, pricing, regional — 25 total</div></div>
+      <div class="tl-item"><div class="tl-dot tl-dot-planned"></div><span class="tl-version">v1.0.0</span><span class="tl-theme">Stable</span><span class="tl-tag tl-tag-planned">Planned</span><div class="tl-desc">Production release: 30 skills, 9 rules, 25 MCP tools</div></div>
     </div>
   </div>
 </section>

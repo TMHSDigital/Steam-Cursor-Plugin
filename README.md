@@ -22,7 +22,7 @@
 ---
 
 <p align="center">
-  <strong>30 skills</strong> &nbsp;&bull;&nbsp; <strong>9 rules</strong> &nbsp;&bull;&nbsp; <strong>20 MCP tools</strong>
+  <strong>30 skills</strong> &nbsp;&bull;&nbsp; <strong>9 rules</strong> &nbsp;&bull;&nbsp; <strong>25 MCP tools</strong>
 </p>
 
 Query Steam store data, manage Steamworks app configurations, build multiplayer networking, implement cloud saves, design achievements, compare games, and look up player profiles — all from within Cursor's AI chat. Covers the full Steam &amp; Steamworks ecosystem with live data via the companion [Steam MCP Server](https://github.com/TMHSDigital/steam-mcp).
@@ -54,7 +54,7 @@ That's it. No configuration needed for basic usage.
 flowchart LR
     A["You ask Cursor\na Steam question"] --> B["Cursor loads\na Skill"]
     B --> C{"MCP server\navailable?"}
-    C -- Yes --> D["Steam MCP Server\n(20 tools)"]
+    C -- Yes --> D["Steam MCP Server\n(25 tools)"]
     C -- No --> E["curl to\nSteam Web API"]
     D --> F["Steam API"]
     E --> F
@@ -163,11 +163,11 @@ The [Steam MCP Server](https://github.com/TMHSDigital/steam-mcp) provides live, 
 </details>
 
 <details>
-<summary><strong>Available Tools (20)</strong></summary>
+<summary><strong>Available Tools (25)</strong></summary>
 
 &nbsp;
 
-**Read-only (no auth) — 9 tools:**
+**Read-only (no auth) — 10 tools:**
 
 | Tool | Description |
 |------|-------------|
@@ -180,8 +180,9 @@ The [Steam MCP Server](https://github.com/TMHSDigital/steam-mcp) provides live, 
 | `steam_getPriceOverview` | Batch price check for multiple apps in a region |
 | `steam_getAppReviewSummary` | Review score, totals, and positive percentage |
 | `steam_getRegionalPricing` | Pricing breakdown across multiple countries |
+| `steam_getNewsForApp` | Recent news and announcements for a game |
 
-**Read-only (API key) — 5 tools:**
+**Read-only (API key) — 7 tools:**
 
 | Tool | Description |
 |------|-------------|
@@ -190,6 +191,8 @@ The [Steam MCP Server](https://github.com/TMHSDigital/steam-mcp) provides live, 
 | `steam_queryWorkshop` | Search/browse Workshop items |
 | `steam_getLeaderboardEntries` | Leaderboard scores and rankings |
 | `steam_resolveVanityURL` | Convert vanity URL to Steam ID |
+| `steam_getSchemaForGame` | Achievement/stat schema with display names and icons |
+| `steam_getPlayerAchievements` | Per-player achievement unlock status and timestamps |
 
 **Write / guidance (publisher key):**
 
@@ -199,8 +202,10 @@ The [Steam MCP Server](https://github.com/TMHSDigital/steam-mcp) provides live, 
 | `steam_uploadWorkshopItem` | SDK guide | Code examples for ISteamUGC Workshop uploads |
 | `steam_updateWorkshopItem` | HTTP POST | Update Workshop item metadata via partner API |
 | `steam_setAchievement` | HTTP POST | Set/unlock achievements (dev/test) |
+| `steam_clearAchievement` | HTTP POST | Clear/re-lock achievements (dev/test) |
 | `steam_uploadLeaderboardScore` | HTTP POST | Upload leaderboard scores |
 | `steam_grantInventoryItem` | HTTP POST | Grant inventory items |
+| `steam_getLeaderboardsForGame` | HTTP GET | List all leaderboards with numeric IDs |
 
 </details>
 
@@ -447,8 +452,8 @@ See [ROADMAP.md](ROADMAP.md) for the full themed release plan toward v1.0.0.
 | **v0.6.0** | Quality | Playtest setup, bug reporting, anti-cheat, save compat / network security / error handling rules | Done |
 | **v0.7.0** | Full Power | Testing sandbox, 6 MCP write tools (lobbies, workshop, achievements, leaderboards, inventory) | Done |
 | **v0.8.0** | Polish | Migration guide, common pitfalls across all 30 skills | Done |
-| **v0.9.0** | Complete | 4 new MCP read tools (reviews, pricing, regional) — 20 MCP tools total | **Current** |
-| v1.0.0 | Stable | Production release: 30 skills, 9 rules, 20 MCP tools | Planned |
+| **v0.9.0** | Complete | 4 new MCP read tools (reviews, pricing, regional) — 25 MCP tools total | **Current** |
+| v1.0.0 | Stable | Production release: 30 skills, 9 rules, 25 MCP tools | Planned |
 
 </details>
 

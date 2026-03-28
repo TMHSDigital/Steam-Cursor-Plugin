@@ -144,6 +144,7 @@ When the [Steam MCP server](https://github.com/TMHSDigital/steam-mcp) is configu
 | Step | MCP Tool | Auth | Replaces |
 |------|----------|------|----------|
 | Get leaderboard entries | `steam_getLeaderboardEntries({ appid, leaderboardid, rangestart?, rangeend?, datarequest?, steamid? })` | Key | `curl` to `ISteamLeaderboards/GetLeaderboardEntries` |
+| List leaderboards | `steam_getLeaderboardsForGame({ appid })` | Publisher key | Discover leaderboard numeric IDs by name |
 
 The `datarequest` param controls the view: `0` = Global, `1` = Around user, `2` = Friends. When using `1` or `2`, provide the `steamid` param.
 

@@ -179,6 +179,7 @@ Before moving from testing to production:
 |------|----------|------|---------|
 | Verify app | `steam_getAppDetails({ appid: 480 })` | None | Confirm SpaceWar is accessible |
 | Set achievement | `steam_setAchievement({ steamid, appid, achievement })` | Publisher key | Unlock a test achievement via partner API |
+| Clear achievement | `steam_clearAchievement({ steamid, appid, achievement })` | Publisher key | Re-lock a test achievement via partner API |
 | Upload score | `steam_uploadLeaderboardScore({ appid, leaderboardid, steamid, score })` | Publisher key | Upload a test leaderboard score |
 | Check stats | `steam_getAchievementStats({ appid })` | None | View global achievement unlock percentages |
 

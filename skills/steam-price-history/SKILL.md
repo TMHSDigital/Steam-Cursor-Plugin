@@ -148,7 +148,9 @@ If the user is pricing their own game, provide benchmarks:
 | Multi-region pricing | `steam_getPriceOverview({ appids, cc })` | None | Multiple `curl` calls |
 | Resolve name | `steam_searchApps({ query })` | None | Manual search |
 
-The `steam_getPriceOverview` tool is planned for v0.3.0 of the MCP server. Until available, use `steam_getAppDetails({ appid })` with the `&cc=` parameter for each region.
+For regional pricing across multiple countries in a single call, use `steam_getRegionalPricing({ appid, countries })`.
+
+If the MCP server is not available, fall back to the `curl`-based workflow above.
 
 ## Common Pitfalls
 

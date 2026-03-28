@@ -175,9 +175,10 @@ Bundles dynamically adjust price — players who already own some items pay less
 |------|----------|------|---------|
 | Competitor pricing | `steam_getAppDetails({ appid })` | None | Check competitor prices and regional variants |
 | Search competitors | `steam_searchApps({ query })` | None | Find competing games for price benchmarking |
-| Regional pricing | `steam_getPriceOverview({ appids, cc })` | None | Batch price check (planned MCP tool) |
+| Regional pricing | `steam_getPriceOverview({ appids, cc })` | None | Batch price check for multiple apps |
+| Regional breakdown | `steam_getRegionalPricing({ appid, countries })` | None | Pricing across multiple countries |
 
-The `steam_getPriceOverview` tool is planned for the MCP server. Until available, use `steam_getAppDetails` with `&cc=` parameter per region.
+If the MCP server is not available, fall back to `steam_getAppDetails` with `&cc=` parameter per region.
 
 ## Common Pitfalls
 

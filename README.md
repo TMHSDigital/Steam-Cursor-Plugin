@@ -12,6 +12,8 @@
   <a href="https://github.com/TMHSDigital/Steam-Cursor-Plugin/actions/workflows/validate.yml"><img src="https://img.shields.io/github/actions/workflow/status/TMHSDigital/Steam-Cursor-Plugin/validate.yml?label=CI" alt="CI"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-CC--BY--NC--ND--4.0-blue.svg" alt="License: CC BY-NC-ND 4.0"></a>
   <a href="CHANGELOG.md"><img src="https://img.shields.io/badge/version-0.9.0-green.svg" alt="Version"></a>
+  <a href="https://www.npmjs.com/package/@tmhs/steam-mcp"><img src="https://img.shields.io/npm/v/@tmhs/steam-mcp?label=MCP%20server" alt="npm version"></a>
+  <a href="https://www.npmjs.com/package/@tmhs/steam-mcp"><img src="https://img.shields.io/npm/dw/@tmhs/steam-mcp?label=MCP%20downloads" alt="npm downloads"></a>
   <a href="https://github.com/TMHSDigital/Steam-Cursor-Plugin/stargazers"><img src="https://img.shields.io/github/stars/TMHSDigital/Steam-Cursor-Plugin?style=flat" alt="GitHub Stars"></a>
   <a href="https://github.com/TMHSDigital/Steam-Cursor-Plugin/commits/main"><img src="https://img.shields.io/github/last-commit/TMHSDigital/Steam-Cursor-Plugin" alt="Last Commit"></a>
   <a href="https://github.com/TMHSDigital/Steam-Cursor-Plugin"><img src="https://img.shields.io/badge/Cursor-Plugin-8B5CF6.svg" alt="Cursor Plugin"></a>
@@ -134,6 +136,8 @@ flowchart LR
 </details>
 
 ## Companion: Steam MCP Server
+
+[![npm version](https://img.shields.io/npm/v/@tmhs/steam-mcp)](https://www.npmjs.com/package/@tmhs/steam-mcp) [![npm downloads](https://img.shields.io/npm/dw/@tmhs/steam-mcp)](https://www.npmjs.com/package/@tmhs/steam-mcp) [![GitHub stars](https://img.shields.io/github/stars/TMHSDigital/Steam-MCP?style=flat)](https://github.com/TMHSDigital/Steam-MCP/stargazers)
 
 The [Steam MCP Server](https://github.com/TMHSDigital/steam-mcp) provides live, structured API tools that Cursor can call directly — no shell commands needed.
 
@@ -452,7 +456,7 @@ See [ROADMAP.md](ROADMAP.md) for the full themed release plan toward v1.0.0.
 | **v0.6.0** | Quality | Playtest setup, bug reporting, anti-cheat, save compat / network security / error handling rules | Done |
 | **v0.7.0** | Full Power | Testing sandbox, 6 MCP write tools (lobbies, workshop, achievements, leaderboards, inventory) | Done |
 | **v0.8.0** | Polish | Migration guide, common pitfalls across all 30 skills | Done |
-| **v0.9.0** | Complete | 4 new MCP read tools (reviews, pricing, regional) — 25 MCP tools total | **Current** |
+| **v0.9.0** | Complete | 4 new MCP read tools (reviews, pricing, regional) — 20 MCP tools at release | **Current** |
 | v1.0.0 | Stable | Production release: 30 skills, 9 rules, 25 MCP tools | Planned |
 
 </details>

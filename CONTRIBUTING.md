@@ -58,11 +58,15 @@ rules/                 # 9 rule files
    description: One-line description of what the skill does and when to use it.
    ---
    ```
-3. Structure the body with these sections:
+3. Structure the body with these sections (in order):
    - **Trigger** - when Cursor should load this skill
    - **Required Inputs** - what the user must provide
    - **Workflow** - step-by-step instructions for the agent
+   - **Key References** - links to official Steamworks/Steam docs
    - **Example Interaction** - sample prompt and response
+   - **MCP Usage** - table mapping workflow steps to MCP tools (required even for SDK-only skills)
+   - **Common Pitfalls** - numbered list of mistakes to avoid
+   - **See Also** - links to related skills
 
 ## Adding a Rule
 

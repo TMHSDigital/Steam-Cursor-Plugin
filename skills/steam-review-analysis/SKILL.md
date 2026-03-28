@@ -23,7 +23,7 @@ Use this skill when the user:
 
 ## Workflow
 
-> **Preferred:** If the [Steam MCP server](https://github.com/TMHSDigital/steam-mcp) is available and includes `steam_getReviews()`, use it instead of the `curl` commands below. See [MCP Usage](#mcp-usage).
+> **Preferred:** If the [Steam MCP server](https://github.com/TMHSDigital/steam-mcp) is available, use `steam_getReviews()` instead of the `curl` commands below. See [MCP Usage](#mcp-usage).
 
 ### 1. Resolve the App ID
 
@@ -128,15 +128,16 @@ Present a structured breakdown:
 
 ## MCP Usage
 
-When the [Steam MCP server](https://github.com/TMHSDigital/steam-mcp) is configured and includes the review tool:
+When the [Steam MCP server](https://github.com/TMHSDigital/steam-mcp) is configured:
 
 | Step | MCP Tool | Auth | Replaces |
 |------|----------|------|----------|
-| Fetch reviews | `steam_getReviews({ appid, filter?, language?, count? })` | None | `curl` to `/appreviews/` |
+| Fetch reviews | `steam_getReviews({ appid, filter?, language?, review_type?, purchase_type? })` | None | `curl` to `/appreviews/` |
+| Review summary | `steam_getAppReviewSummary({ appid })` | None | `curl` for score/totals only |
+| Resolve name | `steam_searchApps({ query })` | None | Manual search |
+| Get store context | `steam_getAppDetails({ appid })` | None | `curl` to `appdetails` |
 
-The `steam_getReviews` tool is planned for v0.3.0 of the MCP server. Until available, use the `curl`-based workflow above.
-
-Resolve game names with `steam_searchApps({ query })` and get store context with `steam_getAppDetails({ appid })` (both already available).
+If the MCP server is not available, fall back to the `curl`-based workflow above.
 
 ## Common Pitfalls
 

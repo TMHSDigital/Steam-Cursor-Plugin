@@ -101,9 +101,9 @@ Users should store their API key in an environment variable (`STEAM_API_KEY`) an
 
 The [Steam MCP server](https://github.com/TMHSDigital/steam-mcp) provides 25 tools that call Steam APIs directly, eliminating the need for manual `curl` commands for common operations.
 
-### Available MCP Tools
+### Available MCP Tools (25)
 
-**No API key required:**
+**No API key required (10 tools):**
 
 | Tool | Description |
 |------|-------------|
@@ -112,9 +112,13 @@ The [Steam MCP server](https://github.com/TMHSDigital/steam-mcp) provides 25 too
 | `steam_getPlayerCount({ appid })` | Current concurrent player count |
 | `steam_getAchievementStats({ appid })` | Global achievement unlock percentages |
 | `steam_getWorkshopItem({ publishedfileid })` | Workshop item details (title, tags, subscribers) |
+| `steam_getReviews({ appid, filter?, language?, review_type?, purchase_type? })` | User reviews with filters and pagination |
+| `steam_getPriceOverview({ appids, cc })` | Batch price check for multiple apps in a region |
+| `steam_getAppReviewSummary({ appid })` | Review score, totals, and positive percentage |
+| `steam_getRegionalPricing({ appid, countries })` | Pricing breakdown across multiple countries |
 | `steam_getNewsForApp({ appid, count?, maxlength? })` | Recent news and announcements |
 
-**Requires `STEAM_API_KEY` environment variable:**
+**Requires `STEAM_API_KEY` environment variable (7 tools):**
 
 | Tool | Description |
 |------|-------------|
@@ -125,6 +129,19 @@ The [Steam MCP server](https://github.com/TMHSDigital/steam-mcp) provides 25 too
 | `steam_resolveVanityURL({ vanityurl, url_type? })` | Convert vanity URL to 64-bit Steam ID |
 | `steam_getSchemaForGame({ appid })` | Achievement/stat schema with display names, descriptions, icons |
 | `steam_getPlayerAchievements({ steamid, appid })` | Per-player achievement unlock status and timestamps |
+
+**SDK guidance / publisher key (8 tools):**
+
+| Tool | Auth | Description |
+|------|------|-------------|
+| `steam_createLobby({ type, max_members, metadata })` | SDK guide | ISteamMatchmaking lobby creation code examples |
+| `steam_uploadWorkshopItem({ appid, title, ... })` | SDK guide | ISteamUGC Workshop upload code examples |
+| `steam_updateWorkshopItem({ publishedfileid, ... })` | Publisher key | Update Workshop item metadata via partner API |
+| `steam_setAchievement({ steamid, appid, achievement })` | Publisher key | Unlock an achievement (dev/test) |
+| `steam_clearAchievement({ steamid, appid, achievement })` | Publisher key | Re-lock an achievement (dev/test) |
+| `steam_uploadLeaderboardScore({ appid, leaderboardid, ... })` | Publisher key | Upload leaderboard scores |
+| `steam_grantInventoryItem({ appid, steamid, itemdefid })` | Publisher key | Grant inventory items |
+| `steam_getLeaderboardsForGame({ appid })` | Publisher key | List all leaderboards with numeric IDs |
 
 When an MCP tool exists for a given endpoint, prefer it over raw `curl` calls. For endpoints not covered by MCP tools (user stats, microtransactions), continue using the Web API directly.
 

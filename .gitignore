@@ -26,3 +26,8 @@ ehthumbs.db
 dist/
 build/
 *.log
+
+# Python
+__pycache__/
+*.pyc
+.pytest_cache/

@@ -183,7 +183,7 @@ Steam Next Fest is a week-long event where developers can showcase upcoming game
 
 | Step | MCP Tool | Auth | Purpose |
 |------|----------|------|---------|
-| Verify base game | `steam.getAppDetails({ appid })` | None | Confirm game exists and check current state |
+| Verify base game | `steam_getAppDetails({ appid })` | None | Confirm game exists and check current state |
 
 Playtest creation and management require the Steamworks Partner site — not available via MCP.
 

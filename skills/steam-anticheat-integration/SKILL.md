@@ -201,7 +201,7 @@ if (playerSpeed > MAX_ALLOWED_SPEED) {
 
 | Step | MCP Tool | Auth | Purpose |
 |------|----------|------|---------|
-| Verify app | `steam.getAppDetails({ appid })` | None | Confirm game exists and check platform list |
+| Verify app | `steam_getAppDetails({ appid })` | None | Confirm game exists and check platform list |
 
 Anti-cheat configuration requires the Steamworks Partner site and anti-cheat vendor portals — not available via MCP.
 

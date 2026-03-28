@@ -33,16 +33,16 @@ Read-only tools:
 
 | Tool | Description |
 |------|-------------|
-| `steam.getAppDetails({ appid })` | Store data (price, reviews, tags, platforms) |
-| `steam.searchApps({ term })` | App search by name |
-| `steam.getPlayerCount({ appid })` | Current concurrent players |
-| `steam.getAchievementStats({ appid })` | Global achievement unlock percentages |
-| `steam.getPlayerSummary({ steamid })` | Profile data (name, avatar, status) |
-| `steam.getOwnedGames({ steamid })` | Game library with playtime |
-| `steam.getWorkshopItem({ publishedfileid })` | Workshop item details |
-| `steam.queryWorkshop({ appid, query_type, count })` | Workshop search/browse |
-| `steam.getLeaderboardEntries({ appid, leaderboardid, rangestart?, rangeend? })` | Leaderboard data |
-| `steam.resolveVanityURL({ vanity })` | Vanity URL to 64-bit Steam ID |
+| `steam_getAppDetails({ appid })` | Store data (price, reviews, tags, platforms) |
+| `steam_searchApps({ term })` | App search by name |
+| `steam_getPlayerCount({ appid })` | Current concurrent players |
+| `steam_getAchievementStats({ appid })` | Global achievement unlock percentages |
+| `steam_getPlayerSummary({ steamid })` | Profile data (name, avatar, status) |
+| `steam_getOwnedGames({ steamid })` | Game library with playtime |
+| `steam_getWorkshopItem({ publishedfileid })` | Workshop item details |
+| `steam_queryWorkshop({ appid, query_type, count })` | Workshop search/browse |
+| `steam_getLeaderboardEntries({ appid, leaderboardid, rangestart?, rangeend? })` | Leaderboard data |
+| `steam_resolveVanityURL({ vanity })` | Vanity URL to 64-bit Steam ID |
 
 ### Skill Updates
 
@@ -71,8 +71,8 @@ Update all 14 existing skills to reference MCP tools where applicable. Replace "
 
 | Tool | Description |
 |------|-------------|
-| `steam.getReviews({ appid, filter, language, count })` | Fetch user reviews |
-| `steam.getPriceOverview({ appids, cc })` | Batch price check across regions |
+| `steam_getReviews({ appid, filter, language, count })` | Fetch user reviews |
+| `steam_getPriceOverview({ appids, cc })` | Batch price check across regions |
 
 ---
 
@@ -114,8 +114,8 @@ Update all 14 existing skills to reference MCP tools where applicable. Replace "
 
 | Tool | Description |
 |------|-------------|
-| `steam.getAppReviewSummary({ appid })` | Review histogram and summary |
-| `steam.getRegionalPricing({ appid, countries })` | Pricing by region |
+| `steam_getAppReviewSummary({ appid })` | Review histogram and summary |
+| `steam_getRegionalPricing({ appid, countries })` | Pricing by region |
 
 ---
 
@@ -149,12 +149,12 @@ Update all 14 existing skills to reference MCP tools where applicable. Replace "
 
 | Tool | Description |
 |------|-------------|
-| `steam.createLobby({ type, maxPlayers, metadata })` | Create multiplayer lobbies |
-| `steam.uploadWorkshopItem({ appid, title, content_path })` | Upload new Workshop items |
-| `steam.updateWorkshopItem({ fileid, changes })` | Update existing Workshop items |
-| `steam.setAchievement({ steamid, achievement })` | Unlock achievements (dev/test) |
-| `steam.uploadLeaderboardScore({ appid, leaderboard, score })` | Upload leaderboard scores |
-| `steam.grantInventoryItem({ steamid, itemdef })` | Grant inventory items (dev/test) |
+| `steam_createLobby({ type, maxPlayers, metadata })` | Create multiplayer lobbies |
+| `steam_uploadWorkshopItem({ appid, title, content_path })` | Upload new Workshop items |
+| `steam_updateWorkshopItem({ fileid, changes })` | Update existing Workshop items |
+| `steam_setAchievement({ steamid, achievement })` | Unlock achievements (dev/test) |
+| `steam_uploadLeaderboardScore({ appid, leaderboard, score })` | Upload leaderboard scores |
+| `steam_grantInventoryItem({ steamid, itemdef })` | Grant inventory items (dev/test) |
 
 ### New Skill
 
@@ -202,10 +202,10 @@ Update all 14 existing skills to reference MCP tools where applicable. Replace "
 
 | Tool | Description |
 |------|-------------|
-| `steam.getReviews({ appid, filter, language, review_type, purchase_type })` | Fetch user reviews with pagination and filters |
-| `steam.getPriceOverview({ appids, cc })` | Batch price check for multiple apps in a region |
-| `steam.getAppReviewSummary({ appid })` | Review score, totals, and positive percentage (no individual reviews) |
-| `steam.getRegionalPricing({ appid, countries })` | Pricing breakdown across multiple countries |
+| `steam_getReviews({ appid, filter, language, review_type, purchase_type })` | Fetch user reviews with pagination and filters |
+| `steam_getPriceOverview({ appids, cc })` | Batch price check for multiple apps in a region |
+| `steam_getAppReviewSummary({ appid })` | Review score, totals, and positive percentage (no individual reviews) |
+| `steam_getRegionalPricing({ appid, countries })` | Pricing breakdown across multiple countries |
 
 ---
 
@@ -254,7 +254,7 @@ Update all 14 existing skills to reference MCP tools where applicable. Replace "
 - [x] ~~App ID validation MCP enhancement~~ - `steam-appid-validation.mdc` updated with live validation via MCP in v0.7.0
 - [x] ~~Migration guide skill~~ - `steam-migration-guide` added in v0.8.0
 - [x] ~~Common Pitfalls sections~~ - added to all 30 skills in v0.8.0
-- [x] ~~getReviews MCP tool~~ - `steam.getReviews` added in v0.9.0
-- [x] ~~getPriceOverview MCP tool~~ - `steam.getPriceOverview` added in v0.9.0
-- [x] ~~getAppReviewSummary MCP tool~~ - `steam.getAppReviewSummary` added in v0.9.0
-- [x] ~~getRegionalPricing MCP tool~~ - `steam.getRegionalPricing` added in v0.9.0
+- [x] ~~getReviews MCP tool~~ - `steam_getReviews` added in v0.9.0
+- [x] ~~getPriceOverview MCP tool~~ - `steam_getPriceOverview` added in v0.9.0
+- [x] ~~getAppReviewSummary MCP tool~~ - `steam_getAppReviewSummary` added in v0.9.0
+- [x] ~~getRegionalPricing MCP tool~~ - `steam_getRegionalPricing` added in v0.9.0

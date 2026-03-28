@@ -147,9 +147,9 @@ Provide an overall recommendation: **Strong**, **Moderate**, **Cautious**, or **
 
 | Step | MCP Tool | Auth | Replaces |
 |------|----------|------|----------|
-| Search for games | `steam.searchApps({ term })` | None | `curl` to `storesearch` |
-| Get game details | `steam.getAppDetails({ appid })` | None | `curl` to `appdetails` |
-| Player counts | `steam.getPlayerCount({ appid })` | None | `curl` to `GetNumberOfCurrentPlayers` |
+| Search for games | `steam_searchApps({ term })` | None | `curl` to `storesearch` |
+| Get game details | `steam_getAppDetails({ appid })` | None | `curl` to `appdetails` |
+| Player counts | `steam_getPlayerCount({ appid })` | None | `curl` to `GetNumberOfCurrentPlayers` |
 
 All required MCP tools are already available. No new MCP tools needed for this skill.
 

@@ -131,12 +131,12 @@ Access the developer console for debugging:
 **Achievement testing:**
 - Reset achievements via `SteamUserStats()->ResetAllStats(true)` in code
 - Or use the Steamworks Partner site > Your App > Stats & Achievements > Reset Test Data
-- The `steam.setAchievement` MCP tool can set achievements via the partner API (requires publisher key)
+- The `steam_setAchievement` MCP tool can set achievements via the partner API (requires publisher key)
 
 **Leaderboard testing:**
 - Create test leaderboards in Steamworks Partner
 - Delete test entries via the partner site or partner API
-- The `steam.uploadLeaderboardScore` MCP tool can upload scores via the partner API
+- The `steam_uploadLeaderboardScore` MCP tool can upload scores via the partner API
 
 ### 6. Development vs Production Checklist
 
@@ -177,10 +177,10 @@ Before moving from testing to production:
 
 | Step | MCP Tool | Auth | Purpose |
 |------|----------|------|---------|
-| Verify app | `steam.getAppDetails({ appid: 480 })` | None | Confirm SpaceWar is accessible |
-| Set achievement | `steam.setAchievement({ steamid, appid, achievement })` | Publisher key | Unlock a test achievement via partner API |
-| Upload score | `steam.uploadLeaderboardScore({ appid, leaderboardid, steamid, score })` | Publisher key | Upload a test leaderboard score |
-| Check stats | `steam.getAchievementStats({ appid })` | None | View global achievement unlock percentages |
+| Verify app | `steam_getAppDetails({ appid: 480 })` | None | Confirm SpaceWar is accessible |
+| Set achievement | `steam_setAchievement({ steamid, appid, achievement })` | Publisher key | Unlock a test achievement via partner API |
+| Upload score | `steam_uploadLeaderboardScore({ appid, leaderboardid, steamid, score })` | Publisher key | Upload a test leaderboard score |
+| Check stats | `steam_getAchievementStats({ appid })` | None | View global achievement unlock percentages |
 
 ## Common Pitfalls
 

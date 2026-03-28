@@ -24,7 +24,7 @@ Use this skill when the user:
 
 ## Workflow
 
-> **Preferred:** If the [Steam MCP server](https://github.com/TMHSDigital/steam-mcp) is available, use `steam.getAppDetails({ appid })` to verify the app exists and confirm its platform list before generating CI configs. See [MCP Usage](#mcp-usage).
+> **Preferred:** If the [Steam MCP server](https://github.com/TMHSDigital/steam-mcp) is available, use `steam_getAppDetails({ appid })` to verify the app exists and confirm its platform list before generating CI configs. See [MCP Usage](#mcp-usage).
 
 ### 1. Understand the SteamPipe Build Flow
 
@@ -184,7 +184,7 @@ For staged releases:
 
 | Step | MCP Tool | Auth | Purpose |
 |------|----------|------|---------|
-| Verify app | `steam.getAppDetails({ appid })` | None | Confirm app exists and check platform list before generating depot configs |
+| Verify app | `steam_getAppDetails({ appid })` | None | Confirm app exists and check platform list before generating depot configs |
 
 All other build automation steps (steamcmd, CI config, VDF generation) are offline operations not served by MCP.
 

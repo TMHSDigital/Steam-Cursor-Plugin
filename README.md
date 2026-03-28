@@ -171,36 +171,36 @@ The [Steam MCP Server](https://github.com/TMHSDigital/steam-mcp) provides live, 
 
 | Tool | Description |
 |------|-------------|
-| `steam.getAppDetails` | Store data — price, reviews, tags, platforms |
-| `steam.searchApps` | Search the Steam store by name |
-| `steam.getPlayerCount` | Current concurrent players |
-| `steam.getAchievementStats` | Global achievement unlock percentages |
-| `steam.getWorkshopItem` | Workshop item details |
-| `steam.getReviews` | User reviews with filters for language, sentiment, purchase type |
-| `steam.getPriceOverview` | Batch price check for multiple apps in a region |
-| `steam.getAppReviewSummary` | Review score, totals, and positive percentage |
-| `steam.getRegionalPricing` | Pricing breakdown across multiple countries |
+| `steam_getAppDetails` | Store data — price, reviews, tags, platforms |
+| `steam_searchApps` | Search the Steam store by name |
+| `steam_getPlayerCount` | Current concurrent players |
+| `steam_getAchievementStats` | Global achievement unlock percentages |
+| `steam_getWorkshopItem` | Workshop item details |
+| `steam_getReviews` | User reviews with filters for language, sentiment, purchase type |
+| `steam_getPriceOverview` | Batch price check for multiple apps in a region |
+| `steam_getAppReviewSummary` | Review score, totals, and positive percentage |
+| `steam_getRegionalPricing` | Pricing breakdown across multiple countries |
 
 **Read-only (API key) — 5 tools:**
 
 | Tool | Description |
 |------|-------------|
-| `steam.getPlayerSummary` | Player profile — name, avatar, status |
-| `steam.getOwnedGames` | Game library with playtime |
-| `steam.queryWorkshop` | Search/browse Workshop items |
-| `steam.getLeaderboardEntries` | Leaderboard scores and rankings |
-| `steam.resolveVanityURL` | Convert vanity URL to Steam ID |
+| `steam_getPlayerSummary` | Player profile — name, avatar, status |
+| `steam_getOwnedGames` | Game library with playtime |
+| `steam_queryWorkshop` | Search/browse Workshop items |
+| `steam_getLeaderboardEntries` | Leaderboard scores and rankings |
+| `steam_resolveVanityURL` | Convert vanity URL to Steam ID |
 
 **Write / guidance (publisher key):**
 
 | Tool | Type | Description |
 |------|------|-------------|
-| `steam.createLobby` | SDK guide | Code examples for ISteamMatchmaking lobby creation |
-| `steam.uploadWorkshopItem` | SDK guide | Code examples for ISteamUGC Workshop uploads |
-| `steam.updateWorkshopItem` | HTTP POST | Update Workshop item metadata via partner API |
-| `steam.setAchievement` | HTTP POST | Set/unlock achievements (dev/test) |
-| `steam.uploadLeaderboardScore` | HTTP POST | Upload leaderboard scores |
-| `steam.grantInventoryItem` | HTTP POST | Grant inventory items |
+| `steam_createLobby` | SDK guide | Code examples for ISteamMatchmaking lobby creation |
+| `steam_uploadWorkshopItem` | SDK guide | Code examples for ISteamUGC Workshop uploads |
+| `steam_updateWorkshopItem` | HTTP POST | Update Workshop item metadata via partner API |
+| `steam_setAchievement` | HTTP POST | Set/unlock achievements (dev/test) |
+| `steam_uploadLeaderboardScore` | HTTP POST | Upload leaderboard scores |
+| `steam_grantInventoryItem` | HTTP POST | Grant inventory items |
 
 </details>
 

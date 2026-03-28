@@ -116,7 +116,7 @@ When the [Steam MCP server](https://github.com/TMHSDigital/steam-mcp) is configu
 
 | Step | MCP Tool | Auth | Purpose |
 |------|----------|------|---------|
-| Get app details | `steam.getAppDetails({ appid })` | None | Verify app name, type, platforms, and current config before generating VDF files |
+| Get app details | `steam_getAppDetails({ appid })` | None | Verify app name, type, platforms, and current config before generating VDF files |
 
 This is useful for confirming the app exists and checking its current platform list before generating depot configs. Partner-level API access (depot config fetch, build management) is not available via MCP.
 

@@ -184,8 +184,8 @@ A season pass bundles multiple future DLCs at a discount.
 
 | Step | MCP Tool | Auth | Purpose |
 |------|----------|------|---------|
-| Verify base game | `steam.getAppDetails({ appid })` | None | Confirm game exists and check current DLC listings |
-| Competitor DLC research | `steam.searchApps({ term })` | None | Find competitor games to benchmark DLC pricing |
+| Verify base game | `steam_getAppDetails({ appid })` | None | Confirm game exists and check current DLC listings |
+| Competitor DLC research | `steam_searchApps({ term })` | None | Find competitor games to benchmark DLC pricing |
 
 DLC creation and management require the Steamworks Partner site — not available via MCP.
 

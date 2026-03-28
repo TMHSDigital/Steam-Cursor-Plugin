@@ -99,8 +99,8 @@ Tags are the primary discoverability mechanism on Steam.
 **Tag research workflow:**
 1. Search for your genre on Steam
 2. Note which tags the top-performing games use
-3. Use `steam.searchApps({ term })` to find competitors
-4. Use `steam.getAppDetails({ appid })` to inspect their tags
+3. Use `steam_searchApps({ term })` to find competitors
+4. Use `steam_getAppDetails({ appid })` to inspect their tags
 5. Cross-reference with your game's actual features
 
 ### 4. Trailer
@@ -195,9 +195,9 @@ For a full audit, verify:
 
 | Step | MCP Tool | Auth | Purpose |
 |------|----------|------|---------|
-| Current page state | `steam.getAppDetails({ appid })` | None | Check existing description, tags, screenshots, price |
-| Competitor research | `steam.searchApps({ term })` | None | Find competing games in the genre |
-| Competitor details | `steam.getAppDetails({ appid })` | None | Inspect competitor tags, descriptions, pricing |
+| Current page state | `steam_getAppDetails({ appid })` | None | Check existing description, tags, screenshots, price |
+| Competitor research | `steam_searchApps({ term })` | None | Find competing games in the genre |
+| Competitor details | `steam_getAppDetails({ appid })` | None | Inspect competitor tags, descriptions, pricing |
 
 ## Common Pitfalls
 

@@ -75,26 +75,26 @@ The [Steam MCP Server](https://github.com/TMHSDigital/steam-mcp) provides 20 too
 
 | MCP Tool | Auth | Maps to |
 |----------|------|---------|
-| `steam.getAppDetails({ appid })` | None | Store API `appdetails` |
-| `steam.searchApps({ term })` | None | Store API `storesearch` |
-| `steam.getPlayerCount({ appid })` | None | `GetNumberOfCurrentPlayers` |
-| `steam.getAchievementStats({ appid })` | None | `GetGlobalAchievementPercentagesForApp` |
-| `steam.getWorkshopItem({ publishedfileid })` | None | `GetPublishedFileDetails` |
-| `steam.getReviews({ appid, filter, language })` | None | Store API `appreviews` |
-| `steam.getPriceOverview({ appids, cc })` | None | Store API `appdetails` (price filter) |
-| `steam.getAppReviewSummary({ appid })` | None | Store API `appreviews` (summary only) |
-| `steam.getRegionalPricing({ appid, countries })` | None | Store API `appdetails` (multi-region) |
-| `steam.getPlayerSummary({ steamid })` | Key | `GetPlayerSummaries` |
-| `steam.getOwnedGames({ steamid })` | Key | `GetOwnedGames` |
-| `steam.queryWorkshop({ appid })` | Key | `IPublishedFileService/QueryFiles` |
-| `steam.getLeaderboardEntries({ appid, leaderboardid })` | Key | `ISteamLeaderboards/GetLeaderboardEntries` |
-| `steam.resolveVanityURL({ vanityurl })` | Key | `ResolveVanityURL` |
-| `steam.createLobby({ type, max_members, metadata })` | SDK guide | ISteamMatchmaking code examples |
-| `steam.uploadWorkshopItem({ appid, title, ... })` | SDK guide | ISteamUGC upload code examples |
-| `steam.updateWorkshopItem({ publishedfileid, ... })` | Publisher key | `IPublishedFileService/UpdateDetails` |
-| `steam.setAchievement({ steamid, appid, achievement })` | Publisher key | `ISteamUserStats/SetUserStatsForGame` |
-| `steam.uploadLeaderboardScore({ appid, leaderboardid, ... })` | Publisher key | `ISteamLeaderboards/SetLeaderboardScore` |
-| `steam.grantInventoryItem({ appid, steamid, itemdefid })` | Publisher key | `IInventoryService/AddItem` |
+| `steam_getAppDetails({ appid })` | None | Store API `appdetails` |
+| `steam_searchApps({ term })` | None | Store API `storesearch` |
+| `steam_getPlayerCount({ appid })` | None | `GetNumberOfCurrentPlayers` |
+| `steam_getAchievementStats({ appid })` | None | `GetGlobalAchievementPercentagesForApp` |
+| `steam_getWorkshopItem({ publishedfileid })` | None | `GetPublishedFileDetails` |
+| `steam_getReviews({ appid, filter, language })` | None | Store API `appreviews` |
+| `steam_getPriceOverview({ appids, cc })` | None | Store API `appdetails` (price filter) |
+| `steam_getAppReviewSummary({ appid })` | None | Store API `appreviews` (summary only) |
+| `steam_getRegionalPricing({ appid, countries })` | None | Store API `appdetails` (multi-region) |
+| `steam_getPlayerSummary({ steamid })` | Key | `GetPlayerSummaries` |
+| `steam_getOwnedGames({ steamid })` | Key | `GetOwnedGames` |
+| `steam_queryWorkshop({ appid })` | Key | `IPublishedFileService/QueryFiles` |
+| `steam_getLeaderboardEntries({ appid, leaderboardid })` | Key | `ISteamLeaderboards/GetLeaderboardEntries` |
+| `steam_resolveVanityURL({ vanityurl })` | Key | `ResolveVanityURL` |
+| `steam_createLobby({ type, max_members, metadata })` | SDK guide | ISteamMatchmaking code examples |
+| `steam_uploadWorkshopItem({ appid, title, ... })` | SDK guide | ISteamUGC upload code examples |
+| `steam_updateWorkshopItem({ publishedfileid, ... })` | Publisher key | `IPublishedFileService/UpdateDetails` |
+| `steam_setAchievement({ steamid, appid, achievement })` | Publisher key | `ISteamUserStats/SetUserStatsForGame` |
+| `steam_uploadLeaderboardScore({ appid, leaderboardid, ... })` | Publisher key | `ISteamLeaderboards/SetLeaderboardScore` |
+| `steam_grantInventoryItem({ appid, steamid, itemdefid })` | Publisher key | `IInventoryService/AddItem` |
 
 ## Development Workflow
 

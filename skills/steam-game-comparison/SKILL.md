@@ -21,7 +21,7 @@ Use this skill when the user:
 
 ## Workflow
 
-> **Preferred:** If the [Steam MCP server](https://github.com/TMHSDigital/steam-mcp) is available, use `steam.searchApps()`, `steam.getAppDetails()`, and `steam.getPlayerCount()` instead of the `curl` commands below. See [MCP Usage](#mcp-usage).
+> **Preferred:** If the [Steam MCP server](https://github.com/TMHSDigital/steam-mcp) is available, use `steam_searchApps()`, `steam_getAppDetails()`, and `steam_getPlayerCount()` instead of the `curl` commands below. See [MCP Usage](#mcp-usage).
 
 ### 1. Resolve App IDs
 
@@ -111,11 +111,11 @@ When the [Steam MCP server](https://github.com/TMHSDigital/steam-mcp) is configu
 
 | Step | MCP Tool | Auth | Replaces |
 |------|----------|------|----------|
-| Resolve game names | `steam.searchApps({ term })` | None | `curl` to `/api/storesearch/` |
-| Fetch store data (per game) | `steam.getAppDetails({ appid })` | None | `curl` to `/api/appdetails` |
-| Current players (per game) | `steam.getPlayerCount({ appid })` | None | `curl` to `GetNumberOfCurrentPlayers` |
+| Resolve game names | `steam_searchApps({ term })` | None | `curl` to `/api/storesearch/` |
+| Fetch store data (per game) | `steam_getAppDetails({ appid })` | None | `curl` to `/api/appdetails` |
+| Current players (per game) | `steam_getPlayerCount({ appid })` | None | `curl` to `GetNumberOfCurrentPlayers` |
 
-Call `steam.getAppDetails` and `steam.getPlayerCount` once per game being compared. The comparison formatting logic remains the same.
+Call `steam_getAppDetails` and `steam_getPlayerCount` once per game being compared. The comparison formatting logic remains the same.
 
 If the MCP server is not available, fall back to the `curl`-based workflow above.
 

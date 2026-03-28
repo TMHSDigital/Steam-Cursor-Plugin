@@ -10,10 +10,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - **4 new MCP read tools** in companion Steam MCP server (v0.4.0), reaching the target of 20 total tools:
-  - `steam.getReviews` — Fetch user reviews with filters for language, sentiment, purchase type, and pagination (no auth)
-  - `steam.getPriceOverview` — Batch price check for multiple apps in a specific region (no auth)
-  - `steam.getAppReviewSummary` — Review score, total counts, and positive percentage without individual reviews (no auth)
-  - `steam.getRegionalPricing` — Pricing breakdown across multiple countries/regions (no auth)
+  - `steam_getReviews` — Fetch user reviews with filters for language, sentiment, purchase type, and pagination (no auth)
+  - `steam_getPriceOverview` — Batch price check for multiple apps in a specific region (no auth)
+  - `steam_getAppReviewSummary` — Review score, total counts, and positive percentage without individual reviews (no auth)
+  - `steam_getRegionalPricing` — Pricing breakdown across multiple countries/regions (no auth)
 
 ### Changed
 
@@ -40,16 +40,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - **steam-testing-sandbox** skill: development sandbox guide — App ID 480 (SpaceWar) usage, test account setup, Steam client console commands, partner test environments, and dev-to-production checklist
 - **6 new MCP write tools** in companion Steam MCP server (v0.3.0):
-  - `steam.createLobby` — SDK guidance for ISteamMatchmaking lobby creation (C++/C#/GDScript)
-  - `steam.uploadWorkshopItem` — SDK guidance for ISteamUGC Workshop uploads (C++/GDScript)
-  - `steam.updateWorkshopItem` — HTTP POST to update Workshop item metadata via partner API
-  - `steam.setAchievement` — HTTP POST to set/unlock achievements via partner API (dev/test)
-  - `steam.uploadLeaderboardScore` — HTTP POST to upload scores via partner API
-  - `steam.grantInventoryItem` — HTTP POST to grant inventory items via partner API
+  - `steam_createLobby` — SDK guidance for ISteamMatchmaking lobby creation (C++/C#/GDScript)
+  - `steam_uploadWorkshopItem` — SDK guidance for ISteamUGC Workshop uploads (C++/GDScript)
+  - `steam_updateWorkshopItem` — HTTP POST to update Workshop item metadata via partner API
+  - `steam_setAchievement` — HTTP POST to set/unlock achievements via partner API (dev/test)
+  - `steam_uploadLeaderboardScore` — HTTP POST to upload scores via partner API
+  - `steam_grantInventoryItem` — HTTP POST to grant inventory items via partner API
 
 ### Changed
 
-- `steam-appid-validation` rule enhanced with MCP live validation — suggests `steam.getAppDetails()` to verify App IDs exist
+- `steam-appid-validation` rule enhanced with MCP live validation — suggests `steam_getAppDetails()` to verify App IDs exist
 - Plugin version bumped to 0.7.0
 - Plugin description updated to reflect 29 skills and 16 MCP tools
 - All documentation updated: README, CLAUDE.md, CONTRIBUTING.md, ROADMAP.md
@@ -88,8 +88,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### MCP Roadmap
 
-- `steam.getAppReviewSummary({ appid })` - review histogram and summary (planned for MCP server)
-- `steam.getRegionalPricing({ appid, countries })` - pricing by region (planned for MCP server)
+- `steam_getAppReviewSummary({ appid })` - review histogram and summary (planned for MCP server)
+- `steam_getRegionalPricing({ appid, countries })` - pricing by region (planned for MCP server)
 
 ## [0.4.0] - 2026-03-28
 
@@ -124,8 +124,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### MCP Roadmap
 
-- `steam.getReviews({ appid, filter, language, count })` - planned for MCP server v0.3.0 (review analysis skill uses curl fallback until available)
-- `steam.getPriceOverview({ appids, cc })` - planned for MCP server v0.3.0 (price history skill uses getAppDetails with cc parameter until available)
+- `steam_getReviews({ appid, filter, language, count })` - planned for MCP server v0.3.0 (review analysis skill uses curl fallback until available)
+- `steam_getPriceOverview({ appids, cc })` - planned for MCP server v0.3.0 (price history skill uses getAppDetails with cc parameter until available)
 
 ## [0.2.0] - 2026-03-27
 

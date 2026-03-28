@@ -21,7 +21,7 @@ Use this skill when the user:
 
 ## Workflow
 
-> **Preferred:** If the [Steam MCP server](https://github.com/TMHSDigital/steam-mcp) is available, use `steam.searchApps()` and `steam.getAppDetails()` instead of the `curl` commands below. See [MCP Usage](#mcp-usage).
+> **Preferred:** If the [Steam MCP server](https://github.com/TMHSDigital/steam-mcp) is available, use `steam_searchApps()` and `steam_getAppDetails()` instead of the `curl` commands below. See [MCP Usage](#mcp-usage).
 
 1. **Resolve the App ID.** If the user provided a game name instead of an App ID:
    - Use the Shell tool to search the Steam store:
@@ -92,8 +92,8 @@ When the [Steam MCP server](https://github.com/TMHSDigital/steam-mcp) is configu
 
 | Step | MCP Tool | Replaces |
 |------|----------|----------|
-| Search by name | `steam.searchApps({ term })` | `curl` to `/api/storesearch/` |
-| Fetch store data | `steam.getAppDetails({ appid, cc?, l? })` | `curl` to `/api/appdetails` |
+| Search by name | `steam_searchApps({ term })` | `curl` to `/api/storesearch/` |
+| Fetch store data | `steam_getAppDetails({ appid, cc?, l? })` | `curl` to `/api/appdetails` |
 
 Both tools require no API key. Optional `cc` (country code) and `l` (language) params support regional/localized results.
 

@@ -22,7 +22,7 @@ Use this skill when the user:
 
 ## Workflow
 
-> **Preferred:** If the [Steam MCP server](https://github.com/TMHSDigital/steam-mcp) is available, use `steam.resolveVanityURL()`, `steam.getPlayerSummary()`, and `steam.getOwnedGames()` instead of the `curl` commands below. See [MCP Usage](#mcp-usage).
+> **Preferred:** If the [Steam MCP server](https://github.com/TMHSDigital/steam-mcp) is available, use `steam_resolveVanityURL()`, `steam_getPlayerSummary()`, and `steam_getOwnedGames()` instead of the `curl` commands below. See [MCP Usage](#mcp-usage).
 
 ### 1. Resolve the Steam ID
 
@@ -126,9 +126,9 @@ When the [Steam MCP server](https://github.com/TMHSDigital/steam-mcp) is configu
 
 | Step | MCP Tool | Replaces |
 |------|----------|----------|
-| Resolve vanity URL | `steam.resolveVanityURL({ vanityurl })` | `curl` to `ResolveVanityURL` |
-| Player summary | `steam.getPlayerSummary({ steamid })` | `curl` to `GetPlayerSummaries` |
-| Owned games | `steam.getOwnedGames({ steamid, include_appinfo?, include_played_free_games? })` | `curl` to `GetOwnedGames` |
+| Resolve vanity URL | `steam_resolveVanityURL({ vanityurl })` | `curl` to `ResolveVanityURL` |
+| Player summary | `steam_getPlayerSummary({ steamid })` | `curl` to `GetPlayerSummaries` |
+| Owned games | `steam_getOwnedGames({ steamid, include_appinfo?, include_played_free_games? })` | `curl` to `GetOwnedGames` |
 
 All three require `STEAM_API_KEY`. Recent activity, Steam level, badges, and friend list still require direct API calls as there are no dedicated MCP tools for those yet.
 

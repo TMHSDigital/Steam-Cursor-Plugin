@@ -22,7 +22,7 @@ Use this skill when the user:
 
 ## Workflow
 
-> **Preferred:** If the [Steam MCP server](https://github.com/TMHSDigital/steam-mcp) is available, use `steam.getWorkshopItem()` and `steam.queryWorkshop()` instead of the `curl` commands below. See [MCP Usage](#mcp-usage).
+> **Preferred:** If the [Steam MCP server](https://github.com/TMHSDigital/steam-mcp) is available, use `steam_getWorkshopItem()` and `steam_queryWorkshop()` instead of the `curl` commands below. See [MCP Usage](#mcp-usage).
 
 ### Look Up Workshop Item Details
 
@@ -93,8 +93,8 @@ When the [Steam MCP server](https://github.com/TMHSDigital/steam-mcp) is configu
 
 | Step | MCP Tool | Auth | Replaces |
 |------|----------|------|----------|
-| Get item details | `steam.getWorkshopItem({ publishedfileid })` | None | `curl` POST to `GetPublishedFileDetails` |
-| Search/browse items | `steam.queryWorkshop({ appid, search_text?, cursor?, numperpage?, query_type?, requiredtags? })` | Key | `curl` to `IPublishedFileService/QueryFiles` |
+| Get item details | `steam_getWorkshopItem({ publishedfileid })` | None | `curl` POST to `GetPublishedFileDetails` |
+| Search/browse items | `steam_queryWorkshop({ appid, search_text?, cursor?, numperpage?, query_type?, requiredtags? })` | Key | `curl` to `IPublishedFileService/QueryFiles` |
 
 The `queryWorkshop` tool supports pagination via `cursor` (use `"*"` for the first page) and filtering by `requiredtags` (comma-separated).
 

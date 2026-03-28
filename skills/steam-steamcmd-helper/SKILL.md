@@ -245,8 +245,8 @@ This outputs depot IDs, branch info, launch configs, and install scripts — use
 
 | Step | MCP Tool | Auth | Purpose |
 |------|----------|------|---------|
-| Verify app | `steam.getAppDetails({ appid })` | None | Confirm app exists before building scripts |
-| Check Workshop item | `steam.getWorkshopItem({ publishedfileid })` | None | Verify Workshop item details before upload scripts |
+| Verify app | `steam_getAppDetails({ appid })` | None | Confirm app exists before building scripts |
+| Check Workshop item | `steam_getWorkshopItem({ publishedfileid })` | None | Verify Workshop item details before upload scripts |
 
 Steamcmd operations are local/CLI — MCP is only used for pre-validation.
 

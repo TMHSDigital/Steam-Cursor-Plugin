@@ -216,11 +216,11 @@ func _process(_delta: float) -> void:
 
 | Step | MCP Tool | Auth | Purpose |
 |------|----------|------|---------|
-| Verify App ID | `steam.getAppDetails({ appid })` | None | Check if your App ID is live and configured |
-| Search competitors | `steam.searchApps({ term })` | None | Find similar games already on Steam |
-| Check player counts | `steam.getPlayerCount({ appid })` | None | Benchmark against comparable titles |
-| Test achievements | `steam.setAchievement({ steamid, appid, achievement })` | Publisher key | Verify achievements work via partner API |
-| Test leaderboards | `steam.uploadLeaderboardScore({ appid, leaderboardid, steamid, score })` | Publisher key | Verify leaderboard uploads |
+| Verify App ID | `steam_getAppDetails({ appid })` | None | Check if your App ID is live and configured |
+| Search competitors | `steam_searchApps({ term })` | None | Find similar games already on Steam |
+| Check player counts | `steam_getPlayerCount({ appid })` | None | Benchmark against comparable titles |
+| Test achievements | `steam_setAchievement({ steamid, appid, achievement })` | Publisher key | Verify achievements work via partner API |
+| Test leaderboards | `steam_uploadLeaderboardScore({ appid, leaderboardid, steamid, score })` | Publisher key | Verify leaderboard uploads |
 
 ## See Also
 

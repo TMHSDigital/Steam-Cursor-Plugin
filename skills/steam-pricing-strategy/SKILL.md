@@ -69,7 +69,7 @@ Valve provides suggested regional pricing multipliers. Developers can customize.
 - Adjust for your genre — some genres have different regional demand curves
 - Don't set emerging market prices too low (signals low value; invites key resale abuse)
 - Review regional pricing at least annually as exchange rates shift
-- Use `steam.getAppDetails({ appid })` with `&cc=` param to check competitor regional prices
+- Use `steam_getAppDetails({ appid })` with `&cc=` param to check competitor regional prices
 
 ### 3. Launch Discounts
 
@@ -173,11 +173,11 @@ Bundles dynamically adjust price — players who already own some items pay less
 
 | Step | MCP Tool | Auth | Purpose |
 |------|----------|------|---------|
-| Competitor pricing | `steam.getAppDetails({ appid })` | None | Check competitor prices and regional variants |
-| Search competitors | `steam.searchApps({ term })` | None | Find competing games for price benchmarking |
-| Regional pricing | `steam.getPriceOverview({ appids, cc })` | None | Batch price check (planned MCP tool) |
+| Competitor pricing | `steam_getAppDetails({ appid })` | None | Check competitor prices and regional variants |
+| Search competitors | `steam_searchApps({ term })` | None | Find competing games for price benchmarking |
+| Regional pricing | `steam_getPriceOverview({ appids, cc })` | None | Batch price check (planned MCP tool) |
 
-The `steam.getPriceOverview` tool is planned for the MCP server. Until available, use `steam.getAppDetails` with `&cc=` parameter per region.
+The `steam_getPriceOverview` tool is planned for the MCP server. Until available, use `steam_getAppDetails` with `&cc=` parameter per region.
 
 ## Common Pitfalls
 

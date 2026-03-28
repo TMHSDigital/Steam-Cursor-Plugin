@@ -95,7 +95,7 @@ void OnDownloadEntries(LeaderboardScoresDownloaded_t* result) {
 
 ### Web API Queries
 
-> **Preferred:** If the [Steam MCP server](https://github.com/TMHSDigital/steam-mcp) is available, use `steam.getLeaderboardEntries()` instead of the `curl` command below. See [MCP Usage](#mcp-usage).
+> **Preferred:** If the [Steam MCP server](https://github.com/TMHSDigital/steam-mcp) is available, use `steam_getLeaderboardEntries()` instead of the `curl` command below. See [MCP Usage](#mcp-usage).
 
 **Get leaderboard entries (API key required):**
 ```bash
@@ -143,11 +143,11 @@ When the [Steam MCP server](https://github.com/TMHSDigital/steam-mcp) is configu
 
 | Step | MCP Tool | Auth | Replaces |
 |------|----------|------|----------|
-| Get leaderboard entries | `steam.getLeaderboardEntries({ appid, leaderboardid, rangestart?, rangeend?, datarequest?, steamid? })` | Key | `curl` to `ISteamLeaderboards/GetLeaderboardEntries` |
+| Get leaderboard entries | `steam_getLeaderboardEntries({ appid, leaderboardid, rangestart?, rangeend?, datarequest?, steamid? })` | Key | `curl` to `ISteamLeaderboards/GetLeaderboardEntries` |
 
 The `datarequest` param controls the view: `0` = Global, `1` = Around user, `2` = Friends. When using `1` or `2`, provide the `steamid` param.
 
-> **Note:** `steam.getLeaderboardEntries` calls the partner API (`partner.steam-api.com`), which requires a publisher API key with your server's IP allowlisted in the Steamworks partner site. A standard user API key from `steamcommunity.com/dev/apikey` will return HTTP 403. This is a Valve restriction, not an MCP server issue.
+> **Note:** `steam_getLeaderboardEntries` calls the partner API (`partner.steam-api.com`), which requires a publisher API key with your server's IP allowlisted in the Steamworks partner site. A standard user API key from `steamcommunity.com/dev/apikey` will return HTTP 403. This is a Valve restriction, not an MCP server issue.
 
 The SDK integration for creating leaderboards, uploading scores, and downloading entries in-game remains documentation-only.
 

@@ -107,21 +107,21 @@ The [Steam MCP server](https://github.com/TMHSDigital/steam-mcp) provides 10 too
 
 | Tool | Description |
 |------|-------------|
-| `steam.getAppDetails({ appid, cc?, l? })` | Store data: price, reviews, tags, platforms, system requirements |
-| `steam.searchApps({ term, cc?, l? })` | Search the Steam store by name |
-| `steam.getPlayerCount({ appid })` | Current concurrent player count |
-| `steam.getAchievementStats({ appid })` | Global achievement unlock percentages |
-| `steam.getWorkshopItem({ publishedfileid })` | Workshop item details (title, tags, subscribers) |
+| `steam_getAppDetails({ appid, cc?, l? })` | Store data: price, reviews, tags, platforms, system requirements |
+| `steam_searchApps({ term, cc?, l? })` | Search the Steam store by name |
+| `steam_getPlayerCount({ appid })` | Current concurrent player count |
+| `steam_getAchievementStats({ appid })` | Global achievement unlock percentages |
+| `steam_getWorkshopItem({ publishedfileid })` | Workshop item details (title, tags, subscribers) |
 
 **Requires `STEAM_API_KEY` environment variable:**
 
 | Tool | Description |
 |------|-------------|
-| `steam.getPlayerSummary({ steamid })` | Player profile: name, avatar, online status |
-| `steam.getOwnedGames({ steamid, include_played_free_games?, include_appinfo? })` | Game library with playtime data |
-| `steam.queryWorkshop({ appid, search_text?, cursor?, numperpage?, query_type?, requiredtags? })` | Search and browse Workshop items |
-| `steam.getLeaderboardEntries({ appid, leaderboardid, rangestart?, rangeend?, datarequest?, steamid? })` | Leaderboard scores and rankings |
-| `steam.resolveVanityURL({ vanityurl, url_type? })` | Convert vanity URL to 64-bit Steam ID |
+| `steam_getPlayerSummary({ steamid })` | Player profile: name, avatar, online status |
+| `steam_getOwnedGames({ steamid, include_played_free_games?, include_appinfo? })` | Game library with playtime data |
+| `steam_queryWorkshop({ appid, search_text?, cursor?, numperpage?, query_type?, requiredtags? })` | Search and browse Workshop items |
+| `steam_getLeaderboardEntries({ appid, leaderboardid, rangestart?, rangeend?, datarequest?, steamid? })` | Leaderboard scores and rankings |
+| `steam_resolveVanityURL({ vanityurl, url_type? })` | Convert vanity URL to 64-bit Steam ID |
 
 When an MCP tool exists for a given endpoint, prefer it over raw `curl` calls. For endpoints not covered by MCP tools (per-player achievements, user stats, news, microtransactions), continue using the Web API directly.
 

@@ -151,7 +151,7 @@ When the [Steam MCP server](https://github.com/TMHSDigital/steam-mcp) is configu
 
 | Step | MCP Tool | Auth | Purpose |
 |------|----------|------|---------|
-| Player summary | `steam.getPlayerSummary({ steamid })` | Key | Fetch display name, avatar, online status, profile visibility |
+| Player summary | `steam_getPlayerSummary({ steamid })` | Key | Fetch display name, avatar, online status, profile visibility |
 
 The SDK integration for rich presence, overlay, game invites, friends list iteration, and avatar retrieval remains documentation-only. These are in-process ISteamFriends APIs with no Web API equivalent for the write/interactive operations.
 

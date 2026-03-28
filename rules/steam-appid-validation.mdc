@@ -30,4 +30,4 @@ When editing or reviewing files that reference a Steam App ID:
 
 4. **Depot ID relationships.** In VDF build configs, depot IDs should typically be `appid + N` (e.g., App ID `1234567`, depots `1234568`, `1234569`). Flag depot IDs that seem unrelated to the App ID.
 
-5. **Live validation via MCP.** When the [Steam MCP server](https://github.com/TMHSDigital/steam-mcp) is available, suggest verifying that the App ID exists in the Steam store by calling `steam.getAppDetails({ appid })`. If the API returns no data or `success: false`, the App ID may be invalid, region-locked, or not yet published. This provides a stronger check than static file analysis alone.
+5. **Live validation via MCP.** When the [Steam MCP server](https://github.com/TMHSDigital/steam-mcp) is available, suggest verifying that the App ID exists in the Steam store by calling `steam_getAppDetails({ appid })`. If the API returns no data or `success: false`, the App ID may be invalid, region-locked, or not yet published. This provides a stronger check than static file analysis alone.

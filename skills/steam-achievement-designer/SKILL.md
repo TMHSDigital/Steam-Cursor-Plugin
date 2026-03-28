@@ -166,7 +166,7 @@ When the [Steam MCP server](https://github.com/TMHSDigital/steam-mcp) is configu
 
 | Step | MCP Tool | Auth | Purpose |
 |------|----------|------|---------|
-| Get existing achievements | `steam.getAchievementStats({ appid })` | None | Fetch global unlock percentages to see what players actually unlock |
+| Get existing achievements | `steam_getAchievementStats({ appid })` | None | Fetch global unlock percentages to see what players actually unlock |
 
 This is useful for reviewing an existing game's achievement distribution before designing new ones, or for auditing unlock rates on your own game.
 

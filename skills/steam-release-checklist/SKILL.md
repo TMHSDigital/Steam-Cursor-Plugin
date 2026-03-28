@@ -160,9 +160,9 @@ Walk through each section with the user. Mark items as done, flagged, or not app
 
 | Step | MCP Tool | Auth | Purpose |
 |------|----------|------|---------|
-| Check store page | `steam.getAppDetails({ appid })` | None | Verify description, screenshots, tags, price, platforms |
-| Check achievements | `steam.getAchievementStats({ appid })` | None | Verify achievements are uploaded and visible |
-| Check player stats | `steam.getPlayerCount({ appid })` | None | Confirm game is accessible (returns data = app is public) |
+| Check store page | `steam_getAppDetails({ appid })` | None | Verify description, screenshots, tags, price, platforms |
+| Check achievements | `steam_getAchievementStats({ appid })` | None | Verify achievements are uploaded and visible |
+| Check player stats | `steam_getPlayerCount({ appid })` | None | Confirm game is accessible (returns data = app is public) |
 
 ## Common Pitfalls
 

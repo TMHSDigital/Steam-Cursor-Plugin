@@ -235,7 +235,7 @@ For developers using external trackers:
 
 | Step | MCP Tool | Auth | Purpose |
 |------|----------|------|---------|
-| Verify app | `steam.getAppDetails({ appid })` | None | Confirm game name and platforms for template customization |
+| Verify app | `steam_getAppDetails({ appid })` | None | Confirm game name and platforms for template customization |
 
 Bug reporting setup requires the Steamworks Partner site — not available via MCP.
 

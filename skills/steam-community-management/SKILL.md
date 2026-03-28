@@ -197,8 +197,8 @@ Recommended post-launch communication schedule:
 
 | Step | MCP Tool | Auth | Purpose |
 |------|----------|------|---------|
-| Verify app | `steam.getAppDetails({ appid })` | None | Confirm app name and current state |
-| Check reviews | `steam.getAchievementStats({ appid })` | None | Reference achievement data in update posts |
+| Verify app | `steam_getAppDetails({ appid })` | None | Confirm app name and current state |
+| Check reviews | `steam_getAchievementStats({ appid })` | None | Reference achievement data in update posts |
 
 Community management actions (posting, moderating) require the Steamworks Partner site — they are not available via API or MCP.
 

@@ -144,11 +144,11 @@ If the user is pricing their own game, provide benchmarks:
 
 | Step | MCP Tool | Auth | Replaces |
 |------|----------|------|----------|
-| Get current pricing | `steam.getAppDetails({ appid })` | None | `curl` to `appdetails` |
-| Multi-region pricing | `steam.getPriceOverview({ appids, cc })` | None | Multiple `curl` calls |
-| Resolve name | `steam.searchApps({ term })` | None | Manual search |
+| Get current pricing | `steam_getAppDetails({ appid })` | None | `curl` to `appdetails` |
+| Multi-region pricing | `steam_getPriceOverview({ appids, cc })` | None | Multiple `curl` calls |
+| Resolve name | `steam_searchApps({ term })` | None | Manual search |
 
-The `steam.getPriceOverview` tool is planned for v0.3.0 of the MCP server. Until available, use `steam.getAppDetails({ appid })` with the `&cc=` parameter for each region.
+The `steam_getPriceOverview` tool is planned for v0.3.0 of the MCP server. Until available, use `steam_getAppDetails({ appid })` with the `&cc=` parameter for each region.
 
 ## Common Pitfalls
 

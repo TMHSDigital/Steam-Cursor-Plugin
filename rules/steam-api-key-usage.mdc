@@ -29,16 +29,16 @@ When a flagged call matches one of these endpoints, suggest the MCP tool:
 
 | Endpoint Pattern | MCP Tool |
 |-----------------|----------|
-| `/api/storesearch/` | `steam.searchApps({ term })` |
-| `/api/appdetails` | `steam.getAppDetails({ appid })` |
-| `GetNumberOfCurrentPlayers` | `steam.getPlayerCount({ appid })` |
-| `GetGlobalAchievementPercentagesForApp` | `steam.getAchievementStats({ appid })` |
-| `GetPublishedFileDetails` | `steam.getWorkshopItem({ publishedfileid })` |
-| `GetPlayerSummaries` | `steam.getPlayerSummary({ steamid })` |
-| `GetOwnedGames` | `steam.getOwnedGames({ steamid })` |
-| `QueryFiles` (IPublishedFileService) | `steam.queryWorkshop({ appid })` |
-| `GetLeaderboardEntries` | `steam.getLeaderboardEntries({ appid, leaderboardid })` |
-| `ResolveVanityURL` | `steam.resolveVanityURL({ vanityurl })` |
+| `/api/storesearch/` | `steam_searchApps({ term })` |
+| `/api/appdetails` | `steam_getAppDetails({ appid })` |
+| `GetNumberOfCurrentPlayers` | `steam_getPlayerCount({ appid })` |
+| `GetGlobalAchievementPercentagesForApp` | `steam_getAchievementStats({ appid })` |
+| `GetPublishedFileDetails` | `steam_getWorkshopItem({ publishedfileid })` |
+| `GetPlayerSummaries` | `steam_getPlayerSummary({ steamid })` |
+| `GetOwnedGames` | `steam_getOwnedGames({ steamid })` |
+| `QueryFiles` (IPublishedFileService) | `steam_queryWorkshop({ appid })` |
+| `GetLeaderboardEntries` | `steam_getLeaderboardEntries({ appid, leaderboardid })` |
+| `ResolveVanityURL` | `steam_resolveVanityURL({ vanityurl })` |
 
 ## What to Say
 

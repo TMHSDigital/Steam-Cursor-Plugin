@@ -25,9 +25,28 @@
   <strong>30 skills</strong> &nbsp;&bull;&nbsp; <strong>9 rules</strong> &nbsp;&bull;&nbsp; <strong>16 MCP tools</strong>
 </p>
 
-Query Steam store data, manage Steamworks app configurations, build multiplayer networking, implement cloud saves, design achievements, compare games, and look up player profiles - all from within Cursor's AI chat. Covers the full Steam &amp; Steamworks ecosystem with live data via the companion [Steam MCP Server](https://github.com/TMHSDigital/steam-mcp).
+Query Steam store data, manage Steamworks app configurations, build multiplayer networking, implement cloud saves, design achievements, compare games, and look up player profiles — all from within Cursor's AI chat. Covers the full Steam &amp; Steamworks ecosystem with live data via the companion [Steam MCP Server](https://github.com/TMHSDigital/steam-mcp).
 
 > **No API key required** for most features. Store lookups, player counts, global achievement stats, and app searches all work out of the box.
+
+## Quick Start
+
+1. **Install** the plugin ([see below](#installation))
+2. **Ask** Cursor anything about Steam:
+
+```
+What's the current price and review score for Hollow Knight?
+```
+```
+How many people are playing Elden Ring right now?
+```
+```
+Compare Hades, Dead Cells, and Hollow Knight — price, reviews, and current players.
+```
+
+3. **Get results** — the plugin fetches live data from Steam's APIs and formats it in chat
+
+That's it. No configuration needed for basic usage.
 
 ## How It Works
 
@@ -35,7 +54,7 @@ Query Steam store data, manage Steamworks app configurations, build multiplayer 
 flowchart LR
     A["You ask Cursor\na Steam question"] --> B["Cursor loads\na Skill"]
     B --> C{"MCP server\navailable?"}
-    C -- Yes --> D["Steam MCP Server\n(10 tools)"]
+    C -- Yes --> D["Steam MCP Server\n(16 tools)"]
     C -- No --> E["curl to\nSteam Web API"]
     D --> F["Steam API"]
     E --> F
@@ -46,62 +65,84 @@ flowchart LR
 
 ## Features
 
-### Skills
+<details open>
+<summary><strong>Skills (30)</strong></summary>
 
-| Skill | What it does |
-|:------|:-------------|
-| **Steam Store Lookup** | Look up any Steam game by name or App ID. Returns price, description, tags, reviews, release date, system requirements, and store links. |
-| **Steamworks App Config** | Generate and document depot configs, build VDF files, launch options, and DLC setup for Steamworks. |
-| **Steam API Reference** | Search Steam Web API and Steamworks SDK documentation. Get endpoint signatures, parameters, auth requirements, and code examples. |
-| **Steam Player Stats** | Check current player counts, achievement unlock percentages, leaderboards, playtime data, and user game libraries. |
-| **Steam Workshop Helper** | Query Workshop items, get UGC details, and follow integration patterns for adding Workshop support to your game. |
-| **Steam Achievement Designer** | Design achievements with proper naming conventions, generate VDF/JSON config files, and get unlock code snippets for C++, C#, and GDScript. |
-| **Steam Multiplayer Networking** | Implement lobbies, matchmaking, Steam Networking Sockets (relay), and dedicated game servers with code examples for C++, C#, and GDScript. |
-| **Steam Cloud Saves** | Add cloud save support via Auto-Cloud config or ISteamRemoteStorage SDK calls. Covers conflict resolution and quota management. |
-| **Steam Leaderboards** | Create leaderboards, upload scores, and download entries (global, friends, around-user) via SDK and Web API. |
-| **Steam Friends & Social** | Integrate friends list, rich presence, game invites, Steam Overlay, and avatar/persona retrieval into your game. |
-| **Steam Input / Controllers** | Set up Steam Input with action sets, digital/analog bindings, and controller glyph retrieval for Xbox, PlayStation, Switch, and Steam Deck. |
-| **Steam Inventory & Economy** | Implement item systems, drops, crafting, the Steam Item Store, and in-game purchases via ISteamInventory and ISteamMicroTxn. |
-| **Steam Profile Lookup** | Look up any Steam user's public profile - games, playtime, level, badges, friends, and recent activity. |
-| **Steam Game Comparison** | Compare two or more Steam games side by side - price, reviews, player counts, genres, and platforms in a formatted table. |
-| **Steam Review Analysis** | Fetch and analyze game reviews - sentiment breakdown, common complaints, comparison across updates, and review bombing detection. |
-| **Steam Price History** | Pricing trends, sale history, regional pricing analysis, and price-to-value scoring for any Steam game. |
-| **Steam Market Research** | Genre trend analysis, tag popularity, competitor identification, and market gap analysis using Steam store data. |
-| **Steam Wishlist Estimates** | Estimate wishlists from public signals using the Boxleiter method, with conversion rate benchmarks and revenue projections. |
-| **Steam Build Automation** | Automate Steam builds with SteamPipe CI/CD - GitHub Actions, GitLab CI, Jenkins pipelines, Docker containers, and beta branch management. |
-| **Steam Release Checklist** | Pre-release validation: store page, depots, achievements, cloud saves, Deck compat, pricing, and launch readiness. |
-| **Steam SteamCMD Helper** | Comprehensive steamcmd reference: commands, scripting, Docker builds, Steam Guard handling, and troubleshooting. |
-| **Steam Community Management** | Post-launch community tools: announcements, events, discussion forums, update post templates, and Community Hub configuration. |
-| **Steam Store Page Optimizer** | Store page best practices: capsule image specs, description structure, tag strategy, trailer guidance, demo setup, and screenshot optimization. |
-| **Steam Pricing Strategy** | Data-driven pricing: base price tiers, regional pricing, launch discounts, sale participation, bundles, and F2P considerations. |
-| **Steam DLC & Expansion Planning** | DLC planning: App ID creation, depot config, season passes, content cadence, pricing tiers, and in-game ownership checks. |
-| **Steam Playtest Setup** | Configure Steam Playtest: open vs closed playtests, key distribution, signup pages, feedback collection, and Next Fest integration. |
-| **Steam Bug Report Template** | Structured bug report templates with Steam system info, crash dump guidance, known issues tracking, and forum integration. |
-| **Steam Anti-Cheat Integration** | Anti-cheat setup: EAC, BattlEye, VAC with Proton/Linux/Steam Deck compatibility matrix and server-side validation. |
-| **Steam Testing Sandbox** | Dev sandbox guide: App ID 480 (SpaceWar), test accounts, Steam console commands, testing achievements/leaderboards/inventory. |
-| **Steam Migration Guide** | Migrate games to Steam from Epic/GOG/itch.io. Engine-specific SDK integration (Unity, Unreal, Godot), feature parity mapping, store page strategy. |
+&nbsp;
 
-### Rules
+<table>
+<tr><th>Category</th><th>Skill</th><th>What it does</th></tr>
+<tr><td rowspan="5"><strong>Core SDK</strong></td>
+  <td>Steam Store Lookup</td><td>Look up any game by name or App ID — price, tags, reviews, platforms, system requirements</td></tr>
+<tr><td>Steamworks App Config</td><td>Generate depot configs, build VDF files, launch options, DLC setup</td></tr>
+<tr><td>Steam API Reference</td><td>Search Web API and SDK docs — endpoint signatures, parameters, auth, code examples</td></tr>
+<tr><td>Steam Testing Sandbox</td><td>App ID 480 (SpaceWar) sandbox, test accounts, Steam console commands, dev workflow</td></tr>
+<tr><td>Steam Migration Guide</td><td>Migrate from Epic/GOG/itch.io to Steam — Unity, Unreal, Godot SDK integration</td></tr>
+<tr><td rowspan="6"><strong>Game Features</strong></td>
+  <td>Steam Achievement Designer</td><td>Design achievements, generate VDF/JSON configs, get unlock code (C++/C#/GDScript)</td></tr>
+<tr><td>Steam Multiplayer Networking</td><td>Lobbies, matchmaking, Steam Networking Sockets, dedicated servers</td></tr>
+<tr><td>Steam Cloud Saves</td><td>Auto-Cloud config and ISteamRemoteStorage SDK — conflict resolution, quotas</td></tr>
+<tr><td>Steam Leaderboards</td><td>Create leaderboards, upload scores, download entries (global/friends/around-user)</td></tr>
+<tr><td>Steam Input / Controllers</td><td>Action sets, bindings, controller glyphs for Xbox, PlayStation, Switch, Steam Deck</td></tr>
+<tr><td>Steam Inventory & Economy</td><td>Item drops, crafting, Steam Item Store, ISteamMicroTxn</td></tr>
+<tr><td rowspan="3"><strong>Social</strong></td>
+  <td>Steam Friends & Social</td><td>Friends list, rich presence, game invites, overlay, avatars</td></tr>
+<tr><td>Steam Profile Lookup</td><td>Player profiles — games, playtime, level, badges, friends, activity</td></tr>
+<tr><td>Steam Workshop Helper</td><td>Workshop item queries, UGC integration patterns, upload workflow</td></tr>
+<tr><td rowspan="4"><strong>Analytics</strong></td>
+  <td>Steam Player Stats</td><td>Player counts, achievement rates, playtime data, game libraries</td></tr>
+<tr><td>Steam Game Comparison</td><td>Side-by-side comparison — price, reviews, players, genres, platforms</td></tr>
+<tr><td>Steam Review Analysis</td><td>Sentiment breakdown, common complaints, update comparisons, review bombs</td></tr>
+<tr><td>Steam Wishlist Estimates</td><td>Boxleiter method, conversion rates, revenue projections</td></tr>
+<tr><td rowspan="3"><strong>Market</strong></td>
+  <td>Steam Price History</td><td>Pricing trends, sale history, regional pricing, value scoring</td></tr>
+<tr><td>Steam Market Research</td><td>Genre trends, tag popularity, competitor analysis, market gaps</td></tr>
+<tr><td>Steam Pricing Strategy</td><td>Base pricing, regional tiers, launch discounts, bundles, F2P</td></tr>
+<tr><td rowspan="4"><strong>Publish</strong></td>
+  <td>Steam Build Automation</td><td>SteamPipe CI/CD — GitHub Actions, GitLab CI, Jenkins, Docker, beta branches</td></tr>
+<tr><td>Steam Release Checklist</td><td>Pre-release validation — store page, depots, achievements, Deck, pricing</td></tr>
+<tr><td>Steam SteamCMD Helper</td><td>steamcmd scripting, Docker builds, Steam Guard, troubleshooting</td></tr>
+<tr><td>Steam Store Page Optimizer</td><td>Capsule specs, description structure, tags, trailers, demos, screenshots</td></tr>
+<tr><td rowspan="3"><strong>Grow</strong></td>
+  <td>Steam Community Management</td><td>Announcements, events, forums, update posts, Community Hub config</td></tr>
+<tr><td>Steam DLC & Expansion Planning</td><td>DLC roadmap, season passes, content cadence, pricing tiers</td></tr>
+<tr><td>Steam Playtest Setup</td><td>Open/closed playtests, key distribution, signups, Next Fest integration</td></tr>
+<tr><td rowspan="2"><strong>Quality</strong></td>
+  <td>Steam Bug Report Template</td><td>Structured templates, steam://sysinfo, crash dumps, known issues</td></tr>
+<tr><td>Steam Anti-Cheat Integration</td><td>EAC, BattlEye, VAC — Proton/Deck compat, server-side validation</td></tr>
+</table>
+
+</details>
+
+<details>
+<summary><strong>Rules (9)</strong></summary>
+
+&nbsp;
 
 | Rule | What it does |
 |:-----|:-------------|
-| **App ID Validation** | Checks that Steam App IDs are consistent across your project (`steam_appid.txt`, VDF files, source code) and warns if `steam_appid.txt` is missing. |
-| **Steamworks Secrets** | Prevents committing API keys, partner credentials, and auth tokens. Flags sensitive patterns and suggests secure alternatives. |
-| **Steam Deck Compatibility** | Flags common Deck compat issues in game code: hardcoded resolutions, mouse-only input, anti-cheat blockers, Windows-only paths, and missing controller support. |
-| **MCP Tool Preference** | When the Steam MCP server is configured, flags raw `curl`/`fetch` calls to Steam APIs and suggests the equivalent MCP tool. |
-| **Build Config Validation** | Validates VDF build configs: missing depots, mismatched App IDs, invalid file mappings, empty content roots, and `setlive` safety warnings. |
-| **Launch Options Check** | Flags launch option issues: missing executables, wrong OS targeting, missing descriptions for multi-launch, and invalid type values. |
-| **Save File Compatibility** | Flags save practices that break cross-platform Steam Cloud sync: binary endianness, OS-specific paths, non-portable serialization. |
-| **Network Security** | Flags insecure networking: unvalidated auth tickets, trusting client data, missing encryption, deprecated API usage. |
-| **API Error Handling** | Flags missing Steamworks error handling: unchecked `SteamAPI_Init()`, missing `StoreStats()`, ignored callbacks, missing `RunCallbacks()`. |
+| **App ID Validation** | Checks App ID consistency across `steam_appid.txt`, VDF files, and source code. Warns if `480` (SpaceWar test app) appears in production. Suggests MCP live validation. |
+| **Steamworks Secrets** | Flags API keys, partner credentials, auth tokens, ssfn files, DRM keys. Suggests secure alternatives. |
+| **Steam Deck Compatibility** | Flags hardcoded resolutions, mouse-only input, anti-cheat blockers, Windows paths, missing controller support. |
+| **MCP Tool Preference** | Flags raw `curl`/`fetch` calls to Steam APIs when the MCP server is available. Suggests equivalent tools. |
+| **Build Config Validation** | Validates VDF configs: missing depots, mismatched App IDs, invalid file mappings, `setlive` safety. |
+| **Launch Options Check** | Flags missing executables, wrong OS targeting, missing descriptions, invalid type values. |
+| **Save File Compatibility** | Flags cross-platform issues: binary endianness, OS-specific paths, non-portable serialization. |
+| **Network Security** | Flags unvalidated auth tickets, trusting client data, missing encryption, deprecated APIs. |
+| **API Error Handling** | Flags unchecked `SteamAPI_Init()`, missing `StoreStats()`, ignored callbacks, missing `RunCallbacks()`. |
+
+</details>
 
 ## Companion: Steam MCP Server
 
-The [Steam MCP Server](https://github.com/TMHSDigital/steam-mcp) is the companion project that provides live, structured API tools for this plugin. It exposes Steam store data, player stats, achievements, workshop items, and more as MCP tools that Cursor can call directly.
+The [Steam MCP Server](https://github.com/TMHSDigital/steam-mcp) provides live, structured API tools that Cursor can call directly — no shell commands needed.
 
-### Setup
+<details open>
+<summary><strong>Setup</strong></summary>
 
-**Requires [Node.js](https://nodejs.org/) (v18+)** for `npx`. Add the Steam MCP server to your Cursor MCP configuration (`.cursor/mcp.json`):
+&nbsp;
+
+**Requires [Node.js](https://nodejs.org/) v18+.** Add to `.cursor/mcp.json`:
 
 ```json
 {
@@ -117,42 +158,51 @@ The [Steam MCP Server](https://github.com/TMHSDigital/steam-mcp) is the companio
 }
 ```
 
-The `STEAM_API_KEY` is only required for tools that access user-specific data (player summaries, owned games, workshop queries, leaderboards, vanity URL resolution). Store lookups, player counts, achievement stats, and workshop item details work without a key.
+`STEAM_API_KEY` is only needed for user-specific tools (player summaries, owned games, workshop queries, leaderboards). Store lookups, player counts, and achievement stats work without a key.
 
-### Available Tools
+</details>
 
-| Tool | Auth | Description |
+<details>
+<summary><strong>Available Tools (16)</strong></summary>
+
+&nbsp;
+
+**Read-only (no auth):**
+
+| Tool | Description |
+|------|-------------|
+| `steam.getAppDetails` | Store data — price, reviews, tags, platforms |
+| `steam.searchApps` | Search the Steam store by name |
+| `steam.getPlayerCount` | Current concurrent players |
+| `steam.getAchievementStats` | Global achievement unlock percentages |
+| `steam.getWorkshopItem` | Workshop item details |
+
+**Read-only (API key):**
+
+| Tool | Description |
+|------|-------------|
+| `steam.getPlayerSummary` | Player profile — name, avatar, status |
+| `steam.getOwnedGames` | Game library with playtime |
+| `steam.queryWorkshop` | Search/browse Workshop items |
+| `steam.getLeaderboardEntries` | Leaderboard scores and rankings |
+| `steam.resolveVanityURL` | Convert vanity URL to Steam ID |
+
+**Write / guidance (publisher key):**
+
+| Tool | Type | Description |
 |------|------|-------------|
-| `steam.getAppDetails` | None | Store data (price, reviews, tags, platforms) |
-| `steam.searchApps` | None | Search the Steam store by name |
-| `steam.getPlayerCount` | None | Current concurrent players |
-| `steam.getAchievementStats` | None | Global achievement unlock percentages |
-| `steam.getWorkshopItem` | None | Workshop item details |
-| `steam.getPlayerSummary` | Key | Player profile (name, avatar, status) |
-| `steam.getOwnedGames` | Key | Game library with playtime |
-| `steam.queryWorkshop` | Key | Search/browse Workshop items |
-| `steam.getLeaderboardEntries` | Key | Leaderboard scores and rankings |
-| `steam.resolveVanityURL` | Key | Convert vanity URL to Steam ID |
 | `steam.createLobby` | SDK guide | Code examples for ISteamMatchmaking lobby creation |
 | `steam.uploadWorkshopItem` | SDK guide | Code examples for ISteamUGC Workshop uploads |
-| `steam.updateWorkshopItem` | Publisher key | Update Workshop item metadata via partner API |
-| `steam.setAchievement` | Publisher key | Set/unlock achievements via partner API (dev/test) |
-| `steam.uploadLeaderboardScore` | Publisher key | Upload leaderboard scores via partner API |
-| `steam.grantInventoryItem` | Publisher key | Grant inventory items via partner API |
+| `steam.updateWorkshopItem` | HTTP POST | Update Workshop item metadata via partner API |
+| `steam.setAchievement` | HTTP POST | Set/unlock achievements (dev/test) |
+| `steam.uploadLeaderboardScore` | HTTP POST | Upload leaderboard scores |
+| `steam.grantInventoryItem` | HTTP POST | Grant inventory items |
 
-## Quick Start
-
-1. **Install** the plugin [manually](#installation) (marketplace listing coming soon)
-2. **Ask** Cursor anything about Steam - try: `What's the current price for Hades?`
-3. **Get results** - the plugin fetches live data from Steam's public APIs and formats it for you
-
-That's it. No configuration needed for basic usage.
+</details>
 
 ## Installation
 
-> **Marketplace listing pending review.** In the meantime, use manual installation.
-
-### Manual Installation
+> **Marketplace listing pending review.** Use manual installation in the meantime.
 
 Clone the repo and symlink it to your local plugins directory:
 
@@ -160,34 +210,28 @@ Clone the repo and symlink it to your local plugins directory:
 git clone https://github.com/TMHSDigital/Steam-Cursor-Plugin.git
 ```
 
-**Windows (PowerShell as Admin):**
+<details>
+<summary><strong>Windows (PowerShell as Admin)</strong></summary>
+
 ```powershell
 New-Item -ItemType SymbolicLink -Path "$env:USERPROFILE\.cursor\plugins\local\steam-cursor-plugin" -Target (Resolve-Path .\Steam-Cursor-Plugin)
 ```
 
-**macOS / Linux:**
+</details>
+
+<details>
+<summary><strong>macOS / Linux</strong></summary>
+
 ```bash
 ln -s "$(pwd)/Steam-Cursor-Plugin" ~/.cursor/plugins/local/steam-cursor-plugin
 ```
 
-## Usage Examples
-
-Once installed, the plugin's skills are available in Cursor's AI chat. Just ask naturally.
-
-```
-What's the current price and review score for Hollow Knight?
-```
-
-```
-How many people are playing Elden Ring right now?
-```
-
-```
-Compare Hades, Dead Cells, and Hollow Knight - price, reviews, and current players.
-```
+</details>
 
 <details>
-<summary><strong>More examples (all 30 skills)</strong></summary>
+<summary><strong>Usage examples (all 30 skills)</strong></summary>
+
+&nbsp;
 
 **Store Lookup**
 ```
@@ -343,15 +387,15 @@ I have a game on itch.io built with Godot. I want to bring it to Steam with achi
 
 ## Configuration
 
-### Steam API Key
+<details>
+<summary><strong>Steam API Key setup</strong></summary>
+
+&nbsp;
 
 Some features (player stats, user data, workshop queries) require a Steam Web API key.
 
 1. Get a free key at [steamcommunity.com/dev/apikey](https://steamcommunity.com/dev/apikey)
 2. Set it as an environment variable:
-
-<details>
-<summary><strong>Platform-specific setup</strong></summary>
 
 **Windows (PowerShell):**
 ```powershell
@@ -368,13 +412,11 @@ export STEAM_API_KEY="your_key_here"
 STEAM_API_KEY=your_key_here
 ```
 
-</details>
-
 The plugin's **Steamworks Secrets** rule will warn you if it detects an API key hardcoded in your source files.
 
-### No-Key Features
+</details>
 
-These work immediately without any API key:
+**No-key features** — these work immediately without configuration:
 
 - Store lookups (price, description, reviews, system requirements)
 - Game comparisons (side-by-side analysis)
@@ -385,6 +427,11 @@ These work immediately without any API key:
 ## Roadmap
 
 See [ROADMAP.md](ROADMAP.md) for the full themed release plan toward v1.0.0.
+
+<details>
+<summary><strong>Release history</strong></summary>
+
+&nbsp;
 
 | Version | Theme | Highlights | Status |
 |---------|-------|------------|--------|
@@ -398,9 +445,11 @@ See [ROADMAP.md](ROADMAP.md) for the full themed release plan toward v1.0.0.
 | **v0.8.0** | Polish | Migration guide, common pitfalls across all 30 skills | **Current** |
 | v1.0.0 | Stable | Production release: 30 skills, 9 rules, 20 MCP tools | Planned |
 
+</details>
+
 ## Contributing
 
-See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines on how to contribute skills, rules, and improvements.
+See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines on adding skills, rules, and improvements.
 
 ## Support
 
@@ -408,10 +457,12 @@ If this plugin is useful to you, consider [sponsoring the project](https://githu
 
 ## License
 
-CC BY-NC-ND 4.0 - see [LICENSE](LICENSE) for details.
+CC BY-NC-ND 4.0 — see [LICENSE](LICENSE) for details.
 
 <details>
-<summary><strong>Steam API Reference Links</strong></summary>
+<summary><strong>Steam API reference links</strong></summary>
+
+&nbsp;
 
 - [Steam Web API Overview](https://partner.steamgames.com/doc/webapi)
 - [Steamworks SDK Reference](https://partner.steamgames.com/doc/api)

@@ -103,14 +103,3 @@ jobs:
           rule_count=$(ls rules/*.mdc 2>/dev/null | wc -l)
           echo "Skills: $skill_count"
           echo "Rules: $rule_count"
-
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.12'
-
-      - name: Install test dependencies
-        run: pip install -r requirements-test.txt
-
-      - name: Run test suite
-        run: pytest tests/ -v --tb=short

@@ -9,16 +9,22 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/TMHSDigital/Steam-Cursor-Plugin/actions/workflows/validate.yml"><img src="https://img.shields.io/github/actions/workflow/status/TMHSDigital/Steam-Cursor-Plugin/validate.yml?label=CI" alt="CI"></a>
-  <a href="LICENSE"><img src="https://img.shields.io/badge/license-CC--BY--NC--ND--4.0-blue.svg" alt="License: CC BY-NC-ND 4.0"></a>
-  <a href="CHANGELOG.md"><img src="https://img.shields.io/badge/version-1.0.0-green.svg" alt="Version"></a>
-  <a href="https://www.npmjs.com/package/@tmhs/steam-mcp"><img src="https://img.shields.io/npm/v/@tmhs/steam-mcp?label=MCP%20server" alt="npm version"></a>
-  <a href="https://www.npmjs.com/package/@tmhs/steam-mcp"><img src="https://img.shields.io/npm/dw/@tmhs/steam-mcp?label=MCP%20downloads" alt="npm downloads"></a>
-  <a href="https://github.com/TMHSDigital/Steam-Cursor-Plugin/stargazers"><img src="https://img.shields.io/github/stars/TMHSDigital/Steam-Cursor-Plugin?style=flat" alt="GitHub Stars"></a>
-  <a href="https://github.com/TMHSDigital/Steam-Cursor-Plugin/commits/main"><img src="https://img.shields.io/github/last-commit/TMHSDigital/Steam-Cursor-Plugin" alt="Last Commit"></a>
-  <a href="https://github.com/TMHSDigital/Steam-Cursor-Plugin"><img src="https://img.shields.io/badge/Cursor-Plugin-8B5CF6.svg" alt="Cursor Plugin"></a>
-  <a href="https://partner.steamgames.com/doc/webapi"><img src="https://img.shields.io/badge/Steam_Web_API-1b2838.svg?logo=steam&logoColor=white" alt="Steam Web API"></a>
-  <a href="https://github.com/sponsors/TMHSDigital"><img src="https://img.shields.io/badge/Sponsor-ea4aaa.svg?logo=githubsponsors&logoColor=white" alt="Sponsor"></a>
+  <a href="https://github.com/TMHSDigital/Steam-Cursor-Plugin/releases/latest"><img src="https://img.shields.io/github/v/release/TMHSDigital/Steam-Cursor-Plugin?style=flat-square&color=1b2838&label=release" alt="Release"></a>
+  <a href="https://www.npmjs.com/package/@tmhs/steam-mcp"><img src="https://img.shields.io/npm/v/@tmhs/steam-mcp?style=flat-square&color=66c0f4&label=npm" alt="npm version"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/license-CC--BY--NC--ND--4.0-2a475e?style=flat-square" alt="License: CC BY-NC-ND 4.0"></a>
+  <a href="https://tmhsdigital.github.io/Steam-Cursor-Plugin/"><img src="https://img.shields.io/badge/docs-website-66c0f4?style=flat-square" alt="Docs"></a>
+</p>
+
+<p align="center">
+  <a href="https://github.com/TMHSDigital/Steam-Cursor-Plugin/actions/workflows/ci.yml"><img src="https://img.shields.io/github/actions/workflow/status/TMHSDigital/Steam-Cursor-Plugin/ci.yml?branch=main&style=flat-square&label=CI" alt="CI"></a>
+  <a href="https://github.com/TMHSDigital/Steam-Cursor-Plugin/actions/workflows/validate.yml"><img src="https://img.shields.io/github/actions/workflow/status/TMHSDigital/Steam-Cursor-Plugin/validate.yml?branch=main&style=flat-square&label=validate" alt="Validate"></a>
+  <a href="https://github.com/TMHSDigital/Steam-Cursor-Plugin/actions/workflows/codeql.yml"><img src="https://img.shields.io/github/actions/workflow/status/TMHSDigital/Steam-Cursor-Plugin/codeql.yml?branch=main&style=flat-square&label=CodeQL" alt="CodeQL"></a>
+</p>
+
+<p align="center">
+  <a href="https://github.com/TMHSDigital/Steam-Cursor-Plugin/stargazers"><img src="https://img.shields.io/github/stars/TMHSDigital/Steam-Cursor-Plugin?style=flat-square&color=2a475e" alt="Stars"></a>
+  <a href="https://github.com/TMHSDigital/Steam-Cursor-Plugin/issues"><img src="https://img.shields.io/github/issues/TMHSDigital/Steam-Cursor-Plugin?style=flat-square&color=2a475e" alt="Issues"></a>
+  <a href="https://www.npmjs.com/package/@tmhs/steam-mcp"><img src="https://img.shields.io/npm/dw/@tmhs/steam-mcp?style=flat-square&color=2a475e&label=downloads" alt="npm downloads"></a>
 </p>
 
 ---

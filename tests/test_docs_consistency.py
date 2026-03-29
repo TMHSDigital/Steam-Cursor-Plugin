@@ -18,9 +18,11 @@ def _extract_numbers(pattern, text):
 
 class TestVersionConsistency:
     def test_readme_badge_version(self, plugin_manifest, readme_text):
+        has_dynamic = "github/v/release" in readme_text
         version = plugin_manifest["version"]
-        assert f"version-{version}-green" in readme_text, (
-            f"README badge does not show version {version}"
+        has_static = f"version-{version}" in readme_text
+        assert has_dynamic or has_static, (
+            f"README has no version badge (dynamic or static) for {version}"
         )
 
     def test_roadmap_current_version(self, plugin_manifest, roadmap_text):

@@ -56,7 +56,7 @@ a:hover{color:var(--white)}
 nav{position:sticky;top:0;z-index:100;background:rgba(14,20,25,.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid rgba(102,192,244,.1);padding:0 24px}
 .nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:60px}
 .nav-brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:1rem;color:var(--text-bright)}
-.nav-brand img{width:28px;height:28px;border-radius:6px}
+.nav-brand img{width:28px;height:28px;border-radius:6px;filter:brightness(1.4) contrast(1.1)}
 .nav-links{display:flex;gap:24px;list-style:none;align-items:center}
 .nav-links a{color:var(--text-muted);font-size:.875rem;font-weight:500;transition:color .2s}
 .nav-links a:hover{color:var(--accent)}
@@ -82,7 +82,7 @@ nav{position:sticky;top:0;z-index:100;background:rgba(14,20,25,.92);backdrop-fil
   50%{transform:scale(1.05) translate(-2%,1%)}
   100%{transform:scale(1) translate(1%,-1%)}
 }
-.hero-logo{width:96px;height:96px;border-radius:20px;margin-bottom:28px;position:relative;animation:logoGlow 3s ease-in-out infinite alternate;filter:drop-shadow(0 0 24px rgba(102,192,244,.3))}
+.hero-logo{width:96px;height:96px;border-radius:20px;margin-bottom:28px;position:relative;animation:logoGlow 3s ease-in-out infinite alternate;filter:drop-shadow(0 0 24px rgba(102,192,244,.3)) brightness(1.3) contrast(1.1);background:radial-gradient(circle,rgba(102,192,244,.15) 0%,transparent 70%);padding:8px}
 @keyframes logoGlow{
   0%{filter:drop-shadow(0 0 24px rgba(102,192,244,.2))}
   100%{filter:drop-shadow(0 0 40px rgba(102,192,244,.45))}
@@ -579,7 +579,7 @@ footer{border-top:1px solid rgba(102,192,244,.08);padding:48px 24px;text-align:c
 <section id="roadmap">
   <div class="container reveal">
     <div class="section-label">Roadmap</div>
-    <div class="section-title">Path to v1.0.0</div>
+    <div class="section-title">The road to v1.0.0</div>
     <div class="section-desc">See <a href="https://github.com/TMHSDigital/Steam-Cursor-Plugin/blob/main/ROADMAP.md">ROADMAP.md</a> for details.</div>
     <div class="timeline">
       <div class="tl-item"><div class="tl-dot tl-dot-done"></div><span class="tl-version">v0.1.0</span><span class="tl-theme">Foundation</span><span class="tl-tag tl-tag-done">Done</span><div class="tl-desc">14 skills, 3 rules, plugin scaffold</div></div>
@@ -590,8 +590,8 @@ footer{border-top:1px solid rgba(102,192,244,.08);padding:48px 24px;text-align:c
       <div class="tl-item"><div class="tl-dot tl-dot-done"></div><span class="tl-version">v0.6.0</span><span class="tl-theme">Quality</span><span class="tl-tag tl-tag-done">Done</span><div class="tl-desc">Playtest, bug reporting, anti-cheat, 3 code quality rules</div></div>
       <div class="tl-item"><div class="tl-dot tl-dot-done"></div><span class="tl-version">v0.7.0</span><span class="tl-theme">Full Power</span><span class="tl-tag tl-tag-done">Done</span><div class="tl-desc">Testing sandbox, 6 MCP write tools</div></div>
       <div class="tl-item"><div class="tl-dot tl-dot-done"></div><span class="tl-version">v0.8.0</span><span class="tl-theme">Polish</span><span class="tl-tag tl-tag-done">Done</span><div class="tl-desc">Migration guide, common pitfalls across all 30 skills</div></div>
-      <div class="tl-item"><div class="tl-dot tl-dot-current"></div><span class="tl-version">v0.9.0</span><span class="tl-theme">Complete</span><span class="tl-tag tl-tag-current">Current</span><div class="tl-desc">4 new MCP read tools - reviews, pricing, regional - 25 total</div></div>
-      <div class="tl-item"><div class="tl-dot tl-dot-planned"></div><span class="tl-version">v1.0.0</span><span class="tl-theme">Stable</span><span class="tl-tag tl-tag-planned">Planned</span><div class="tl-desc">Production release: 30 skills, 9 rules, 25 MCP tools</div></div>
+      <div class="tl-item"><div class="tl-dot tl-dot-done"></div><span class="tl-version">v0.9.0</span><span class="tl-theme">Complete</span><span class="tl-tag tl-tag-done">Done</span><div class="tl-desc">4 new MCP read tools - reviews, pricing, regional - 25 total</div></div>
+      <div class="tl-item"><div class="tl-dot tl-dot-current"></div><span class="tl-version">v1.0.0</span><span class="tl-theme">Stable</span><span class="tl-tag tl-tag-current">Current</span><div class="tl-desc">Production release: 30 skills, 9 rules, 25 MCP tools</div></div>
     </div>
   </div>
 </section>

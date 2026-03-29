@@ -15,6 +15,7 @@ Use this skill when the user:
 - Wants to set up or moderate Steam Discussion forums
 - Asks about Community Hub configuration (screenshots, artwork, guides)
 - Needs help with community engagement strategy post-launch
+- Is a modder managing their Workshop item's discussion threads or changelogs
 
 ## Required Inputs
 

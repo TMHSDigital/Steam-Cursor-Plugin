@@ -14,6 +14,7 @@ Use this skill when the user:
 - Needs system requirements for a title
 - Wants to compare games or check competitor store pages
 - Mentions a Steam App ID or game name in a store context
+- Wants to check if a game supports Workshop/mods before starting a mod project
 
 ## Required Inputs
 

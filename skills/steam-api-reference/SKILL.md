@@ -14,6 +14,7 @@ Use this skill when the user:
 - Needs parameter details for a Steam Web API method
 - Is integrating the Steamworks SDK (C++, C#, or other supported languages)
 - Asks about authentication (API keys, session tickets, etc.)
+- Is a modder looking for Workshop or UGC API documentation
 
 ## Required Inputs
 

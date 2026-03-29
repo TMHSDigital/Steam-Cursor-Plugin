@@ -14,6 +14,9 @@ Use this skill when the user:
 - Needs details about a specific Workshop item (file ID)
 - Asks about Workshop upload, update, or query APIs
 - Wants to understand Workshop integration architecture
+- Is a modder looking to publish or update a Workshop item
+- Wants to find popular mods for a game
+- Needs help with the Workshop upload/update SDK flow as a mod creator
 
 ## Required Inputs
 
@@ -86,6 +89,14 @@ When the user is building Workshop support into their game, provide guidance on 
 3. Shows how to query installed items at game startup
 4. Links to the Workshop implementation guide
 5. Notes: "Use `SetItemContent` pointing to a folder - Steam will diff and upload only changed files."
+
+**User:** "I made a custom map for Cities: Skylines. How do I upload it to the Workshop?"
+
+**Agent:**
+1. Uses `steam_searchApps({ query: "Cities: Skylines" })` to confirm the App ID
+2. Walks through the ISteamUGC upload flow: CreateItem, StartItemUpdate, SetItemContent (pointing to the map folder), SetItemTitle, SetItemPreview, SetItemTags
+3. Shows how to set visibility (Public/Friends/Private) and add a changelog
+4. Notes: "After the first upload, use `SubmitItemUpdate` with a change note for updates. Steam tracks versions automatically."
 
 ## MCP Usage
 

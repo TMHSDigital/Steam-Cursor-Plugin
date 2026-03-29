@@ -2,9 +2,9 @@
 
 Themed release plan toward v1.0.0.
 
-**Current:** v0.9.0 - 30 skills, 9 rules, companion [Steam MCP server](https://github.com/TMHSDigital/steam-mcp) with 25 tools (17 read-only + 8 write/guidance).
+**Current:** v1.0.0 - 30 skills, 9 rules, companion [Steam MCP server](https://github.com/TMHSDigital/steam-mcp) with 25 tools (18 read-only + 7 write/guidance).
 
-**Target:** v1.0.0 - 30 skills, 9 rules, 25 MCP tools.
+**Status:** v1.0.0 "Stable" released. 30 skills, 9 rules, 25 MCP tools.
 
 | Version | Theme | New Skills | New Rules | MCP Tools | Total Skills | Total Rules |
 |---------|-------|-----------|-----------|-----------|-------------|-------------|
@@ -16,8 +16,8 @@ Themed release plan toward v1.0.0.
 | v0.6.0 | Quality | 3 | 3 | 0 | 28 | 9 |
 | v0.7.0 | Full Power | 1 | 0 | 6 | 29 | 9 |
 | v0.8.0 | Polish | 1 | 0 | 0 | 30 | 9 |
-| v0.9.0 (current) | Complete | 0 | 0 | 4 | 30 | 9 |
-| v1.0.0 | Stable | 0 | 0 | 0 | 30 | 9 |
+| v0.9.0 | Complete | 0 | 0 | 4 | 30 | 9 |
+| v1.0.0 (current) | Stable | 0 | 0 | 5 | 30 | 9 |
 
 ---
 
@@ -215,12 +215,13 @@ Update all 14 existing skills to reference MCP tools where applicable. Replace "
 
 ### Release Checklist
 
-- [ ] All 30 skills reviewed and tested
-- [ ] All 25 MCP tools documented and stable
-- [ ] All 9 rules validated against real projects
-- [ ] CHANGELOG fully up to date
-- [ ] README reflects final feature set
-- [ ] Version locked at 1.0.0, semver from here on out
+- [x] All 30 skills reviewed and tested
+- [x] All 25 MCP tools documented and stable
+- [x] All 9 rules validated against real projects
+- [x] CHANGELOG fully up to date
+- [x] README reflects final feature set
+- [x] Version locked at 1.0.0, semver from here on out
+- [x] Target audience expanded to include modders alongside game developers and power users
 
 ---
 

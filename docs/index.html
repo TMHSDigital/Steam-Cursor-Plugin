@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Steam Developer Tools - Cursor IDE Plugin</title>
-<meta name="description" content="30 AI skills, 9 code rules, and 25 MCP tools for Steam and Steamworks game development inside Cursor IDE.">
+<meta name="description" content="30 AI skills, 9 code rules, and 25 MCP tools for Steam and Steamworks game development and modding inside Cursor IDE.">
 <meta property="og:title" content="Steam Developer Tools - Cursor IDE Plugin">
-<meta property="og:description" content="30 AI skills, 9 code rules, and 25 MCP tools for Steam and Steamworks game development inside Cursor IDE.">
+<meta property="og:description" content="30 AI skills, 9 code rules, and 25 MCP tools for Steam and Steamworks game development and modding inside Cursor IDE.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://tmhsdigital.github.io/Steam-Cursor-Plugin/">
 <meta property="og:image" content="https://tmhsdigital.github.io/Steam-Cursor-Plugin/assets/og-card.jpg">
@@ -14,7 +14,7 @@
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Steam Developer Tools - Cursor IDE Plugin">
-<meta name="twitter:description" content="30 AI skills, 9 code rules, and 25 MCP tools for Steam & Steamworks game development inside Cursor IDE.">
+<meta name="twitter:description" content="30 AI skills, 9 code rules, and 25 MCP tools for Steam & Steamworks game development and modding inside Cursor IDE.">
 <meta name="twitter:image" content="https://tmhsdigital.github.io/Steam-Cursor-Plugin/assets/og-card.jpg">
 <link rel="icon" href="assets/logo-64.png" type="image/png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -122,6 +122,16 @@ section{padding:80px 24px}
 .section-label{font-size:.75rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
 .section-title{font-size:clamp(1.5rem,3vw,2.2rem);font-weight:800;color:var(--white);margin-bottom:12px;letter-spacing:-.01em}
 .section-desc{color:var(--text-muted);max-width:600px;margin-bottom:48px;font-size:1.05rem;line-height:1.7}
+
+/* WHO IS THIS FOR */
+.who-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px;margin-top:32px}
+.who-card{background:var(--bg-card);border:1px solid rgba(102,192,244,.1);border-radius:var(--radius-lg);padding:32px 24px;text-align:center;transition:border-color .3s,transform .3s}
+.who-card:hover{border-color:var(--accent);transform:translateY(-3px);box-shadow:0 8px 32px rgba(0,0,0,.3)}
+.who-icon{font-size:2.5rem;margin-bottom:12px}
+.who-role{font-size:1.2rem;font-weight:700;color:#fff;margin-bottom:12px}
+.who-list{list-style:none;padding:0;margin:0;text-align:left}
+.who-list li{color:var(--text-muted);font-size:.9rem;padding:6px 0 6px 18px;position:relative}
+.who-list li::before{content:'>';color:var(--accent);position:absolute;left:0;font-weight:700}
 
 /* HOW IT WORKS */
 .flow{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:24px;position:relative}
@@ -296,9 +306,9 @@ footer{border-top:1px solid rgba(102,192,244,.08);padding:48px 24px;text-align:c
 <header class="hero">
   <img src="assets/logo-256.png" alt="Steam Developer Tools" class="hero-logo" width="96" height="96">
   <h1>Steam Developer Tools</h1>
-  <p>Steam &amp; Steamworks integration for Cursor IDE. Query store data, build multiplayer, design achievements, automate builds - all from AI chat.</p>
+  <p>Steam &amp; Steamworks integration for Cursor IDE. Query store data, build multiplayer, design achievements, manage Workshop mods, automate builds - all from AI chat.</p>
   <div class="hero-badges">
-    <span class="badge badge-version">v0.9.0</span>
+    <span class="badge badge-version">v1.0.0</span>
     <span class="badge badge-license">CC BY-NC-ND 4.0</span>
     <span class="badge badge-plugin">Cursor Plugin</span>
     <a href="https://www.npmjs.com/package/@tmhs/steam-mcp" class="badge badge-npm"><img src="https://img.shields.io/npm/dw/@tmhs/steam-mcp?label=npm%20downloads&color=e8b23a&style=flat-square" alt="npm downloads"></a>
@@ -321,6 +331,43 @@ footer{border-top:1px solid rgba(102,192,244,.08);padding:48px 24px;text-align:c
     <div class="stat-label" style="margin-top:8px">npm</div>
   </div>
 </div>
+
+<!-- WHO IS THIS FOR -->
+<section id="who">
+  <div class="container reveal">
+    <div class="section-label">Who Is This For?</div>
+    <div class="section-title">Built for everyone in the Steam ecosystem.</div>
+    <div class="who-grid">
+      <div class="who-card">
+        <div class="who-icon">&#x1F3AE;</div>
+        <div class="who-role">Game Developers</div>
+        <ul class="who-list">
+          <li>Configure depots, achievements, leaderboards</li>
+          <li>Automate CI/CD builds with SteamPipe</li>
+          <li>Validate release readiness before launch</li>
+        </ul>
+      </div>
+      <div class="who-card">
+        <div class="who-icon">&#x1F527;</div>
+        <div class="who-role">Modders</div>
+        <ul class="who-list">
+          <li>Publish and update Workshop items</li>
+          <li>Browse trending mods and find inspiration</li>
+          <li>Get SDK code for UGC integration</li>
+        </ul>
+      </div>
+      <div class="who-card">
+        <div class="who-icon">&#x26A1;</div>
+        <div class="who-role">Power Users</div>
+        <ul class="who-list">
+          <li>Look up player profiles and stats</li>
+          <li>Analyze reviews and pricing trends</li>
+          <li>Compare games side-by-side with live data</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- HOW IT WORKS -->
 <section id="how">
@@ -522,6 +569,8 @@ footer{border-top:1px solid rgba(102,192,244,.08);padding:48px 24px;text-align:c
       <div class="prompt-card" onclick="copyPrompt(this)"><span class="copy-hint">Copy</span><p>Set up Steam build configs for my game. App ID 2345678, Windows and Linux.</p></div>
       <div class="prompt-card" onclick="copyPrompt(this)"><span class="copy-hint">Copy</span><p>Compare Hades, Dead Cells, and Hollow Knight - price, reviews, players.</p></div>
       <div class="prompt-card" onclick="copyPrompt(this)"><span class="copy-hint">Copy</span><p>I want to add cloud saves to my roguelike. Single save file in AppData/Local.</p></div>
+      <div class="prompt-card" onclick="copyPrompt(this)"><span class="copy-hint">Copy</span><p>Find trending Workshop mods for Garry's Mod and show subscriber counts.</p></div>
+      <div class="prompt-card" onclick="copyPrompt(this)"><span class="copy-hint">Copy</span><p>How do I upload my custom map to the Steam Workshop? I need the SDK code.</p></div>
     </div>
   </div>
 </section>

@@ -5,7 +5,7 @@ All notable changes to Steam Developer Tools will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [1.0.0] - 2026-03-29
 
 ### Added
 
@@ -13,15 +13,29 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - `steam_getNewsForApp` — Fetch recent news and announcements for a game (no auth)
   - `steam_getSchemaForGame` — Achievement/stat schema with display names, descriptions, and icons (API key)
   - `steam_getPlayerAchievements` — Per-player achievement unlock status and timestamps (API key)
-  - `steam_getLeaderboardsForGame` — List all leaderboards with numeric IDs (publisher key)
+  - `steam_getLeaderboardsForGame` — List all leaderboards with numeric IDs (API key)
   - `steam_clearAchievement` — Re-lock/clear an achievement for QA testing (publisher key)
 - Skills updated with new tool references: steam-api-reference, steam-achievement-designer, steam-player-stats, steam-leaderboards, steam-community-management, steam-testing-sandbox
 - `steam-api-key-usage` rule updated with `GetNewsForApp`, `GetSchemaForGame`, `GetPlayerAchievements` equivalents
+
+### Changed
+
+- **Expanded target audience** to include modders alongside game developers and power users
+- Widened skill triggers for steam-workshop-helper, steam-store-lookup, steam-api-reference, and steam-community-management to activate on modder use cases
+- Added modder example interaction to steam-workshop-helper (Workshop upload flow)
+- Added "For Modders" callout section in README with relevant tools
+- Added "Who Is This For?" section to GitHub Pages site with game dev / modder / power user columns
+- Added modder-related prompt cards to the site
+- Updated OG card, meta descriptions, and plugin description to include modders
+- Added `modding`, `steam-workshop`, `ugc` keywords to plugin.json
+- Plugin version bumped to 1.0.0
 
 ### Fixed
 
 - **MCP tool naming** — Renamed all 20 MCP tool references from dot notation (`steam.getAppDetails`) to underscore notation (`steam_getAppDetails`) across 34 files. Dots conflicted with Cursor's internal MCP bridge routing. Companion steam-mcp server v0.5.0 has the matching rename.
 - **`steam_searchApps` parameter** — Renamed `term` to `query` across all skills, rules, and docs to match steam-mcp server v0.5.1 schema change
+- **`steam_getLeaderboardsForGame` auth tier** — Corrected from publisher key to standard API key across all docs (companion steam-mcp server v0.6.1)
+- **`steam_getPlayerAchievements` error message** — Corrected from publisher key boilerplate to free API key + public profile message (companion steam-mcp server v0.6.1)
 - **Companion steam-mcp server v0.5.1** — `steam_getLeaderboardEntries` description clarified (numeric ID required), write tools (`steam_setAchievement`, `steam_uploadLeaderboardScore`, `steam_grantInventoryItem`) now return clear error messages when publisher key is missing
 - **Companion steam-mcp server v0.6.0** — Fixed POST body encoding on publisher tools (params now sent as `application/x-www-form-urlencoded` body instead of URL query string), removed dead variable in `grantInventoryItem`
 
@@ -185,6 +199,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **steam-deck-compat** rule: flags common Steam Deck compatibility issues (hardcoded resolutions, mouse-only input, anti-cheat, Windows-only paths, missing controller support)
 - Plugin manifest, README, CONTRIBUTING guide, and license
 
+[1.0.0]: https://github.com/TMHSDigital/Steam-Cursor-Plugin/releases/tag/v1.0.0
 [0.9.0]: https://github.com/TMHSDigital/Steam-Cursor-Plugin/releases/tag/v0.9.0
 [0.8.0]: https://github.com/TMHSDigital/Steam-Cursor-Plugin/releases/tag/v0.8.0
 [0.7.0]: https://github.com/TMHSDigital/Steam-Cursor-Plugin/releases/tag/v0.7.0

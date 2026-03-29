@@ -5,13 +5,13 @@
 <h1 align="center">Steam Developer Tools</h1>
 
 <p align="center">
-  <em>Steam &amp; Steamworks integration for Cursor IDE - built for game developers and power users.</em>
+  <em>Steam &amp; Steamworks integration for Cursor IDE - built for game developers, modders, and power users.</em>
 </p>
 
 <p align="center">
   <a href="https://github.com/TMHSDigital/Steam-Cursor-Plugin/actions/workflows/validate.yml"><img src="https://img.shields.io/github/actions/workflow/status/TMHSDigital/Steam-Cursor-Plugin/validate.yml?label=CI" alt="CI"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-CC--BY--NC--ND--4.0-blue.svg" alt="License: CC BY-NC-ND 4.0"></a>
-  <a href="CHANGELOG.md"><img src="https://img.shields.io/badge/version-0.9.0-green.svg" alt="Version"></a>
+  <a href="CHANGELOG.md"><img src="https://img.shields.io/badge/version-1.0.0-green.svg" alt="Version"></a>
   <a href="https://www.npmjs.com/package/@tmhs/steam-mcp"><img src="https://img.shields.io/npm/v/@tmhs/steam-mcp?label=MCP%20server" alt="npm version"></a>
   <a href="https://www.npmjs.com/package/@tmhs/steam-mcp"><img src="https://img.shields.io/npm/dw/@tmhs/steam-mcp?label=MCP%20downloads" alt="npm downloads"></a>
   <a href="https://github.com/TMHSDigital/Steam-Cursor-Plugin/stargazers"><img src="https://img.shields.io/github/stars/TMHSDigital/Steam-Cursor-Plugin?style=flat" alt="GitHub Stars"></a>
@@ -27,7 +27,7 @@
   <strong>30 skills</strong> &nbsp;&bull;&nbsp; <strong>9 rules</strong> &nbsp;&bull;&nbsp; <strong>25 MCP tools</strong>
 </p>
 
-Query Steam store data, manage Steamworks app configurations, build multiplayer networking, implement cloud saves, design achievements, compare games, and look up player profiles — all from within Cursor's AI chat. Covers the full Steam &amp; Steamworks ecosystem with live data via the companion [Steam MCP Server](https://github.com/TMHSDigital/steam-mcp).
+Query Steam store data, manage Steamworks app configurations, build multiplayer networking, implement cloud saves, design achievements, manage Workshop mods, compare games, and look up player profiles — all from within Cursor's AI chat. Covers the full Steam &amp; Steamworks ecosystem with live data via the companion [Steam MCP Server](https://github.com/TMHSDigital/steam-mcp).
 
 > **No API key required** for most features. Store lookups, player counts, global achievement stats, and app searches all work out of the box.
 
@@ -210,6 +210,26 @@ The [Steam MCP Server](https://github.com/TMHSDigital/steam-mcp) provides live, 
 | `steam_clearAchievement` | HTTP POST | Clear/re-lock achievements (dev/test) |
 | `steam_uploadLeaderboardScore` | HTTP POST | Upload leaderboard scores |
 | `steam_grantInventoryItem` | HTTP POST | Grant inventory items |
+
+</details>
+
+<details>
+<summary><strong>For Modders</strong></summary>
+
+&nbsp;
+
+If you're a mod creator, these tools are directly useful for your Workshop workflow:
+
+| Tool | What it does for modders |
+|------|------------------------|
+| `steam_queryWorkshop` | Browse trending mods, find inspiration, check competitor items |
+| `steam_getWorkshopItem` | Look up any Workshop item — subscribers, tags, update history |
+| `steam_uploadWorkshopItem` | Get SDK code for publishing your mod to the Workshop |
+| `steam_updateWorkshopItem` | Update your mod's metadata via the partner API |
+| `steam_searchApps` | Find games to mod — check Workshop support before starting |
+| `steam_getAppDetails` | Check a game's categories, tags, and Workshop status |
+
+The **Workshop Helper** skill provides end-to-end guidance for mod creators: uploading, updating, querying, and managing Workshop items with C++, C#, and GDScript examples.
 
 </details>
 

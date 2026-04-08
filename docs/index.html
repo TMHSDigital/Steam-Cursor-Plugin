@@ -142,6 +142,9 @@
       .section-actions { margin-left: 0; }
     }
 
+    /* SR ONLY */
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0; }
+
     /* REDUCED MOTION */
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
@@ -199,163 +202,171 @@
     <div class="section-header">
       <h2>Skills</h2>
       <span class="count">30</span>
+      <div class="section-actions">
+        <button class="btn-sm toggle-section" data-target="skills-body">Collapse</button>
+      </div>
     </div>
-    <table class="data-table">
-      <thead><tr><th>Name</th><th>Description</th></tr></thead>
-      <tbody>
-        
-        <tr>
-          <td class="name-cell">Steam Achievement Designer</td>
-          <td>Design and document Steam achievements. Helps structure achievement definitions (API name, display name, description, icon requirements, hidden flag) and generates the VDF/JSON config snippets for Ste</td>
-        </tr>
-        
-        <tr>
-          <td class="name-cell">Steam Anti-Cheat Integration</td>
-          <td>Integrate anti-cheat solutions with Steam games. Covers EasyAntiCheat (EAC), BattlEye, and VAC setup, Proton/Linux compatibility, Steam Deck considerations, and custom anti-cheat patterns. Use when ad</td>
-        </tr>
-        
-        <tr>
-          <td class="name-cell">Steam API Reference</td>
-          <td>Search and retrieve Steam Web API and Steamworks SDK documentation. Returns endpoint signatures, parameter descriptions, and code examples. Use when the user needs to call a Steam API, wants to know a</td>
-        </tr>
-        
-        <tr>
-          <td class="name-cell">Steam Bug Report Template</td>
-          <td>Generate structured bug report templates for Steam games. Covers report structure, Steam system info integration, crash dump guidance, known issues tracking, and forum integration. Use when setting up</td>
-        </tr>
-        
-        <tr>
-          <td class="name-cell">Steam Build Automation</td>
-          <td>Automate Steam builds with SteamPipe CI/CD integration. Covers GitHub Actions, GitLab CI, and Jenkins pipelines for depot uploads, beta branch management, and Docker-containerized builds. Use when set</td>
-        </tr>
-        
-        <tr>
-          <td class="name-cell">Steam Cloud Saves</td>
-          <td>Implement Steam Cloud save functionality. Covers ISteamRemoteStorage for manual cloud saves, Auto-Cloud configuration, conflict resolution, and quota management. Use when adding cloud save support to </td>
-        </tr>
-        
-        <tr>
-          <td class="name-cell">Steam Community Management</td>
-          <td>Post-launch community management for Steam games. Covers announcements, events, discussion forum moderation, update post templates, and Community Hub configuration. Use when managing player communicat</td>
-        </tr>
-        
-        <tr>
-          <td class="name-cell">Steam DLC &amp; Expansion Planning</td>
-          <td>Plan and configure DLC, expansions, and post-launch content for Steam games. Covers DLC App ID creation, depot setup, season passes, content cadence, pricing tiers, and in-game ownership checks. Use w</td>
-        </tr>
-        
-        <tr>
-          <td class="name-cell">Steam Friends &amp; Social</td>
-          <td>Integrate Steam social features into your game. Covers friends list, rich presence, Steam Overlay, game invites, avatars, and persona names via ISteamFriends. Use when building social features, showin</td>
-        </tr>
-        
-        <tr>
-          <td class="name-cell">Steam Game Comparison</td>
-          <td>Compare two or more Steam games side by side. Fetches store data and player counts for multiple titles and formats a comparison table. Use when comparing game prices, reviews, player counts, or featur</td>
-        </tr>
-        
-        <tr>
-          <td class="name-cell">Steam Input / Controller Support</td>
-          <td>Integrate Steam Input for controller support. Covers ISteamInput for detecting controllers, configuring action sets, binding actions, and retrieving button glyphs. Use when adding controller support, </td>
-        </tr>
-        
-        <tr>
-          <td class="name-cell">Steam Inventory &amp; Economy</td>
-          <td>Implement Steam Inventory and in-game economy. Covers ISteamInventory for item management, ISteamMicroTxn for in-game purchases, inventory schema definition, and Web API queries. Use when adding items</td>
-        </tr>
-        
-        <tr>
-          <td class="name-cell">Steam Leaderboards</td>
-          <td>Implement and query Steam Leaderboards. Covers creating leaderboards, uploading scores, downloading entries (global, friends, around-user), and Web API queries. Use when adding leaderboards to a game </td>
-        </tr>
-        
-        <tr>
-          <td class="name-cell">Steam Market Research</td>
-          <td>Genre trend analysis, tag popularity, competitor identification, and market gap analysis using Steam store data. Use when evaluating a game concept&#39;s market fit, scouting competitors, or analyzing gen</td>
-        </tr>
-        
-        <tr>
-          <td class="name-cell">Steam Migration Guide</td>
-          <td>Guide for migrating games to Steam from other platforms (Epic, GOG, itch.io) or integrating Steamworks across engines (Unity, Unreal, Godot). Covers feature parity mapping, SDK integration steps, stor</td>
-        </tr>
-        
-        <tr>
-          <td class="name-cell">Steam Multiplayer Networking</td>
-          <td>Integrate Steam multiplayer networking into your game. Covers lobby creation, matchmaking, Steam Networking Sockets (relay), dedicated game servers, and auth tickets. Use when building multiplayer fea</td>
-        </tr>
-        
-        <tr>
-          <td class="name-cell">Steam Player Stats</td>
-          <td>Look up player and game statistics including player counts, achievement stats, leaderboards, and user game libraries for public profiles. Use when analyzing game performance, checking player engagemen</td>
-        </tr>
-        
-        <tr>
-          <td class="name-cell">Steam Playtest Setup</td>
-          <td>Configure Steam Playtest for pre-release testing. Covers playtest App ID creation, open vs NDA playtests, key distribution, signup page setup, feedback collection, and transition to Early Access or la</td>
-        </tr>
-        
-        <tr>
-          <td class="name-cell">Steam Price History</td>
-          <td>Analyze pricing trends, sale history, regional pricing differences, and price-to-review value scoring for Steam games. Use when evaluating pricing strategy, comparing regional costs, or identifying sa</td>
-        </tr>
-        
-        <tr>
-          <td class="name-cell">Steam Pricing Strategy</td>
-          <td>Data-driven pricing strategy for Steam games. Covers regional pricing, launch discounts, sale participation, bundles, free-to-play conversion, and price change rules. Use when setting or adjusting gam</td>
-        </tr>
-        
-        <tr>
-          <td class="name-cell">Steam Profile Lookup</td>
-          <td>Look up any Steam user&#39;s public profile. Fetch player summaries, owned games with playtime, recent activity, Steam level, badges, and friend lists. Use when someone wants to check a Steam profile, see</td>
-        </tr>
-        
-        <tr>
-          <td class="name-cell">Steam Release Checklist</td>
-          <td>Pre-release validation checklist for Steam games. Covers store page completeness, depot configuration, achievements, cloud saves, Steam Deck compatibility, pricing, and launch readiness. Use when prep</td>
-        </tr>
-        
-        <tr>
-          <td class="name-cell">Steam Review Analysis</td>
-          <td>Fetch and analyze Steam game reviews. Sentiment breakdown, common complaints, comparison across updates, language distribution, and review volume trends. Use when evaluating player feedback, analyzing</td>
-        </tr>
-        
-        <tr>
-          <td class="name-cell">Steam SteamCMD Helper</td>
-          <td>Comprehensive steamcmd scripting reference. Common commands, batch/shell scripts, Docker containerized builds, Steam Guard handling, and troubleshooting. Use when writing steamcmd scripts, automating </td>
-        </tr>
-        
-        <tr>
-          <td class="name-cell">Steam Store Lookup</td>
-          <td>Look up any Steam game or app by name or App ID. Returns store page data including price, description, tags, reviews, release date, and system requirements. Use when the user asks about a Steam game, </td>
-        </tr>
-        
-        <tr>
-          <td class="name-cell">Steam Store Page Optimizer</td>
-          <td>Optimize Steam store pages for maximum visibility and conversion. Covers capsule image specs, description structure, tag strategy, trailer guidance, demo setup, and screenshot optimization. Use when b</td>
-        </tr>
-        
-        <tr>
-          <td class="name-cell">Steam Testing Sandbox</td>
-          <td>Guide for using Steam&#39;s development sandbox environment. Covers App ID 480 (SpaceWar) for testing, test account setup, Steam client console commands, Steamworks partner test environments, and testing </td>
-        </tr>
-        
-        <tr>
-          <td class="name-cell">Steam Wishlist Estimates</td>
-          <td>Estimate wishlist counts from follower data, review counts, and public signals. Provides conversion rate benchmarks (wishlist-to-sales, review-to-sales) and the Boxleiter method. Use when forecasting </td>
-        </tr>
-        
-        <tr>
-          <td class="name-cell">Steam Workshop Helper</td>
-          <td>Query and manage Steam Workshop items. Search workshop by game, get item details, and document workshop integration patterns. Use when building Workshop support into a game or querying UGC data.</td>
-        </tr>
-        
-        <tr>
-          <td class="name-cell">Steamworks App Config</td>
-          <td>Manage Steamworks app configuration. Query and document depot configs, build configurations, launch options, and DLC setup. Use when working on Steamworks app admin tasks, setting up builds, or docume</td>
-        </tr>
-        
-      </tbody>
-    </table>
+    <details class="cat-group" id="skills-body" open>
+      <summary class="sr-only">Skills list</summary>
+      <div class="cat-body">
+        <table class="data-table">
+          <thead><tr><th>Name</th><th>Description</th></tr></thead>
+          <tbody>
+            
+            <tr>
+              <td class="name-cell">Steam Achievement Designer</td>
+              <td>Design and document Steam achievements. Helps structure achievement definitions (API name, display name, description, icon requirements, hidden flag) and generates the VDF/JSON config snippets for Ste</td>
+            </tr>
+            
+            <tr>
+              <td class="name-cell">Steam Anti-Cheat Integration</td>
+              <td>Integrate anti-cheat solutions with Steam games. Covers EasyAntiCheat (EAC), BattlEye, and VAC setup, Proton/Linux compatibility, Steam Deck considerations, and custom anti-cheat patterns. Use when ad</td>
+            </tr>
+            
+            <tr>
+              <td class="name-cell">Steam API Reference</td>
+              <td>Search and retrieve Steam Web API and Steamworks SDK documentation. Returns endpoint signatures, parameter descriptions, and code examples. Use when the user needs to call a Steam API, wants to know a</td>
+            </tr>
+            
+            <tr>
+              <td class="name-cell">Steam Bug Report Template</td>
+              <td>Generate structured bug report templates for Steam games. Covers report structure, Steam system info integration, crash dump guidance, known issues tracking, and forum integration. Use when setting up</td>
+            </tr>
+            
+            <tr>
+              <td class="name-cell">Steam Build Automation</td>
+              <td>Automate Steam builds with SteamPipe CI/CD integration. Covers GitHub Actions, GitLab CI, and Jenkins pipelines for depot uploads, beta branch management, and Docker-containerized builds. Use when set</td>
+            </tr>
+            
+            <tr>
+              <td class="name-cell">Steam Cloud Saves</td>
+              <td>Implement Steam Cloud save functionality. Covers ISteamRemoteStorage for manual cloud saves, Auto-Cloud configuration, conflict resolution, and quota management. Use when adding cloud save support to </td>
+            </tr>
+            
+            <tr>
+              <td class="name-cell">Steam Community Management</td>
+              <td>Post-launch community management for Steam games. Covers announcements, events, discussion forum moderation, update post templates, and Community Hub configuration. Use when managing player communicat</td>
+            </tr>
+            
+            <tr>
+              <td class="name-cell">Steam DLC &amp; Expansion Planning</td>
+              <td>Plan and configure DLC, expansions, and post-launch content for Steam games. Covers DLC App ID creation, depot setup, season passes, content cadence, pricing tiers, and in-game ownership checks. Use w</td>
+            </tr>
+            
+            <tr>
+              <td class="name-cell">Steam Friends &amp; Social</td>
+              <td>Integrate Steam social features into your game. Covers friends list, rich presence, Steam Overlay, game invites, avatars, and persona names via ISteamFriends. Use when building social features, showin</td>
+            </tr>
+            
+            <tr>
+              <td class="name-cell">Steam Game Comparison</td>
+              <td>Compare two or more Steam games side by side. Fetches store data and player counts for multiple titles and formats a comparison table. Use when comparing game prices, reviews, player counts, or featur</td>
+            </tr>
+            
+            <tr>
+              <td class="name-cell">Steam Input / Controller Support</td>
+              <td>Integrate Steam Input for controller support. Covers ISteamInput for detecting controllers, configuring action sets, binding actions, and retrieving button glyphs. Use when adding controller support, </td>
+            </tr>
+            
+            <tr>
+              <td class="name-cell">Steam Inventory &amp; Economy</td>
+              <td>Implement Steam Inventory and in-game economy. Covers ISteamInventory for item management, ISteamMicroTxn for in-game purchases, inventory schema definition, and Web API queries. Use when adding items</td>
+            </tr>
+            
+            <tr>
+              <td class="name-cell">Steam Leaderboards</td>
+              <td>Implement and query Steam Leaderboards. Covers creating leaderboards, uploading scores, downloading entries (global, friends, around-user), and Web API queries. Use when adding leaderboards to a game </td>
+            </tr>
+            
+            <tr>
+              <td class="name-cell">Steam Market Research</td>
+              <td>Genre trend analysis, tag popularity, competitor identification, and market gap analysis using Steam store data. Use when evaluating a game concept&#39;s market fit, scouting competitors, or analyzing gen</td>
+            </tr>
+            
+            <tr>
+              <td class="name-cell">Steam Migration Guide</td>
+              <td>Guide for migrating games to Steam from other platforms (Epic, GOG, itch.io) or integrating Steamworks across engines (Unity, Unreal, Godot). Covers feature parity mapping, SDK integration steps, stor</td>
+            </tr>
+            
+            <tr>
+              <td class="name-cell">Steam Multiplayer Networking</td>
+              <td>Integrate Steam multiplayer networking into your game. Covers lobby creation, matchmaking, Steam Networking Sockets (relay), dedicated game servers, and auth tickets. Use when building multiplayer fea</td>
+            </tr>
+            
+            <tr>
+              <td class="name-cell">Steam Player Stats</td>
+              <td>Look up player and game statistics including player counts, achievement stats, leaderboards, and user game libraries for public profiles. Use when analyzing game performance, checking player engagemen</td>
+            </tr>
+            
+            <tr>
+              <td class="name-cell">Steam Playtest Setup</td>
+              <td>Configure Steam Playtest for pre-release testing. Covers playtest App ID creation, open vs NDA playtests, key distribution, signup page setup, feedback collection, and transition to Early Access or la</td>
+            </tr>
+            
+            <tr>
+              <td class="name-cell">Steam Price History</td>
+              <td>Analyze pricing trends, sale history, regional pricing differences, and price-to-review value scoring for Steam games. Use when evaluating pricing strategy, comparing regional costs, or identifying sa</td>
+            </tr>
+            
+            <tr>
+              <td class="name-cell">Steam Pricing Strategy</td>
+              <td>Data-driven pricing strategy for Steam games. Covers regional pricing, launch discounts, sale participation, bundles, free-to-play conversion, and price change rules. Use when setting or adjusting gam</td>
+            </tr>
+            
+            <tr>
+              <td class="name-cell">Steam Profile Lookup</td>
+              <td>Look up any Steam user&#39;s public profile. Fetch player summaries, owned games with playtime, recent activity, Steam level, badges, and friend lists. Use when someone wants to check a Steam profile, see</td>
+            </tr>
+            
+            <tr>
+              <td class="name-cell">Steam Release Checklist</td>
+              <td>Pre-release validation checklist for Steam games. Covers store page completeness, depot configuration, achievements, cloud saves, Steam Deck compatibility, pricing, and launch readiness. Use when prep</td>
+            </tr>
+            
+            <tr>
+              <td class="name-cell">Steam Review Analysis</td>
+              <td>Fetch and analyze Steam game reviews. Sentiment breakdown, common complaints, comparison across updates, language distribution, and review volume trends. Use when evaluating player feedback, analyzing</td>
+            </tr>
+            
+            <tr>
+              <td class="name-cell">Steam SteamCMD Helper</td>
+              <td>Comprehensive steamcmd scripting reference. Common commands, batch/shell scripts, Docker containerized builds, Steam Guard handling, and troubleshooting. Use when writing steamcmd scripts, automating </td>
+            </tr>
+            
+            <tr>
+              <td class="name-cell">Steam Store Lookup</td>
+              <td>Look up any Steam game or app by name or App ID. Returns store page data including price, description, tags, reviews, release date, and system requirements. Use when the user asks about a Steam game, </td>
+            </tr>
+            
+            <tr>
+              <td class="name-cell">Steam Store Page Optimizer</td>
+              <td>Optimize Steam store pages for maximum visibility and conversion. Covers capsule image specs, description structure, tag strategy, trailer guidance, demo setup, and screenshot optimization. Use when b</td>
+            </tr>
+            
+            <tr>
+              <td class="name-cell">Steam Testing Sandbox</td>
+              <td>Guide for using Steam&#39;s development sandbox environment. Covers App ID 480 (SpaceWar) for testing, test account setup, Steam client console commands, Steamworks partner test environments, and testing </td>
+            </tr>
+            
+            <tr>
+              <td class="name-cell">Steam Wishlist Estimates</td>
+              <td>Estimate wishlist counts from follower data, review counts, and public signals. Provides conversion rate benchmarks (wishlist-to-sales, review-to-sales) and the Boxleiter method. Use when forecasting </td>
+            </tr>
+            
+            <tr>
+              <td class="name-cell">Steam Workshop Helper</td>
+              <td>Query and manage Steam Workshop items. Search workshop by game, get item details, and document workshop integration patterns. Use when building Workshop support into a game or querying UGC data.</td>
+            </tr>
+            
+            <tr>
+              <td class="name-cell">Steamworks App Config</td>
+              <td>Manage Steamworks app configuration. Query and document depot configs, build configurations, launch options, and DLC setup. Use when working on Steamworks app admin tasks, setting up builds, or docume</td>
+            </tr>
+            
+          </tbody>
+        </table>
+      </div>
+    </details>
   </section>
   
 
@@ -365,67 +376,75 @@
     <div class="section-header">
       <h2>Rules</h2>
       <span class="count">9</span>
+      <div class="section-actions">
+        <button class="btn-sm toggle-section" data-target="rules-body">Collapse</button>
+      </div>
     </div>
-    <table class="data-table">
-      <thead><tr><th>Name</th><th>Scope</th><th>Description</th></tr></thead>
-      <tbody>
-        
-        <tr>
-          <td class="name-cell">Steam Api Error Handling</td>
-          <td class="scope-cell"></td>
-          <td>Flag missing error and callback handling for Steamworks SDK calls. Checks for unchecked return values, missing StoreStats after achievements, ignored callbacks, and missing SteamAPI_RunCallbacks in th</td>
-        </tr>
-        
-        <tr>
-          <td class="name-cell">Steam Api Key Usage</td>
-          <td class="scope-cell"></td>
-          <td>When the Steam MCP server is available, guide users to prefer MCP tool calls over raw curl/fetch commands to Steam APIs. Flag direct HTTP calls to Steam endpoints and suggest the equivalent MCP tool.</td>
-        </tr>
-        
-        <tr>
-          <td class="name-cell">Steam Appid Validation</td>
-          <td class="scope-cell"></td>
-          <td>When working with files that contain Steam App IDs (steam_appid.txt, VDF configs, or API calls), validate that the App ID is used consistently across the project and warn if steam_appid.txt is missing</td>
-        </tr>
-        
-        <tr>
-          <td class="name-cell">Steam Build Config Validation</td>
-          <td class="scope-cell"></td>
-          <td>Validate Steam build configuration files (VDF). Checks for missing depots, mismatched App IDs between app_build and depot_build files, invalid file mappings, empty content roots, and common SteamPipe </td>
-        </tr>
-        
-        <tr>
-          <td class="name-cell">Steam Deck Compat</td>
-          <td class="scope-cell"></td>
-          <td>Flag common Steam Deck compatibility issues in game project files. Checks for hardcoded resolutions, mouse-only input, small UI elements, anti-cheat blockers, and Linux/Proton compatibility problems.</td>
-        </tr>
-        
-        <tr>
-          <td class="name-cell">Steam Launch Options Check</td>
-          <td class="scope-cell"></td>
-          <td>Flag launch option issues in Steam configuration files. Checks for missing executables, wrong OS targeting, missing descriptions for multi-launch configs, and common launch option misconfigurations.</td>
-        </tr>
-        
-        <tr>
-          <td class="name-cell">Steam Network Security</td>
-          <td class="scope-cell"></td>
-          <td>Flag insecure networking patterns in Steam multiplayer game code. Checks for unvalidated auth tickets, missing session management, trusting client data, and missing encryption for sensitive payloads.</td>
-        </tr>
-        
-        <tr>
-          <td class="name-cell">Steam Save Compat</td>
-          <td class="scope-cell"></td>
-          <td>Flag save file practices that break cross-platform Steam Cloud sync. Checks for binary endianness assumptions, OS-specific path separators, hardcoded user directories, and non-portable serialization p</td>
-        </tr>
-        
-        <tr>
-          <td class="name-cell">Steamworks Secrets</td>
-          <td class="scope-cell"></td>
-          <td>Prevent committing Steamworks publisher API keys, partner credentials, or sensitive authentication tokens. Flag files containing Steamworks secret patterns before they are committed.</td>
-        </tr>
-        
-      </tbody>
-    </table>
+    <details class="cat-group" id="rules-body" open>
+      <summary class="sr-only">Rules list</summary>
+      <div class="cat-body">
+        <table class="data-table">
+          <thead><tr><th>Name</th><th>Scope</th><th>Description</th></tr></thead>
+          <tbody>
+            
+            <tr>
+              <td class="name-cell">Steam Api Error Handling</td>
+              <td class="scope-cell"></td>
+              <td>Flag missing error and callback handling for Steamworks SDK calls. Checks for unchecked return values, missing StoreStats after achievements, ignored callbacks, and missing SteamAPI_RunCallbacks in th</td>
+            </tr>
+            
+            <tr>
+              <td class="name-cell">Steam Api Key Usage</td>
+              <td class="scope-cell"></td>
+              <td>When the Steam MCP server is available, guide users to prefer MCP tool calls over raw curl/fetch commands to Steam APIs. Flag direct HTTP calls to Steam endpoints and suggest the equivalent MCP tool.</td>
+            </tr>
+            
+            <tr>
+              <td class="name-cell">Steam Appid Validation</td>
+              <td class="scope-cell"></td>
+              <td>When working with files that contain Steam App IDs (steam_appid.txt, VDF configs, or API calls), validate that the App ID is used consistently across the project and warn if steam_appid.txt is missing</td>
+            </tr>
+            
+            <tr>
+              <td class="name-cell">Steam Build Config Validation</td>
+              <td class="scope-cell"></td>
+              <td>Validate Steam build configuration files (VDF). Checks for missing depots, mismatched App IDs between app_build and depot_build files, invalid file mappings, empty content roots, and common SteamPipe </td>
+            </tr>
+            
+            <tr>
+              <td class="name-cell">Steam Deck Compat</td>
+              <td class="scope-cell"></td>
+              <td>Flag common Steam Deck compatibility issues in game project files. Checks for hardcoded resolutions, mouse-only input, small UI elements, anti-cheat blockers, and Linux/Proton compatibility problems.</td>
+            </tr>
+            
+            <tr>
+              <td class="name-cell">Steam Launch Options Check</td>
+              <td class="scope-cell"></td>
+              <td>Flag launch option issues in Steam configuration files. Checks for missing executables, wrong OS targeting, missing descriptions for multi-launch configs, and common launch option misconfigurations.</td>
+            </tr>
+            
+            <tr>
+              <td class="name-cell">Steam Network Security</td>
+              <td class="scope-cell"></td>
+              <td>Flag insecure networking patterns in Steam multiplayer game code. Checks for unvalidated auth tickets, missing session management, trusting client data, and missing encryption for sensitive payloads.</td>
+            </tr>
+            
+            <tr>
+              <td class="name-cell">Steam Save Compat</td>
+              <td class="scope-cell"></td>
+              <td>Flag save file practices that break cross-platform Steam Cloud sync. Checks for binary endianness assumptions, OS-specific path separators, hardcoded user directories, and non-portable serialization p</td>
+            </tr>
+            
+            <tr>
+              <td class="name-cell">Steamworks Secrets</td>
+              <td class="scope-cell"></td>
+              <td>Prevent committing Steamworks publisher API keys, partner credentials, or sensitive authentication tokens. Flag files containing Steamworks secret patterns before they are committed.</td>
+            </tr>
+            
+          </tbody>
+        </table>
+      </div>
+    </details>
   </section>
   
 
@@ -629,20 +648,30 @@
   <!-- Install -->
   
   <section class="section" id="install">
-    <div class="section-header"><h2>Installation</h2></div>
-    <ol class="install-steps">
-      
-      <li><span>Clone the repository</span></li>
-      
-      <li><span>Open the folder in Cursor IDE</span></li>
-      
-      <li><span>Install the companion MCP server: <code>npm install -g @tmhs/steam-mcp</code></span></li>
-      
-      <li><span>Add your Steam API key to the MCP config</span></li>
-      
-      <li><span>Start using the AI skills and rules</span></li>
-      
-    </ol>
+    <div class="section-header">
+      <h2>Installation</h2>
+      <div class="section-actions">
+        <button class="btn-sm toggle-section" data-target="install-body">Collapse</button>
+      </div>
+    </div>
+    <details class="cat-group" id="install-body" open>
+      <summary class="sr-only">Installation steps</summary>
+      <div class="cat-body">
+        <ol class="install-steps">
+          
+          <li><span>Clone the repository</span></li>
+          
+          <li><span>Open the folder in Cursor IDE</span></li>
+          
+          <li><span>Install the companion MCP server: <code>npm install -g @tmhs/steam-mcp</code></span></li>
+          
+          <li><span>Add your Steam API key to the MCP config</span></li>
+          
+          <li><span>Start using the AI skills and rules</span></li>
+          
+        </ol>
+      </div>
+    </details>
   </section>
   
 
@@ -762,6 +791,18 @@
         var allOpen = Array.prototype.every.call(details, function (d) { return d.open; });
         details.forEach(function (d) { d.open = !allOpen; });
         btn.textContent = allOpen ? 'Expand all' : 'Collapse all';
+      });
+    })();
+
+    /* Section collapse/expand toggles (Skills, Rules) */
+    (function () {
+      document.querySelectorAll('.toggle-section').forEach(function (btn) {
+        var targetId = btn.getAttribute('data-target');
+        var details = document.getElementById(targetId);
+        if (!details) return;
+        function updateLabel() { btn.textContent = details.open ? 'Collapse' : 'Expand'; }
+        btn.addEventListener('click', function () { details.open = !details.open; updateLabel(); });
+        details.addEventListener('toggle', updateLabel);
       });
     })();
 

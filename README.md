@@ -37,6 +37,19 @@ Query Steam store data, manage Steamworks app configurations, build multiplayer 
 
 > **No API key required** for most features. Store lookups, player counts, global achievement stats, and app searches all work out of the box.
 
+## Compatibility
+
+| Component | Cursor | Claude Code (terminal) | Claude Code in Cursor | Other MCP clients |
+|---|:---:|:---:|:---:|:---:|
+| **CLAUDE.md** context | Yes | Yes | Yes | - |
+| **30 Skills** (SKILL.md) | Yes | Yes | Yes | - |
+| **9 Rules** (.mdc) | Yes | Via CLAUDE.md | Yes | - |
+| **25 MCP tools** | Yes | Yes | Yes | Yes |
+
+> The MCP server lives in a separate repo: [steam-mcp](https://github.com/TMHSDigital/steam-mcp). It works with any client that supports the MCP stdio transport.
+
+---
+
 ## Quick Start
 
 1. **Install** the plugin ([see below](#installation))
@@ -73,7 +86,7 @@ flowchart LR
 
 ## Features
 
-<details open>
+<details>
 <summary><strong>Skills (30)</strong></summary>
 
 &nbsp;
@@ -147,7 +160,7 @@ flowchart LR
 
 The [Steam MCP Server](https://github.com/TMHSDigital/steam-mcp) provides live, structured API tools that Cursor can call directly — no shell commands needed.
 
-<details open>
+<details>
 <summary><strong>Setup</strong></summary>
 
 &nbsp;

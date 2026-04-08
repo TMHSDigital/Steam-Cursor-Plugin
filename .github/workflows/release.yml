@@ -1,0 +1,124 @@
+name: Release
+
+on:
+  push:
+    branches: [main]
+    paths-ignore:
+      - ".github/**"
+      - "docs/**"
+      - "*.md"
+      - "LICENSE"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: release
+  cancel-in-progress: false
+
+jobs:
+  version-and-release:
+    name: Bump version, tag, and release
+    runs-on: ubuntu-latest
+    if: "!contains(github.event.head_commit.message, '[skip ci]')"
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Get current version
+        id: current
+        run: |
+          version=$(python3 -c "import json; print(json.load(open('.cursor-plugin/plugin.json'))['version'])")
+          echo "version=$version" >> "$GITHUB_OUTPUT"
+
+      - name: Determine bump type from commits
+        id: bump
+        run: |
+          last_tag=$(git describe --tags --abbrev=0 2>/dev/null || echo "")
+          if [ -z "$last_tag" ]; then
+            commits=$(git log --oneline --format="%s")
+          else
+            commits=$(git log "$last_tag"..HEAD --oneline --format="%s")
+          fi
+
+          bump="patch"
+          if echo "$commits" | grep -qiE "^(feat|feature)(\(.+\))?!:|BREAKING CHANGE"; then
+            bump="major"
+          elif echo "$commits" | grep -qiE "^(feat|feature)(\(.+\))?:"; then
+            bump="minor"
+          fi
+
+          echo "bump=$bump" >> "$GITHUB_OUTPUT"
+
+      - name: Compute new version
+        id: new
+        run: |
+          current="${{ steps.current.outputs.version }}"
+          bump="${{ steps.bump.outputs.bump }}"
+          IFS='.' read -r major minor patch <<< "$current"
+          case "$bump" in
+            major) major=$((major + 1)); minor=0; patch=0 ;;
+            minor) minor=$((minor + 1)); patch=0 ;;
+            patch) patch=$((patch + 1)) ;;
+          esac
+          echo "version=$major.$minor.$patch" >> "$GITHUB_OUTPUT"
+
+      - name: Check if version changed
+        id: check
+        run: |
+          if [ "${{ steps.current.outputs.version }}" = "${{ steps.new.outputs.version }}" ]; then
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "skip=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Update version files
+        if: steps.check.outputs.skip == 'false'
+        env:
+          NEW_VERSION: ${{ steps.new.outputs.version }}
+          OLD_VERSION: ${{ steps.current.outputs.version }}
+        run: |
+          python3 -c "
+          import json, os
+
+          new_version = os.environ['NEW_VERSION']
+          old_version = os.environ['OLD_VERSION']
+
+          path = '.cursor-plugin/plugin.json'
+          with open(path) as f:
+              data = json.load(f)
+          data['version'] = new_version
+          with open(path, 'w') as f:
+              json.dump(data, f, indent=2)
+              f.write('\n')
+
+          readme = 'README.md'
+          with open(readme) as f:
+              content = f.read()
+          content = content.replace(
+              f'version-{old_version}-',
+              f'version-{new_version}-'
+          )
+          with open(readme, 'w') as f:
+              f.write(content)
+          "
+
+      - name: Commit and tag
+        if: steps.check.outputs.skip == 'false'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "chore: bump version to ${{ steps.new.outputs.version }} [skip ci]"
+          git tag "v${{ steps.new.outputs.version }}"
+          git push origin main --tags
+
+      - name: Create GitHub Release
+        if: steps.check.outputs.skip == 'false'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release create "v${{ steps.new.outputs.version }}" \
+            --title "v${{ steps.new.outputs.version }}" \
+            --generate-notes

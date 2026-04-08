@@ -1,0 +1,19 @@
+{
+  "accent": "#66c0f4",
+  "accentLight": "#8ad4f8",
+  "heroGradientFrom": "#0e1419",
+  "heroGradientTo": "#1b2838",
+  "favicon": "assets/logo.png",
+  "ogImage": "assets/logo.png",
+  "installSteps": [
+    "Clone the repository",
+    "Open the folder in Cursor IDE",
+    "Install the companion MCP server: <code>npm install -g @tmhs/steam-mcp</code>",
+    "Add your Steam API key to the MCP config",
+    "Start using the AI skills and rules"
+  ],
+  "links": {
+    "npm": "https://www.npmjs.com/package/@tmhs/steam-mcp",
+    "github": "https://github.com/TMHSDigital/Steam-Cursor-Plugin"
+  }
+}

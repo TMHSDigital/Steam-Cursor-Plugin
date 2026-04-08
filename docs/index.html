@@ -1,788 +1,873 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Steam Developer Tools - Cursor IDE Plugin</title>
-<meta name="description" content="30 AI skills, 9 code rules, and 25 MCP tools for Steam and Steamworks game development and modding inside Cursor IDE.">
-<meta property="og:title" content="Steam Developer Tools - Cursor IDE Plugin">
-<meta property="og:description" content="30 AI skills, 9 code rules, and 25 MCP tools for Steam and Steamworks game development and modding inside Cursor IDE.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://tmhsdigital.github.io/Steam-Cursor-Plugin/">
-<meta property="og:image" content="https://tmhsdigital.github.io/Steam-Cursor-Plugin/assets/og-card.jpg">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Steam Developer Tools - Cursor IDE Plugin">
-<meta name="twitter:description" content="30 AI skills, 9 code rules, and 25 MCP tools for Steam & Steamworks game development and modding inside Cursor IDE.">
-<meta name="twitter:image" content="https://tmhsdigital.github.io/Steam-Cursor-Plugin/assets/og-card.jpg">
-<link rel="icon" href="assets/logo-64.png" type="image/png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --bg-deep:#0e1419;
-  --bg-primary:#1b2838;
-  --bg-card:#1e2d3d;
-  --bg-card-hover:#253d50;
-  --bg-surface:#2a475e;
-  --accent:#66c0f4;
-  --accent-glow:rgba(102,192,244,.15);
-  --accent-dim:#4b8db8;
-  --text:#c7d5e0;
-  --text-muted:#8f98a0;
-  --text-bright:#e5e5e5;
-  --white:#ffffff;
-  --green:#5ba32b;
-  --green-bright:#8ed44e;
-  --gold:#e8b23a;
-  --red:#c44040;
-  --purple:#8b5cf6;
-  --radius:8px;
-  --radius-lg:12px;
-  --shadow:0 4px 24px rgba(0,0,0,.4);
-  --font-sans:'Inter',system-ui,-apple-system,sans-serif;
-  --font-mono:'JetBrains Mono','Fira Code',monospace;
-}
-html{scroll-behavior:smooth;scroll-padding-top:80px}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal{opacity:1!important;transform:none!important}.hero::after{animation:none!important}.hero-logo{animation:none!important}.scroll-arrow{animation:none!important}.terminal-line{animation:none!important}}
-body{font-family:var(--font-sans);background:var(--bg-deep);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-a{color:var(--accent);text-decoration:none;transition:color .2s}
-a:hover{color:var(--white)}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Steam Developer Tools</title>
+  <meta name="description" content="Integrates Steam and Steamworks APIs for game developers, modders, and power users. 30 skills covering store data, multiplayer, cloud saves, leaderboards, input, inventory, social, profiles, Workshop/UGC, comparisons, reviews, pricing, market research, wishlists, CI/CD, release checklists, steamcmd, community, store pages, pricing strategy, DLC, playtesting, bug reporting, anti-cheat, testing sandbox, and platform migration - plus 9 rules. Companion Steam MCP server provides 25 MCP tools." />
+  <meta property="og:title" content="Steam Developer Tools" />
+  <meta property="og:description" content="Integrates Steam and Steamworks APIs for game developers, modders, and power users. 30 skills covering store data, multiplayer, cloud saves, leaderboards, input, inventory, social, profiles, Workshop/UGC, comparisons, reviews, pricing, market research, wishlists, CI/CD, release checklists, steamcmd, community, store pages, pricing strategy, DLC, playtesting, bug reporting, anti-cheat, testing sandbox, and platform migration - plus 9 rules. Companion Steam MCP server provides 25 MCP tools." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/logo.png" />
+  <link rel="icon" href="assets/logo.png" />
+  <style>
+    @font-face {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap;
+      src: url('fonts/inter-regular.woff2') format('woff2');
+    }
+    @font-face {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 500;
+      font-display: swap;
+      src: url('fonts/inter-medium.woff2') format('woff2');
+    }
+    @font-face {
+      font-family: 'Inter';
+      font-style: normal;
+      font-weight: 700;
+      font-display: swap;
+      src: url('fonts/inter-bold.woff2') format('woff2');
+    }
+    @font-face {
+      font-family: 'JetBrains Mono';
+      font-style: normal;
+      font-weight: 400;
+      font-display: swap;
+      src: url('fonts/jetbrains-mono-regular.woff2') format('woff2');
+    }
 
-/* NAV */
-nav{position:sticky;top:0;z-index:100;background:rgba(14,20,25,.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid rgba(102,192,244,.1);padding:0 24px}
-.nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:60px}
-.nav-brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:1rem;color:var(--text-bright)}
-.nav-brand img{width:28px;height:28px;border-radius:6px;filter:brightness(1.4) contrast(1.1)}
-.nav-links{display:flex;gap:24px;list-style:none;align-items:center}
-.nav-links a{color:var(--text-muted);font-size:.875rem;font-weight:500;transition:color .2s}
-.nav-links a:hover{color:var(--accent)}
-.nav-cta{background:var(--accent)!important;color:var(--bg-deep)!important;padding:8px 18px;border-radius:var(--radius);font-weight:600;font-size:.85rem;transition:background .2s,transform .2s}
-.nav-cta:hover{background:var(--white)!important;color:var(--bg-deep)!important;transform:translateY(-1px)}
-.nav-toggle{display:none;background:none;border:none;color:var(--text);font-size:1.5rem;cursor:pointer;padding:8px;line-height:1}
-@media(max-width:768px){
-  .nav-links{display:none;position:absolute;top:60px;left:0;right:0;flex-direction:column;background:rgba(14,20,25,.98);backdrop-filter:blur(12px);padding:16px 24px;gap:16px;border-bottom:1px solid rgba(102,192,244,.1)}
-  .nav-links.open{display:flex}
-  .nav-toggle{display:block}
-}
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-/* HERO */
-.hero{text-align:center;padding:120px 24px 80px;position:relative;overflow:hidden;background:var(--bg-primary)}
-.hero::before{content:'';position:absolute;inset:0;background:
-  radial-gradient(ellipse 80% 60% at 20% 80%,rgba(102,192,244,.08) 0%,transparent 60%),
-  radial-gradient(ellipse 60% 80% at 80% 20%,rgba(139,92,246,.06) 0%,transparent 60%),
-  radial-gradient(ellipse 100% 50% at 50% 100%,rgba(91,163,43,.04) 0%,transparent 50%);
-  pointer-events:none;animation:meshDrift 12s ease-in-out infinite alternate}
-.hero::after{content:'';position:absolute;inset:0;background-image:radial-gradient(rgba(102,192,244,.07) 1px,transparent 1px);background-size:32px 32px;pointer-events:none}
-@keyframes meshDrift{
-  0%{transform:scale(1) translate(0,0)}
-  50%{transform:scale(1.05) translate(-2%,1%)}
-  100%{transform:scale(1) translate(1%,-1%)}
-}
-.hero-logo{width:96px;height:96px;border-radius:20px;margin-bottom:28px;position:relative;animation:logoGlow 3s ease-in-out infinite alternate;filter:drop-shadow(0 0 24px rgba(102,192,244,.3)) brightness(1.3) contrast(1.1);background:radial-gradient(circle,rgba(102,192,244,.15) 0%,transparent 70%);padding:8px}
-@keyframes logoGlow{
-  0%{filter:drop-shadow(0 0 24px rgba(102,192,244,.2))}
-  100%{filter:drop-shadow(0 0 40px rgba(102,192,244,.45))}
-}
-.hero h1{font-size:clamp(2.2rem,5vw,3.5rem);font-weight:800;color:var(--white);margin-bottom:12px;letter-spacing:-.03em}
-.hero p{font-size:clamp(1rem,2vw,1.2rem);color:var(--text-muted);max-width:640px;margin:0 auto 32px;line-height:1.7}
-.hero-badges{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:36px}
-.badge{display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:999px;font-size:.8rem;font-weight:600;border:1px solid;transition:transform .2s}
-.badge:hover{transform:translateY(-1px)}
-.badge-version{background:rgba(91,163,43,.12);border-color:rgba(91,163,43,.3);color:#8ed44e}
-.badge-license{background:rgba(102,192,244,.08);border-color:rgba(102,192,244,.2);color:var(--accent)}
-.badge-plugin{background:rgba(139,92,246,.1);border-color:rgba(139,92,246,.25);color:#a78bfa}
-.badge-npm{background:rgba(232,178,58,.08);border-color:rgba(232,178,58,.2);color:var(--gold)}
-.badge-npm img{height:18px;vertical-align:middle;border-radius:3px}
-.hero-actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:48px}
-.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 28px;border-radius:var(--radius);font-weight:600;font-size:.95rem;transition:all .2s;border:none;cursor:pointer}
-.btn-primary{background:var(--accent);color:var(--bg-deep)}
-.btn-primary:hover{background:var(--white);color:var(--bg-deep);transform:translateY(-2px);box-shadow:0 4px 24px rgba(102,192,244,.3)}
-.btn-outline{background:transparent;color:var(--accent);border:1.5px solid var(--accent)}
-.btn-outline:hover{background:var(--accent);color:var(--bg-deep);transform:translateY(-2px)}
-.scroll-arrow{display:block;margin:0 auto;color:var(--text-muted);font-size:1.5rem;animation:bounce 2s ease-in-out infinite;opacity:.6}
-@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(8px)}}
+    :root {
+      --accent: #66c0f4;
+      --accent-light: #8ad4f8;
+      --bg: #0e1419;
+      --bg2: #161b22;
+      --bg3: #1c2128;
+      --border: #30363d;
+      --text: #e6edf3;
+      --text-dim: #8b949e;
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+      --font-mono: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+      --hero-from: #0e1419;
+      --hero-to: #1b2838;
+    }
 
-/* STATS */
-.stats{display:flex;justify-content:center;gap:clamp(24px,5vw,64px);padding:48px 24px;background:var(--bg-primary);border-top:1px solid rgba(102,192,244,.08);border-bottom:1px solid rgba(102,192,244,.08)}
-.stat{text-align:center;transition:transform .2s}
-.stat:hover{transform:scale(1.05)}
-.stat-number{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;color:var(--accent);letter-spacing:-.02em;font-variant-numeric:tabular-nums}
-.stat-label{font-size:.85rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.08em;margin-top:4px}
-.stat-sub{margin-top:8px}
-.stat-sub img{height:20px;border-radius:3px;opacity:.8;transition:opacity .2s}
-.stat-sub:hover img{opacity:1}
+    html { scroll-behavior: smooth; }
 
-/* SECTIONS */
-section{padding:80px 24px}
-.container{max-width:1100px;margin:0 auto}
-.section-label{font-size:.75rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
-.section-title{font-size:clamp(1.5rem,3vw,2.2rem);font-weight:800;color:var(--white);margin-bottom:12px;letter-spacing:-.01em}
-.section-desc{color:var(--text-muted);max-width:600px;margin-bottom:48px;font-size:1.05rem;line-height:1.7}
+    body {
+      font-family: var(--font-sans);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
 
-/* WHO IS THIS FOR */
-.who-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px;margin-top:32px}
-.who-card{background:var(--bg-card);border:1px solid rgba(102,192,244,.1);border-radius:var(--radius-lg);padding:32px 24px;text-align:center;transition:border-color .3s,transform .3s}
-.who-card:hover{border-color:var(--accent);transform:translateY(-3px);box-shadow:0 8px 32px rgba(0,0,0,.3)}
-.who-icon{font-size:2.5rem;margin-bottom:12px}
-.who-role{font-size:1.2rem;font-weight:700;color:#fff;margin-bottom:12px}
-.who-list{list-style:none;padding:0;margin:0;text-align:left}
-.who-list li{color:var(--text-muted);font-size:.9rem;padding:6px 0 6px 18px;position:relative}
-.who-list li::before{content:'>';color:var(--accent);position:absolute;left:0;font-weight:700}
+    a { color: var(--accent-light); text-decoration: none; transition: color 0.2s; }
+    a:hover { color: #fff; }
 
-/* HOW IT WORKS */
-.flow{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:24px;position:relative}
-.flow-step{background:var(--bg-card);border:1px solid rgba(102,192,244,.1);border-radius:var(--radius-lg);padding:32px 24px;text-align:center;position:relative;transition:border-color .3s,transform .3s}
-.flow-step:hover{border-color:var(--accent);transform:translateY(-3px);box-shadow:0 8px 32px rgba(0,0,0,.3)}
-.flow-num{width:40px;height:40px;border-radius:50%;background:var(--accent);color:var(--bg-deep);display:inline-flex;align-items:center;justify-content:center;font-weight:800;font-size:1rem;margin-bottom:16px}
-.flow-step h3{color:var(--white);font-size:1.1rem;margin-bottom:8px}
-.flow-step p{color:var(--text-muted);font-size:.9rem}
-.flow-arrow{display:none}
-@media(min-width:768px){
-  .flow{grid-template-columns:1fr auto 1fr auto 1fr}
-  .flow-arrow{display:flex;align-items:center;color:var(--accent);font-size:1.5rem;opacity:.5}
-}
+    /* --- NAV --- */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(13, 17, 23, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 1.5rem;
+    }
+    .nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 56px;
+    }
+    .nav-brand {
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--text);
+      white-space: nowrap;
+    }
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+    }
+    .nav-links a {
+      color: var(--text-dim);
+      font-size: 0.875rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover,
+    .nav-links a.active { color: var(--accent-light); }
 
-/* TERMINAL DEMO */
-.terminal-section{background:var(--bg-deep);padding:80px 24px}
-.terminal{max-width:700px;margin:0 auto;background:#0d1117;border:1px solid rgba(102,192,244,.15);border-radius:var(--radius-lg);overflow:hidden;box-shadow:0 16px 64px rgba(0,0,0,.5)}
-.terminal-bar{display:flex;align-items:center;gap:8px;padding:12px 16px;background:rgba(102,192,244,.05);border-bottom:1px solid rgba(102,192,244,.1)}
-.terminal-dot{width:12px;height:12px;border-radius:50%;background:rgba(143,152,160,.3)}
-.terminal-dot:nth-child(1){background:#ff5f57}
-.terminal-dot:nth-child(2){background:#febc2e}
-.terminal-dot:nth-child(3){background:#28c840}
-.terminal-title{flex:1;text-align:center;font-size:.75rem;color:var(--text-muted);font-family:var(--font-mono)}
-.terminal-body{padding:20px;font-family:var(--font-mono);font-size:.85rem;line-height:1.8;min-height:260px}
-.terminal-line{opacity:0;animation:termFadeIn .3s ease forwards}
-.t-prompt{color:var(--accent)}
-.t-cmd{color:var(--text-bright)}
-.t-muted{color:var(--text-muted)}
-.t-green{color:var(--green-bright)}
-.t-gold{color:var(--gold)}
-.t-accent{color:var(--accent)}
-.t-white{color:var(--white)}
-.t-cursor{display:inline-block;width:8px;height:16px;background:var(--accent);animation:blink 1s step-end infinite;vertical-align:text-bottom;margin-left:2px}
-@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
-@keyframes termFadeIn{to{opacity:1}}
-.terminal-line:nth-child(1){animation-delay:.5s}
-.terminal-line:nth-child(2){animation-delay:1.2s}
-.terminal-line:nth-child(3){animation-delay:1.8s}
-.terminal-line:nth-child(4){animation-delay:2.2s}
-.terminal-line:nth-child(5){animation-delay:2.6s}
-.terminal-line:nth-child(6){animation-delay:3.0s}
-.terminal-line:nth-child(7){animation-delay:3.4s}
-.terminal-line:nth-child(8){animation-delay:3.8s}
-.terminal-line:nth-child(9){animation-delay:4.2s}
-.terminal-line:nth-child(10){animation-delay:4.6s}
-.terminal-line:nth-child(11){animation-delay:5.0s}
-@media(max-width:600px){
-  .terminal-body{padding:14px;font-size:.75rem}
-}
+    /* --- HERO --- */
+    .hero {
+      text-align: center;
+      padding: 5rem 1.5rem 3.5rem;
+      background: linear-gradient(180deg, var(--hero-from), var(--hero-to));
+    }
+    .hero-inner { max-width: 720px; margin: 0 auto; }
+    .hero h1 {
+      font-size: 2.75rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      background: linear-gradient(135deg, var(--text), var(--accent-light));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero p {
+      font-size: 1.125rem;
+      color: var(--text-dim);
+      margin-bottom: 2rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
 
-/* FEATURE CATEGORIES */
-.categories{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}
-.category{background:var(--bg-card);border:1px solid rgba(102,192,244,.08);border-radius:var(--radius-lg);overflow:hidden;transition:border-color .3s}
-.category:hover{border-color:rgba(102,192,244,.2)}
-.category-header{display:flex;align-items:center;justify-content:space-between;padding:18px 20px;cursor:pointer;user-select:none}
-.category-header h3{font-size:.95rem;font-weight:700;color:var(--text-bright);display:flex;align-items:center;gap:10px}
-.category-tag{font-size:.7rem;font-weight:600;background:rgba(102,192,244,.12);color:var(--accent);padding:3px 8px;border-radius:999px}
-.category-chevron{color:var(--text-muted);transition:transform .3s;font-size:.85rem}
-.category.open .category-chevron{transform:rotate(180deg)}
-.category-body{max-height:0;overflow:hidden;transition:max-height .4s ease}
-.category.open .category-body{max-height:1000px}
-.skill-item{display:flex;gap:12px;padding:12px 20px;border-top:1px solid rgba(102,192,244,.05)}
-.skill-name{font-size:.85rem;font-weight:600;color:var(--text-bright);white-space:nowrap;min-width:170px}
-.skill-desc{font-size:.83rem;color:var(--text-muted)}
-@media(max-width:768px){.skill-item{flex-direction:column;gap:4px}.skill-name{min-width:auto}}
+    .stats {
+      display: flex;
+      justify-content: center;
+      gap: 2.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+    .stat { text-align: center; }
+    .stat-val {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--accent-light);
+      font-family: var(--font-mono);
+    }
+    .stat-lbl {
+      font-size: 0.75rem;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-top: 0.25rem;
+    }
 
-/* RULES GRID */
-.rules-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:12px}
-.rule-card{background:var(--bg-card);border:1px solid rgba(102,192,244,.08);border-radius:var(--radius);padding:18px 20px;transition:border-color .3s,transform .3s}
-.rule-card:hover{border-color:rgba(102,192,244,.2);transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.2)}
-.rule-card h4{font-size:.9rem;font-weight:700;color:var(--text-bright);margin-bottom:6px;display:flex;align-items:center;gap:8px}
-.rule-icon{font-size:1rem}
-.rule-card p{font-size:.83rem;color:var(--text-muted);line-height:1.5}
+    .hero-badges {
+      display: flex;
+      justify-content: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      margin-top: 1.5rem;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--text);
+      font-size: 0.875rem;
+      font-weight: 500;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .badge:hover {
+      border-color: var(--accent);
+      background: var(--bg3);
+      color: var(--text);
+    }
+    .badge svg { width: 18px; height: 18px; flex-shrink: 0; }
 
-/* TOOLS TABLE */
-.tools-group{margin-bottom:32px}
-.tools-group h3{font-size:.9rem;font-weight:700;color:var(--text-bright);margin-bottom:12px;display:flex;align-items:center;gap:8px}
-.tools-badge{font-size:.7rem;font-weight:600;padding:3px 8px;border-radius:999px}
-.tools-badge-none{background:rgba(91,163,43,.12);color:#8ed44e}
-.tools-badge-key{background:rgba(232,178,58,.12);color:var(--gold)}
-.tools-badge-pub{background:rgba(196,64,64,.12);color:#e06060}
-.tools-table{width:100%;border-collapse:collapse}
-.tools-table th{text-align:left;font-size:.75rem;font-weight:600;color:var(--text-muted);text-transform:uppercase;letter-spacing:.06em;padding:8px 12px;border-bottom:1px solid rgba(102,192,244,.1)}
-.tools-table td{padding:10px 12px;font-size:.85rem;border-bottom:1px solid rgba(102,192,244,.04)}
-.tools-table tr:hover td{background:rgba(102,192,244,.03)}
-.tool-name{font-family:var(--font-mono);font-size:.8rem;color:var(--accent);font-weight:500}
-.tool-type{font-size:.7rem;font-weight:600;padding:2px 7px;border-radius:4px;background:rgba(102,192,244,.1);color:var(--accent-dim)}
+    /* --- SECTIONS --- */
+    .section {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem;
+    }
+    .section h2 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 2px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .section h2 .count {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--text-dim);
+      background: var(--bg2);
+      padding: 0.15rem 0.6rem;
+      border-radius: 12px;
+    }
 
-/* QUICKSTART */
-.steps{display:grid;gap:24px;counter-reset:step}
-.step{background:var(--bg-card);border:1px solid rgba(102,192,244,.08);border-radius:var(--radius-lg);padding:24px;display:flex;gap:20px;align-items:flex-start;transition:border-color .3s}
-.step:hover{border-color:rgba(102,192,244,.15)}
-.step-num{counter-increment:step;min-width:36px;height:36px;border-radius:50%;background:var(--bg-surface);color:var(--accent);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.9rem}
-.step-num::after{content:counter(step)}
-.step h3{font-size:1rem;font-weight:700;color:var(--text-bright);margin-bottom:8px}
-.step p{font-size:.9rem;color:var(--text-muted);margin-bottom:12px}
-.code-block{position:relative;background:var(--bg-deep);border:1px solid rgba(102,192,244,.1);border-radius:var(--radius);padding:14px 16px;font-family:var(--font-mono);font-size:.82rem;color:var(--text);overflow-x:auto;line-height:1.6}
-.code-block .copy-btn{position:absolute;top:8px;right:8px;background:var(--bg-surface);border:1px solid rgba(102,192,244,.15);color:var(--text-muted);border-radius:4px;padding:4px 10px;font-size:.7rem;cursor:pointer;font-family:var(--font-sans);transition:all .2s}
-.code-block .copy-btn:hover{color:var(--accent);border-color:var(--accent)}
-.json-key{color:var(--accent)}
-.json-str{color:var(--green-bright)}
-.json-comment{color:var(--text-muted);font-style:italic}
+    .category-label {
+      font-size: 0.8125rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--accent-light);
+      margin: 1.5rem 0 0.75rem;
+    }
 
-/* TRY IT */
-.prompts{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px}
-.prompt-card{background:var(--bg-card);border:1px solid rgba(102,192,244,.08);border-radius:var(--radius);padding:16px 18px;cursor:pointer;transition:all .2s;position:relative;overflow:hidden}
-.prompt-card:hover{border-color:var(--accent);transform:translateY(-2px);box-shadow:0 4px 16px rgba(0,0,0,.2)}
-.prompt-card p{font-family:var(--font-mono);font-size:.83rem;color:var(--text);line-height:1.5}
-.prompt-card .copy-hint{position:absolute;top:10px;right:10px;font-size:.7rem;font-weight:600;color:var(--text-muted);background:var(--bg-surface);padding:3px 8px;border-radius:4px;opacity:0;transition:opacity .2s}
-.prompt-card:hover .copy-hint{opacity:1}
+    /* --- TABLE --- */
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9375rem;
+    }
+    .data-table th {
+      text-align: left;
+      font-weight: 600;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-dim);
+      padding: 0.625rem 0.75rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .data-table td {
+      padding: 0.625rem 0.75rem;
+      border-bottom: 1px solid rgba(48, 54, 61, 0.5);
+      color: var(--text-dim);
+      vertical-align: top;
+    }
+    .data-table tr:hover td {
+      background: rgba(22, 27, 34, 0.5);
+    }
+    .data-table .name-cell {
+      color: var(--text);
+      font-weight: 500;
+      white-space: nowrap;
+    }
+    .data-table .scope-cell {
+      font-family: var(--font-mono);
+      font-size: 0.8125rem;
+      color: var(--accent-light);
+    }
 
-/* TOAST */
-.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(100px);background:var(--accent);color:var(--bg-deep);padding:10px 24px;border-radius:var(--radius);font-size:.85rem;font-weight:600;pointer-events:none;transition:transform .3s ease,opacity .3s ease;opacity:0;z-index:200}
-.toast.show{transform:translateX(-50%) translateY(0);opacity:1}
+    /* --- INSTALL --- */
+    .install-steps {
+      list-style: none;
+      counter-reset: step;
+    }
+    .install-steps li {
+      counter-increment: step;
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 1rem 0;
+      border-bottom: 1px solid rgba(48, 54, 61, 0.4);
+    }
+    .install-steps li::before {
+      content: counter(step);
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--accent);
+      color: #fff;
+      font-weight: 700;
+      font-size: 0.8125rem;
+    }
+    .install-steps code {
+      background: var(--bg2);
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      font-family: var(--font-mono);
+      font-size: 0.85em;
+    }
+    .copy-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      margin-left: 0.5rem;
+      padding: 0.15rem 0.5rem;
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      color: var(--text-dim);
+      font-size: 0.75rem;
+      cursor: pointer;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .copy-btn:hover { color: var(--accent-light); border-color: var(--accent); }
 
-/* ROADMAP */
-.timeline{position:relative;padding-left:32px}
-.timeline::before{content:'';position:absolute;left:11px;top:0;bottom:0;width:2px;background:linear-gradient(180deg,var(--accent) 0%,var(--bg-surface) 100%)}
-.tl-item{position:relative;padding-bottom:28px}
-.tl-item:last-child{padding-bottom:0}
-.tl-dot{position:absolute;left:-32px;top:4px;width:22px;height:22px;border-radius:50%;border:3px solid var(--bg-deep);display:flex;align-items:center;justify-content:center}
-.tl-dot-done{background:var(--green)}
-.tl-dot-current{background:var(--accent);box-shadow:0 0 12px rgba(102,192,244,.4)}
-.tl-dot-planned{background:var(--bg-surface)}
-.tl-version{font-size:.85rem;font-weight:700;color:var(--text-bright)}
-.tl-theme{font-size:.8rem;font-weight:500;color:var(--accent);margin-left:8px}
-.tl-desc{font-size:.83rem;color:var(--text-muted);margin-top:4px}
-.tl-tag{display:inline-block;font-size:.7rem;font-weight:600;padding:2px 8px;border-radius:999px;margin-left:8px}
-.tl-tag-done{background:rgba(91,163,43,.15);color:#8ed44e}
-.tl-tag-current{background:rgba(102,192,244,.15);color:var(--accent)}
-.tl-tag-planned{background:rgba(143,152,160,.15);color:var(--text-muted)}
+    /* --- FOOTER --- */
+    footer {
+      border-top: 1px solid var(--border);
+      text-align: center;
+      padding: 2.5rem 1.5rem;
+      color: var(--text-dim);
+      font-size: 0.8125rem;
+    }
+    footer a { color: var(--accent-light); }
 
-/* FOOTER */
-footer{border-top:1px solid rgba(102,192,244,.08);padding:48px 24px;text-align:center}
-.footer-badges{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:24px}
-.footer-badges img{height:20px;border-radius:3px}
-.footer-links{display:flex;gap:24px;justify-content:center;flex-wrap:wrap;margin-bottom:20px}
-.footer-links a{color:var(--text-muted);font-size:.85rem;font-weight:500}
-.footer-links a:hover{color:var(--accent)}
-.footer-ctas{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:16px;margin-bottom:20px}
-.footer-copy{color:var(--text-muted);font-size:.8rem}
-.sponsor-btn{display:inline-flex;align-items:center;gap:6px;padding:8px 20px;border-radius:var(--radius);background:rgba(234,74,170,.1);border:1px solid rgba(234,74,170,.25);color:#f472b6;font-size:.85rem;font-weight:600;transition:all .2s}
-.sponsor-btn:hover{background:rgba(234,74,170,.2);color:#f9a8d4;transform:translateY(-1px)}
-.star-btn{display:inline-flex;align-items:center;gap:6px;padding:8px 20px;border-radius:var(--radius);background:rgba(232,178,58,.1);border:1px solid rgba(232,178,58,.25);color:var(--gold);font-size:.85rem;font-weight:600;transition:all .2s}
-.star-btn:hover{background:rgba(232,178,58,.2);color:#f5d060;transform:translateY(-1px)}
-
-/* REVEAL ANIMATION */
-.reveal{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
-.reveal.visible{opacity:1;transform:none}
-</style>
+    /* --- RESPONSIVE --- */
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2rem; }
+      .stats { gap: 1.25rem; }
+      .stat-val { font-size: 1.5rem; }
+      .nav-links { gap: 0.75rem; }
+      .nav-links a { font-size: 0.8rem; }
+      .data-table { font-size: 0.875rem; }
+    }
+    @media (max-width: 480px) {
+      .hero { padding: 3rem 1rem 2rem; }
+      .hero h1 { font-size: 1.5rem; }
+      .nav-brand { font-size: 0.875rem; }
+      .nav-links { gap: 0.5rem; }
+      .hero-badges { flex-direction: column; align-items: center; }
+    }
+  </style>
 </head>
 <body>
 
-<nav>
-  <div class="nav-inner">
-    <a href="#" class="nav-brand">
-      <img src="assets/logo-64.png" alt="Logo" width="28" height="28">
-      Steam Developer Tools
-    </a>
-    <button class="nav-toggle" aria-label="Menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">&#9776;</button>
-    <ul class="nav-links">
-      <li><a href="#features">Features</a></li>
-      <li><a href="#tools">MCP Tools</a></li>
-      <li><a href="#quickstart">Install</a></li>
-      <li><a href="#roadmap">Roadmap</a></li>
-      <li><a href="https://github.com/TMHSDigital/Steam-Cursor-Plugin" class="nav-cta">GitHub</a></li>
-    </ul>
-  </div>
-</nav>
+  <!-- Nav -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <span class="nav-brand">Steam Developer Tools</span>
+      <ul class="nav-links">
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#rules">Rules</a></li>
+        <li><a href="#mcp-tools">MCP Tools</a></li>
+        <li><a href="#install">Install</a></li>
+        <li><a href="https://github.com/TMHSDigital/Steam-Cursor-Plugin">GitHub</a></li>
+      </ul>
+    </div>
+  </nav>
 
-<!-- HERO -->
-<header class="hero">
-  <img src="assets/logo-256.png" alt="Steam Developer Tools" class="hero-logo" width="96" height="96">
-  <h1>Steam Developer Tools</h1>
-  <p>Steam &amp; Steamworks integration for Cursor IDE. Query store data, build multiplayer, design achievements, manage Workshop mods, automate builds - all from AI chat.</p>
-  <div class="hero-badges">
-    <span class="badge badge-version">v1.0.0</span>
-    <span class="badge badge-license">CC BY-NC-ND 4.0</span>
-    <span class="badge badge-plugin">Cursor Plugin</span>
-    <a href="https://www.npmjs.com/package/@tmhs/steam-mcp" class="badge badge-npm"><img src="https://img.shields.io/npm/dw/@tmhs/steam-mcp?label=npm%20downloads&color=e8b23a&style=flat-square" alt="npm downloads"></a>
-  </div>
-  <div class="hero-actions">
-    <a href="#quickstart" class="btn btn-primary">Get Started</a>
-    <a href="https://github.com/TMHSDigital/steam-mcp" class="btn btn-outline">MCP Server</a>
-    <a href="https://github.com/TMHSDigital/Steam-Cursor-Plugin" class="btn btn-outline">View on GitHub</a>
-  </div>
-  <a href="#stats" class="scroll-arrow" aria-label="Scroll down">&#x25BC;</a>
-</header>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-inner">
+      <h1>Steam Developer Tools</h1>
+      <p>Integrates Steam and Steamworks APIs for game developers, modders, and power users. 30 skills covering store data, multiplayer, cloud saves, leaderboards, input, inventory, social, profiles, Workshop/UGC, comparisons, reviews, pricing, market research, wishlists, CI/CD, release checklists, steamcmd, community, store pages, pricing strategy, DLC, playtesting, bug reporting, anti-cheat, testing sandbox, and platform migration - plus 9 rules. Companion Steam MCP server provides 25 MCP tools.</p>
 
-<!-- STATS -->
-<div class="stats" id="stats">
-  <div class="stat"><div class="stat-number" data-target="30">0</div><div class="stat-label">Skills</div></div>
-  <div class="stat"><div class="stat-number" data-target="9">0</div><div class="stat-label">Rules</div></div>
-  <div class="stat"><div class="stat-number" data-target="25">0</div><div class="stat-label">MCP Tools</div></div>
-  <div class="stat">
-    <div class="stat-sub"><a href="https://www.npmjs.com/package/@tmhs/steam-mcp"><img src="https://img.shields.io/npm/dw/@tmhs/steam-mcp?label=weekly%20downloads&color=66c0f4&style=flat-square" alt="npm weekly downloads"></a></div>
-    <div class="stat-label" style="margin-top:8px">npm</div>
-  </div>
-</div>
-
-<!-- WHO IS THIS FOR -->
-<section id="who">
-  <div class="container reveal">
-    <div class="section-label">Who Is This For?</div>
-    <div class="section-title">Built for everyone in the Steam ecosystem.</div>
-    <div class="who-grid">
-      <div class="who-card">
-        <div class="who-icon">&#x1F3AE;</div>
-        <div class="who-role">Game Developers</div>
-        <ul class="who-list">
-          <li>Configure depots, achievements, leaderboards</li>
-          <li>Automate CI/CD builds with SteamPipe</li>
-          <li>Validate release readiness before launch</li>
-        </ul>
+      <div class="stats">
+        <div class="stat"><div class="stat-val" data-target="30">0</div><div class="stat-lbl">Skills</div></div>
+        <div class="stat"><div class="stat-val" data-target="9">0</div><div class="stat-lbl">Rules</div></div>
+        <div class="stat"><div class="stat-val" data-target="25">0</div><div class="stat-lbl">MCP Tools</div></div>
       </div>
-      <div class="who-card">
-        <div class="who-icon">&#x1F527;</div>
-        <div class="who-role">Modders</div>
-        <ul class="who-list">
-          <li>Publish and update Workshop items</li>
-          <li>Browse trending mods and find inspiration</li>
-          <li>Get SDK code for UGC integration</li>
-        </ul>
-      </div>
-      <div class="who-card">
-        <div class="who-icon">&#x26A1;</div>
-        <div class="who-role">Power Users</div>
-        <ul class="who-list">
-          <li>Look up player profiles and stats</li>
-          <li>Analyze reviews and pricing trends</li>
-          <li>Compare games side-by-side with live data</li>
-        </ul>
+
+      <div class="hero-badges">
+        <a class="badge" href="https://github.com/TMHSDigital/Steam-Cursor-Plugin">
+          <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+          GitHub
+        </a>
+        
+        <a class="badge" href="https://www.npmjs.com/package/@tmhs/steam-mcp">
+          <svg viewBox="0 0 16 16" fill="currentColor"><path d="M0 0v16h16V0H0zm13 13H8V5H5v8H3V3h10v10z"/></svg>
+          npm
+        </a>
+        
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- HOW IT WORKS -->
-<section id="how">
-  <div class="container reveal">
-    <div class="section-label">How It Works</div>
-    <div class="section-title">Ask naturally. Get live data.</div>
-    <div class="section-desc">No configuration needed for basic usage. Just ask Cursor a Steam question.</div>
-    <div class="flow">
-      <div class="flow-step">
-        <div class="flow-num">1</div>
-        <h3>Ask a question</h3>
-        <p>Type a Steam-related prompt in Cursor's AI chat, like "What's the price of Hades?"</p>
-      </div>
-      <div class="flow-arrow">&rarr;</div>
-      <div class="flow-step">
-        <div class="flow-num">2</div>
-        <h3>Skill activates</h3>
-        <p>Cursor loads the matching skill, which defines the workflow and calls MCP tools for live data.</p>
-      </div>
-      <div class="flow-arrow">&rarr;</div>
-      <div class="flow-step">
-        <div class="flow-num">3</div>
-        <h3>Formatted answer</h3>
-        <p>You get structured, accurate results pulled from Steam's APIs - right in your editor.</p>
-      </div>
-    </div>
-  </div>
-</section>
+  <!-- Skills -->
+  
+  <section class="section" id="skills">
+    <h2>Skills <span class="count">30</span></h2>
+    <table class="data-table">
+      <thead><tr><th>Name</th><th>Description</th></tr></thead>
+      <tbody>
+        
+        <tr>
+          <td class="name-cell">See Also</td>
+          <td>---</td>
+        </tr>
+        
+        <tr>
+          <td class="name-cell">See Also</td>
+          <td>---</td>
+        </tr>
+        
+        <tr>
+          <td class="name-cell">See Also</td>
+          <td>---</td>
+        </tr>
+        
+        <tr>
+          <td class="name-cell">See Also</td>
+          <td>---</td>
+        </tr>
+        
+        <tr>
+          <td class="name-cell">See Also</td>
+          <td>---</td>
+        </tr>
+        
+        <tr>
+          <td class="name-cell">See Also</td>
+          <td>---</td>
+        </tr>
+        
+        <tr>
+          <td class="name-cell">See Also</td>
+          <td>---</td>
+        </tr>
+        
+        <tr>
+          <td class="name-cell">See Also</td>
+          <td>---</td>
+        </tr>
+        
+        <tr>
+          <td class="name-cell">See Also</td>
+          <td>---</td>
+        </tr>
+        
+        <tr>
+          <td class="name-cell">See Also</td>
+          <td>---</td>
+        </tr>
+        
+        <tr>
+          <td class="name-cell">See Also</td>
+          <td>---</td>
+        </tr>
+        
+        <tr>
+          <td class="name-cell">See Also</td>
+          <td>---</td>
+        </tr>
+        
+        <tr>
+          <td class="name-cell">See Also</td>
+          <td>---</td>
+        </tr>
+        
+        <tr>
+          <td class="name-cell">See Also</td>
+          <td>---</td>
+        </tr>
+        
+        <tr>
+          <td class="name-cell">See Also</td>
+          <td>---</td>
+        </tr>
+        
+        <tr>
+          <td class="name-cell">See Also</td>
+          <td>---</td>
+        </tr>
+        
+        <tr>
+          <td class="name-cell">See Also</td>
+          <td>---</td>
+        </tr>
+        
+        <tr>
+          <td class="name-cell">See Also</td>
+          <td>---</td>
+        </tr>
+        
+        <tr>
+          <td class="name-cell">See Also</td>
+          <td>---</td>
+        </tr>
+        
+        <tr>
+          <td class="name-cell">See Also</td>
+          <td>---</td>
+        </tr>
+        
+        <tr>
+          <td class="name-cell">See Also</td>
+          <td>---</td>
+        </tr>
+        
+        <tr>
+          <td class="name-cell">See Also</td>
+          <td>---</td>
+        </tr>
+        
+        <tr>
+          <td class="name-cell">See Also</td>
+          <td>---</td>
+        </tr>
+        
+        <tr>
+          <td class="name-cell">See Also</td>
+          <td>---</td>
+        </tr>
+        
+        <tr>
+          <td class="name-cell">See Also</td>
+          <td>---</td>
+        </tr>
+        
+        <tr>
+          <td class="name-cell">See Also</td>
+          <td>---</td>
+        </tr>
+        
+        <tr>
+          <td class="name-cell">See Also</td>
+          <td>---</td>
+        </tr>
+        
+        <tr>
+          <td class="name-cell">See Also</td>
+          <td>---</td>
+        </tr>
+        
+        <tr>
+          <td class="name-cell">See Also</td>
+          <td>---</td>
+        </tr>
+        
+        <tr>
+          <td class="name-cell">See Also</td>
+          <td>---</td>
+        </tr>
+        
+      </tbody>
+    </table>
+  </section>
+  
 
-<!-- TERMINAL DEMO -->
-<section class="terminal-section">
-  <div class="container reveal">
-    <div class="section-label">See It In Action</div>
-    <div class="section-title">Live data, right in Cursor.</div>
-    <div class="section-desc">Ask about any game on Steam. Get structured, actionable data instantly.</div>
-    <div class="terminal" id="terminalDemo">
-      <div class="terminal-bar">
-        <span class="terminal-dot"></span>
-        <span class="terminal-dot"></span>
-        <span class="terminal-dot"></span>
-        <span class="terminal-title">Cursor AI Chat</span>
-      </div>
-      <div class="terminal-body">
-        <div class="terminal-line"><span class="t-prompt">&gt; </span><span class="t-cmd">Look up Hollow Knight on Steam</span></div>
-        <div class="terminal-line"><br></div>
-        <div class="terminal-line"><span class="t-muted">Calling </span><span class="t-accent">steam_searchApps</span><span class="t-muted">({ query: "Hollow Knight" })</span></div>
-        <div class="terminal-line"><span class="t-muted">Calling </span><span class="t-accent">steam_getAppDetails</span><span class="t-muted">({ appid: 367520 })</span></div>
-        <div class="terminal-line"><br></div>
-        <div class="terminal-line"><span class="t-white"><strong>Hollow Knight</strong></span> <span class="t-muted">(App ID: 367520)</span></div>
-        <div class="terminal-line"><span class="t-muted">Price: </span><span class="t-green">$14.99</span> <span class="t-muted">&nbsp;&bull;&nbsp; Reviews: </span><span class="t-green">Overwhelmingly Positive</span> <span class="t-muted">(97%)</span></div>
-        <div class="terminal-line"><span class="t-muted">Players now: </span><span class="t-accent">2,847</span> <span class="t-muted">&nbsp;&bull;&nbsp; Platforms: </span><span class="t-white">Win, Mac, Linux</span></div>
-        <div class="terminal-line"><span class="t-muted">Tags: </span><span class="t-gold">Metroidvania, Souls-like, Indie, Action, Atmospheric</span></div>
-        <div class="terminal-line"><span class="t-muted">Achievements: </span><span class="t-accent">63</span> <span class="t-muted">&nbsp;&bull;&nbsp; Release: </span><span class="t-white">Feb 24, 2017</span></div>
-        <div class="terminal-line"><span class="t-cursor"></span></div>
-      </div>
-    </div>
-  </div>
-</section>
+  <!-- Rules -->
+  
+  <section class="section" id="rules">
+    <h2>Rules <span class="count">9</span></h2>
+    <table class="data-table">
+      <thead><tr><th>Name</th><th>Scope</th><th>Description</th></tr></thead>
+      <tbody>
+        
+        <tr>
+          <td class="name-cell">Steam Api Error Handling</td>
+          <td class="scope-cell"></td>
+          <td>Flag missing error and callback handling for Steamworks SDK calls. Checks for unchecked return values, missing StoreStats after achievements, ignored callbacks, and missing SteamAPI_RunCallbacks in th</td>
+        </tr>
+        
+        <tr>
+          <td class="name-cell">Steam Api Key Usage</td>
+          <td class="scope-cell"></td>
+          <td>When the Steam MCP server is available, guide users to prefer MCP tool calls over raw curl/fetch commands to Steam APIs. Flag direct HTTP calls to Steam endpoints and suggest the equivalent MCP tool.</td>
+        </tr>
+        
+        <tr>
+          <td class="name-cell">Steam Appid Validation</td>
+          <td class="scope-cell"></td>
+          <td>When working with files that contain Steam App IDs (steam_appid.txt, VDF configs, or API calls), validate that the App ID is used consistently across the project and warn if steam_appid.txt is missing</td>
+        </tr>
+        
+        <tr>
+          <td class="name-cell">Steam Build Config Validation</td>
+          <td class="scope-cell"></td>
+          <td>Validate Steam build configuration files (VDF). Checks for missing depots, mismatched App IDs between app_build and depot_build files, invalid file mappings, empty content roots, and common SteamPipe </td>
+        </tr>
+        
+        <tr>
+          <td class="name-cell">Steam Deck Compat</td>
+          <td class="scope-cell"></td>
+          <td>Flag common Steam Deck compatibility issues in game project files. Checks for hardcoded resolutions, mouse-only input, small UI elements, anti-cheat blockers, and Linux/Proton compatibility problems.</td>
+        </tr>
+        
+        <tr>
+          <td class="name-cell">Steam Launch Options Check</td>
+          <td class="scope-cell"></td>
+          <td>Flag launch option issues in Steam configuration files. Checks for missing executables, wrong OS targeting, missing descriptions for multi-launch configs, and common launch option misconfigurations.</td>
+        </tr>
+        
+        <tr>
+          <td class="name-cell">Steam Network Security</td>
+          <td class="scope-cell"></td>
+          <td>Flag insecure networking patterns in Steam multiplayer game code. Checks for unvalidated auth tickets, missing session management, trusting client data, and missing encryption for sensitive payloads.</td>
+        </tr>
+        
+        <tr>
+          <td class="name-cell">Steam Save Compat</td>
+          <td class="scope-cell"></td>
+          <td>Flag save file practices that break cross-platform Steam Cloud sync. Checks for binary endianness assumptions, OS-specific path separators, hardcoded user directories, and non-portable serialization p</td>
+        </tr>
+        
+        <tr>
+          <td class="name-cell">Steamworks Secrets</td>
+          <td class="scope-cell"></td>
+          <td>Prevent committing Steamworks publisher API keys, partner credentials, or sensitive authentication tokens. Flag files containing Steamworks secret patterns before they are committed.</td>
+        </tr>
+        
+      </tbody>
+    </table>
+  </section>
+  
 
-<!-- FEATURES -->
-<section id="features" style="background:var(--bg-primary)">
-  <div class="container reveal">
-    <div class="section-label">Features</div>
-    <div class="section-title">30 skills across 8 categories</div>
-    <div class="section-desc">Every skill includes Common Pitfalls, MCP integration, cross-references, and example interactions.</div>
-    <div class="categories" id="categoryGrid"></div>
-  </div>
-</section>
+  <!-- MCP Tools -->
+  
+  <section class="section" id="mcp-tools">
+    <h2>MCP Tools <span class="count">25</span></h2>
+    
+    
+    <div class="category-label">Read-Only (API Key)</div>
+    
+    <table class="data-table">
+      <thead><tr><th>Name</th><th>Description</th></tr></thead>
+      <tbody>
+        
+        <tr>
+          <td class="name-cell">steam_getPlayerSummary</td>
+          <td>Player profile - name, avatar, status</td>
+        </tr>
+        
+        <tr>
+          <td class="name-cell">steam_getOwnedGames</td>
+          <td>Game library with playtime</td>
+        </tr>
+        
+        <tr>
+          <td class="name-cell">steam_queryWorkshop</td>
+          <td>Search and browse Workshop items</td>
+        </tr>
+        
+        <tr>
+          <td class="name-cell">steam_getLeaderboardEntries</td>
+          <td>Leaderboard scores and rankings</td>
+        </tr>
+        
+        <tr>
+          <td class="name-cell">steam_resolveVanityURL</td>
+          <td>Convert vanity URL to Steam ID</td>
+        </tr>
+        
+        <tr>
+          <td class="name-cell">steam_getSchemaForGame</td>
+          <td>Achievement/stat schema with display names and icons</td>
+        </tr>
+        
+        <tr>
+          <td class="name-cell">steam_getPlayerAchievements</td>
+          <td>Per-player achievement unlock status and timestamps</td>
+        </tr>
+        
+        <tr>
+          <td class="name-cell">steam_getLeaderboardsForGame</td>
+          <td>List all leaderboards with numeric IDs</td>
+        </tr>
+        
+      </tbody>
+    </table>
+    
+    
+    <div class="category-label">Read-Only (No Auth)</div>
+    
+    <table class="data-table">
+      <thead><tr><th>Name</th><th>Description</th></tr></thead>
+      <tbody>
+        
+        <tr>
+          <td class="name-cell">steam_getAppDetails</td>
+          <td>Store data - price, reviews, tags, platforms</td>
+        </tr>
+        
+        <tr>
+          <td class="name-cell">steam_searchApps</td>
+          <td>Search the Steam store by name</td>
+        </tr>
+        
+        <tr>
+          <td class="name-cell">steam_getPlayerCount</td>
+          <td>Current concurrent players</td>
+        </tr>
+        
+        <tr>
+          <td class="name-cell">steam_getAchievementStats</td>
+          <td>Global achievement unlock percentages</td>
+        </tr>
+        
+        <tr>
+          <td class="name-cell">steam_getWorkshopItem</td>
+          <td>Workshop item details</td>
+        </tr>
+        
+        <tr>
+          <td class="name-cell">steam_getReviews</td>
+          <td>User reviews with language, sentiment, purchase type filters</td>
+        </tr>
+        
+        <tr>
+          <td class="name-cell">steam_getPriceOverview</td>
+          <td>Batch price check for multiple apps in a region</td>
+        </tr>
+        
+        <tr>
+          <td class="name-cell">steam_getAppReviewSummary</td>
+          <td>Review score, totals, and positive percentage</td>
+        </tr>
+        
+        <tr>
+          <td class="name-cell">steam_getRegionalPricing</td>
+          <td>Pricing breakdown across multiple countries</td>
+        </tr>
+        
+        <tr>
+          <td class="name-cell">steam_getNewsForApp</td>
+          <td>Recent news and announcements for a game</td>
+        </tr>
+        
+      </tbody>
+    </table>
+    
+    
+    <div class="category-label">Write / Publisher</div>
+    
+    <table class="data-table">
+      <thead><tr><th>Name</th><th>Description</th></tr></thead>
+      <tbody>
+        
+        <tr>
+          <td class="name-cell">steam_updateWorkshopItem</td>
+          <td>Update Workshop item metadata via partner API</td>
+        </tr>
+        
+        <tr>
+          <td class="name-cell">steam_setAchievement</td>
+          <td>Set/unlock achievements (dev/test)</td>
+        </tr>
+        
+        <tr>
+          <td class="name-cell">steam_clearAchievement</td>
+          <td>Clear/re-lock achievements (dev/test)</td>
+        </tr>
+        
+        <tr>
+          <td class="name-cell">steam_uploadLeaderboardScore</td>
+          <td>Upload leaderboard scores</td>
+        </tr>
+        
+        <tr>
+          <td class="name-cell">steam_grantInventoryItem</td>
+          <td>Grant inventory items</td>
+        </tr>
+        
+      </tbody>
+    </table>
+    
+    
+    <div class="category-label">Write / SDK Guidance</div>
+    
+    <table class="data-table">
+      <thead><tr><th>Name</th><th>Description</th></tr></thead>
+      <tbody>
+        
+        <tr>
+          <td class="name-cell">steam_createLobby</td>
+          <td>Code examples for ISteamMatchmaking lobby creation</td>
+        </tr>
+        
+        <tr>
+          <td class="name-cell">steam_uploadWorkshopItem</td>
+          <td>Code examples for ISteamUGC Workshop uploads</td>
+        </tr>
+        
+      </tbody>
+    </table>
+    
+  </section>
+  
 
-<!-- RULES -->
-<section id="rules">
-  <div class="container reveal">
-    <div class="section-label">Rules</div>
-    <div class="section-title">9 rules enforce best practices</div>
-    <div class="section-desc">Rules run automatically on your game project files. No configuration needed.</div>
-    <div class="rules-grid">
-      <div class="rule-card"><h4><span class="rule-icon">&#x1f50d;</span> App ID Validation</h4><p>Checks App ID consistency across steam_appid.txt, VDF files, and source code. Warns about test App ID 480 in production. Suggests MCP live validation.</p></div>
-      <div class="rule-card"><h4><span class="rule-icon">&#x1f512;</span> Steamworks Secrets</h4><p>Flags API keys, partner credentials, auth tokens, ssfn files, and DRM keys. Suggests secure alternatives like environment variables.</p></div>
-      <div class="rule-card"><h4><span class="rule-icon">&#x1f3ae;</span> Steam Deck Compat</h4><p>Flags hardcoded resolutions, mouse-only input, anti-cheat blockers, Windows paths, and missing controller support.</p></div>
-      <div class="rule-card"><h4><span class="rule-icon">&#x1f517;</span> MCP Tool Preference</h4><p>Flags raw curl/fetch calls to Steam APIs when the MCP server is available. Suggests the equivalent structured tool.</p></div>
-      <div class="rule-card"><h4><span class="rule-icon">&#x1f4e6;</span> Build Config Validation</h4><p>Validates VDF configs: missing depots, mismatched App IDs, invalid file mappings, and setlive safety warnings.</p></div>
-      <div class="rule-card"><h4><span class="rule-icon">&#x1f680;</span> Launch Options Check</h4><p>Flags missing executables, wrong OS targeting, missing descriptions for multi-launch, and invalid type values.</p></div>
-      <div class="rule-card"><h4><span class="rule-icon">&#x1f4be;</span> Save File Compat</h4><p>Flags cross-platform issues: binary endianness, OS-specific paths, non-portable serialization, case-sensitive filenames.</p></div>
-      <div class="rule-card"><h4><span class="rule-icon">&#x1f6e1;</span> Network Security</h4><p>Flags unvalidated auth tickets, trusting client data, missing encryption, deprecated API usage, plaintext sensitive data.</p></div>
-      <div class="rule-card"><h4><span class="rule-icon">&#x26a0;</span> API Error Handling</h4><p>Flags unchecked SteamAPI_Init(), missing StoreStats(), ignored callbacks, and missing RunCallbacks() calls.</p></div>
-    </div>
-  </div>
-</section>
+  <!-- Install -->
+  
+  <section class="section" id="install">
+    <h2>Installation</h2>
+    <ol class="install-steps">
+      
+      <li><span>Clone the repository</span></li>
+      
+      <li><span>Open the folder in Cursor IDE</span></li>
+      
+      <li><span>Install the companion MCP server: &lt;code&gt;npm install -g @tmhs/steam-mcp&lt;/code&gt;</span></li>
+      
+      <li><span>Add your Steam API key to the MCP config</span></li>
+      
+      <li><span>Start using the AI skills and rules</span></li>
+      
+    </ol>
+  </section>
+  
 
-<!-- MCP TOOLS -->
-<section id="tools" style="background:var(--bg-primary)">
-  <div class="container reveal">
-    <div class="section-label">Companion MCP Server</div>
-    <div class="section-title">25 structured API tools</div>
-    <div class="section-desc">The <a href="https://github.com/TMHSDigital/steam-mcp">Steam MCP Server</a> provides live, typed tools that Cursor calls directly - no shell commands needed.</div>
+  <!-- Footer -->
+  <footer>
+    <p>
+      Built by <a href="https://github.com/TMHSDigital">TMHSDigital</a>
+      &middot; CC-BY-NC-ND-4.0
+      &middot; v1.0.0
+    </p>
+  </footer>
 
-    <div class="tools-group">
-      <h3>Read-only <span class="tools-badge tools-badge-none">No auth</span></h3>
-      <table class="tools-table"><thead><tr><th>Tool</th><th>Description</th></tr></thead><tbody>
-        <tr><td class="tool-name">steam_getAppDetails</td><td>Store data - price, reviews, tags, platforms</td></tr>
-        <tr><td class="tool-name">steam_searchApps</td><td>Search the Steam store by name</td></tr>
-        <tr><td class="tool-name">steam_getPlayerCount</td><td>Current concurrent players</td></tr>
-        <tr><td class="tool-name">steam_getAchievementStats</td><td>Global achievement unlock percentages</td></tr>
-        <tr><td class="tool-name">steam_getWorkshopItem</td><td>Workshop item details</td></tr>
-        <tr><td class="tool-name">steam_getReviews</td><td>User reviews with language, sentiment, purchase type filters</td></tr>
-        <tr><td class="tool-name">steam_getPriceOverview</td><td>Batch price check for multiple apps in a region</td></tr>
-        <tr><td class="tool-name">steam_getAppReviewSummary</td><td>Review score, totals, and positive percentage</td></tr>
-        <tr><td class="tool-name">steam_getRegionalPricing</td><td>Pricing breakdown across multiple countries</td></tr>
-        <tr><td class="tool-name">steam_getNewsForApp</td><td>Recent news and announcements for a game</td></tr>
-      </tbody></table>
-    </div>
+  <script>
+    // Animated stat counters
+    (function () {
+      const observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting) return;
+          const el = entry.target;
+          const target = parseInt(el.getAttribute('data-target'), 10);
+          if (isNaN(target)) return;
+          observer.unobserve(el);
+          const duration = 1200;
+          const start = performance.now();
+          function tick(now) {
+            const elapsed = now - start;
+            const progress = Math.min(elapsed / duration, 1);
+            const eased = 1 - Math.pow(1 - progress, 3);
+            el.textContent = Math.round(eased * target);
+            if (progress < 1) requestAnimationFrame(tick);
+          }
+          requestAnimationFrame(tick);
+        });
+      }, { threshold: 0.3 });
+      document.querySelectorAll('.stat-val[data-target]').forEach(function (el) {
+        observer.observe(el);
+      });
+    })();
 
-    <div class="tools-group">
-      <h3>Read-only <span class="tools-badge tools-badge-key">API key</span></h3>
-      <table class="tools-table"><thead><tr><th>Tool</th><th>Description</th></tr></thead><tbody>
-        <tr><td class="tool-name">steam_getPlayerSummary</td><td>Player profile - name, avatar, status</td></tr>
-        <tr><td class="tool-name">steam_getOwnedGames</td><td>Game library with playtime</td></tr>
-        <tr><td class="tool-name">steam_queryWorkshop</td><td>Search and browse Workshop items</td></tr>
-        <tr><td class="tool-name">steam_getLeaderboardEntries</td><td>Leaderboard scores and rankings</td></tr>
-        <tr><td class="tool-name">steam_resolveVanityURL</td><td>Convert vanity URL to Steam ID</td></tr>
-        <tr><td class="tool-name">steam_getSchemaForGame</td><td>Achievement/stat schema with display names and icons</td></tr>
-        <tr><td class="tool-name">steam_getPlayerAchievements</td><td>Per-player achievement unlock status and timestamps</td></tr>
-        <tr><td class="tool-name">steam_getLeaderboardsForGame</td><td>List all leaderboards with numeric IDs</td></tr>
-      </tbody></table>
-    </div>
-
-    <div class="tools-group">
-      <h3>Write / Guidance <span class="tools-badge tools-badge-pub">Publisher key</span></h3>
-      <table class="tools-table"><thead><tr><th>Tool</th><th style="width:80px">Type</th><th>Description</th></tr></thead><tbody>
-        <tr><td class="tool-name">steam_createLobby</td><td><span class="tool-type">SDK guide</span></td><td>Code examples for ISteamMatchmaking lobby creation</td></tr>
-        <tr><td class="tool-name">steam_uploadWorkshopItem</td><td><span class="tool-type">SDK guide</span></td><td>Code examples for ISteamUGC Workshop uploads</td></tr>
-        <tr><td class="tool-name">steam_updateWorkshopItem</td><td><span class="tool-type">HTTP POST</span></td><td>Update Workshop item metadata via partner API</td></tr>
-        <tr><td class="tool-name">steam_setAchievement</td><td><span class="tool-type">HTTP POST</span></td><td>Set/unlock achievements (dev/test)</td></tr>
-        <tr><td class="tool-name">steam_clearAchievement</td><td><span class="tool-type">HTTP POST</span></td><td>Clear/re-lock achievements (dev/test)</td></tr>
-        <tr><td class="tool-name">steam_uploadLeaderboardScore</td><td><span class="tool-type">HTTP POST</span></td><td>Upload leaderboard scores</td></tr>
-        <tr><td class="tool-name">steam_grantInventoryItem</td><td><span class="tool-type">HTTP POST</span></td><td>Grant inventory items</td></tr>
-      </tbody></table>
-    </div>
-  </div>
-</section>
-
-<!-- QUICKSTART -->
-<section id="quickstart">
-  <div class="container reveal">
-    <div class="section-label">Get Started</div>
-    <div class="section-title">Up and running in 2 minutes</div>
-    <div class="section-desc">No API key required for basic features.</div>
-    <div class="steps">
-      <div class="step">
-        <div class="step-num"></div>
-        <div>
-          <h3>Clone the plugin</h3>
-          <p>Clone the repo to your machine.</p>
-          <div class="code-block"><button class="copy-btn" onclick="copyCode(this)">Copy</button>git clone https://github.com/TMHSDigital/Steam-Cursor-Plugin.git</div>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num"></div>
-        <div>
-          <h3>Symlink to Cursor plugins</h3>
-          <p>Windows (PowerShell as Admin):</p>
-          <div class="code-block"><button class="copy-btn" onclick="copyCode(this)">Copy</button>New-Item -ItemType SymbolicLink -Path "$env:USERPROFILE\.cursor\plugins\local\steam-cursor-plugin" -Target (Resolve-Path .\Steam-Cursor-Plugin)</div>
-          <p style="margin-top:12px">macOS / Linux:</p>
-          <div class="code-block"><button class="copy-btn" onclick="copyCode(this)">Copy</button>ln -s "$(pwd)/Steam-Cursor-Plugin" ~/.cursor/plugins/local/steam-cursor-plugin</div>
-        </div>
-      </div>
-      <div class="step">
-        <div class="step-num"></div>
-        <div>
-          <h3>Add MCP server <span style="color:var(--text-muted);font-weight:400;font-size:.85rem">(optional)</span></h3>
-          <p>Add to <code style="color:var(--accent);font-family:var(--font-mono);font-size:.85rem">.cursor/mcp.json</code> for live API access:</p>
-          <div class="code-block"><button class="copy-btn" onclick="copyCode(this)">Copy</button>{
-  <span class="json-key">"mcpServers"</span>: {
-    <span class="json-key">"steam"</span>: {
-      <span class="json-key">"command"</span>: <span class="json-str">"npx"</span>,
-      <span class="json-key">"args"</span>: [<span class="json-str">"-y"</span>, <span class="json-str">"@tmhs/steam-mcp"</span>],
-      <span class="json-key">"env"</span>: {
-        <span class="json-key">"STEAM_API_KEY"</span>: <span class="json-str">"your_key_here"</span>
-      }
-    }
-  }
-}</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- TRY IT -->
-<section id="tryit" style="background:var(--bg-primary)">
-  <div class="container reveal">
-    <div class="section-label">Try It</div>
-    <div class="section-title">Example prompts</div>
-    <div class="section-desc">Paste any of these into Cursor's AI chat.</div>
-    <div class="prompts">
-      <div class="prompt-card" onclick="copyPrompt(this)"><span class="copy-hint">Copy</span><p>What's the current price and review score for Hollow Knight?</p></div>
-      <div class="prompt-card" onclick="copyPrompt(this)"><span class="copy-hint">Copy</span><p>How many people are playing Elden Ring right now?</p></div>
-      <div class="prompt-card" onclick="copyPrompt(this)"><span class="copy-hint">Copy</span><p>I need achievements for my platformer. Milestones: tutorial, each world, all coins, speedrun.</p></div>
-      <div class="prompt-card" onclick="copyPrompt(this)"><span class="copy-hint">Copy</span><p>Set up Steam build configs for my game. App ID 2345678, Windows and Linux.</p></div>
-      <div class="prompt-card" onclick="copyPrompt(this)"><span class="copy-hint">Copy</span><p>Compare Hades, Dead Cells, and Hollow Knight - price, reviews, players.</p></div>
-      <div class="prompt-card" onclick="copyPrompt(this)"><span class="copy-hint">Copy</span><p>I want to add cloud saves to my roguelike. Single save file in AppData/Local.</p></div>
-      <div class="prompt-card" onclick="copyPrompt(this)"><span class="copy-hint">Copy</span><p>Find trending Workshop mods for Garry's Mod and show subscriber counts.</p></div>
-      <div class="prompt-card" onclick="copyPrompt(this)"><span class="copy-hint">Copy</span><p>How do I upload my custom map to the Steam Workshop? I need the SDK code.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- ROADMAP -->
-<section id="roadmap">
-  <div class="container reveal">
-    <div class="section-label">Roadmap</div>
-    <div class="section-title">The road to v1.0.0</div>
-    <div class="section-desc">See <a href="https://github.com/TMHSDigital/Steam-Cursor-Plugin/blob/main/ROADMAP.md">ROADMAP.md</a> for details.</div>
-    <div class="timeline">
-      <div class="tl-item"><div class="tl-dot tl-dot-done"></div><span class="tl-version">v0.1.0</span><span class="tl-theme">Foundation</span><span class="tl-tag tl-tag-done">Done</span><div class="tl-desc">14 skills, 3 rules, plugin scaffold</div></div>
-      <div class="tl-item"><div class="tl-dot tl-dot-done"></div><span class="tl-version">v0.2.0</span><span class="tl-theme">Live Data</span><span class="tl-tag tl-tag-done">Done</span><div class="tl-desc">Steam MCP server with 10 read-only tools</div></div>
-      <div class="tl-item"><div class="tl-dot tl-dot-done"></div><span class="tl-version">v0.3.0</span><span class="tl-theme">Insights</span><span class="tl-tag tl-tag-done">Done</span><div class="tl-desc">Review analysis, price history, market research, wishlists</div></div>
-      <div class="tl-item"><div class="tl-dot tl-dot-done"></div><span class="tl-version">v0.4.0</span><span class="tl-theme">Ship It</span><span class="tl-tag tl-tag-done">Done</span><div class="tl-desc">CI/CD automation, release checklist, steamcmd, build rules</div></div>
-      <div class="tl-item"><div class="tl-dot tl-dot-done"></div><span class="tl-version">v0.5.0</span><span class="tl-theme">Grow</span><span class="tl-tag tl-tag-done">Done</span><div class="tl-desc">Community, store page, pricing strategy, DLC planning</div></div>
-      <div class="tl-item"><div class="tl-dot tl-dot-done"></div><span class="tl-version">v0.6.0</span><span class="tl-theme">Quality</span><span class="tl-tag tl-tag-done">Done</span><div class="tl-desc">Playtest, bug reporting, anti-cheat, 3 code quality rules</div></div>
-      <div class="tl-item"><div class="tl-dot tl-dot-done"></div><span class="tl-version">v0.7.0</span><span class="tl-theme">Full Power</span><span class="tl-tag tl-tag-done">Done</span><div class="tl-desc">Testing sandbox, 6 MCP write tools</div></div>
-      <div class="tl-item"><div class="tl-dot tl-dot-done"></div><span class="tl-version">v0.8.0</span><span class="tl-theme">Polish</span><span class="tl-tag tl-tag-done">Done</span><div class="tl-desc">Migration guide, common pitfalls across all 30 skills</div></div>
-      <div class="tl-item"><div class="tl-dot tl-dot-done"></div><span class="tl-version">v0.9.0</span><span class="tl-theme">Complete</span><span class="tl-tag tl-tag-done">Done</span><div class="tl-desc">4 new MCP read tools - reviews, pricing, regional - 25 total</div></div>
-      <div class="tl-item"><div class="tl-dot tl-dot-current"></div><span class="tl-version">v1.0.0</span><span class="tl-theme">Stable</span><span class="tl-tag tl-tag-current">Current</span><div class="tl-desc">Production release: 30 skills, 9 rules, 25 MCP tools</div></div>
-    </div>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer>
-  <div class="footer-badges">
-    <a href="https://www.npmjs.com/package/@tmhs/steam-mcp"><img src="https://img.shields.io/npm/v/@tmhs/steam-mcp?style=flat-square" alt="npm version"></a>
-    <a href="https://www.npmjs.com/package/@tmhs/steam-mcp"><img src="https://img.shields.io/npm/dw/@tmhs/steam-mcp?style=flat-square" alt="npm downloads"></a>
-    <a href="https://github.com/TMHSDigital/Steam-Cursor-Plugin/stargazers"><img src="https://img.shields.io/github/stars/TMHSDigital/Steam-Cursor-Plugin?style=flat-square" alt="GitHub stars"></a>
-    <a href="https://github.com/TMHSDigital/Steam-Cursor-Plugin/commits/main"><img src="https://img.shields.io/github/last-commit/TMHSDigital/Steam-Cursor-Plugin?style=flat-square" alt="Last commit"></a>
-    <a href="https://github.com/TMHSDigital/Steam-MCP/stargazers"><img src="https://img.shields.io/github/stars/TMHSDigital/Steam-MCP?style=flat-square&label=MCP%20stars" alt="MCP stars"></a>
-  </div>
-  <div class="footer-links">
-    <a href="https://github.com/TMHSDigital/Steam-Cursor-Plugin">GitHub</a>
-    <a href="https://github.com/TMHSDigital/steam-mcp">MCP Server</a>
-    <a href="https://www.npmjs.com/package/@tmhs/steam-mcp">npm</a>
-    <a href="https://github.com/TMHSDigital/Steam-Cursor-Plugin/blob/main/CHANGELOG.md">Changelog</a>
-    <a href="https://github.com/TMHSDigital/Steam-Cursor-Plugin/blob/main/CONTRIBUTING.md">Contributing</a>
-    <a href="https://github.com/TMHSDigital/Steam-Cursor-Plugin/blob/main/LICENSE">License</a>
-  </div>
-  <div class="footer-ctas">
-    <a href="https://github.com/TMHSDigital/Steam-Cursor-Plugin" class="star-btn">&#x2B50; Star on GitHub</a>
-    <a href="https://github.com/sponsors/TMHSDigital" class="sponsor-btn">&#x2764; Sponsor</a>
-  </div>
-  <p class="footer-copy">Built by <a href="https://github.com/TMHSDigital">TMHSDigital</a> &middot; CC BY-NC-ND 4.0</p>
-</footer>
-
-<!-- TOAST (for copy feedback) -->
-<div class="toast" id="toast">Copied!</div>
-
-<script>
-/* Skills data */
-const SKILLS = [
-  { cat: "Core SDK", skills: [
-    ["Store Lookup", "Look up any game by name or App ID - price, tags, reviews, platforms"],
-    ["Steamworks App Config", "Generate depot configs, build VDF files, launch options, DLC setup"],
-    ["API Reference", "Search Web API and SDK docs - endpoints, parameters, auth, code examples"],
-    ["Testing Sandbox", "App ID 480 (SpaceWar) sandbox, test accounts, console commands"],
-    ["Migration Guide", "Migrate from Epic/GOG/itch.io - Unity, Unreal, Godot SDK integration"],
-  ]},
-  { cat: "Game Features", skills: [
-    ["Achievement Designer", "Design achievements, generate VDF/JSON configs, unlock code (C++/C#/GDScript)"],
-    ["Multiplayer Networking", "Lobbies, matchmaking, Steam Networking Sockets, dedicated servers"],
-    ["Cloud Saves", "Auto-Cloud and ISteamRemoteStorage - conflict resolution, quotas"],
-    ["Leaderboards", "Create leaderboards, upload scores, download entries"],
-    ["Input / Controllers", "Action sets, bindings, glyphs for Xbox, PS, Switch, Steam Deck"],
-    ["Inventory & Economy", "Item drops, crafting, Steam Item Store, ISteamMicroTxn"],
-  ]},
-  { cat: "Social", skills: [
-    ["Friends & Social", "Friends list, rich presence, game invites, overlay, avatars"],
-    ["Profile Lookup", "Player profiles - games, playtime, level, badges, activity"],
-    ["Workshop Helper", "Workshop queries, UGC integration, upload workflow"],
-  ]},
-  { cat: "Analytics", skills: [
-    ["Player Stats", "Player counts, achievement rates, playtime, game libraries"],
-    ["Game Comparison", "Side-by-side - price, reviews, players, genres, platforms"],
-    ["Review Analysis", "Sentiment, complaints, update comparisons, review bombs"],
-    ["Wishlist Estimates", "Boxleiter method, conversion rates, revenue projections"],
-  ]},
-  { cat: "Market", skills: [
-    ["Price History", "Pricing trends, sale history, regional pricing, value scoring"],
-    ["Market Research", "Genre trends, tag popularity, competitor analysis, market gaps"],
-    ["Pricing Strategy", "Base pricing, regional tiers, launch discounts, bundles, F2P"],
-  ]},
-  { cat: "Publish", skills: [
-    ["Build Automation", "SteamPipe CI/CD - GitHub Actions, GitLab CI, Jenkins, Docker"],
-    ["Release Checklist", "Pre-release validation - store page, depots, Deck, pricing"],
-    ["SteamCMD Helper", "steamcmd scripting, Docker builds, Steam Guard, troubleshooting"],
-    ["Store Page Optimizer", "Capsule specs, description, tags, trailers, demos, screenshots"],
-  ]},
-  { cat: "Grow", skills: [
-    ["Community Management", "Announcements, events, forums, update posts, Hub config"],
-    ["DLC & Expansion Planning", "DLC roadmap, season passes, content cadence, pricing tiers"],
-    ["Playtest Setup", "Open/closed playtests, key distribution, Next Fest integration"],
-  ]},
-  { cat: "Quality", skills: [
-    ["Bug Report Template", "Structured templates, steam://sysinfo, crash dumps, known issues"],
-    ["Anti-Cheat Integration", "EAC, BattlEye, VAC - Proton/Deck compat, server-side validation"],
-  ]},
-];
-
-/* Render categories */
-const grid = document.getElementById('categoryGrid');
-SKILLS.forEach((group, i) => {
-  const div = document.createElement('div');
-  div.className = 'category' + (i === 0 ? ' open' : '');
-  div.innerHTML = `
-    <div class="category-header" onclick="this.parentElement.classList.toggle('open')">
-      <h3>${group.cat} <span class="category-tag">${group.skills.length}</span></h3>
-      <span class="category-chevron">&#x25BC;</span>
-    </div>
-    <div class="category-body">
-      ${group.skills.map(s => `<div class="skill-item"><span class="skill-name">${s[0]}</span><span class="skill-desc">${s[1]}</span></div>`).join('')}
-    </div>`;
-  grid.appendChild(div);
-});
-
-/* Toast utility */
-const toast = document.getElementById('toast');
-let toastTimeout;
-function showToast(msg) {
-  toast.textContent = msg || 'Copied!';
-  toast.classList.add('show');
-  clearTimeout(toastTimeout);
-  toastTimeout = setTimeout(() => toast.classList.remove('show'), 1800);
-}
-
-/* Copy code block */
-function copyCode(btn) {
-  const block = btn.parentElement;
-  const clone = block.cloneNode(true);
-  clone.querySelector('.copy-btn').remove();
-  const text = clone.textContent.trim();
-  navigator.clipboard.writeText(text).then(() => {
-    btn.textContent = 'Copied!';
-    showToast('Copied to clipboard');
-    setTimeout(() => btn.textContent = 'Copy', 1500);
-  });
-}
-
-/* Copy prompt card */
-function copyPrompt(card) {
-  const text = card.querySelector('p').textContent;
-  navigator.clipboard.writeText(text).then(() => {
-    showToast('Prompt copied!');
-  });
-}
-
-/* Stat counter animation */
-function animateCounters() {
-  document.querySelectorAll('.stat-number[data-target]').forEach(el => {
-    const target = parseInt(el.dataset.target);
-    const duration = 1200;
-    const start = performance.now();
-    function tick(now) {
-      const elapsed = now - start;
-      const progress = Math.min(elapsed / duration, 1);
-      const eased = 1 - Math.pow(1 - progress, 3);
-      el.textContent = Math.round(target * eased);
-      if (progress < 1) requestAnimationFrame(tick);
-    }
-    requestAnimationFrame(tick);
-  });
-}
-
-/* Intersection observer for reveals and stat counter */
-let statsAnimated = false;
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      e.target.classList.add('visible');
-      observer.unobserve(e.target);
-    }
-  });
-}, { threshold: 0.1 });
-document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-const statsObserver = new IntersectionObserver((entries) => {
-  entries.forEach(e => {
-    if (e.isIntersecting && !statsAnimated) {
-      statsAnimated = true;
-      animateCounters();
-      statsObserver.unobserve(e.target);
-    }
-  });
-}, { threshold: 0.3 });
-const statsEl = document.getElementById('stats');
-if (statsEl) statsObserver.observe(statsEl);
-
-/* Terminal replay on click */
-const terminalDemo = document.getElementById('terminalDemo');
-if (terminalDemo) {
-  terminalDemo.style.cursor = 'pointer';
-  terminalDemo.title = 'Click to replay';
-  terminalDemo.addEventListener('click', () => {
-    const lines = terminalDemo.querySelectorAll('.terminal-line');
-    lines.forEach(line => {
-      line.style.animation = 'none';
-      line.offsetHeight;
-      line.style.animation = '';
+    // Copy to clipboard
+    document.querySelectorAll('.copy-btn').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var text = btn.getAttribute('data-copy');
+        if (!text) return;
+        navigator.clipboard.writeText(text).then(function () {
+          var orig = btn.textContent;
+          btn.textContent = 'Copied!';
+          setTimeout(function () { btn.textContent = orig; }, 1500);
+        });
+      });
     });
-  });
-}
 
-/* Mobile nav: close on link click */
-document.querySelectorAll('.nav-links a').forEach(a => {
-  a.addEventListener('click', () => {
-    document.querySelector('.nav-links').classList.remove('open');
-  });
-});
-</script>
+    // Scroll spy
+    (function () {
+      var links = document.querySelectorAll('.nav-links a[href^="#"]');
+      if (!links.length) return;
+      var sections = [];
+      links.forEach(function (link) {
+        var id = link.getAttribute('href').slice(1);
+        var el = document.getElementById(id);
+        if (el) sections.push({ el: el, link: link });
+      });
+      function onScroll() {
+        var scrollY = window.scrollY + 80;
+        var current = null;
+        sections.forEach(function (s) {
+          if (s.el.offsetTop <= scrollY) current = s;
+        });
+        links.forEach(function (l) { l.classList.remove('active'); });
+        if (current) current.link.classList.add('active');
+      }
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+    })();
+  </script>
+
 </body>
 </html>

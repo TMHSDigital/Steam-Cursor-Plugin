@@ -15,5 +15,20 @@
   "links": {
     "npm": "https://www.npmjs.com/package/@tmhs/steam-mcp",
     "github": "https://github.com/TMHSDigital/Steam-Cursor-Plugin"
-  }
+  },
+  "quickStart": {
+    "title": "Get started in seconds",
+    "command": "npm install -g @tmhs/steam-mcp"
+  },
+  "compatibility": {
+    "cursor": "0.49+",
+    "os": ["Windows", "macOS", "Linux"],
+    "node": "18+",
+    "claude": "Claude Code compatible"
+  },
+  "relatedTools": [
+    { "name": "Steam MCP Server", "url": "https://www.npmjs.com/package/@tmhs/steam-mcp", "description": "Standalone MCP server for Steam and Steamworks APIs" },
+    { "name": "Docker Developer Tools", "url": "https://tmhsdigital.github.io/Docker-Developer-Tools/", "description": "Docker container workflows for Cursor" },
+    { "name": "Developer Tools Directory", "url": "https://tmhsdigital.github.io/Developer-Tools-Directory/", "description": "Browse all TMHSDigital developer tools" }
+  ]
 }

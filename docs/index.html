@@ -197,6 +197,54 @@
       .section-actions { margin-left: 0; }
     }
 
+    /* SKILL DETAIL ROWS */
+    details.skill-row { border-bottom: 1px solid rgba(48,54,61,0.5); }
+    details.skill-row > summary { display: flex; align-items: center; gap: 0.75rem; padding: 0.625rem 0.75rem; cursor: pointer; list-style: none; transition: background 0.15s; }
+    details.skill-row > summary::-webkit-details-marker { display: none; }
+    details.skill-row > summary::before { content: ''; display: inline-block; width: 0; height: 0; border-left: 5px solid var(--accent-light); border-top: 4px solid transparent; border-bottom: 4px solid transparent; transition: transform 0.2s; flex-shrink: 0; }
+    details.skill-row[open] > summary::before { transform: rotate(90deg); }
+    details.skill-row > summary:hover { background: var(--bg3); }
+    .skill-name { font-weight: 500; color: var(--text); white-space: nowrap; min-width: 140px; }
+    .skill-desc { color: var(--text-dim); font-size: 0.875rem; }
+    .skill-detail { padding: 0.5rem 0.75rem 1rem 1.75rem; }
+    .skill-detail-group { margin-bottom: 0.75rem; }
+    .skill-detail-group strong { display: block; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-dim); margin-bottom: 0.35rem; }
+    .skill-detail-group ul { list-style: disc; padding-left: 1.25rem; font-size: 0.875rem; color: var(--text); }
+    .skill-detail-group li { margin-bottom: 0.2rem; }
+    .skill-tools { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+    .skill-tools code { background: var(--bg3); padding: 0.15rem 0.5rem; border-radius: 4px; font-family: var(--font-mono); font-size: 0.8rem; color: var(--accent-light); }
+    .skill-category-label { display: inline-block; font-size: 0.6875rem; color: var(--text-dim); background: var(--bg3); padding: 0.1rem 0.5rem; border-radius: 10px; }
+
+    /* QUICK START */
+    .quick-start { position: relative; max-width: 640px; margin: 0 auto 2rem; }
+    .quick-start-title { font-size: 0.8125rem; color: var(--text-dim); text-align: center; margin-bottom: 0.5rem; font-weight: 500; }
+    .quick-start-block { position: relative; background: var(--bg2); border: 1px solid var(--border); border-radius: 8px; padding: 1rem 3rem 1rem 1.25rem; font-family: var(--font-mono); font-size: 0.9rem; color: var(--accent-light); overflow-x: auto; white-space: pre; line-height: 1.6; }
+    .quick-start-copy { position: absolute; top: 0.625rem; right: 0.625rem; background: var(--bg3); border: 1px solid var(--border); border-radius: 6px; color: var(--text-dim); cursor: pointer; padding: 0.3rem; display: flex; align-items: center; justify-content: center; transition: color 0.2s, border-color 0.2s; }
+    .quick-start-copy:hover { color: var(--accent-light); border-color: var(--accent); }
+    .quick-start-copy svg { width: 16px; height: 16px; }
+
+    /* COMPATIBILITY BADGES */
+    .compat-row { display: flex; justify-content: center; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
+    .compat-pill { display: inline-flex; align-items: center; gap: 0.35rem; padding: 0.25rem 0.75rem; background: color-mix(in srgb, var(--accent) 12%, transparent); border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent); border-radius: 999px; font-size: 0.75rem; font-weight: 500; color: var(--accent-light); white-space: nowrap; }
+    .compat-pill svg { width: 14px; height: 14px; flex-shrink: 0; }
+
+    /* CHANGELOG */
+    .changelog-entry { margin-bottom: 1.25rem; }
+    .changelog-version { font-size: 1rem; font-weight: 700; color: var(--text); }
+    .changelog-date { font-size: 0.8125rem; color: var(--text-dim); margin-left: 0.5rem; }
+    .changelog-heading { font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent-light); margin: 0.75rem 0 0.35rem; }
+    .changelog-items { list-style: disc; padding-left: 1.25rem; font-size: 0.875rem; color: var(--text-dim); }
+    .changelog-items li { margin-bottom: 0.2rem; }
+    .changelog-link { display: inline-block; margin-top: 0.75rem; font-size: 0.8125rem; }
+
+    /* RELATED TOOLS */
+    .related-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+    .related-card { display: flex; flex-direction: column; padding: 1rem 1.25rem; background: var(--bg3); border: 1px solid var(--border); border-radius: 8px; transition: border-color 0.2s, transform 0.15s; text-decoration: none; color: inherit; }
+    .related-card:hover { border-color: var(--accent); transform: translateY(-2px); color: inherit; }
+    .related-card-name { font-weight: 600; font-size: 0.9375rem; color: var(--text); display: flex; align-items: center; gap: 0.4rem; }
+    .related-card-name svg { width: 14px; height: 14px; color: var(--accent-light); flex-shrink: 0; }
+    .related-card-desc { font-size: 0.8125rem; color: var(--text-dim); margin-top: 0.35rem; }
+
     /* SR ONLY */
     .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0; }
 
@@ -221,6 +269,8 @@
         <li><a href="#rules">Rules</a></li>
         <li><a href="#mcp-tools">MCP Tools</a></li>
         <li><a href="#install">Install</a></li>
+        <li><a href="#changelog">Changelog</a></li>
+        <li><a href="#related">Related</a></li>
         <li><a href="https://github.com/TMHSDigital/Steam-Cursor-Plugin">GitHub</a></li>
         <li>
           <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
@@ -242,6 +292,35 @@
         <div class="stat"><div class="stat-val" data-target="9">0</div><div class="stat-lbl">Rules</div></div>
         <div class="stat"><div class="stat-val" data-target="25">0</div><div class="stat-lbl">MCP Tools</div></div>
       </div>
+      
+      <div class="compat-row">
+        
+        <span class="compat-pill">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          Cursor 0.49+
+        </span>
+        
+        
+        <span class="compat-pill">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          Windows / macOS / Linux
+        </span>
+        
+        
+        <span class="compat-pill">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+          Node 18+
+        </span>
+        
+        
+        <span class="compat-pill">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z"/><path d="M9 12l2 2 4-4"/></svg>
+          Claude Code compatible
+        </span>
+        
+      </div>
+      
+
       <div class="hero-badges">
         <a class="badge" href="https://github.com/TMHSDigital/Steam-Cursor-Plugin">
           <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
@@ -254,6 +333,16 @@
         </a>
         
       </div>
+
+      
+      <div class="quick-start">
+        <div class="quick-start-title">Get started in seconds</div>
+        <div class="quick-start-block" id="quickStartCode">npm install -g @tmhs/steam-mcp</div>
+        <button class="quick-start-copy" id="quickStartCopy" aria-label="Copy command">
+          <svg viewBox="0 0 16 16" fill="currentColor"><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 010 1.5h-1.5a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-1.5a.75.75 0 011.5 0v1.5A1.75 1.75 0 019.25 16h-7.5A1.75 1.75 0 010 14.25v-7.5z"/><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0114.25 11h-7.5A1.75 1.75 0 015 9.25v-7.5zm1.75-.25a.25.25 0 00-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 00.25-.25v-7.5a.25.25 0 00-.25-.25h-7.5z"/></svg>
+        </button>
+      </div>
+      
     </div>
   </section>
 
@@ -273,162 +362,517 @@
     <details class="cat-group" id="skills-body">
       <summary class="sr-only">Skills list</summary>
       <div class="cat-body">
-        <table class="data-table">
-          <thead><tr><th>Name</th><th>Description</th></tr></thead>
-          <tbody>
+        
+        <details class="skill-row">
+          <summary>
+            <span class="skill-name">Steam Achievement Designer</span>
+            <span class="skill-desc">Design and document Steam achievements. Helps structure achievement definitions (API name, display name, description, icon requirements, hidden flag) and generates the VDF/JSON config snippets for Ste</span>
+          </summary>
+          <div class="skill-detail">
             
-            <tr>
-              <td class="name-cell">Steam Achievement Designer</td>
-              <td>Design and document Steam achievements. Helps structure achievement definitions (API name, display name, description, icon requirements, hidden flag) and generates the VDF/JSON config snippets for Ste</td>
-            </tr>
+            <div class="skill-detail-group">
+              <strong>Triggers</strong>
+              <ul><li>Is planning achievements for a Steam game</li><li>Needs to generate achievement configuration files (VDF or JSON)</li><li>Asks about achievement icon requirements or naming conventions</li><li>Wants to structure achievement data for Steamworks upload</li><li>Is implementing achievement unlocking in their game code</li></ul>
+            </div>
             
-            <tr>
-              <td class="name-cell">Steam Anti-Cheat Integration</td>
-              <td>Integrate anti-cheat solutions with Steam games. Covers EasyAntiCheat (EAC), BattlEye, and VAC setup, Proton/Linux compatibility, Steam Deck considerations, and custom anti-cheat patterns. Use when ad</td>
-            </tr>
             
-            <tr>
-              <td class="name-cell">Steam API Reference</td>
-              <td>Search and retrieve Steam Web API and Steamworks SDK documentation. Returns endpoint signatures, parameter descriptions, and code examples. Use when the user needs to call a Steam API, wants to know a</td>
-            </tr>
+            <span class="skill-category-label">steam-achievement-designer</span>
+          </div>
+        </details>
+        
+        <details class="skill-row">
+          <summary>
+            <span class="skill-name">Steam Anti-Cheat Integration</span>
+            <span class="skill-desc">Integrate anti-cheat solutions with Steam games. Covers EasyAntiCheat (EAC), BattlEye, and VAC setup, Proton/Linux compatibility, Steam Deck considerations, and custom anti-cheat patterns. Use when ad</span>
+          </summary>
+          <div class="skill-detail">
             
-            <tr>
-              <td class="name-cell">Steam Bug Report Template</td>
-              <td>Generate structured bug report templates for Steam games. Covers report structure, Steam system info integration, crash dump guidance, known issues tracking, and forum integration. Use when setting up</td>
-            </tr>
+            <div class="skill-detail-group">
+              <strong>Triggers</strong>
+              <ul><li>Wants to add anti-cheat to their Steam game</li><li>Asks about EasyAntiCheat, BattlEye, or VAC</li><li>Needs anti-cheat that works with Proton/Linux/Steam Deck</li><li>Asks about the trade-offs between different anti-cheat solutions</li><li>Needs to configure anti-cheat in Steamworks</li><li>Is troubleshooting anti-cheat compatibility issues</li></ul>
+            </div>
             
-            <tr>
-              <td class="name-cell">Steam Build Automation</td>
-              <td>Automate Steam builds with SteamPipe CI/CD integration. Covers GitHub Actions, GitLab CI, and Jenkins pipelines for depot uploads, beta branch management, and Docker-containerized builds. Use when set</td>
-            </tr>
             
-            <tr>
-              <td class="name-cell">Steam Cloud Saves</td>
-              <td>Implement Steam Cloud save functionality. Covers ISteamRemoteStorage for manual cloud saves, Auto-Cloud configuration, conflict resolution, and quota management. Use when adding cloud save support to </td>
-            </tr>
+            <span class="skill-category-label">steam-anticheat-integration</span>
+          </div>
+        </details>
+        
+        <details class="skill-row">
+          <summary>
+            <span class="skill-name">Steam API Reference</span>
+            <span class="skill-desc">Search and retrieve Steam Web API and Steamworks SDK documentation. Returns endpoint signatures, parameter descriptions, and code examples. Use when the user needs to call a Steam API, wants to know a</span>
+          </summary>
+          <div class="skill-detail">
             
-            <tr>
-              <td class="name-cell">Steam Community Management</td>
-              <td>Post-launch community management for Steam games. Covers announcements, events, discussion forum moderation, update post templates, and Community Hub configuration. Use when managing player communicat</td>
-            </tr>
+            <div class="skill-detail-group">
+              <strong>Triggers</strong>
+              <ul><li>Asks how to call a specific Steam API endpoint</li><li>Wants to know what Steam/Steamworks APIs are available</li><li>Needs parameter details for a Steam Web API method</li><li>Is integrating the Steamworks SDK (C++, C#, or other supported languages)</li><li>Asks about authentication (API keys, session tickets, etc.)</li><li>Is a modder looking for Workshop or UGC API documentation</li></ul>
+            </div>
             
-            <tr>
-              <td class="name-cell">Steam DLC &amp; Expansion Planning</td>
-              <td>Plan and configure DLC, expansions, and post-launch content for Steam games. Covers DLC App ID creation, depot setup, season passes, content cadence, pricing tiers, and in-game ownership checks. Use w</td>
-            </tr>
             
-            <tr>
-              <td class="name-cell">Steam Friends &amp; Social</td>
-              <td>Integrate Steam social features into your game. Covers friends list, rich presence, Steam Overlay, game invites, avatars, and persona names via ISteamFriends. Use when building social features, showin</td>
-            </tr>
+            <span class="skill-category-label">steam-api-reference</span>
+          </div>
+        </details>
+        
+        <details class="skill-row">
+          <summary>
+            <span class="skill-name">Steam Bug Report Template</span>
+            <span class="skill-desc">Generate structured bug report templates for Steam games. Covers report structure, Steam system info integration, crash dump guidance, known issues tracking, and forum integration. Use when setting up</span>
+          </summary>
+          <div class="skill-detail">
             
-            <tr>
-              <td class="name-cell">Steam Game Comparison</td>
-              <td>Compare two or more Steam games side by side. Fetches store data and player counts for multiple titles and formats a comparison table. Use when comparing game prices, reviews, player counts, or featur</td>
-            </tr>
+            <div class="skill-detail-group">
+              <strong>Triggers</strong>
+              <ul><li>Needs a bug report template for their Steam game</li><li>Wants to set up a bug reporting workflow</li><li>Asks about crash dump collection or analysis</li><li>Needs to organize known issues tracking</li><li>Wants to integrate bug reporting with Steam Discussion forums</li><li>Asks about Steam system info for debugging</li></ul>
+            </div>
             
-            <tr>
-              <td class="name-cell">Steam Input / Controller Support</td>
-              <td>Integrate Steam Input for controller support. Covers ISteamInput for detecting controllers, configuring action sets, binding actions, and retrieving button glyphs. Use when adding controller support, </td>
-            </tr>
             
-            <tr>
-              <td class="name-cell">Steam Inventory &amp; Economy</td>
-              <td>Implement Steam Inventory and in-game economy. Covers ISteamInventory for item management, ISteamMicroTxn for in-game purchases, inventory schema definition, and Web API queries. Use when adding items</td>
-            </tr>
+            <span class="skill-category-label">steam-bug-report-template</span>
+          </div>
+        </details>
+        
+        <details class="skill-row">
+          <summary>
+            <span class="skill-name">Steam Build Automation</span>
+            <span class="skill-desc">Automate Steam builds with SteamPipe CI/CD integration. Covers GitHub Actions, GitLab CI, and Jenkins pipelines for depot uploads, beta branch management, and Docker-containerized builds. Use when set</span>
+          </summary>
+          <div class="skill-detail">
             
-            <tr>
-              <td class="name-cell">Steam Leaderboards</td>
-              <td>Implement and query Steam Leaderboards. Covers creating leaderboards, uploading scores, downloading entries (global, friends, around-user), and Web API queries. Use when adding leaderboards to a game </td>
-            </tr>
+            <div class="skill-detail-group">
+              <strong>Triggers</strong>
+              <ul><li>Wants to automate Steam builds in a CI/CD pipeline</li><li>Needs GitHub Actions, GitLab CI, or Jenkins config for SteamPipe uploads</li><li>Asks about automated depot uploads or build deployment</li><li>Wants to manage beta vs default branches programmatically</li><li>Needs to handle Steam Guard / `config.vdf` in CI</li><li>Asks about Docker-based Steam build environments</li></ul>
+            </div>
             
-            <tr>
-              <td class="name-cell">Steam Market Research</td>
-              <td>Genre trend analysis, tag popularity, competitor identification, and market gap analysis using Steam store data. Use when evaluating a game concept&#39;s market fit, scouting competitors, or analyzing gen</td>
-            </tr>
             
-            <tr>
-              <td class="name-cell">Steam Migration Guide</td>
-              <td>Guide for migrating games to Steam from other platforms (Epic, GOG, itch.io) or integrating Steamworks across engines (Unity, Unreal, Godot). Covers feature parity mapping, SDK integration steps, stor</td>
-            </tr>
+            <span class="skill-category-label">steam-build-automation</span>
+          </div>
+        </details>
+        
+        <details class="skill-row">
+          <summary>
+            <span class="skill-name">Steam Cloud Saves</span>
+            <span class="skill-desc">Implement Steam Cloud save functionality. Covers ISteamRemoteStorage for manual cloud saves, Auto-Cloud configuration, conflict resolution, and quota management. Use when adding cloud save support to </span>
+          </summary>
+          <div class="skill-detail">
             
-            <tr>
-              <td class="name-cell">Steam Multiplayer Networking</td>
-              <td>Integrate Steam multiplayer networking into your game. Covers lobby creation, matchmaking, Steam Networking Sockets (relay), dedicated game servers, and auth tickets. Use when building multiplayer fea</td>
-            </tr>
+            <div class="skill-detail-group">
+              <strong>Triggers</strong>
+              <ul><li>Wants to add cloud saves to their Steam game</li><li>Needs help configuring Auto-Cloud or manual cloud storage</li><li>Is debugging cloud sync conflicts or quota issues</li><li>Asks about `ISteamRemoteStorage` or `steam_autocloud.vdf`</li><li>Wants to migrate from local saves to cloud saves</li></ul>
+            </div>
             
-            <tr>
-              <td class="name-cell">Steam Player Stats</td>
-              <td>Look up player and game statistics including player counts, achievement stats, leaderboards, and user game libraries for public profiles. Use when analyzing game performance, checking player engagemen</td>
-            </tr>
             
-            <tr>
-              <td class="name-cell">Steam Playtest Setup</td>
-              <td>Configure Steam Playtest for pre-release testing. Covers playtest App ID creation, open vs NDA playtests, key distribution, signup page setup, feedback collection, and transition to Early Access or la</td>
-            </tr>
+            <span class="skill-category-label">steam-cloud-saves</span>
+          </div>
+        </details>
+        
+        <details class="skill-row">
+          <summary>
+            <span class="skill-name">Steam Community Management</span>
+            <span class="skill-desc">Post-launch community management for Steam games. Covers announcements, events, discussion forum moderation, update post templates, and Community Hub configuration. Use when managing player communicat</span>
+          </summary>
+          <div class="skill-detail">
             
-            <tr>
-              <td class="name-cell">Steam Price History</td>
-              <td>Analyze pricing trends, sale history, regional pricing differences, and price-to-review value scoring for Steam games. Use when evaluating pricing strategy, comparing regional costs, or identifying sa</td>
-            </tr>
+            <div class="skill-detail-group">
+              <strong>Triggers</strong>
+              <ul><li>Wants to post an announcement or patch notes on Steam</li><li>Needs templates for update posts, sale announcements, or roadmap updates</li><li>Asks about Steam Events (livestreams, free weekends, seasonal events)</li><li>Wants to set up or moderate Steam Discussion forums</li><li>Asks about Community Hub configuration (screenshots, artwork, guides)</li><li>Needs help with community engagement strategy post-launch</li><li>Is a modder managing their Workshop item&#39;s discussion threads or changelogs</li></ul>
+            </div>
             
-            <tr>
-              <td class="name-cell">Steam Pricing Strategy</td>
-              <td>Data-driven pricing strategy for Steam games. Covers regional pricing, launch discounts, sale participation, bundles, free-to-play conversion, and price change rules. Use when setting or adjusting gam</td>
-            </tr>
             
-            <tr>
-              <td class="name-cell">Steam Profile Lookup</td>
-              <td>Look up any Steam user&#39;s public profile. Fetch player summaries, owned games with playtime, recent activity, Steam level, badges, and friend lists. Use when someone wants to check a Steam profile, see</td>
-            </tr>
+            <span class="skill-category-label">steam-community-management</span>
+          </div>
+        </details>
+        
+        <details class="skill-row">
+          <summary>
+            <span class="skill-name">Steam DLC &amp; Expansion Planning</span>
+            <span class="skill-desc">Plan and configure DLC, expansions, and post-launch content for Steam games. Covers DLC App ID creation, depot setup, season passes, content cadence, pricing tiers, and in-game ownership checks. Use w</span>
+          </summary>
+          <div class="skill-detail">
             
-            <tr>
-              <td class="name-cell">Steam Release Checklist</td>
-              <td>Pre-release validation checklist for Steam games. Covers store page completeness, depot configuration, achievements, cloud saves, Steam Deck compatibility, pricing, and launch readiness. Use when prep</td>
-            </tr>
+            <div class="skill-detail-group">
+              <strong>Triggers</strong>
+              <ul><li>Wants to plan DLC or expansion content for their Steam game</li><li>Needs to create and configure a DLC App ID</li><li>Asks about season passes or content bundles</li><li>Wants to plan post-launch content cadence</li><li>Needs DLC pricing guidance</li><li>Asks about in-game DLC ownership checks</li></ul>
+            </div>
             
-            <tr>
-              <td class="name-cell">Steam Review Analysis</td>
-              <td>Fetch and analyze Steam game reviews. Sentiment breakdown, common complaints, comparison across updates, language distribution, and review volume trends. Use when evaluating player feedback, analyzing</td>
-            </tr>
             
-            <tr>
-              <td class="name-cell">Steam SteamCMD Helper</td>
-              <td>Comprehensive steamcmd scripting reference. Common commands, batch/shell scripts, Docker containerized builds, Steam Guard handling, and troubleshooting. Use when writing steamcmd scripts, automating </td>
-            </tr>
+            <span class="skill-category-label">steam-dlc-expansion-planning</span>
+          </div>
+        </details>
+        
+        <details class="skill-row">
+          <summary>
+            <span class="skill-name">Steam Friends &amp; Social</span>
+            <span class="skill-desc">Integrate Steam social features into your game. Covers friends list, rich presence, Steam Overlay, game invites, avatars, and persona names via ISteamFriends. Use when building social features, showin</span>
+          </summary>
+          <div class="skill-detail">
             
-            <tr>
-              <td class="name-cell">Steam Store Lookup</td>
-              <td>Look up any Steam game or app by name or App ID. Returns store page data including price, description, tags, reviews, release date, and system requirements. Use when the user asks about a Steam game, </td>
-            </tr>
+            <div class="skill-detail-group">
+              <strong>Triggers</strong>
+              <ul><li>Wants to display friends list or online status in their game</li><li>Needs to set up rich presence (status text shown in friends list)</li><li>Is implementing game invites or join-game functionality</li><li>Asks about the Steam Overlay or avatar retrieval</li><li>Wants to show player names or profile pictures in-game</li></ul>
+            </div>
             
-            <tr>
-              <td class="name-cell">Steam Store Page Optimizer</td>
-              <td>Optimize Steam store pages for maximum visibility and conversion. Covers capsule image specs, description structure, tag strategy, trailer guidance, demo setup, and screenshot optimization. Use when b</td>
-            </tr>
             
-            <tr>
-              <td class="name-cell">Steam Testing Sandbox</td>
-              <td>Guide for using Steam&#39;s development sandbox environment. Covers App ID 480 (SpaceWar) for testing, test account setup, Steam client console commands, Steamworks partner test environments, and testing </td>
-            </tr>
+            <span class="skill-category-label">steam-friends-social</span>
+          </div>
+        </details>
+        
+        <details class="skill-row">
+          <summary>
+            <span class="skill-name">Steam Game Comparison</span>
+            <span class="skill-desc">Compare two or more Steam games side by side. Fetches store data and player counts for multiple titles and formats a comparison table. Use when comparing game prices, reviews, player counts, or featur</span>
+          </summary>
+          <div class="skill-detail">
             
-            <tr>
-              <td class="name-cell">Steam Wishlist Estimates</td>
-              <td>Estimate wishlist counts from follower data, review counts, and public signals. Provides conversion rate benchmarks (wishlist-to-sales, review-to-sales) and the Boxleiter method. Use when forecasting </td>
-            </tr>
+            <div class="skill-detail-group">
+              <strong>Triggers</strong>
+              <ul><li>Wants to compare two or more Steam games</li><li>Is doing competitive analysis or market research</li><li>Asks &#34;which game has more players / better reviews / lower price&#34;</li><li>Needs a side-by-side feature comparison of Steam titles</li><li>Is deciding between multiple games to buy or study</li></ul>
+            </div>
             
-            <tr>
-              <td class="name-cell">Steam Workshop Helper</td>
-              <td>Query and manage Steam Workshop items. Search workshop by game, get item details, and document workshop integration patterns. Use when building Workshop support into a game or querying UGC data.</td>
-            </tr>
             
-            <tr>
-              <td class="name-cell">Steamworks App Config</td>
-              <td>Manage Steamworks app configuration. Query and document depot configs, build configurations, launch options, and DLC setup. Use when working on Steamworks app admin tasks, setting up builds, or docume</td>
-            </tr>
+            <span class="skill-category-label">steam-game-comparison</span>
+          </div>
+        </details>
+        
+        <details class="skill-row">
+          <summary>
+            <span class="skill-name">Steam Input / Controller Support</span>
+            <span class="skill-desc">Integrate Steam Input for controller support. Covers ISteamInput for detecting controllers, configuring action sets, binding actions, and retrieving button glyphs. Use when adding controller support, </span>
+          </summary>
+          <div class="skill-detail">
             
-          </tbody>
-        </table>
+            <div class="skill-detail-group">
+              <strong>Triggers</strong>
+              <ul><li>Is adding controller support to their Steam game</li><li>Needs to configure Steam Input action sets or bindings</li><li>Wants button glyph images for prompt display</li><li>Is targeting Steam Deck and needs input guidance</li><li>Asks about `ISteamInput`, IGA files, or controller types</li></ul>
+            </div>
+            
+            
+            <span class="skill-category-label">steam-input-controller</span>
+          </div>
+        </details>
+        
+        <details class="skill-row">
+          <summary>
+            <span class="skill-name">Steam Inventory &amp; Economy</span>
+            <span class="skill-desc">Implement Steam Inventory and in-game economy. Covers ISteamInventory for item management, ISteamMicroTxn for in-game purchases, inventory schema definition, and Web API queries. Use when adding items</span>
+          </summary>
+          <div class="skill-detail">
+            
+            <div class="skill-detail-group">
+              <strong>Triggers</strong>
+              <ul><li>Wants to add an item/inventory system to their Steam game</li><li>Needs to implement in-game purchases (microtransactions)</li><li>Is defining an inventory schema (item types, bundles, recipes)</li><li>Asks about `ISteamInventory`, `ISteamMicroTxn`, or the Steam Item Store</li><li>Wants to set up item drops, crafting, or trading</li></ul>
+            </div>
+            
+            
+            <span class="skill-category-label">steam-inventory-economy</span>
+          </div>
+        </details>
+        
+        <details class="skill-row">
+          <summary>
+            <span class="skill-name">Steam Leaderboards</span>
+            <span class="skill-desc">Implement and query Steam Leaderboards. Covers creating leaderboards, uploading scores, downloading entries (global, friends, around-user), and Web API queries. Use when adding leaderboards to a game </span>
+          </summary>
+          <div class="skill-detail">
+            
+            <div class="skill-detail-group">
+              <strong>Triggers</strong>
+              <ul><li>Wants to add leaderboards to their Steam game</li><li>Needs to upload scores or download leaderboard entries</li><li>Asks about leaderboard types (ascending, descending, friends-only)</li><li>Wants to query leaderboard data via the Web API</li><li>Is implementing a high-score or ranking system</li></ul>
+            </div>
+            
+            
+            <span class="skill-category-label">steam-leaderboards</span>
+          </div>
+        </details>
+        
+        <details class="skill-row">
+          <summary>
+            <span class="skill-name">Steam Market Research</span>
+            <span class="skill-desc">Genre trend analysis, tag popularity, competitor identification, and market gap analysis using Steam store data. Use when evaluating a game concept&#39;s market fit, scouting competitors, or analyzing gen</span>
+          </summary>
+          <div class="skill-detail">
+            
+            <div class="skill-detail-group">
+              <strong>Triggers</strong>
+              <ul><li>Wants to analyze a genre or tag&#39;s popularity on Steam</li><li>Needs to identify competitors for a game concept</li><li>Asks about market gaps or underserved niches</li><li>Wants to evaluate a game idea&#39;s viability</li><li>Needs data on release volume, review benchmarks, or pricing tiers within a genre</li><li>Asks &#34;what&#39;s selling well&#34; in a category</li></ul>
+            </div>
+            
+            
+            <span class="skill-category-label">steam-market-research</span>
+          </div>
+        </details>
+        
+        <details class="skill-row">
+          <summary>
+            <span class="skill-name">Steam Migration Guide</span>
+            <span class="skill-desc">Guide for migrating games to Steam from other platforms (Epic, GOG, itch.io) or integrating Steamworks across engines (Unity, Unreal, Godot). Covers feature parity mapping, SDK integration steps, stor</span>
+          </summary>
+          <div class="skill-detail">
+            
+            <div class="skill-detail-group">
+              <strong>Triggers</strong>
+              <ul><li>Wants to bring an existing game to Steam from another storefront</li><li>Is porting from Epic Games Store, GOG, itch.io, or console to Steam</li><li>Needs to integrate Steamworks SDK into an engine (Unity, Unreal, Godot)</li><li>Asks about feature parity between platforms (achievements, cloud saves, etc.)</li><li>Wants a checklist for launching an existing game on Steam</li></ul>
+            </div>
+            
+            
+            <span class="skill-category-label">steam-migration-guide</span>
+          </div>
+        </details>
+        
+        <details class="skill-row">
+          <summary>
+            <span class="skill-name">Steam Multiplayer Networking</span>
+            <span class="skill-desc">Integrate Steam multiplayer networking into your game. Covers lobby creation, matchmaking, Steam Networking Sockets (relay), dedicated game servers, and auth tickets. Use when building multiplayer fea</span>
+          </summary>
+          <div class="skill-detail">
+            
+            <div class="skill-detail-group">
+              <strong>Triggers</strong>
+              <ul><li>Is adding multiplayer support to a Steam game</li><li>Needs help with lobby creation, joining, or matchmaking</li><li>Wants to use Steam Networking Sockets (relay network)</li><li>Is setting up dedicated game servers with Steam</li><li>Asks about auth tickets, P2P networking, or skill-based matchmaking</li></ul>
+            </div>
+            
+            
+            <span class="skill-category-label">steam-multiplayer-networking</span>
+          </div>
+        </details>
+        
+        <details class="skill-row">
+          <summary>
+            <span class="skill-name">Steam Player Stats</span>
+            <span class="skill-desc">Look up player and game statistics including player counts, achievement stats, leaderboards, and user game libraries for public profiles. Use when analyzing game performance, checking player engagemen</span>
+          </summary>
+          <div class="skill-detail">
+            
+            <div class="skill-detail-group">
+              <strong>Triggers</strong>
+              <ul><li>Asks how many players are currently playing a game</li><li>Wants achievement unlock percentages or player achievement data</li><li>Needs playtime or library data for a Steam user</li><li>Is building analytics or dashboards around Steam player data</li><li>Asks about leaderboard data or stat tracking</li></ul>
+            </div>
+            
+            
+            <span class="skill-category-label">steam-player-stats</span>
+          </div>
+        </details>
+        
+        <details class="skill-row">
+          <summary>
+            <span class="skill-name">Steam Playtest Setup</span>
+            <span class="skill-desc">Configure Steam Playtest for pre-release testing. Covers playtest App ID creation, open vs NDA playtests, key distribution, signup page setup, feedback collection, and transition to Early Access or la</span>
+          </summary>
+          <div class="skill-detail">
+            
+            <div class="skill-detail-group">
+              <strong>Triggers</strong>
+              <ul><li>Wants to set up a Steam Playtest for their game</li><li>Asks about open vs closed/NDA playtests</li><li>Needs to generate and distribute playtest keys</li><li>Wants to configure a playtest signup page</li><li>Asks about collecting feedback during a playtest</li><li>Is transitioning from playtest to Early Access or full launch</li></ul>
+            </div>
+            
+            
+            <span class="skill-category-label">steam-playtest-setup</span>
+          </div>
+        </details>
+        
+        <details class="skill-row">
+          <summary>
+            <span class="skill-name">Steam Price History</span>
+            <span class="skill-desc">Analyze pricing trends, sale history, regional pricing differences, and price-to-review value scoring for Steam games. Use when evaluating pricing strategy, comparing regional costs, or identifying sa</span>
+          </summary>
+          <div class="skill-detail">
+            
+            <div class="skill-detail-group">
+              <strong>Triggers</strong>
+              <ul><li>Asks about a game&#39;s current or historical pricing</li><li>Wants to compare prices across regions</li><li>Needs sale frequency or discount pattern analysis</li><li>Asks about price-to-value metrics (price per hour, price per review score)</li><li>Wants to plan a pricing strategy for their own game</li><li>Asks about regional pricing recommendations</li></ul>
+            </div>
+            
+            
+            <span class="skill-category-label">steam-price-history</span>
+          </div>
+        </details>
+        
+        <details class="skill-row">
+          <summary>
+            <span class="skill-name">Steam Pricing Strategy</span>
+            <span class="skill-desc">Data-driven pricing strategy for Steam games. Covers regional pricing, launch discounts, sale participation, bundles, free-to-play conversion, and price change rules. Use when setting or adjusting gam</span>
+          </summary>
+          <div class="skill-detail">
+            
+            <div class="skill-detail-group">
+              <strong>Triggers</strong>
+              <ul><li>Needs to set a price for their Steam game</li><li>Asks about regional pricing or Valve&#39;s suggested multipliers</li><li>Wants to plan launch discounts or sale participation</li><li>Asks about bundles, packages, or pricing tiers</li><li>Is considering free-to-play or free-to-play conversion</li><li>Wants to change their game&#39;s price and needs to understand cooldown rules</li></ul>
+            </div>
+            
+            
+            <span class="skill-category-label">steam-pricing-strategy</span>
+          </div>
+        </details>
+        
+        <details class="skill-row">
+          <summary>
+            <span class="skill-name">Steam Profile Lookup</span>
+            <span class="skill-desc">Look up any Steam user&#39;s public profile. Fetch player summaries, owned games with playtime, recent activity, Steam level, badges, and friend lists. Use when someone wants to check a Steam profile, see</span>
+          </summary>
+          <div class="skill-detail">
+            
+            <div class="skill-detail-group">
+              <strong>Triggers</strong>
+              <ul><li>Wants to look up a Steam profile (their own or someone else&#39;s)</li><li>Asks about a player&#39;s game library, playtime, or recent activity</li><li>Needs to resolve a Steam vanity URL or profile link to a Steam ID</li><li>Wants to check someone&#39;s Steam level, badges, or friend list</li><li>Is curious about their own Steam stats</li></ul>
+            </div>
+            
+            
+            <span class="skill-category-label">steam-profile-lookup</span>
+          </div>
+        </details>
+        
+        <details class="skill-row">
+          <summary>
+            <span class="skill-name">Steam Release Checklist</span>
+            <span class="skill-desc">Pre-release validation checklist for Steam games. Covers store page completeness, depot configuration, achievements, cloud saves, Steam Deck compatibility, pricing, and launch readiness. Use when prep</span>
+          </summary>
+          <div class="skill-detail">
+            
+            <div class="skill-detail-group">
+              <strong>Triggers</strong>
+              <ul><li>Is preparing to launch a game on Steam</li><li>Asks what they need to do before releasing</li><li>Wants a pre-release validation checklist</li><li>Is about to push a build to the `default` branch</li><li>Asks about store page requirements or launch readiness</li><li>Needs to verify their Steamworks configuration is complete</li></ul>
+            </div>
+            
+            
+            <span class="skill-category-label">steam-release-checklist</span>
+          </div>
+        </details>
+        
+        <details class="skill-row">
+          <summary>
+            <span class="skill-name">Steam Review Analysis</span>
+            <span class="skill-desc">Fetch and analyze Steam game reviews. Sentiment breakdown, common complaints, comparison across updates, language distribution, and review volume trends. Use when evaluating player feedback, analyzing</span>
+          </summary>
+          <div class="skill-detail">
+            
+            <div class="skill-detail-group">
+              <strong>Triggers</strong>
+              <ul><li>Wants to analyze reviews for a Steam game</li><li>Asks about player sentiment, common complaints, or praise</li><li>Needs a breakdown of positive vs negative reviews</li><li>Wants to compare review sentiment before and after an update</li><li>Asks about review bombing or sudden sentiment shifts</li><li>Needs review data by language or purchase type</li></ul>
+            </div>
+            
+            
+            <span class="skill-category-label">steam-review-analysis</span>
+          </div>
+        </details>
+        
+        <details class="skill-row">
+          <summary>
+            <span class="skill-name">Steam SteamCMD Helper</span>
+            <span class="skill-desc">Comprehensive steamcmd scripting reference. Common commands, batch/shell scripts, Docker containerized builds, Steam Guard handling, and troubleshooting. Use when writing steamcmd scripts, automating </span>
+          </summary>
+          <div class="skill-detail">
+            
+            <div class="skill-detail-group">
+              <strong>Triggers</strong>
+              <ul><li>Needs help with `steamcmd` commands or scripting</li><li>Wants to automate Steam builds or dedicated server management</li><li>Asks about `steamcmd` login, Steam Guard, or authentication</li><li>Needs Docker-based steamcmd setups</li><li>Is troubleshooting steamcmd errors</li><li>Wants to download or update dedicated game servers</li></ul>
+            </div>
+            
+            
+            <span class="skill-category-label">steam-steamcmd-helper</span>
+          </div>
+        </details>
+        
+        <details class="skill-row">
+          <summary>
+            <span class="skill-name">Steam Store Lookup</span>
+            <span class="skill-desc">Look up any Steam game or app by name or App ID. Returns store page data including price, description, tags, reviews, release date, and system requirements. Use when the user asks about a Steam game, </span>
+          </summary>
+          <div class="skill-detail">
+            
+            <div class="skill-detail-group">
+              <strong>Triggers</strong>
+              <ul><li>Asks about a specific Steam game or application</li><li>Wants pricing, review scores, or store metadata for a game</li><li>Needs system requirements for a title</li><li>Wants to compare games or check competitor store pages</li><li>Mentions a Steam App ID or game name in a store context</li><li>Wants to check if a game supports Workshop/mods before starting a mod project</li></ul>
+            </div>
+            
+            
+            <span class="skill-category-label">steam-store-lookup</span>
+          </div>
+        </details>
+        
+        <details class="skill-row">
+          <summary>
+            <span class="skill-name">Steam Store Page Optimizer</span>
+            <span class="skill-desc">Optimize Steam store pages for maximum visibility and conversion. Covers capsule image specs, description structure, tag strategy, trailer guidance, demo setup, and screenshot optimization. Use when b</span>
+          </summary>
+          <div class="skill-detail">
+            
+            <div class="skill-detail-group">
+              <strong>Triggers</strong>
+              <ul><li>Is building or improving a Steam store page</li><li>Asks about capsule image sizes, specs, or guidelines</li><li>Needs help writing store page descriptions</li><li>Wants tag strategy advice for discoverability</li><li>Asks about trailer requirements or best practices</li><li>Wants to set up a demo on Steam</li><li>Needs screenshot guidance</li></ul>
+            </div>
+            
+            
+            <span class="skill-category-label">steam-store-page-optimizer</span>
+          </div>
+        </details>
+        
+        <details class="skill-row">
+          <summary>
+            <span class="skill-name">Steam Testing Sandbox</span>
+            <span class="skill-desc">Guide for using Steam&#39;s development sandbox environment. Covers App ID 480 (SpaceWar) for testing, test account setup, Steam client console commands, Steamworks partner test environments, and testing </span>
+          </summary>
+          <div class="skill-detail">
+            
+            <div class="skill-detail-group">
+              <strong>Triggers</strong>
+              <ul><li>Wants to test Steamworks features without a published game</li><li>Asks about App ID 480 or SpaceWar for development</li><li>Needs to set up test accounts for Steam multiplayer testing</li><li>Wants to use the Steam client developer console</li><li>Asks about testing achievements, leaderboards, or inventory in development</li><li>Needs to test features before deploying to production</li></ul>
+            </div>
+            
+            
+            <span class="skill-category-label">steam-testing-sandbox</span>
+          </div>
+        </details>
+        
+        <details class="skill-row">
+          <summary>
+            <span class="skill-name">Steam Wishlist Estimates</span>
+            <span class="skill-desc">Estimate wishlist counts from follower data, review counts, and public signals. Provides conversion rate benchmarks (wishlist-to-sales, review-to-sales) and the Boxleiter method. Use when forecasting </span>
+          </summary>
+          <div class="skill-detail">
+            
+            <div class="skill-detail-group">
+              <strong>Triggers</strong>
+              <ul><li>Wants to estimate how many wishlists a game has</li><li>Asks about wishlist-to-sales conversion rates</li><li>Needs to forecast launch-week or first-month sales</li><li>Asks about the Boxleiter method or review multipliers</li><li>Wants to reverse-engineer sales from review counts</li><li>Needs benchmarks for pre-release marketing targets</li></ul>
+            </div>
+            
+            
+            <span class="skill-category-label">steam-wishlist-estimates</span>
+          </div>
+        </details>
+        
+        <details class="skill-row">
+          <summary>
+            <span class="skill-name">Steam Workshop Helper</span>
+            <span class="skill-desc">Query and manage Steam Workshop items. Search workshop by game, get item details, and document workshop integration patterns. Use when building Workshop support into a game or querying UGC data.</span>
+          </summary>
+          <div class="skill-detail">
+            
+            <div class="skill-detail-group">
+              <strong>Triggers</strong>
+              <ul><li>Wants to look up Steam Workshop items for a game</li><li>Is integrating Steam Workshop (UGC) support into their game</li><li>Needs details about a specific Workshop item (file ID)</li><li>Asks about Workshop upload, update, or query APIs</li><li>Wants to understand Workshop integration architecture</li><li>Is a modder looking to publish or update a Workshop item</li><li>Wants to find popular mods for a game</li><li>Needs help with the Workshop upload/update SDK flow as a mod creator</li></ul>
+            </div>
+            
+            
+            <span class="skill-category-label">steam-workshop-helper</span>
+          </div>
+        </details>
+        
+        <details class="skill-row">
+          <summary>
+            <span class="skill-name">Steamworks App Config</span>
+            <span class="skill-desc">Manage Steamworks app configuration. Query and document depot configs, build configurations, launch options, and DLC setup. Use when working on Steamworks app admin tasks, setting up builds, or docume</span>
+          </summary>
+          <div class="skill-detail">
+            
+            <div class="skill-detail-group">
+              <strong>Triggers</strong>
+              <ul><li>Is setting up or modifying Steamworks depot configurations</li><li>Needs help writing `app_build.vdf` or `depot_build.vdf` files</li><li>Asks about launch options, OS-specific builds, or beta branches</li><li>Is configuring DLC, packages, or bundles in Steamworks</li><li>References Steamworks Partner site configuration</li><li>Needs to document their build pipeline for Steam distribution</li></ul>
+            </div>
+            
+            
+            <span class="skill-category-label">steamworks-app-config</span>
+          </div>
+        </details>
+        
       </div>
     </details>
   </section>
@@ -739,6 +1183,104 @@
   </section>
   
 
+  <!-- Changelog -->
+  
+  <section class="section" id="changelog">
+    <div class="section-header">
+      <h2>Changelog</h2>
+      <div class="section-actions">
+        <button class="btn-sm toggle-section" data-target="changelog-body">Expand</button>
+      </div>
+    </div>
+    <details class="cat-group" id="changelog-body">
+      <summary class="sr-only">Recent changelog</summary>
+      <div class="cat-body">
+        
+        <div class="changelog-entry">
+          <span class="changelog-version">v1.0.0</span>
+          <span class="changelog-date">2026-03-29</span>
+          
+          <div class="changelog-heading">Added</div>
+          <ul class="changelog-items">
+            <li>**5 new MCP tools** in companion Steam MCP server (v0.6.0), reaching 25 total tools:</li><li>`steam_getNewsForApp` — Fetch recent news and announcements for a game (no auth)</li><li>`steam_getSchemaForGame` — Achievement/stat schema with display names, descriptions, and icons (API key)</li><li>`steam_getPlayerAchievements` — Per-player achievement unlock status and timestamps (API key)</li><li>`steam_getLeaderboardsForGame` — List all leaderboards with numeric IDs (API key)</li><li>`steam_clearAchievement` — Re-lock/clear an achievement for QA testing (publisher key)</li><li>Skills updated with new tool references: steam-api-reference, steam-achievement-designer, steam-player-stats, steam-leaderboards, steam-community-management, steam-testing-sandbox</li><li>`steam-api-key-usage` rule updated with `GetNewsForApp`, `GetSchemaForGame`, `GetPlayerAchievements` equivalents</li>
+          </ul>
+          
+          <div class="changelog-heading">Changed</div>
+          <ul class="changelog-items">
+            <li>**Expanded target audience** to include modders alongside game developers and power users</li><li>Widened skill triggers for steam-workshop-helper, steam-store-lookup, steam-api-reference, and steam-community-management to activate on modder use cases</li><li>Added modder example interaction to steam-workshop-helper (Workshop upload flow)</li><li>Added &#34;For Modders&#34; callout section in README with relevant tools</li><li>Added &#34;Who Is This For?&#34; section to GitHub Pages site with game dev / modder / power user columns</li><li>Added modder-related prompt cards to the site</li><li>Updated OG card, meta descriptions, and plugin description to include modders</li><li>Added `modding`, `steam-workshop`, `ugc` keywords to plugin.json</li><li>Plugin version bumped to 1.0.0</li>
+          </ul>
+          
+          <div class="changelog-heading">Fixed</div>
+          <ul class="changelog-items">
+            <li>**MCP tool naming** — Renamed all 20 MCP tool references from dot notation (`steam.getAppDetails`) to underscore notation (`steam_getAppDetails`) across 34 files. Dots conflicted with Cursor&#39;s internal MCP bridge routing. Companion steam-mcp server v0.5.0 has the matching rename.</li><li>**`steam_searchApps` parameter** — Renamed `term` to `query` across all skills, rules, and docs to match steam-mcp server v0.5.1 schema change</li><li>**`steam_getLeaderboardsForGame` auth tier** — Corrected from publisher key to standard API key across all docs (companion steam-mcp server v0.6.1)</li><li>**`steam_getPlayerAchievements` error message** — Corrected from publisher key boilerplate to free API key + public profile message (companion steam-mcp server v0.6.1)</li><li>**Companion steam-mcp server v0.5.1** — `steam_getLeaderboardEntries` description clarified (numeric ID required), write tools (`steam_setAchievement`, `steam_uploadLeaderboardScore`, `steam_grantInventoryItem`) now return clear error messages when publisher key is missing</li><li>**Companion steam-mcp server v0.6.0** — Fixed POST body encoding on publisher tools (params now sent as `application/x-www-form-urlencoded` body instead of URL query string), removed dead variable in `grantInventoryItem`</li>
+          </ul>
+          
+        </div>
+        
+        <div class="changelog-entry">
+          <span class="changelog-version">v0.9.0</span>
+          <span class="changelog-date">2026-03-28</span>
+          
+          <div class="changelog-heading">Added</div>
+          <ul class="changelog-items">
+            <li>**4 new MCP read tools** in companion Steam MCP server (v0.4.0), reaching the target of 20 total tools:</li><li>`steam_getReviews` — Fetch user reviews with filters for language, sentiment, purchase type, and pagination (no auth)</li><li>`steam_getPriceOverview` — Batch price check for multiple apps in a specific region (no auth)</li><li>`steam_getAppReviewSummary` — Review score, total counts, and positive percentage without individual reviews (no auth)</li><li>`steam_getRegionalPricing` — Pricing breakdown across multiple countries/regions (no auth)</li>
+          </ul>
+          
+          <div class="changelog-heading">Changed</div>
+          <ul class="changelog-items">
+            <li>Plugin version bumped to 0.9.0</li><li>Companion Steam MCP server bumped to 0.4.0 (20 tools: 14 read-only + 6 write/guidance)</li><li>All documentation updated: README, CLAUDE.md, CONTRIBUTING.md, ROADMAP.md</li>
+          </ul>
+          
+          <div class="changelog-heading">Changed</div>
+          <ul class="changelog-items">
+            <li>Plugin version bumped to 0.9.0</li><li>Companion Steam MCP server bumped to 0.4.0 (20 tools: 14 read-only + 6 write/guidance)</li><li>All documentation updated: README, CLAUDE.md, CONTRIBUTING.md, ROADMAP.md</li>
+          </ul>
+          
+        </div>
+        
+        <a class="changelog-link" href="https://github.com/TMHSDigital/Steam-Cursor-Plugin/blob/main/CHANGELOG.md">View full changelog on GitHub &rarr;</a>
+      </div>
+    </details>
+  </section>
+  
+
+  <!-- Related Tools -->
+  
+  <section class="section" id="related">
+    <div class="section-header">
+      <h2>Related Tools</h2>
+      <span class="count">3</span>
+    </div>
+    <div class="related-grid">
+      
+      <a class="related-card" href="https://www.npmjs.com/package/@tmhs/steam-mcp">
+        <span class="related-card-name">
+          Steam MCP Server
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+        </span>
+        <span class="related-card-desc">Standalone MCP server for Steam and Steamworks APIs</span>
+      </a>
+      
+      <a class="related-card" href="https://tmhsdigital.github.io/Docker-Developer-Tools/">
+        <span class="related-card-name">
+          Docker Developer Tools
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+        </span>
+        <span class="related-card-desc">Docker container workflows for Cursor</span>
+      </a>
+      
+      <a class="related-card" href="https://tmhsdigital.github.io/Developer-Tools-Directory/">
+        <span class="related-card-name">
+          Developer Tools Directory
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+        </span>
+        <span class="related-card-desc">Browse all TMHSDigital developer tools</span>
+      </a>
+      
+    </div>
+  </section>
+  
+
   </div><!-- /.content-area -->
 
   <!-- Footer -->
@@ -853,6 +1395,14 @@
     function copyText(text) {
       navigator.clipboard.writeText(text).then(function () { showToast('Copied to clipboard'); });
     }
+
+    /* Quick-start copy button */
+    (function () {
+      var btn = document.getElementById('quickStartCopy');
+      var block = document.getElementById('quickStartCode');
+      if (!btn || !block) return;
+      btn.addEventListener('click', function () { copyText(block.textContent.trim()); });
+    })();
 
     /* Auto-add copy buttons next to <code> in install steps */
     (function () {

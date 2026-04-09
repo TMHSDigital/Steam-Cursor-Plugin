@@ -6,11 +6,11 @@
   "favicon": "assets/logo.png",
   "ogImage": "assets/logo.png",
   "installSteps": [
-    "Clone the repository",
-    "Open the folder in Cursor IDE",
-    "Install the companion MCP server: <code>npm install -g @tmhs/steam-mcp</code>",
-    "Add your Steam API key to the MCP config",
-    "Start using the AI skills and rules"
+    "<strong>Install the plugin:</strong><br><code>git clone https://github.com/TMHSDigital/Steam-Cursor-Plugin.git</code><br>Open the cloned folder in Cursor IDE.",
+    "<strong>Install the companion MCP server:</strong><br><code>npm install -g @tmhs/steam-mcp</code>",
+    "<strong>Get a Steam API key</strong> (free) at <a href=\"https://steamcommunity.com/dev/apikey\" target=\"_blank\">steamcommunity.com/dev/apikey</a>.",
+    "<strong>Add to Cursor MCP config</strong> (<code>.cursor/mcp.json</code>):<br><code>{\"mcpServers\":{\"steam\":{\"command\":\"npx\",\"args\":[\"-y\",\"@tmhs/steam-mcp\"],\"env\":{\"STEAM_API_KEY\":\"YOUR_KEY_HERE\"}}}}</code>",
+    "Restart Cursor. The 30 skills, 9 rules, and 25 MCP tools are now available. The API key is optional for store lookups but required for player-specific tools."
   ],
   "links": {
     "npm": "https://www.npmjs.com/package/@tmhs/steam-mcp",

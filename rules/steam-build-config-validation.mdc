@@ -5,6 +5,7 @@ globs:
   - "**/*.vdf"
   - "**/app_build*"
   - "**/depot_build*"
+standards-version: 1.6.3
 ---
 
 # Steam Build Config Validation

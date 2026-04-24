@@ -1,6 +1,7 @@
 ---
 name: steam-inventory-economy
 description: Implement Steam Inventory and in-game economy. Covers ISteamInventory for item management, ISteamMicroTxn for in-game purchases, inventory schema definition, and Web API queries. Use when adding items, loot, microtransactions, or a player-facing item store to a game.
+standards-version: 1.6.3
 ---
 
 # Steam Inventory & Economy

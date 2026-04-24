@@ -11,6 +11,7 @@ globs:
   - "**/*.cfg"
   - "**/*.ini"
   - "**/*.json"
+standards-version: 1.6.3
 ---
 
 # Steam Deck Compatibility

@@ -9,6 +9,7 @@ globs:
   - "**/*.gd"
   - "**/*.json"
   - "**/*.cfg"
+standards-version: 1.6.3
 ---
 
 # Steam Save File Compatibility

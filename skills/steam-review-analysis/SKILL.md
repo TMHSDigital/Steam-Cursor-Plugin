@@ -1,6 +1,7 @@
 ---
 name: steam-review-analysis
 description: Fetch and analyze Steam game reviews. Sentiment breakdown, common complaints, comparison across updates, language distribution, and review volume trends. Use when evaluating player feedback, analyzing competitor reception, or investigating review bombing.
+standards-version: 1.6.3
 ---
 
 # Steam Review Analysis

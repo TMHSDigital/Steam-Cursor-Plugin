@@ -1,6 +1,7 @@
 ---
 name: steamworks-app-config
 description: Manage Steamworks app configuration. Query and document depot configs, build configurations, launch options, and DLC setup. Use when working on Steamworks app admin tasks, setting up builds, or documenting deployment configs.
+standards-version: 1.6.3
 ---
 
 # Steamworks App Config

@@ -1,6 +1,7 @@
 ---
 name: steam-testing-sandbox
 description: Guide for using Steam's development sandbox environment. Covers App ID 480 (SpaceWar) for testing, test account setup, Steam client console commands, Steamworks partner test environments, and testing achievements/leaderboards/inventory without affecting production. Use when setting up a Steamworks development or testing workflow.
+standards-version: 1.6.3
 ---
 
 # Steam Testing Sandbox

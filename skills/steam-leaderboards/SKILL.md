@@ -1,6 +1,7 @@
 ---
 name: steam-leaderboards
 description: Implement and query Steam Leaderboards. Covers creating leaderboards, uploading scores, downloading entries (global, friends, around-user), and Web API queries. Use when adding leaderboards to a game or querying leaderboard data.
+standards-version: 1.6.3
 ---
 
 # Steam Leaderboards

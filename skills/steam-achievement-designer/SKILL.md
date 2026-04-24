@@ -1,6 +1,7 @@
 ---
 name: steam-achievement-designer
 description: Design and document Steam achievements. Helps structure achievement definitions (API name, display name, description, icon requirements, hidden flag) and generates the VDF/JSON config snippets for Steamworks upload. Use when planning or implementing achievements.
+standards-version: 1.6.3
 ---
 
 # Steam Achievement Designer

@@ -6,6 +6,7 @@ globs:
   - "**/*.vdf"
   - "**/steamcmd*"
   - "**/*steam*config*"
+standards-version: 1.6.3
 ---
 
 # Steam App ID Validation

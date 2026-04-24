@@ -1,6 +1,7 @@
 ---
 name: steam-input-controller
 description: Integrate Steam Input for controller support. Covers ISteamInput for detecting controllers, configuring action sets, binding actions, and retrieving button glyphs. Use when adding controller support, configuring input for Steam Deck, or implementing action-based input systems.
+standards-version: 1.6.3
 ---
 
 # Steam Input / Controller Support

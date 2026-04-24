@@ -1,6 +1,7 @@
 ---
 name: steam-pricing-strategy
 description: Data-driven pricing strategy for Steam games. Covers regional pricing, launch discounts, sale participation, bundles, free-to-play conversion, and price change rules. Use when setting or adjusting game pricing on Steam.
+standards-version: 1.6.3
 ---
 
 # Steam Pricing Strategy

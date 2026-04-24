@@ -1,6 +1,7 @@
 ---
 name: steam-anticheat-integration
 description: Integrate anti-cheat solutions with Steam games. Covers EasyAntiCheat (EAC), BattlEye, and VAC setup, Proton/Linux compatibility, Steam Deck considerations, and custom anti-cheat patterns. Use when adding anti-cheat protection to a multiplayer Steam game.
+standards-version: 1.6.3
 ---
 
 # Steam Anti-Cheat Integration

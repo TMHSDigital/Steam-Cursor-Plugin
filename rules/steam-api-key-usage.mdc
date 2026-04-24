@@ -9,6 +9,7 @@ globs:
   - "**/*.ts"
   - "**/*.yml"
   - "**/*.yaml"
+standards-version: 1.6.3
 ---
 
 # Prefer Steam MCP Tools Over Raw API Calls

@@ -1,6 +1,7 @@
 ---
 name: steam-store-lookup
 description: Look up any Steam game or app by name or App ID. Returns store page data including price, description, tags, reviews, release date, and system requirements. Use when the user asks about a Steam game, wants to check competitor pricing, or needs store metadata.
+standards-version: 1.6.3
 ---
 
 # Steam Store Lookup

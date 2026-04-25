@@ -120,7 +120,7 @@ The [Steam MCP server](https://github.com/TMHSDigital/steam-mcp) provides 25 too
 | `steam_getRegionalPricing({ appid, countries })` | Pricing breakdown across multiple countries |
 | `steam_getNewsForApp({ appid, count?, maxlength? })` | Recent news and announcements |
 
-**Requires `STEAM_API_KEY` environment variable (7 tools):**
+**Requires `STEAM_API_KEY` environment variable (8 tools):**
 
 | Tool | Description |
 |------|-------------|

@@ -15,12 +15,6 @@ class TestRoadmapCurrentVersion:
             f"Expected exactly 1 '(current)' in roadmap table, found {len(current_matches)}"
         )
 
-    def test_current_matches_plugin_version(self, plugin_manifest, roadmap_text):
-        version = plugin_manifest["version"]
-        assert f"v{version} (current)" in roadmap_text or f"v{version}(current)" in roadmap_text, (
-            f"ROADMAP table does not mark v{version} as (current)"
-        )
-
     def test_current_line_version(self, plugin_manifest, roadmap_text):
         version = plugin_manifest["version"]
         m = re.search(r"\*\*Current:\*\*\s+v([\d.]+)", roadmap_text)

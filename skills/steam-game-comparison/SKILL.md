@@ -1,7 +1,7 @@
 ---
 name: steam-game-comparison
 description: Compare two or more Steam games side by side. Fetches store data and player counts for multiple titles and formats a comparison table. Use when comparing game prices, reviews, player counts, or features for competitive analysis, purchase decisions, or market research.
-standards-version: 1.6.3
+standards-version: 1.7.0
 ---
 
 # Steam Game Comparison

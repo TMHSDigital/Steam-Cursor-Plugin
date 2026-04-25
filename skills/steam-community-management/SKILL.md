@@ -1,7 +1,7 @@
 ---
 name: steam-community-management
 description: Post-launch community management for Steam games. Covers announcements, events, discussion forum moderation, update post templates, and Community Hub configuration. Use when managing player communication, creating events, or setting up community channels.
-standards-version: 1.6.3
+standards-version: 1.7.0
 ---
 
 # Steam Community Management

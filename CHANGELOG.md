@@ -13,6 +13,17 @@ See [release notes](https://github.com/TMHSDigital/Steam-Cursor-Plugin/releases/
 
 See [release notes](https://github.com/TMHSDigital/Steam-Cursor-Plugin/releases/tag/v1.3.0) for details.
 
+## [Versions 1.0.1 through 1.2.x] - prior to 2026-04-25
+
+Multiple releases shipped between v1.0.0 and v1.3.0 without CHANGELOG
+entries due to release-doc-sync automation not yet existing. See
+[GitHub releases](https://github.com/TMHSDigital/Steam-Cursor-Plugin/releases)
+for the complete release history.
+
+Going forward, release-doc-sync@v1.0 from
+[TMHSDigital/Developer-Tools-Directory](https://github.com/TMHSDigital/Developer-Tools-Directory)
+automatically maintains this file on each auto-release.
+
 ## [1.0.0] - 2026-03-29
 
 ### Added

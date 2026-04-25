@@ -32,3 +32,4 @@ build/
 __pycache__/
 *.pyc
 .pytest_cache/
+# Phase 2c: release-doc-sync verification trigger (DTD#5)

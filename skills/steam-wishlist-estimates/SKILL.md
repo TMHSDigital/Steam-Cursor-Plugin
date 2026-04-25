@@ -1,7 +1,7 @@
 ---
 name: steam-wishlist-estimates
 description: Estimate wishlist counts from follower data, review counts, and public signals. Provides conversion rate benchmarks (wishlist-to-sales, review-to-sales) and the Boxleiter method. Use when forecasting launch sales, evaluating pre-release traction, or setting marketing targets.
-standards-version: 1.6.3
+standards-version: 1.7.0
 ---
 
 # Steam Wishlist Estimates

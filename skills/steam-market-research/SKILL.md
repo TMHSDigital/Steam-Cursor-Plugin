@@ -1,7 +1,7 @@
 ---
 name: steam-market-research
 description: Genre trend analysis, tag popularity, competitor identification, and market gap analysis using Steam store data. Use when evaluating a game concept's market fit, scouting competitors, or analyzing genre saturation.
-standards-version: 1.6.3
+standards-version: 1.7.0
 ---
 
 # Steam Market Research

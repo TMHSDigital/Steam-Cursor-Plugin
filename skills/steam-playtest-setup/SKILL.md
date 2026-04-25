@@ -1,7 +1,7 @@
 ---
 name: steam-playtest-setup
 description: Configure Steam Playtest for pre-release testing. Covers playtest App ID creation, open vs NDA playtests, key distribution, signup page setup, feedback collection, and transition to Early Access or launch. Use when setting up player testing before or during Early Access.
-standards-version: 1.6.3
+standards-version: 1.7.0
 ---
 
 # Steam Playtest Setup

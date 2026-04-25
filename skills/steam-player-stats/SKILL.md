@@ -1,7 +1,7 @@
 ---
 name: steam-player-stats
 description: Look up player and game statistics including player counts, achievement stats, leaderboards, and user game libraries for public profiles. Use when analyzing game performance, checking player engagement, or building features that consume player data.
-standards-version: 1.6.3
+standards-version: 1.7.0
 ---
 
 # Steam Player Stats

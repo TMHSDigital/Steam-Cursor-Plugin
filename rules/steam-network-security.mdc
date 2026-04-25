@@ -7,7 +7,7 @@ globs:
   - "**/*.hpp"
   - "**/*.cs"
   - "**/*.gd"
-standards-version: 1.6.3
+standards-version: 1.7.0
 ---
 
 # Steam Network Security

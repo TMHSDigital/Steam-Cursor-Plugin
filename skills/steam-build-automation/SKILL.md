@@ -1,7 +1,7 @@
 ---
 name: steam-build-automation
 description: Automate Steam builds with SteamPipe CI/CD integration. Covers GitHub Actions, GitLab CI, and Jenkins pipelines for depot uploads, beta branch management, and Docker-containerized builds. Use when setting up automated Steam build pipelines or configuring CI/CD for Steamworks distribution.
-standards-version: 1.6.3
+standards-version: 1.7.0
 ---
 
 # Steam Build Automation

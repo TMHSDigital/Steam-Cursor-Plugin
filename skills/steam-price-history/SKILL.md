@@ -1,7 +1,7 @@
 ---
 name: steam-price-history
 description: Analyze pricing trends, sale history, regional pricing differences, and price-to-review value scoring for Steam games. Use when evaluating pricing strategy, comparing regional costs, or identifying sale patterns.
-standards-version: 1.6.3
+standards-version: 1.7.0
 ---
 
 # Steam Price History

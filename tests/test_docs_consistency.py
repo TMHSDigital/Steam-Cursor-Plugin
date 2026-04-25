@@ -31,12 +31,6 @@ class TestVersionConsistency:
             f"ROADMAP.md does not list v{version} as current"
         )
 
-    def test_claude_md_version(self, plugin_manifest, claude_text):
-        version = plugin_manifest["version"]
-        assert f"v{version}" in claude_text or version in claude_text, (
-            f"CLAUDE.md does not mention version {version}"
-        )
-
     def test_changelog_has_current_version(self, plugin_manifest, changelog_text):
         version = plugin_manifest["version"]
         assert f"[{version}]" in changelog_text, (

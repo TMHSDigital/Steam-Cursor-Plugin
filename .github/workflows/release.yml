@@ -108,6 +108,13 @@ jobs:
               f.write(content)
           "
 
+      - name: Sync release docs
+        if: steps.check.outputs.skip == 'false'
+        uses: TMHSDigital/Developer-Tools-Directory/.github/actions/release-doc-sync@v1.0
+        with:
+          plugin-version: ${{ steps.new.outputs.version }}
+          previous-version: ${{ steps.current.outputs.version }}
+
       - name: Commit and tag
         if: steps.check.outputs.skip == 'false'
         run: |

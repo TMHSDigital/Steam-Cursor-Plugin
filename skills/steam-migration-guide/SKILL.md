@@ -1,7 +1,7 @@
 ---
 name: steam-migration-guide
 description: Guide for migrating games to Steam from other platforms (Epic, GOG, itch.io) or integrating Steamworks across engines (Unity, Unreal, Godot). Covers feature parity mapping, SDK integration steps, store page strategy, and technical migration checklists. Use when porting an existing game to Steam or adding Steamworks to a multi-platform title.
-standards-version: 1.7.0
+standards-version: 1.9.0
 ---
 
 # Steam Migration Guide

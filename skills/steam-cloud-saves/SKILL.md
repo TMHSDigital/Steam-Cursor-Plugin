@@ -1,7 +1,7 @@
 ---
 name: steam-cloud-saves
 description: Implement Steam Cloud save functionality. Covers ISteamRemoteStorage for manual cloud saves, Auto-Cloud configuration, conflict resolution, and quota management. Use when adding cloud save support to a game or debugging cloud sync issues.
-standards-version: 1.7.0
+standards-version: 1.9.0
 ---
 
 # Steam Cloud Saves

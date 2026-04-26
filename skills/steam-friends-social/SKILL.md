@@ -1,7 +1,7 @@
 ---
 name: steam-friends-social
 description: Integrate Steam social features into your game. Covers friends list, rich presence, Steam Overlay, game invites, avatars, and persona names via ISteamFriends. Use when building social features, showing friends in-game, or setting up rich presence strings.
-standards-version: 1.7.0
+standards-version: 1.9.0
 ---
 
 # Steam Friends & Social

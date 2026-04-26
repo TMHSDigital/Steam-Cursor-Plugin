@@ -1,7 +1,7 @@
 ---
 name: steam-steamcmd-helper
 description: Comprehensive steamcmd scripting reference. Common commands, batch/shell scripts, Docker containerized builds, Steam Guard handling, and troubleshooting. Use when writing steamcmd scripts, automating builds, or debugging steamcmd issues.
-standards-version: 1.7.0
+standards-version: 1.9.0
 ---
 
 # Steam SteamCMD Helper

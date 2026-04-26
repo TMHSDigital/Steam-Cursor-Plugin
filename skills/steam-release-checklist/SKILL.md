@@ -1,7 +1,7 @@
 ---
 name: steam-release-checklist
 description: Pre-release validation checklist for Steam games. Covers store page completeness, depot configuration, achievements, cloud saves, Steam Deck compatibility, pricing, and launch readiness. Use when preparing to launch or update a game on Steam.
-standards-version: 1.7.0
+standards-version: 1.9.0
 ---
 
 # Steam Release Checklist

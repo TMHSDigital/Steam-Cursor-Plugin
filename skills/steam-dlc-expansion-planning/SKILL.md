@@ -1,7 +1,7 @@
 ---
 name: steam-dlc-expansion-planning
 description: Plan and configure DLC, expansions, and post-launch content for Steam games. Covers DLC App ID creation, depot setup, season passes, content cadence, pricing tiers, and in-game ownership checks. Use when planning downloadable content or post-launch monetization.
-standards-version: 1.7.0
+standards-version: 1.9.0
 ---
 
 # Steam DLC & Expansion Planning

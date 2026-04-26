@@ -1,7 +1,7 @@
 ---
 name: steam-bug-report-template
 description: Generate structured bug report templates for Steam games. Covers report structure, Steam system info integration, crash dump guidance, known issues tracking, and forum integration. Use when setting up bug reporting workflows or helping players submit useful reports.
-standards-version: 1.7.0
+standards-version: 1.9.0
 ---
 
 # Steam Bug Report Template

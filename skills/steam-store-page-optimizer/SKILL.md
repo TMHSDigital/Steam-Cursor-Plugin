@@ -1,7 +1,7 @@
 ---
 name: steam-store-page-optimizer
 description: Optimize Steam store pages for maximum visibility and conversion. Covers capsule image specs, description structure, tag strategy, trailer guidance, demo setup, and screenshot optimization. Use when building or improving a Steam store page.
-standards-version: 1.7.0
+standards-version: 1.9.0
 ---
 
 # Steam Store Page Optimizer

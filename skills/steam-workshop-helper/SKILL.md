@@ -1,7 +1,7 @@
 ---
 name: steam-workshop-helper
 description: Query and manage Steam Workshop items. Search workshop by game, get item details, and document workshop integration patterns. Use when building Workshop support into a game or querying UGC data.
-standards-version: 1.7.0
+standards-version: 1.9.0
 ---
 
 # Steam Workshop Helper

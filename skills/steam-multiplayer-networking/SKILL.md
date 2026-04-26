@@ -1,7 +1,7 @@
 ---
 name: steam-multiplayer-networking
 description: Integrate Steam multiplayer networking into your game. Covers lobby creation, matchmaking, Steam Networking Sockets (relay), dedicated game servers, and auth tickets. Use when building multiplayer features, setting up lobbies, or implementing peer-to-peer or server-based networking with Steamworks.
-standards-version: 1.7.0
+standards-version: 1.9.0
 ---
 
 # Steam Multiplayer Networking

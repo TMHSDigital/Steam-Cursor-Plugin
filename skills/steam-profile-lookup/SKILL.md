@@ -1,7 +1,7 @@
 ---
 name: steam-profile-lookup
 description: Look up any Steam user's public profile. Fetch player summaries, owned games with playtime, recent activity, Steam level, badges, and friend lists. Use when someone wants to check a Steam profile, see their own stats, or look up another player.
-standards-version: 1.7.0
+standards-version: 1.9.0
 ---
 
 # Steam Profile Lookup

@@ -1,7 +1,8 @@
 ---
 name: steam-api-reference
 description: Search and retrieve Steam Web API and Steamworks SDK documentation. Returns endpoint signatures, parameter descriptions, and code examples. Use when the user needs to call a Steam API, wants to know available endpoints, or is integrating Steamworks SDK methods.
-standards-version: 1.7.0
+standards-version: 1.9.0
+drift-ignore: stale-counts
 ---
 
 # Steam API Reference

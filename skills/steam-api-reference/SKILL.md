@@ -102,7 +102,7 @@ Users should store their API key in an environment variable (`STEAM_API_KEY`) an
 
 ## MCP Usage
 
-The [Steam MCP server](https://github.com/TMHSDigital/steam-mcp) provides 25 tools that call Steam APIs directly, eliminating the need for manual `curl` commands for common operations.
+The [Steam MCP server](https://github.com/TMHSDigital/steam-mcp) provides 26 tools that call Steam APIs directly, eliminating the need for manual `curl` commands for common operations.
 
 ### Available MCP Tools (25)
 

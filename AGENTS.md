@@ -6,7 +6,7 @@ Guidance for AI coding agents working on the Steam Cursor Plugin repository.
 
 ## Repository overview
 
-A Cursor IDE plugin for Steam and Steamworks integration. 30 skills and 9 rules covering store data, achievements, Workshop, multiplayer, cloud saves, and game development workflows. 25 MCP tools via companion server.
+A Cursor IDE plugin for Steam and Steamworks integration. 30 skills and 9 rules covering store data, achievements, Workshop, multiplayer, cloud saves, and game development workflows. 26 MCP tools via companion server.
 
 **Docs site:** https://tmhsdigital.github.io/Steam-Cursor-Plugin/
 
@@ -17,7 +17,7 @@ Steam-Cursor-Plugin/
   .cursor-plugin/plugin.json   # Plugin manifest (name, version, description)
   skills/                      # 30 skill directories, each with SKILL.md
   rules/                       # 9 rule files (.mdc)
-  mcp-tools.json               # MCP tool catalog (25 tools, manually maintained)
+  mcp-tools.json               # MCP tool catalog (26 tools, manually maintained)
   site.json                    # GitHub Pages branding/config
   docs/                        # Generated GitHub Pages site (do not edit manually)
   assets/                      # Logo and images

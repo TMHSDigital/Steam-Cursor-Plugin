@@ -2,9 +2,9 @@
 
 Themed release plan toward v1.0.0.
 
-**Current:** v1.3.6 - 30 skills, 9 rules, companion [Steam MCP server](https://github.com/TMHSDigital/steam-mcp) with 25 tools (18 read-only + 7 write/guidance).
+**Current:** v1.3.6 - 30 skills, 9 rules, companion [Steam MCP server](https://github.com/TMHSDigital/steam-mcp) with 26 tools (19 read-only + 7 write/guidance).
 
-**Status:** v1.0.0 "Stable" released. 30 skills, 9 rules, 25 MCP tools.
+**Status:** v1.0.0 "Stable" released. 30 skills, 9 rules, 26 MCP tools.
 
 | Version | Theme | New Skills | New Rules | MCP Tools | Total Skills | Total Rules |
 |---------|-------|-----------|-----------|-----------|-------------|-------------|

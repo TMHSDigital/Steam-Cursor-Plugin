@@ -12,7 +12,7 @@ This plugin uses Markdown skill files and MDC rule files for AI guidance, paired
 
 The project shipped v1.0.0 "Stable" as the production milestone (see `ROADMAP.md`). 30 skills, 9 rules, 26 MCP tools.
 
-**Version:** 1.3.6
+**Version:** 1.3.7
 **License:** CC-BY-NC-ND-4.0
 **Author:** TMHSDigital
 

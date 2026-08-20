@@ -30,7 +30,7 @@
 ---
 
 <p align="center">
-  <strong>30 skills</strong> &nbsp;&bull;&nbsp; <strong>9 rules</strong> &nbsp;&bull;&nbsp; <strong>25 MCP tools</strong>
+  <strong>30 skills</strong> &nbsp;&bull;&nbsp; <strong>9 rules</strong> &nbsp;&bull;&nbsp; <strong>26 MCP tools</strong>
 </p>
 
 Query Steam store data, manage Steamworks app configurations, build multiplayer networking, implement cloud saves, design achievements, manage Workshop mods, compare games, and look up player profiles — all from within Cursor's AI chat. Covers the full Steam &amp; Steamworks ecosystem with live data via the companion [Steam MCP Server](https://github.com/TMHSDigital/steam-mcp).
@@ -44,7 +44,7 @@ Query Steam store data, manage Steamworks app configurations, build multiplayer 
 | **CLAUDE.md** context | Yes | Yes | Yes | - |
 | **30 Skills** (SKILL.md) | Yes | Yes | Yes | - |
 | **9 Rules** (.mdc) | Yes | Via CLAUDE.md | Yes | - |
-| **25 MCP tools** | Yes | Yes | Yes | Yes |
+| **26 MCP tools** | Yes | Yes | Yes | Yes |
 
 > The MCP server lives in a separate repo: [steam-mcp](https://github.com/TMHSDigital/steam-mcp). It works with any client that supports the MCP stdio transport.
 
@@ -75,7 +75,7 @@ That's it. No configuration needed for basic usage.
 flowchart LR
     A["You ask Cursor\na Steam question"] --> B["Cursor loads\na Skill"]
     B --> C{"MCP server\navailable?"}
-    C -- Yes --> D["Steam MCP Server\n(25 tools)"]
+    C -- Yes --> D["Steam MCP Server\n(26 tools)"]
     C -- No --> E["curl to\nSteam Web API"]
     D --> F["Steam API"]
     E --> F

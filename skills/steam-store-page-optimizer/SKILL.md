@@ -33,14 +33,16 @@ All images are required before the store page can go live.
 
 | Asset | Size | Format | Usage |
 |-------|------|--------|-------|
-| **Header Capsule** | 460×215 | JPG/PNG | Library, search results, featured lists |
-| **Small Capsule** | 231×87 | JPG/PNG | Wishlists, search, smaller displays |
-| **Main Capsule** | 616×353 | JPG/PNG | Store page header, browse pages |
-| **Hero Capsule** | 3840×1240 | JPG/PNG | Top of store page (with logo overlay) |
-| **Page Background** | 1438×810 | JPG/PNG | Store page background (faded edges) |
-| **Library Capsule** | 600×900 | JPG/PNG | Steam Library grid view |
-| **Library Hero** | 3840×1240 | JPG/PNG | Steam Library detail view |
-| **Library Logo** | 1280×720 | PNG (transparent) | Overlaid on Library Hero |
+| **Header Capsule** | 920×430 | JPG/PNG | Search, featured lists, library fallback |
+| **Small Capsule** | 462×174 | JPG/PNG | Wishlists, search, smaller displays |
+| **Main Capsule** | 1232×706 | JPG/PNG | Store page header, browse pages |
+| **Vertical Capsule** | 748×896 | JPG/PNG | Store vertical/hero capsule slot |
+| **Page Background** | 1438×810 | JPG/PNG | Store page background (subtle, not too bright) |
+| **Library Capsule** | 600×900 | JPG/PNG | Steam Library grid view (logo on art) |
+| **Library Hero** | 3840×1240 | PNG | Library details artwork only. No text. Reject 1920×620 half-size |
+| **Library Logo** | 1280 wide and/or 720 tall | PNG (alpha) | Overlaid on Library Hero |
+| **Library Header** | 920×430 | JPG/PNG | Recent Games and other library chrome |
+| **Screenshots** | min 1920×1080, 16:9 | JPG/PNG | Store media; larger 16:9 is OK |
 | **Community Icon** | 32×32 | JPG | Community Hub, activity feed |
 
 **Image guidelines:**
@@ -48,8 +50,8 @@ All images are required before the store page can go live.
 - No review quotes, awards, or "Game of the Year" text
 - No "Coming Soon", "Available Now", or date text
 - Consistent branding across all capsule sizes
-- Hero capsule: place logo in lower-left third; leave upper area for background art
-- High contrast — images are shown on both light and dark backgrounds
+- Library hero: artwork only, no wordmark. Put the title on Library Logo. Keep critical art in the center 860×380 safe area
+- High contrast. Images are shown on both light and dark backgrounds
 
 ### 2. Store Description
 
@@ -196,13 +198,14 @@ For a full audit, verify:
 
 | Step | MCP Tool | Auth | Purpose |
 |------|----------|------|---------|
+| Validate local art | `steam_validateStoreAsset({ path, slot })` | None | Exact Valve sizes, format, library-hero ribbon/seam/wordmark heuristics |
 | Current page state | `steam_getAppDetails({ appid })` | None | Check existing description, tags, screenshots, price |
 | Competitor research | `steam_searchApps({ query })` | None | Find competing games in the genre |
 | Competitor details | `steam_getAppDetails({ appid })` | None | Inspect competitor tags, descriptions, pricing |
 
 ## Common Pitfalls
 
-1. **Using the wrong capsule image dimensions** — Steam has strict size requirements for each capsule type (header, small, main, hero, library). Wrong sizes get rejected or look blurry.
+1. **Using the wrong capsule image dimensions** - Steam has strict size requirements for each capsule type (header 920x430, small 462x174, main 1232x706, vertical 748x896, library hero 3840x1240). Wrong sizes get rejected or look blurry. Run `steam_validateStoreAsset` before upload.
 2. **Burying the game's hook in the description** — the first ~300 characters of your description show in search results. Lead with your unique selling point, not generic genre descriptions.
 3. **Over-tagging your game** — applying too many tags (15+) dilutes each tag's weight. Focus on 5-8 highly relevant tags that accurately describe your game.
 4. **Not having a trailer in the first media slot** — the first media item is auto-played on the store page. A screenshot in slot 1 means players miss your trailer unless they scroll.

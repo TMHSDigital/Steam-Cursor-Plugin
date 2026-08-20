@@ -37,12 +37,15 @@ Walk through each section with the user. Mark items as done, flagged, or not app
 - [ ] **App name** finalized and matches marketing materials
 - [ ] **Short description** (< 300 characters) written and compelling
 - [ ] **Detailed description** with formatting, features list, and call to action
-- [ ] **Header capsule** (460×215) uploaded
-- [ ] **Small capsule** (231×87) uploaded
-- [ ] **Main capsule** (616×353) uploaded
-- [ ] **Hero capsule** (3840×1240) uploaded
-- [ ] **Logo** (1280×720, transparent background) uploaded
-- [ ] **Screenshots** - minimum 5, recommended 10+, showing actual gameplay
+- [ ] **Header capsule** (920×430) uploaded
+- [ ] **Small capsule** (462×174) uploaded
+- [ ] **Main capsule** (1232×706) uploaded
+- [ ] **Vertical capsule** (748×896) uploaded
+- [ ] **Library capsule** (600×900) uploaded
+- [ ] **Library hero** (3840×1240 PNG, no text) uploaded
+- [ ] **Library logo** (1280 wide and/or 720 tall, PNG alpha) uploaded
+- [ ] **Library header** (920×430) uploaded
+- [ ] **Screenshots** - minimum 5 at 1920×1080 16:9 or larger, actual gameplay
 - [ ] **Trailer** uploaded (MP4, recommended 1080p/4K)
 - [ ] **Tags** configured (at least 5-10 relevant tags)
 - [ ] **Genre** selected correctly
@@ -161,6 +164,7 @@ Walk through each section with the user. Mark items as done, flagged, or not app
 
 | Step | MCP Tool | Auth | Purpose |
 |------|----------|------|---------|
+| Validate local art | `steam_validateStoreAsset({ path, slot })` | None | Catch wrong sizes, half-size heroes, PROTOTYPE ribbons before upload |
 | Check store page | `steam_getAppDetails({ appid })` | None | Verify description, screenshots, tags, price, platforms |
 | Check achievements | `steam_getAchievementStats({ appid })` | None | Verify achievements are uploaded and visible |
 | Check player stats | `steam_getPlayerCount({ appid })` | None | Confirm game is accessible (returns data = app is public) |
